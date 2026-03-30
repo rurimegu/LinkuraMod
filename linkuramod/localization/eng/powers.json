@@ -1,0 +1,8 @@
+{
+  "RURIMEGU-HEARTS_POWER.title": "Hearts",
+  "RURIMEGU-HEARTS_POWER.description": "Internal combat state for Kaho hearts.",
+  "RURIMEGU-HEARTS_POWER.smartDescription": "Internal combat state for Kaho hearts.",
+  "RURIMEGU-MAX_HEARTS_POWER.title": "Max Hearts",
+  "RURIMEGU-MAX_HEARTS_POWER.description": "Internal combat state for Kaho max hearts.",
+  "RURIMEGU-MAX_HEARTS_POWER.smartDescription": "Internal combat state for Kaho max hearts."
+}
