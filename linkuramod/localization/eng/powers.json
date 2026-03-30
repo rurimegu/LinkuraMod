@@ -1,4 +1,7 @@
 {
+  "RURIMEGU-AUTO_BURST_POWER.title": "Auto Burst",
+  "RURIMEGU-AUTO_BURST_POWER.description": "Whenever you play a card, Burst {Amount} Hearts.",
+  "RURIMEGU-AUTO_BURST_POWER.smartDescription": "Whenever you play a card, Burst {Amount} Hearts.",
   "RURIMEGU-HEARTS_POWER.title": "Hearts",
   "RURIMEGU-HEARTS_POWER.description": "Internal combat state for Kaho hearts.",
   "RURIMEGU-HEARTS_POWER.smartDescription": "Internal combat state for Kaho hearts.",

@@ -2,7 +2,9 @@
 
 using System.Threading.Tasks;
 using BaseLib.Extensions;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using RuriMegu.Core.Powers;
 using RuriMegu.Core.Utils;
 
 namespace RuriMegu.Core.Relics;
@@ -18,7 +20,8 @@ public class LinkuraSystem : LinkuraRelic {
   protected override string PackedIconOutlinePath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}_outline.png".RelicImagePath();
   protected override string BigIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".BigRelicImagePath();
 
-  public override Task BeforeCombatStart() {
-    return HeartsState.Reset(Owner);
+  public override async Task BeforeCombatStart() {
+    await HeartsState.Reset(Owner);
+    await PowerCmd.Apply<AutoBurstPower>(Owner.Creature, 2, Owner.Creature, null);
   }
 }
