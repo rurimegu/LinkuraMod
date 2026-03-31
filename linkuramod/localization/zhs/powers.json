@@ -2,10 +2,10 @@
   "RURIMEGU-AUTO_BURST_POWER.title": "自然爆心",
   "RURIMEGU-AUTO_BURST_POWER.description": "每打出一张牌时，[gold]爆心[/gold]。",
   "RURIMEGU-AUTO_BURST_POWER.smartDescription": "每打出一张牌时，[gold]爆心[/gold]{Amount}。",
-  "RURIMEGU-HEARTS_POWER.title": "已收集❤️数",
+  "RURIMEGU-HEARTS_POWER.title": "已收集心数",
   "RURIMEGU-HEARTS_POWER.description": "已经收集的❤️数。",
   "RURIMEGU-HEARTS_POWER.smartDescription": "已经收集的❤️数。",
-  "RURIMEGU-MAX_HEARTS_POWER.title": "最大❤️数",
+  "RURIMEGU-MAX_HEARTS_POWER.title": "最大心数",
   "RURIMEGU-MAX_HEARTS_POWER.description": "可以拥有的最大❤️数。",
   "RURIMEGU-MAX_HEARTS_POWER.smartDescription": "可以拥有的最大❤️数。"
 }
