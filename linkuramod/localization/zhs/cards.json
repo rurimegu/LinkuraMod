@@ -6,7 +6,7 @@
   "RURIMEGU-WIDE_HEART.title": "广域之心",
   "RURIMEGU-WIDE_HEART.description": "你的❤️上限增加{RURIMEGU-EXPAND_HEARTS:diff()}。抽{Cards:diff()}张牌。",
   "RURIMEGU-LINKURA_ENERGY.title": "林克拉能量",
-  "RURIMEGU-LINKURA_ENERGY.description": "[gold]爆心[/gold]{RURIMEGU-BURST_HEARTS:diff()}，然后[gold]收心[/gold]。",
+  "RURIMEGU-LINKURA_ENERGY.description": "[gold]爆心[/gold]{RURIMEGU-BURST:diff()}，然后[gold]收心[/gold]。",
   "RURIMEGU-SPECIAL_THANKS.title": "特别感谢",
-  "RURIMEGU-SPECIAL_THANKS.description": "抽{Cards:diff()}张牌。[gold]幕后[/gold]：每当你打出一张攻击牌，[gold]爆心[/gold]{RURIMEGU-BURST_HEARTS:diff()}。"
+  "RURIMEGU-SPECIAL_THANKS.description": "抽{Cards:diff()}张牌。[gold]幕后[/gold]：每当你打出一张攻击牌，[gold]爆心[/gold]{RURIMEGU-BURST:diff()}。"
 }

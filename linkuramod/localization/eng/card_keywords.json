@@ -1,6 +1,6 @@
 {
-  "RURIMEGU-COLLECT_HEARTS.title": "Collect",
-  "RURIMEGU-COLLECT_HEARTS.description": "Deal damage to a random enemy equal to the number of hearts you have collected, then lose all collected hearts.",
+  "RURIMEGU-COLLECT.title": "Collect",
+  "RURIMEGU-COLLECT.description": "Deal damage to a random enemy equal to the number of hearts you have collected, then lose all collected hearts.",
   "RURIMEGU-BACKSTAGE.title": "Backstage",
   "RURIMEGU-BACKSTAGE.description": "Triggers while this card is in your hand, whenever the stated condition is met."
 }

@@ -4,5 +4,5 @@
   "RURIMEGU-KAHO_STRIKE.description": "Deal {Damage:diff()} damage.",
   "RURIMEGU-KAHO_STRIKE.title": "Strike",
   "RURIMEGU-SPECIAL_THANKS.title": "Special Thanks",
-  "RURIMEGU-SPECIAL_THANKS.description": "Draw {Cards:diff()} card. [gold]Backstage[/gold]: whenever you play an Attack, [gold]Burst Hearts[/gold] {RURIMEGU-BURST_HEARTS:diff()}."
+  "RURIMEGU-SPECIAL_THANKS.description": "Draw {Cards:diff()} card. [gold]Backstage[/gold]: whenever you play an Attack, [gold]Burst[/gold] {RURIMEGU-BURST:diff()}."
 }

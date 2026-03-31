@@ -11,7 +11,7 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho;
 
 public class LinkuraEnergy() : LinkuraCard(1, CardType.Skill, CardRarity.Common, TargetType.None) {
-  public override IEnumerable<CardKeyword> CanonicalKeywords => [LinkuraKeywords.CollectHearts];
+  public override IEnumerable<CardKeyword> CanonicalKeywords => [LinkuraKeywords.Collect];
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new BurstHeartsVar(8),
