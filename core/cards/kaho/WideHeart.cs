@@ -10,7 +10,7 @@ namespace RuriMegu.Core.Cards.Kaho;
 
 public class WideHeart() : LinkuraCard(1, CardType.Skill, CardRarity.Basic, TargetType.None) {
   protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new ExpandHeartsVar(3),
+    new ExpandHeartsVar(2),
     new CardsVar(1),
   ];
 

@@ -1,6 +1,6 @@
 {
   "RURIMEGU-COLLECT.title": "收心",
-  "RURIMEGU-COLLECT.description": "对一个随机敌人造成等于你已收集的♥️数的伤害，然后失去所有已收集的♥️数。",
+  "RURIMEGU-COLLECT.description": "对一个随机敌人造成等于你已收集的♥️数的伤害，然后失去所有♥️。",
   "RURIMEGU-BACKSTAGE.title": "幕后",
   "RURIMEGU-BACKSTAGE.description": "当该牌在你的手牌中时，满足条件即触发效果。"
 }

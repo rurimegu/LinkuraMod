@@ -4,7 +4,7 @@
   "RURIMEGU-KAHO_STRIKE.title": "打击",
   "RURIMEGU-KAHO_STRIKE.description": "造成{Damage:diff()}点伤害。",
   "RURIMEGU-WIDE_HEART.title": "广域之心",
-  "RURIMEGU-WIDE_HEART.description": "你的❤️上限增加{RURIMEGU-EXPAND_HEARTS:diff()}。抽{Cards:diff()}张牌。",
+  "RURIMEGU-WIDE_HEART.description": "增加{RURIMEGU-EXPAND_HEARTS:diff()}点❤️上限。抽{Cards:diff()}张牌。",
   "RURIMEGU-LINKURA_ENERGY.title": "林克拉能量",
   "RURIMEGU-LINKURA_ENERGY.description": "[gold]爆心[/gold]{RURIMEGU-BURST:diff()}，然后[gold]收心[/gold]。",
   "RURIMEGU-SPECIAL_THANKS.title": "特别感谢",
