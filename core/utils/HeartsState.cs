@@ -48,11 +48,11 @@ public static class HeartsState {
       source
     );
 
-    if (!Events.HeartsChanged.InvokeAllEarly(ev)) return ev;
+    if (!await Events.HeartsChanged.InvokeAllEarly(ev)) return ev;
 
     await SetAmount<HeartsPower>(player, clampedAmount, source);
 
-    Events.HeartsChanged.InvokeAllLate(ev);
+    await Events.HeartsChanged.InvokeAllLate(ev);
     return ev;
   }
 
@@ -69,7 +69,7 @@ public static class HeartsState {
       source
     );
 
-    if (!Events.MaxHeartsChanged.InvokeAllEarly(ev)) return ev;
+    if (!await Events.MaxHeartsChanged.InvokeAllEarly(ev)) return ev;
 
     await SetAmount<MaxHeartsPower>(player, clampedAmount, source);
 
@@ -77,7 +77,7 @@ public static class HeartsState {
       await SetHearts(player, clampedAmount, source);
     }
 
-    Events.MaxHeartsChanged.InvokeAllLate(ev);
+    await Events.MaxHeartsChanged.InvokeAllLate(ev);
     return ev;
   }
 

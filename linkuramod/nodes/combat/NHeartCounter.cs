@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Helpers;
@@ -79,22 +80,24 @@ public partial class NHeartCounter : Control {
   // Helpers
   // ──────────────────────────────────────────────────────────────
 
-  private void OnHeartsStateChanged(Events.HeartsChangedEvent evt) {
+  private Task OnHeartsStateChanged(Events.HeartsChangedEvent evt) {
     if (_player is null || evt.Player != _player) {
-      return;
+      return Task.CompletedTask;
     }
 
     _targetHearts = evt.NewHearts;
     _targetMaxHearts = evt.MaxHearts;
+    return Task.CompletedTask;
   }
 
-  private void OnMaxHeartsStateChanged(Events.MaxHeartsChangedEvent evt) {
+  private Task OnMaxHeartsStateChanged(Events.MaxHeartsChangedEvent evt) {
     if (_player is null || evt.Player != _player) {
-      return;
+      return Task.CompletedTask;
     }
 
     _targetMaxHearts = evt.NewMaxHearts;
     _targetHearts = evt.Hearts;
+    return Task.CompletedTask;
   }
 
   private void OnHeartsChanged(int newHearts, int newMaxHearts) {

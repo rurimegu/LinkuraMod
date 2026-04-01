@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Models;
@@ -60,27 +61,27 @@ public static class Events {
   ) : Event;
 
   public class PhasedEvent<TEvent> where TEvent : Event {
-    public event Action<TEvent> VeryEarly;
-    public event Action<TEvent> Early;
-    public event Action<TEvent> Late;
-    public event Action<TEvent> VeryLate;
+    public event Func<TEvent, Task> VeryEarly;
+    public event Func<TEvent, Task> Early;
+    public event Func<TEvent, Task> Late;
+    public event Func<TEvent, Task> VeryLate;
 
-    public Subscription SubscribeVeryEarly(Action<TEvent> handler) {
+    public Subscription SubscribeVeryEarly(Func<TEvent, Task> handler) {
       VeryEarly += handler;
       return new Subscription(() => VeryEarly -= handler);
     }
 
-    public Subscription SubscribeEarly(Action<TEvent> handler) {
+    public Subscription SubscribeEarly(Func<TEvent, Task> handler) {
       Early += handler;
       return new Subscription(() => Early -= handler);
     }
 
-    public Subscription SubscribeLate(Action<TEvent> handler) {
+    public Subscription SubscribeLate(Func<TEvent, Task> handler) {
       Late += handler;
       return new Subscription(() => Late -= handler);
     }
 
-    public Subscription SubscribeVeryLate(Action<TEvent> handler) {
+    public Subscription SubscribeVeryLate(Func<TEvent, Task> handler) {
       VeryLate += handler;
       return new Subscription(() => VeryLate -= handler);
     }
@@ -88,35 +89,55 @@ public static class Events {
     /// <summary>
     /// Returns true if the event was not cancelled.
     /// </summary>
-    public bool InvokeVeryEarly(TEvent e) {
-      VeryEarly?.Invoke(e);
+    public async Task<bool> InvokeVeryEarly(TEvent e) {
+      if (VeryEarly != null) {
+        foreach (Func<TEvent, Task> handler in VeryEarly.GetInvocationList()) {
+          await handler(e);
+        }
+      }
       return !e.IsCancelled;
     }
 
     /// <summary>
     /// Returns true if the event was not cancelled.
     /// </summary>
-    public bool InvokeEarly(TEvent e) {
-      Early?.Invoke(e);
+    public async Task<bool> InvokeEarly(TEvent e) {
+      if (Early != null) {
+        foreach (Func<TEvent, Task> handler in Early.GetInvocationList()) {
+          await handler(e);
+        }
+      }
       return !e.IsCancelled;
     }
 
     /// <summary>
     /// Returns true if the event was not cancelled.
     /// </summary>
-    public bool InvokeAllEarly(TEvent e) {
-      if (!InvokeVeryEarly(e)) return false;
-      if (!InvokeEarly(e)) return false;
+    public async Task<bool> InvokeAllEarly(TEvent e) {
+      if (!await InvokeVeryEarly(e)) return false;
+      if (!await InvokeEarly(e)) return false;
       return true;
     }
 
-    public void InvokeLate(TEvent e) => Late?.Invoke(e);
+    public async Task InvokeLate(TEvent e) {
+      if (Late != null) {
+        foreach (Func<TEvent, Task> handler in Late.GetInvocationList()) {
+          await handler(e);
+        }
+      }
+    }
 
-    public void InvokeVeryLate(TEvent e) => VeryLate?.Invoke(e);
+    public async Task InvokeVeryLate(TEvent e) {
+      if (VeryLate != null) {
+        foreach (Func<TEvent, Task> handler in VeryLate.GetInvocationList()) {
+          await handler(e);
+        }
+      }
+    }
 
-    public void InvokeAllLate(TEvent e) {
-      InvokeLate(e);
-      InvokeVeryLate(e);
+    public async Task InvokeAllLate(TEvent e) {
+      await InvokeLate(e);
+      await InvokeVeryLate(e);
     }
   }
 

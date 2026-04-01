@@ -36,16 +36,16 @@ public class SpringBreezeSwing() : InHandTriggerCard(1, CardType.Skill, CardRari
     return Task.CompletedTask;
   }
 
-  private void OnBurstHearts(Events.BurstHeartsEvent ev) {
+  private async Task OnBurstHearts(Events.BurstHeartsEvent ev) {
     if (ev.Player != Owner) return;
     if (ev.ActualAmount <= 0) return;
     // Trigger only if hearts are now at their maximum (burst just filled to cap).
     int currentHearts = HeartsState.GetHearts(Owner);
     int maxHearts = HeartsState.GetMaxHearts(Owner);
     if (currentHearts < maxHearts) return;
-    var triggerEv = TryTrigger();
+    var triggerEv = await TryTrigger();
     if (triggerEv.IsNullOrCancelled()) return;
-    _ = PlayerCmd.GainEnergy(1, Owner);
-    AfterTrigger(triggerEv);
+    await PlayerCmd.GainEnergy(1, Owner);
+    await AfterTrigger(triggerEv);
   }
 }

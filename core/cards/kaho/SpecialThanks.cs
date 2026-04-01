@@ -11,7 +11,7 @@ namespace RuriMegu.Core.Cards.Kaho;
 /// <summary>
 /// Special Thanks — Cost 1, Skill (Common).
 /// On play: Draw 1 card.
-/// Backstage: whenever the player plays an Attack, Burst Hearts 4.
+/// Backstage: whenever the player plays an Attack, Burst Hearts 2 (3).
 /// </summary>
 public class SpecialThanks() : InHandTriggerCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
   protected override IEnumerable<DynamicVar> CanonicalVars => [
@@ -27,10 +27,10 @@ public class SpecialThanks() : InHandTriggerCard(1, CardType.Skill, CardRarity.U
     await base.AfterCardPlayed(context, cardPlay);
     if (cardPlay.Card == this || cardPlay.Card.Owner != Owner) return;
     if (cardPlay.Card.Type != CardType.Attack) return;
-    var ev = TryTrigger();
+    var ev = await TryTrigger();
     if (ev.IsNullOrCancelled()) return;
     await LinkuraCardActions.BurstHearts(this);
-    AfterTrigger(ev);
+    await AfterTrigger(ev);
   }
 
   protected override void OnUpgrade() {

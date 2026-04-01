@@ -44,18 +44,17 @@ public class NewBlack() : InHandTriggerCard(1, CardType.Skill, CardRarity.Common
     return Task.CompletedTask;
   }
 
-  private void OnBurstHearts(Events.BurstHeartsEvent ev) {
+  private async Task OnBurstHearts(Events.BurstHeartsEvent ev) {
     if (ev.Player != Owner || ev.ActualAmount <= 0) return;
     _burstAccumulated += ev.ActualAmount;
     UpdateTracker();
     while (_burstAccumulated >= BURST_PER_TRIGGER) {
-      var triggerEv = TryTrigger();
+      var triggerEv = await TryTrigger();
       if (triggerEv.IsNullOrCancelled()) return;
       _burstAccumulated -= BURST_PER_TRIGGER;
       UpdateTracker();
-      // GainBlock outside async context — fire-and-forget via sync event callback.
-      _ = CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block.IntValue, ValueProp.Move, null);
-      AfterTrigger(triggerEv);
+      await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block.IntValue, ValueProp.Move, null);
+      await AfterTrigger(triggerEv);
     }
   }
 
