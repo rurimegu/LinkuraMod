@@ -12,11 +12,11 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Attack;
 
 /// <summary>
 /// Full Bloom Sprint — Cost 2 (1), Attack, Uncommon.
-/// Deal 11 (15) damage. If current ❤️ is at max, Collect and gain 2 energy.
+/// Deal 8 (11) damage. If current ❤️ is at max, Collect and gain 2 energy.
 /// </summary>
 public class FullBloomSprint() : LinkuraCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
   protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new DamageVar(11, ValueProp.Move),
+    new DamageVar(8, ValueProp.Move),
     new EnergyVar(2),
   ];
 
@@ -33,6 +33,6 @@ public class FullBloomSprint() : LinkuraCard(2, CardType.Attack, CardRarity.Unco
 
   protected override void OnUpgrade() {
     EnergyCost.UpgradeBy(-1);
-    DynamicVars.Damage.UpgradeValueBy(4m);
+    DynamicVars.Damage.UpgradeValueBy(3m);
   }
 }

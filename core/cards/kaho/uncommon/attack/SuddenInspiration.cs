@@ -12,11 +12,11 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Attack;
 
 /// <summary>
 /// Sudden Inspiration — Cost 1, Attack, Uncommon.
-/// Deal 9 (12) damage. Collect when drawn.
+/// Deal 6 (9) damage. Collect when drawn.
 /// </summary>
 public class SuddenInspiration() : LinkuraCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
   protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new DamageVar(9, ValueProp.Move),
+    new DamageVar(6, ValueProp.Move),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
