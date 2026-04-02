@@ -62,7 +62,7 @@
   "RURIMEGU-FULL_BLOOM_SPRINT.title": "满开冲刺",
   "RURIMEGU-FULL_BLOOM_SPRINT.description": "造成{Damage:diff()}点伤害。如果你的❤️数达到上限，[gold]收心[/gold]并获得2[E]。",
   "RURIMEGU-EPHEMERAL_YOUTH.title": "有限的青春",
-  "RURIMEGU-EPHEMERAL_YOUTH.description": "造成{EPHEMERAL_YOUTH_TOTAL_DMG:diff()}点伤害。[gold]幕后[/gold]：你每打出1张牌，此牌在本回合的伤害减少4。",
+  "RURIMEGU-EPHEMERAL_YOUTH.description": "造成{CalculatedDamage:diff()}点伤害。[gold]幕后[/gold]：你每打出1张牌，此牌在本回合的伤害减少4。",
   "RURIMEGU-HEART_STRIKE.title": "锻心打击",
   "RURIMEGU-HEART_STRIKE.description": "造成{Damage:diff()}点伤害。获得等同于所造成伤害数值的❤️上限。",
   "RURIMEGU-BACKSTAGE_PREPARATION.title": "幕后筹备",

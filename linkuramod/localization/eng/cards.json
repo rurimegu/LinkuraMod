@@ -58,7 +58,7 @@
   "RURIMEGU-FULL_BLOOM_SPRINT.title": "Full Bloom Sprint",
   "RURIMEGU-FULL_BLOOM_SPRINT.description": "Deal {Damage:diff()} damage. If your ❤️ is at max, [gold]Collect[/gold] and gain 2 [E].",
   "RURIMEGU-EPHEMERAL_YOUTH.title": "Ephemeral Youth",
-  "RURIMEGU-EPHEMERAL_YOUTH.description": "Deal {EPHEMERAL_YOUTH_TOTAL_DMG:diff()} damage. [gold]Backstage[/gold]: whenever you play a card, this card's damage is reduced by 4 this turn.",
+  "RURIMEGU-EPHEMERAL_YOUTH.description": "Deal {CalculatedDamage:diff()} damage. [gold]Backstage[/gold]: whenever you play a card, this card's damage is reduced by 4 this turn.",
   "RURIMEGU-HEART_STRIKE.title": "Heart Strike",
   "RURIMEGU-HEART_STRIKE.description": "Deal {Damage:diff()} damage. Gain max ❤️ equal to damage dealt.",
   "RURIMEGU-BACKSTAGE_PREPARATION.title": "Backstage Preparation",

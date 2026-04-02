@@ -16,9 +16,6 @@ namespace RuriMegu.Core.Cards.Kaho;
 /// Backstage: whenever max ❤️ changes, this card costs 1 less next time it is played.
 /// </summary>
 public class Variations() : InHandTriggerCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
-  private const int BASE_COST = 1;
-
-  private int _costReduction;
   private Subscription _maxHeartsSubscription;
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
@@ -31,15 +28,6 @@ public class Variations() : InHandTriggerCard(1, CardType.Attack, CardRarity.Unc
     await CommonActions.Draw(this, ctx);
   }
 
-  public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay) {
-    await base.AfterCardPlayed(context, cardPlay);
-
-    if (cardPlay.Card == this) {
-      _costReduction = 0;
-      return;
-    }
-  }
-
   public override Task BeforeCombatStartLate() {
     _maxHeartsSubscription = Events.MaxHeartsChanged.SubscribeLate(OnMaxHeartsChanged);
     return Task.CompletedTask;
@@ -48,7 +36,6 @@ public class Variations() : InHandTriggerCard(1, CardType.Attack, CardRarity.Unc
   public override Task AfterCombatEnd(MegaCrit.Sts2.Core.Rooms.CombatRoom room) {
     _maxHeartsSubscription?.Dispose();
     _maxHeartsSubscription = null;
-    _costReduction = 0;
     return Task.CompletedTask;
   }
 
@@ -57,9 +44,7 @@ public class Variations() : InHandTriggerCard(1, CardType.Attack, CardRarity.Unc
     var triggerEv = await TryTrigger();
     if (triggerEv.IsNullOrCancelled()) return;
 
-    _costReduction++;
-    int newCost = Math.Max(0, BASE_COST - _costReduction);
-    EnergyCost.SetThisCombat(newCost);
+    EnergyCost.AddUntilPlayed(-1, true);
     InvokeEnergyCostChanged();
     await AfterTrigger(triggerEv);
   }

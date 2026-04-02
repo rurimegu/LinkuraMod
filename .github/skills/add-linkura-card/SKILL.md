@@ -94,6 +94,14 @@ If custom art already exists, use that instead of the placeholder copies.
 - Portrait filenames match the class name in snake_case form used by the mod assets.
 - If C# files changed, run the debug build to confirm the mod still compiles.
 
+## Dynamic Damage Rule (Important)
+
+- For cards with changing damage (for example, in-hand reductions or scaling while in combat), treat `DynamicVars.Damage.BaseValue` as the source of truth.
+- Do not calculate final damage only at play time (for example, `DamageCmd.Attack(baseDamage - penalty)` in `OnPlay`).
+- Update and store the card's current damage value when state changes happen (trigger events, turn transitions, upgrade/downgrade recalculations).
+- If the description uses a custom damage preview var, mirror it from the stored `DynamicVars.Damage.BaseValue` so display and execution always match.
+- This avoids preview mismatches and ensures effects like Weak/Vulnerable use consistent displayed values.
+
 ## Repository Rules
 
 - Root namespace is `RuriMegu` and sub-namespaces follow folder structure.
