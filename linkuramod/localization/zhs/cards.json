@@ -29,7 +29,7 @@
   "RURIMEGU-SPRING_BREEZE_SWING.description": "抽{Cards:diff()}张牌。[gold]幕后[/gold]：每当[gold]爆心[/gold]达到❤️上限时，获得{Energy:energyIcons()}。",
   "RURIMEGU-BUNNY_DEFEND.title": "兔兔防御",
   "RURIMEGU-BUNNY_DEFEND.description": "获得等同于你当前❤️上限的格挡。",
-  "RURIMEGU-GENYOU_YAKOU.title": "炫耀夜行",
+  "RURIMEGU-GENYOU_YAKOU.title": "眩曜夜行",
   "RURIMEGU-GENYOU_YAKOU.description": "如果你拥有10颗或更多❤️，抽{Cards:diff()}张牌。[gold]收心[/gold]。",
   "RURIMEGU-ZANYOU.title": "残阳",
   "RURIMEGU-ZANYOU.description": "增加{RURIMEGU-EXPAND_HEARTS:diff()}点❤️上限。",

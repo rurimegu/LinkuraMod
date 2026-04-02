@@ -9,7 +9,7 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Common.Skill;
 
 /// <summary>
-/// Genyou Yakou (炫耀夜行) — Cost 1 (0), Skill, Common.
+/// Genyou Yakou (眩曜夜行) — Cost 1 (0), Skill, Common.
 /// Ethereal. If you have 10 or more ♥, draw 2 cards. Collect.
 /// </summary>
 public class GenyouYakou() : LinkuraCard(1, CardType.Skill, CardRarity.Common, TargetType.None) {
