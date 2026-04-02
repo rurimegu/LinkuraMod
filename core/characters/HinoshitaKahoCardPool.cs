@@ -51,6 +51,17 @@ public class HinoshitaKahoCardPool : CustomCardPoolModel {
       ModelDb.Card<FanService>(),
       // Common power cards
       ModelDb.Card<GlowingRoutine>(),
+      // Uncommon attack cards
+      ModelDb.Card<UnfulfilledWishes>(),
+      ModelDb.Card<Variations>(),
+      ModelDb.Card<Afterglow>(),
+      ModelDb.Card<BuildUp>(),
+      ModelDb.Card<SuddenInspiration>(),
+      ModelDb.Card<FullBloomSprint>(),
+      ModelDb.Card<EphemeralYouth>(),
+      ModelDb.Card<HeartStrike>(),
+      ModelDb.Card<BackstagePreparation>(),
+      ModelDb.Card<OverflowingEmotion>(),
       // Uncommon skill cards
       ModelDb.Card<SpecialThanks>(),
     ];

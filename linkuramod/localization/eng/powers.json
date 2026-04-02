@@ -16,5 +16,8 @@
   "RURIMEGU-ATTACK_COST_REDUCTION_POWER.smartDescription": "[gold]Attack[/gold] cards cost {Amount} less Energy. Expires after the next [gold]Attack[/gold] card is played.",
   "RURIMEGU-GLOWING_ROUTINE_POWER.title": "Glowing Routine",
   "RURIMEGU-GLOWING_ROUTINE_POWER.description": "At the start of your turn, Burst {Amount} Hearts.",
-  "RURIMEGU-GLOWING_ROUTINE_POWER.smartDescription": "At the start of your turn, [gold]Burst[/gold] {Amount} Hearts."
+  "RURIMEGU-GLOWING_ROUTINE_POWER.smartDescription": "At the start of your turn, [gold]Burst[/gold] {Amount} Hearts.",
+  "RURIMEGU-BACKSTAGE_COST_REDUCTION_POWER.title": "Backstage Discount",
+  "RURIMEGU-BACKSTAGE_COST_REDUCTION_POWER.description": "Backstage cards cost {Amount} less Energy. Expires after the next Backstage card is played.",
+  "RURIMEGU-BACKSTAGE_COST_REDUCTION_POWER.smartDescription": "[gold]Backstage[/gold] cards cost {Amount} less Energy. Expires after the next [gold]Backstage[/gold] card is played."
 }

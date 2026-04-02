@@ -16,5 +16,8 @@
   "RURIMEGU-ATTACK_COST_REDUCTION_POWER.smartDescription": "攻击牌费用降低{Amount}。打出下一张攻击牌后失效。",
   "RURIMEGU-GLOWING_ROUTINE_POWER.title": "闪耀的日常",
   "RURIMEGU-GLOWING_ROUTINE_POWER.description": "在你的回合开始时，[gold]爆心[/gold]。",
-  "RURIMEGU-GLOWING_ROUTINE_POWER.smartDescription": "在你的回合开始时，[gold]爆心[/gold]{Amount}。"
+  "RURIMEGU-GLOWING_ROUTINE_POWER.smartDescription": "在你的回合开始时，[gold]爆心[/gold]{Amount}。",
+  "RURIMEGU-BACKSTAGE_COST_REDUCTION_POWER.title": "幕后折扣",
+  "RURIMEGU-BACKSTAGE_COST_REDUCTION_POWER.description": "幕后牌费用降低。打出下一张幕后牌后失效。",
+  "RURIMEGU-BACKSTAGE_COST_REDUCTION_POWER.smartDescription": "[gold]幕后[/gold]牌费用降低{Amount}。打出下一张[gold]幕后[/gold]牌后失效。"
 }
