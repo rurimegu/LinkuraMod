@@ -28,7 +28,7 @@ public class ChoreographyMemo() : InHandTriggerCard(1, CardType.Skill, CardRarit
 
   public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay) {
     await base.AfterCardPlayed(context, cardPlay);
-    if (cardPlay.Card.Owner != Owner) return;
+    if (cardPlay.Card.Owner != Owner || cardPlay.Card == this || !this.IsInHand()) return;
 
     DynamicVars[TRACKER_VAR].BaseValue++;
 

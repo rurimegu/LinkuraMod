@@ -78,7 +78,7 @@ public class OverflowingEmotion() : InHandTriggerCard(2, CardType.Attack, CardRa
   }
 
   private async Task OnCollectHearts(Events.CollectEvent ev) {
-    if (ev.Player != Owner) return;
+    if (ev.Player != Owner || ev.Amount <= 0) return;
 
     var triggerEv = await TryTrigger(ev.Context);
     if (triggerEv.IsNullOrCancelled()) return;

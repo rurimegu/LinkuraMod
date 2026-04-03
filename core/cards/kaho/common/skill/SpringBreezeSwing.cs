@@ -38,8 +38,7 @@ public class SpringBreezeSwing() : InHandTriggerCard(1, CardType.Skill, CardRari
   }
 
   private async Task OnBurstHearts(Events.BurstEvent ev) {
-    if (ev.Player != Owner) return;
-    if (ev.ActualAmount <= 0) return;
+    if (ev.Player != Owner || ev.ActualAmount <= 0) return;
     // Trigger only if hearts are now at their maximum (burst just filled to cap).
     int currentHearts = HeartsState.GetHearts(Owner);
     int maxHearts = HeartsState.GetMaxHearts(Owner);

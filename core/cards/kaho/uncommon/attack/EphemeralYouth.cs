@@ -44,8 +44,7 @@ public class EphemeralYouth() : InHandTriggerCard(1, CardType.Attack, CardRarity
 
   public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay) {
     await base.AfterCardPlayed(context, cardPlay);
-    if (cardPlay.Card.Owner != Owner) return;
-    if (cardPlay.Card == this) return;
+    if (cardPlay.Card.Owner != Owner || cardPlay.Card == this) return;
 
     var triggerEv = await TryTrigger(context);
     if (triggerEv.IsNullOrCancelled()) return;

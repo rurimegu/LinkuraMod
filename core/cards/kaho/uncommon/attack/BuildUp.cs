@@ -54,8 +54,7 @@ public class BuildUp() : InHandTriggerCard(1, CardType.Attack, CardRarity.Uncomm
   }
 
   private async Task OnBurstHearts(Events.BurstEvent ev) {
-    if (ev.Player != Owner) return;
-    if (ev.ActualAmount <= 0) return;
+    if (ev.Player != Owner || ev.ActualAmount <= 0 || !this.IsInHand()) return;
 
     var triggerEv = await TryTrigger(ev.Context);
     if (triggerEv.IsNullOrCancelled()) return;

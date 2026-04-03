@@ -43,8 +43,7 @@ public class SayoShigure() : InHandTriggerCard(1, CardType.Attack, CardRarity.Ra
   }
 
   private async Task OnBurstHearts(Events.BurstEvent ev) {
-    if (ev.Player != Owner) return;
-    if (ev.ActualAmount <= 0) return;
+    if (ev.Player != Owner || ev.ActualAmount <= 0) return;
     if (!this.IsInHand()) return;
 
     DynamicVars[TRACKER_VAR].BaseValue += ev.ActualAmount;

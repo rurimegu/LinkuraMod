@@ -43,7 +43,7 @@ public class NewBlack() : InHandTriggerCard(1, CardType.Skill, CardRarity.Common
   }
 
   private async Task OnBurstHearts(Events.BurstEvent ev) {
-    if (ev.Player != Owner || ev.ActualAmount <= 0) return;
+    if (ev.Player != Owner || ev.ActualAmount <= 0 || !this.IsInHand()) return;
     DynamicVars[TRACKER_VAR].BaseValue += ev.ActualAmount;
     while (DynamicVars[TRACKER_VAR].IntValue >= BURST_PER_TRIGGER) {
       var triggerEv = await TryTrigger(ev.Context);

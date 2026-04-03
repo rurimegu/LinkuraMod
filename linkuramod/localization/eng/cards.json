@@ -90,7 +90,7 @@
   "RURIMEGU-ENCORE.title": "Encore",
   "RURIMEGU-ENCORE.description": "Gain 1 Block for every [gold]Burst[/gold] triggered this turn. (Current: {ENCORE_TRACKER})",
   "RURIMEGU-CELEBRATION.title": "Celebration!",
-  "RURIMEGU-CELEBRATION.description": "Draw {Cards:diff()} card. [gold]Backstage[/gold]: for every {CELEBRATION_THRESHOLD:diff()} [gold]Bursts[/gold], draw 1 card. (Current: {CELEBRATION_TRACKER})",
+  "RURIMEGU-CELEBRATION.description": "Draw {Cards:diff()} card. [gold]Backstage[/gold]: every {CELEBRATION_THRESHOLD:diff()} times you [gold]Burst[/gold], draw 1 card. (Current: {CELEBRATION_TRACKER})",
   "RURIMEGU-TRUE_FACE_PIXEL.title": "True Face Pixel",
   "RURIMEGU-TRUE_FACE_PIXEL.description": "This turn, your next [gold]Burst[/gold] card deals damage equal to [gold]Burst[/gold] count to ALL enemies.",
   "RURIMEGU-FULL_BLOOM.title": "Full Bloom!",

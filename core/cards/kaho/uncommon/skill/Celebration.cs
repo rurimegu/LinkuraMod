@@ -10,7 +10,7 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 
 /// <summary>
 /// Celebration! — Cost 1, Skill, Uncommon.
-/// Draw 1 card. Backstage: for every 5 (4) Bursts, draw 1 card. (Current: X)
+/// Draw 1 card. Backstage: every 5 (4) times you Burst, draw 1 card. (Current: X)
 /// </summary>
 public class Celebration() : InHandTriggerCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
   private const string TRACKER_VAR = "CELEBRATION_TRACKER";
@@ -40,7 +40,7 @@ public class Celebration() : InHandTriggerCard(1, CardType.Skill, CardRarity.Unc
   }
 
   private async Task OnBurstHearts(Events.BurstEvent ev) {
-    if (ev.Player != Owner) return;
+    if (ev.Player != Owner || ev.ActualAmount <= 0 || !this.IsInHand()) return;
     DynamicVars[TRACKER_VAR].BaseValue++;
 
     int threshold = DynamicVars[THRESHOLD_VAR].IntValue;
