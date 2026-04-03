@@ -24,7 +24,7 @@ public class LinkToTheFuture() : LinkuraCard(1, CardType.Skill, CardRarity.Uncom
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     int bursts = DynamicVars.BurstHearts().IntValue;
     for (int i = 0; i < bursts; i++) {
-      await LinkuraCmd.TriggerAutoBurst(Owner, this);
+      await LinkuraCmd.TriggerAutoBurst(Owner, ctx, this);
     }
 
     int energyGain = DynamicVars.Energy.IntValue;

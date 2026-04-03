@@ -34,7 +34,7 @@ public class ChoreographyMemo() : InHandTriggerCard(1, CardType.Skill, CardRarit
 
     int threshold = DynamicVars[THRESHOLD_VAR].IntValue;
     while (DynamicVars[TRACKER_VAR].IntValue >= threshold) {
-      var triggerEv = await TryTrigger();
+      var triggerEv = await TryTrigger(context);
       if (triggerEv.IsNullOrCancelled()) break;
       DynamicVars[TRACKER_VAR].BaseValue -= threshold;
       await LinkuraCardActions.CollectHearts(this, context);

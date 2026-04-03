@@ -31,7 +31,7 @@ public class LinkuraSystem : LinkuraRelic {
   ];
 
   public override async Task BeforeCombatStart() {
-    await HeartsState.Reset(Owner);
+    await HeartsState.Reset(Owner, new BlockingPlayerChoiceContext());
     await PowerCmd.Apply<AutoBurstPower>(Owner.Creature, 1, Owner.Creature, null);
   }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 
 namespace RuriMegu.Core.Utils;
@@ -15,6 +16,7 @@ public static class Events {
 
   public record HeartsChangedEvent(
     Player Player,
+    PlayerChoiceContext Context,
     int OldHearts,
     int NewHearts,
     int MaxHearts,
@@ -24,6 +26,7 @@ public static class Events {
 
   public record MaxHeartsChangedEvent(
     Player Player,
+    PlayerChoiceContext Context,
     int OldMaxHearts,
     int NewMaxHearts,
     int Hearts,
@@ -33,6 +36,7 @@ public static class Events {
 
   public record BurstEvent(
     Player Player,
+    PlayerChoiceContext Context,
     int RequestedAmount,
     CardModel Source
   ) : Event {
@@ -41,6 +45,7 @@ public static class Events {
 
   public record AutoBurstEvent(
     Player Player,
+    PlayerChoiceContext Context,
     int BaseAmount,
     CardModel Source
   ) : Event {
@@ -49,6 +54,7 @@ public static class Events {
 
   public record CollectEvent(
     Player Player,
+    PlayerChoiceContext Context,
     CardModel Source
   ) : Event {
     public int Amount { get; set; } = 0;
@@ -57,6 +63,7 @@ public static class Events {
 
   public record IncreaseMaxHeartsEvent(
     Player Player,
+    PlayerChoiceContext Context,
     int RequestedAmount,
     CardModel Source
   ) : Event {
@@ -65,6 +72,7 @@ public static class Events {
 
   public record TriggerBackstageEvent(
     Player Player,
+    PlayerChoiceContext Context,
     CardModel Source
   ) : Event;
 

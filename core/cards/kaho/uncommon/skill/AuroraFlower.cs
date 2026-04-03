@@ -23,7 +23,7 @@ public class AuroraFlower() : LinkuraCard(1, CardType.Skill, CardRarity.Uncommon
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     int triggers = DynamicVars[TRIGGERS_VAR].IntValue;
     for (int i = 0; i < triggers; i++) {
-      await LinkuraCmd.TriggerAutoBurst(Owner, this);
+      await LinkuraCmd.TriggerAutoBurst(Owner, ctx, this);
       await LinkuraCardActions.CollectHearts(this, ctx);
     }
   }

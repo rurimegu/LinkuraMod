@@ -23,15 +23,15 @@ public abstract class InHandTriggerCard(int cost, CardType type, CardRarity rari
 
   private int _triggerCount;
 
-  protected async Task<Events.TriggerBackstageEvent> Trigger() {
-    var ev = new Events.TriggerBackstageEvent(Owner, this);
+  protected async Task<Events.TriggerBackstageEvent> Trigger(PlayerChoiceContext ctx) {
+    var ev = new Events.TriggerBackstageEvent(Owner, ctx, this);
     if (!await Events.TriggerBackstage.InvokeAllEarly(ev)) return null;
     return ev;
   }
 
-  protected Task<Events.TriggerBackstageEvent> TryTrigger() {
+  protected Task<Events.TriggerBackstageEvent> TryTrigger(PlayerChoiceContext ctx) {
     if (!CanTrigger()) return Task.FromResult<Events.TriggerBackstageEvent>(null);
-    return Trigger();
+    return Trigger(ctx);
   }
 
   protected async Task AfterTrigger(Events.TriggerBackstageEvent ev) {

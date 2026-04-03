@@ -27,9 +27,9 @@ public class SpecialThanks() : InHandTriggerCard(1, CardType.Skill, CardRarity.U
     await base.AfterCardPlayed(context, cardPlay);
     if (cardPlay.Card == this || cardPlay.Card.Owner != Owner) return;
     if (cardPlay.Card.Type != CardType.Attack) return;
-    var ev = await TryTrigger();
+    var ev = await TryTrigger(context);
     if (ev.IsNullOrCancelled()) return;
-    await LinkuraCardActions.BurstHearts(this);
+    await LinkuraCardActions.BurstHearts(this, context);
     await AfterTrigger(ev);
   }
 

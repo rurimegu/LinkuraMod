@@ -57,7 +57,7 @@ public class BuildUp() : InHandTriggerCard(1, CardType.Attack, CardRarity.Uncomm
     if (ev.Player != Owner) return;
     if (ev.ActualAmount <= 0) return;
 
-    var triggerEv = await TryTrigger();
+    var triggerEv = await TryTrigger(ev.Context);
     if (triggerEv.IsNullOrCancelled()) return;
 
     _burstCount++;

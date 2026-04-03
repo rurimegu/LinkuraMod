@@ -23,7 +23,7 @@ public class Zanyou() : LinkuraCard(1, CardType.Skill, CardRarity.Common, Target
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    await LinkuraCardActions.IncreaseMaxHearts(this);
+    await LinkuraCardActions.IncreaseMaxHearts(this, ctx);
   }
 
   protected override void OnUpgrade() {

@@ -11,7 +11,7 @@ namespace RuriMegu.Core.Cards.Kaho.Common.Skill;
 
 /// <summary>
 /// Spring Breeze Swing (春风秋千) — Cost 1, Skill, Common.
-/// Draw 1 card.
+/// Draw 1 (2) card.
 /// Backstage: whenever Burst Hearts reaches the ♥ limit, gain 1 energy.
 /// </summary>
 public class SpringBreezeSwing() : InHandTriggerCard(1, CardType.Skill, CardRarity.Common, TargetType.None) {
@@ -44,9 +44,13 @@ public class SpringBreezeSwing() : InHandTriggerCard(1, CardType.Skill, CardRari
     int currentHearts = HeartsState.GetHearts(Owner);
     int maxHearts = HeartsState.GetMaxHearts(Owner);
     if (currentHearts < maxHearts) return;
-    var triggerEv = await TryTrigger();
+    var triggerEv = await TryTrigger(ev.Context);
     if (triggerEv.IsNullOrCancelled()) return;
     await PlayerCmd.GainEnergy(1, Owner);
     await AfterTrigger(triggerEv);
+  }
+
+  protected override void OnUpgrade() {
+    DynamicVars.Cards.UpgradeValueBy(1m);
   }
 }

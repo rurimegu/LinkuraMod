@@ -18,7 +18,7 @@ public class LinkuraEnergy() : LinkuraCard(1, CardType.Skill, CardRarity.Basic, 
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
-    await LinkuraCardActions.BurstHearts(this);
+    await LinkuraCardActions.BurstHearts(this, choiceContext);
     await LinkuraCardActions.CollectHearts(this, choiceContext);
   }
 

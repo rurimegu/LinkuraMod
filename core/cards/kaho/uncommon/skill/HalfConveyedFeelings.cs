@@ -18,7 +18,7 @@ public class HalfConveyedFeelings() : LinkuraCard(1, CardType.Skill, CardRarity.
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     int maxHearts = HeartsState.GetMaxHearts(Owner);
     int burstAmount = maxHearts / 2;
-    await LinkuraCmd.BurstHearts(Owner, burstAmount, this);
+    await LinkuraCmd.BurstHearts(Owner, ctx, burstAmount, this);
   }
 
   protected override void OnUpgrade() {

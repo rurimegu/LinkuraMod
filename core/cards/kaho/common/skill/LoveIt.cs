@@ -19,7 +19,7 @@ public class LoveIt() : LinkuraCard(1, CardType.Skill, CardRarity.Common, Target
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    await LinkuraCardActions.BurstHearts(this);
+    await LinkuraCardActions.BurstHearts(this, ctx);
     await CommonActions.Draw(this, ctx);
   }
 

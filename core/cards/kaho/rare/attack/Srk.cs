@@ -27,8 +27,8 @@ public class Srk() : LinkuraCard(3, CardType.Attack, CardRarity.Rare, TargetType
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     await CommonActions.CardAttack(this, play.Target).Execute(ctx);
-    await LinkuraCardActions.IncreaseMaxHearts(this);
-    await LinkuraCardActions.BurstHearts(this);
+    await LinkuraCardActions.IncreaseMaxHearts(this, ctx);
+    await LinkuraCardActions.BurstHearts(this, ctx);
     await PlayerCmd.GainEnergy(3m, Owner);
     await CommonActions.Draw(this, ctx);
   }

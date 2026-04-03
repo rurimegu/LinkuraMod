@@ -22,7 +22,7 @@ public class BuddingPremonition() : LinkuraCard(2, CardType.Attack, CardRarity.C
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    await LinkuraCardActions.IncreaseMaxHearts(this);
+    await LinkuraCardActions.IncreaseMaxHearts(this, ctx);
     int maxHearts = HeartsState.GetMaxHearts(Owner);
     await DamageCmd.Attack(maxHearts)
       .FromCard(this)

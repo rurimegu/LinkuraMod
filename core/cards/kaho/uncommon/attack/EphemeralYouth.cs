@@ -47,7 +47,7 @@ public class EphemeralYouth() : InHandTriggerCard(1, CardType.Attack, CardRarity
     if (cardPlay.Card.Owner != Owner) return;
     if (cardPlay.Card == this) return;
 
-    var triggerEv = await TryTrigger();
+    var triggerEv = await TryTrigger(context);
     if (triggerEv.IsNullOrCancelled()) return;
 
     _reductionCountThisTurn++;

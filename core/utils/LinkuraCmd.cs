@@ -12,33 +12,33 @@ using RuriMegu.Core.Powers;
 namespace RuriMegu.Core.Utils;
 
 public static class LinkuraCmd {
-  public static async Task<Events.IncreaseMaxHeartsEvent> IncreaseMaxHearts(Player player, int amount, CardModel source = null) {
+  public static async Task<Events.IncreaseMaxHeartsEvent> IncreaseMaxHearts(Player player, PlayerChoiceContext ctx, int amount, CardModel source = null) {
     if (amount <= 0) return null;
-    var ev = new Events.IncreaseMaxHeartsEvent(player, amount, source);
+    var ev = new Events.IncreaseMaxHeartsEvent(player, ctx, amount, source);
     if (!await Events.IncreaseMaxHearts.InvokeAllEarly(ev)) return ev;
-    var childEv = await HeartsState.AddMaxHearts(player, amount, source);
+    var childEv = await HeartsState.AddMaxHearts(player, ctx, amount, source);
     if (childEv.IsNullOrCancelled()) return ev;
     ev.ActualAmount = childEv.NewMaxHearts - childEv.OldMaxHearts;
     await Events.IncreaseMaxHearts.InvokeAllLate(ev);
     return ev;
   }
 
-  public static async Task<Events.AutoBurstEvent> TriggerAutoBurst(Player player, CardModel source = null) {
+  public static async Task<Events.AutoBurstEvent> TriggerAutoBurst(Player player, PlayerChoiceContext ctx, CardModel source = null) {
     int baseAmount = player.Creature.GetPowerAmount<AutoBurstPower>();
-    var ev = new Events.AutoBurstEvent(player, baseAmount, source);
+    var ev = new Events.AutoBurstEvent(player, ctx, baseAmount, source);
     if (!await Events.AutoBurst.InvokeAllEarly(ev)) return ev;
-    var burstEv = await BurstHearts(player, baseAmount, source);
+    var burstEv = await BurstHearts(player, ctx, baseAmount, source);
     ev.BurstEvent = burstEv;
     if (burstEv.IsNullOrCancelled()) return ev;
     await Events.AutoBurst.InvokeAllLate(ev);
     return ev;
   }
 
-  public static async Task<Events.BurstEvent> BurstHearts(Player player, int amount, CardModel source = null) {
+  public static async Task<Events.BurstEvent> BurstHearts(Player player, PlayerChoiceContext ctx, int amount, CardModel source = null) {
     if (amount <= 0) return null;
-    var ev = new Events.BurstEvent(player, amount, source);
+    var ev = new Events.BurstEvent(player, ctx, amount, source);
     if (!await Events.Burst.InvokeAllEarly(ev)) return ev;
-    var childEv = await HeartsState.AddHearts(player, amount, source);
+    var childEv = await HeartsState.AddHearts(player, ctx, amount, source);
     if (childEv.IsNullOrCancelled()) return ev;
     ev.ActualAmount = childEv.NewHearts - childEv.OldHearts;
     await Events.Burst.InvokeAllLate(ev);
@@ -48,10 +48,10 @@ public static class LinkuraCmd {
   public static async Task<Events.CollectEvent> CollectHearts(Player player, PlayerChoiceContext context, CardModel source = null, Creature target = null, int triggers = 1) {
     int hearts = HeartsState.GetHearts(player);
     if (hearts <= 0) return null;
-    var ev = new Events.CollectEvent(player, source);
+    var ev = new Events.CollectEvent(player, context, source);
     if (!await Events.Collect.InvokeAllEarly(ev)) return ev;
     var targets = await ApplyHeartDamage(hearts, target, player, context, triggers);
-    var childEv = await HeartsState.SetHearts(player, 0, source);
+    var childEv = await HeartsState.SetHearts(player, context, 0, source);
     if (childEv.IsNullOrCancelled()) return ev;
     ev.Amount = hearts;
     ev.Targets = targets;

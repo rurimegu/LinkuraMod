@@ -46,7 +46,7 @@ public class NewBlack() : InHandTriggerCard(1, CardType.Skill, CardRarity.Common
     if (ev.Player != Owner || ev.ActualAmount <= 0) return;
     DynamicVars[TRACKER_VAR].BaseValue += ev.ActualAmount;
     while (DynamicVars[TRACKER_VAR].IntValue >= BURST_PER_TRIGGER) {
-      var triggerEv = await TryTrigger();
+      var triggerEv = await TryTrigger(ev.Context);
       if (triggerEv.IsNullOrCancelled()) return;
       DynamicVars[TRACKER_VAR].BaseValue -= BURST_PER_TRIGGER;
       await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block.IntValue, ValueProp.Move, null);

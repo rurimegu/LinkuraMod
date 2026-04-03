@@ -51,7 +51,7 @@ public class TrainingOutcomes() : InHandTriggerCard(4, CardType.Attack, CardRari
 
   private async Task OnCollectHearts(Events.CollectEvent ev) {
     if (ev.Player != Owner) return;
-    var triggerEv = await TryTrigger();
+    var triggerEv = await TryTrigger(ev.Context);
     if (triggerEv.IsNullOrCancelled()) return;
     _costReduction++;
     int newCost = Math.Max(0, BASE_COST - _costReduction);

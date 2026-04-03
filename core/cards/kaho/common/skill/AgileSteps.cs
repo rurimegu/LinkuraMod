@@ -21,7 +21,7 @@ public class AgileSteps() : LinkuraCard(1, CardType.Skill, CardRarity.Common, Ta
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    await LinkuraCardActions.BurstHearts(this);
+    await LinkuraCardActions.BurstHearts(this, ctx);
     await PowerCmd.Apply<AttackCostReductionPower>(Owner.Creature, 1, Owner.Creature, this);
   }
 

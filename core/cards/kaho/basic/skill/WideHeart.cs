@@ -15,7 +15,7 @@ public class WideHeart() : LinkuraCard(1, CardType.Skill, CardRarity.Basic, Targ
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
-    await LinkuraCardActions.IncreaseMaxHearts(this);
+    await LinkuraCardActions.IncreaseMaxHearts(this, choiceContext);
     await CommonActions.Draw(this, choiceContext);
   }
 

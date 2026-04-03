@@ -21,7 +21,7 @@ public class FullOfPower() : LinkuraCard(2, CardType.Skill, CardRarity.Common, T
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     await CommonActions.CardBlock(this, play);
-    await LinkuraCardActions.BurstHearts(this);
+    await LinkuraCardActions.BurstHearts(this, ctx);
   }
 
   protected override void OnUpgrade() {

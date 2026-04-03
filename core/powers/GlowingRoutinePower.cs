@@ -18,6 +18,6 @@ public class GlowingRoutinePower : LinkuraPower {
   public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, CombatState combatState) {
     await base.BeforeSideTurnStart(choiceContext, side, combatState);
     if (side != Owner.Side) return;
-    await LinkuraCmd.BurstHearts(Owner.Player, (int)Amount);
+    await LinkuraCmd.BurstHearts(Owner.Player, choiceContext, (int)Amount);
   }
 }

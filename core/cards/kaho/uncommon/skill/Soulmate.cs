@@ -28,7 +28,7 @@ public class Soulmate() : LinkuraCard(0, CardType.Skill, CardRarity.Uncommon, Ta
     if (card == this) {
       int bursts = DynamicVars.BurstHearts().IntValue;
       for (int i = 0; i < bursts; i++) {
-        await LinkuraCmd.TriggerAutoBurst(Owner, this);
+        await LinkuraCmd.TriggerAutoBurst(Owner, choiceContext, this);
       }
     }
   }

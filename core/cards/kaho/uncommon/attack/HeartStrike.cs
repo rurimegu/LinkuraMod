@@ -30,7 +30,7 @@ public class HeartStrike() : LinkuraCard(2, CardType.Attack, CardRarity.Uncommon
       (totalDamage, result) => totalDamage + result.UnblockedDamage + result.OverkillDamage);
 
     if (totalDamage <= 0) return;
-    await HeartsState.AddMaxHearts(Owner, totalDamage, this);
+    await HeartsState.AddMaxHearts(Owner, ctx, totalDamage, this);
   }
 
   protected override void OnUpgrade() {

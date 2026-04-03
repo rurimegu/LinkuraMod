@@ -31,7 +31,7 @@ public class BunnyPyonPyon() : LinkuraCard(1, CardType.Attack, CardRarity.Common
 
     int totalDamage = results.Sum(r => r.UnblockedDamage + r.OverkillDamage);
     if (totalDamage > 0) {
-      await LinkuraCmd.BurstHearts(Owner, totalDamage, this);
+      await LinkuraCmd.BurstHearts(Owner, ctx, totalDamage, this);
     }
   }
 

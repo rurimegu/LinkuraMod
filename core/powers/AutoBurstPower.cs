@@ -16,7 +16,7 @@ public class AutoBurstPower : LinkuraPower {
 
   public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay) {
     if (Amount > 0 && cardPlay.Card.Owner?.Creature == Owner) {
-      await LinkuraCmd.TriggerAutoBurst(cardPlay.Card.Owner);
+      await LinkuraCmd.TriggerAutoBurst(cardPlay.Card.Owner, context, null);
     }
   }
 }

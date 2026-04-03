@@ -26,7 +26,7 @@ public class SukiSukiClub() : LinkuraCard(1, CardType.Skill, CardRarity.Uncommon
   public override async Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw) {
     if (card == this) {
       int heartBoost = DynamicVars.ExpandHearts().IntValue;
-      await LinkuraCmd.IncreaseMaxHearts(Owner, heartBoost, this);
+      await LinkuraCmd.IncreaseMaxHearts(Owner, choiceContext, heartBoost, this);
     }
   }
 

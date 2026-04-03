@@ -22,7 +22,7 @@ public class OnYourMark() : LinkuraCard(-1, CardType.Skill, CardRarity.Uncommon,
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     int heartIncrease = DynamicVars.ExpandHearts().IntValue * play.Resources.EnergySpent;
     if (heartIncrease > 0) {
-      await LinkuraCmd.IncreaseMaxHearts(Owner, heartIncrease, this);
+      await LinkuraCmd.IncreaseMaxHearts(Owner, ctx, heartIncrease, this);
     }
   }
 

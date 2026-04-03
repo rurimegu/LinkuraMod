@@ -21,7 +21,7 @@ public class StepUp() : LinkuraCard(1, CardType.Attack, CardRarity.Common, Targe
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     await CommonActions.CardAttack(this, play.Target).Execute(ctx);
-    await LinkuraCardActions.IncreaseMaxHearts(this);
+    await LinkuraCardActions.IncreaseMaxHearts(this, ctx);
   }
 
   protected override void OnUpgrade() {

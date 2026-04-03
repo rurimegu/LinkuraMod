@@ -42,7 +42,7 @@ public class Variations() : InHandTriggerCard(1, CardType.Attack, CardRarity.Unc
 
   private async Task OnMaxHeartsChanged(Events.MaxHeartsChangedEvent ev) {
     if (ev.Player != Owner) return;
-    var triggerEv = await TryTrigger();
+    var triggerEv = await TryTrigger(ev.Context);
     if (triggerEv.IsNullOrCancelled()) return;
 
     EnergyCost.AddUntilPlayed(-1, true);

@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using RuriMegu.Core.Powers;
 
@@ -19,20 +20,20 @@ public static class HeartsState {
     return maxHearts <= 0 ? DEFAULT_MAX_HEARTS : maxHearts;
   }
 
-  public static async Task Reset(Player player) {
-    await SetMaxHearts(player, DEFAULT_MAX_HEARTS);
-    await SetHearts(player, 0);
+  public static async Task Reset(Player player, PlayerChoiceContext ctx) {
+    await SetMaxHearts(player, ctx, DEFAULT_MAX_HEARTS);
+    await SetHearts(player, ctx, 0);
   }
 
-  public static Task<Events.HeartsChangedEvent> AddHearts(Player player, int amount, CardModel source = null) {
-    return SetHearts(player, GetHearts(player) + amount, source);
+  public static Task<Events.HeartsChangedEvent> AddHearts(Player player, PlayerChoiceContext ctx, int amount, CardModel source = null) {
+    return SetHearts(player, ctx, GetHearts(player) + amount, source);
   }
 
-  public static Task<Events.MaxHeartsChangedEvent> AddMaxHearts(Player player, int amount, CardModel source = null) {
-    return SetMaxHearts(player, GetMaxHearts(player) + amount, source);
+  public static Task<Events.MaxHeartsChangedEvent> AddMaxHearts(Player player, PlayerChoiceContext ctx, int amount, CardModel source = null) {
+    return SetMaxHearts(player, ctx, GetMaxHearts(player) + amount, source);
   }
 
-  public static async Task<Events.HeartsChangedEvent> SetHearts(Player player, int amount, CardModel source = null) {
+  public static async Task<Events.HeartsChangedEvent> SetHearts(Player player, PlayerChoiceContext ctx, int amount, CardModel source = null) {
     int oldHearts = GetHearts(player);
     int clampedAmount = Math.Clamp(amount, 0, GetMaxHearts(player));
     if (oldHearts == clampedAmount) {
@@ -41,6 +42,7 @@ public static class HeartsState {
 
     var ev = new Events.HeartsChangedEvent(
       player,
+      ctx,
       oldHearts,
       clampedAmount,
       GetMaxHearts(player),
@@ -56,12 +58,13 @@ public static class HeartsState {
     return ev;
   }
 
-  public static async Task<Events.MaxHeartsChangedEvent> SetMaxHearts(Player player, int amount, CardModel source = null) {
+  public static async Task<Events.MaxHeartsChangedEvent> SetMaxHearts(Player player, PlayerChoiceContext ctx, int amount, CardModel source = null) {
     int clampedAmount = Math.Clamp(amount, 0, MAX_MAX_HEARTS);
     int oldMaxHearts = GetMaxHearts(player);
 
     var ev = new Events.MaxHeartsChangedEvent(
       player,
+      ctx,
       oldMaxHearts,
       clampedAmount,
       GetHearts(player),
@@ -74,7 +77,7 @@ public static class HeartsState {
     await SetAmount<MaxHeartsPower>(player, clampedAmount, source);
 
     if (GetHearts(player) > clampedAmount) {
-      await SetHearts(player, clampedAmount, source);
+      await SetHearts(player, ctx, clampedAmount, source);
     }
 
     await Events.MaxHeartsChanged.InvokeAllLate(ev);

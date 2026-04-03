@@ -80,7 +80,7 @@ public class OverflowingEmotion() : InHandTriggerCard(2, CardType.Attack, CardRa
   private async Task OnCollectHearts(Events.CollectEvent ev) {
     if (ev.Player != Owner) return;
 
-    var triggerEv = await TryTrigger();
+    var triggerEv = await TryTrigger(ev.Context);
     if (triggerEv.IsNullOrCancelled()) return;
 
     int gain = DynamicVars[GROWTH_VAR].IntValue;
