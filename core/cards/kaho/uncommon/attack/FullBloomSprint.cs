@@ -28,7 +28,7 @@ public class FullBloomSprint() : LinkuraCard(2, CardType.Attack, CardRarity.Unco
     if (hearts < maxHearts) return;
 
     await LinkuraCardActions.CollectHearts(this, ctx);
-    await PlayerCmd.GainEnergy(2, Owner);
+    await PlayerCmd.GainEnergy(DynamicVars.Energy.IntValue, Owner);
   }
 
   protected override void OnUpgrade() {

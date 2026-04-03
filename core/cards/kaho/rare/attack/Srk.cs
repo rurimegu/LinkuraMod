@@ -29,7 +29,7 @@ public class Srk() : LinkuraCard(3, CardType.Attack, CardRarity.Rare, TargetType
     await CommonActions.CardAttack(this, play.Target).Execute(ctx);
     await LinkuraCardActions.IncreaseMaxHearts(this, ctx);
     await LinkuraCardActions.BurstHearts(this, ctx);
-    await PlayerCmd.GainEnergy(3m, Owner);
+    await PlayerCmd.GainEnergy(DynamicVars.Energy.IntValue, Owner);
     await CommonActions.Draw(this, ctx);
   }
 

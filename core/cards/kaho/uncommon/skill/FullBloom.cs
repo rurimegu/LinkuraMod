@@ -25,7 +25,7 @@ public class FullBloom() : LinkuraCard(0, CardType.Skill, CardRarity.Uncommon, T
     int maxHearts = HeartsState.GetMaxHearts(Owner);
 
     if (currentHearts >= maxHearts) {
-      await PlayerCmd.GainEnergy(1, Owner);
+      await PlayerCmd.GainEnergy(DynamicVars.Energy.IntValue, Owner);
       await CommonActions.Draw(this, ctx);
     }
   }

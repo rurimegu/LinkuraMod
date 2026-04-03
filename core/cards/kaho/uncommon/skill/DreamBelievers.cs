@@ -30,7 +30,7 @@ public class DreamBelievers() : LinkuraCard(1, CardType.Skill, CardRarity.Uncomm
     int hearts = HeartsState.GetHearts(Owner);
     int energyGain = hearts / HEARTS_PER_ENERGY;
     if (energyGain > 0) {
-      await PlayerCmd.GainEnergy(energyGain, Owner);
+      await PlayerCmd.GainEnergy(energyGain * DynamicVars.Energy.IntValue, Owner);
     }
     await LinkuraCardActions.CollectHearts(this, ctx);
   }
