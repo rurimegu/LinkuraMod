@@ -55,8 +55,8 @@
   "RURIMEGU-TRAINING_CAMP_POWER.description": "你每回合打出的前几张[gold]幕后[/gold]牌耗能减少1。",
   "RURIMEGU-TRAINING_CAMP_POWER.smartDescription": "你每回合打出的前{Amount}张[gold]幕后[/gold]牌耗能减少1。",
   "RURIMEGU-CAREER_SURVEY_POWER.title": "进路调查",
-  "RURIMEGU-CAREER_SURVEY_POWER.description": "每当你单次[gold]爆心[/gold]达到8颗且没有达到上限，抽牌。",
-  "RURIMEGU-CAREER_SURVEY_POWER.smartDescription": "每当你单次[gold]爆心[/gold]达到8颗且没有达到上限，抽{Amount}张牌。",
+  "RURIMEGU-CAREER_SURVEY_POWER.description": "在你的回合开始时，将❤️转化为等量格挡。",
+  "RURIMEGU-CAREER_SURVEY_POWER.smartDescription": "在你的回合开始时，将❤️转化为等量格挡。",
   "RURIMEGU-CAREER_SURVEY_UPGRADED_POWER.title": "进路调查+",
   "RURIMEGU-CAREER_SURVEY_UPGRADED_POWER.description": "每当你单次[gold]爆心[/gold]达到6颗且没有达到上限，抽牌。",
   "RURIMEGU-CAREER_SURVEY_UPGRADED_POWER.smartDescription": "每当你单次[gold]爆心[/gold]达到6颗且没有达到上限，抽{Amount}张牌。",
@@ -80,5 +80,8 @@
   "RURIMEGU-MAY_DREAMS_BLOOM_UPGRADED_POWER.smartDescription": "每溢出15❤️，获得{Amount}层[gold]自然爆心[/gold]。",
   "RURIMEGU-BLOOM_GARDEN_PARTY_POWER.title": "Bloom Garden Party",
   "RURIMEGU-BLOOM_GARDEN_PARTY_POWER.description": "你的[gold]后台[/gold]效果也可以在弃牌堆中触发。",
-  "RURIMEGU-BLOOM_GARDEN_PARTY_POWER.smartDescription": "你的[gold]后台[/gold]效果也可以在弃牌堆中触发。"
+  "RURIMEGU-BLOOM_GARDEN_PARTY_POWER.smartDescription": "你的[gold]后台[/gold]效果也可以在弃牌堆中触发。",
+  "RURIMEGU-SUGAR_MELT_POWER.title": "甜蜜融化",
+  "RURIMEGU-SUGAR_MELT_POWER.description": "每当你[gold]自然爆心[/gold]，获得等量格挡。",
+  "RURIMEGU-SUGAR_MELT_POWER.smartDescription": "每当你[gold]自然爆心[/gold]，获得等量格挡。"
 }

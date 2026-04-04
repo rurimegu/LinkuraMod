@@ -14,7 +14,7 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 
 /// <summary>
 /// Encore (安可) — Cost 0, Skill, Uncommon.
-/// Collect. Gain 2 (3) Block for every Burst triggered this turn. (Current: X) (Innate. Retain.)
+/// Gain 2 (3) Block for every Burst triggered this turn. (Current: X) (Innate. Retain.)
 /// </summary>
 public class Encore() : LinkuraCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
   private const string TRACKER_VAR = "ENCORE_TRACKER";
@@ -27,11 +27,9 @@ public class Encore() : LinkuraCard(0, CardType.Skill, CardRarity.Uncommon, Targ
 
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
     BurstHeartsVar.HoverTip(),
-    HoverTipFactory.FromKeyword(LinkuraKeywords.Collect),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    await LinkuraCardActions.CollectHearts(this, ctx);
     int block = DynamicVars[TRACKER_VAR].IntValue * DynamicVars.Block.IntValue;
     if (block > 0) {
       await CreatureCmd.GainBlock(Owner.Creature, block, ValueProp.Move, play);

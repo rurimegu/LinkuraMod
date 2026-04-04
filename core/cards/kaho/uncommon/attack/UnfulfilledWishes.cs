@@ -11,10 +11,12 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Uncommon.Attack;
 
 /// <summary>
-/// Unfulfilled Wishes — Cost 2, Attack, Uncommon.
-/// Deal damage equal to (max ❤️ - current ❤️). Gain Block equal to current ❤️.
+/// Unfulfilled Wishes — Cost 2 (1), Attack, Uncommon.
+/// Deal damage equal to (max ❤️ - current ❤️). Gain Block equal to current ❤️. Retain.
 /// </summary>
 public class UnfulfilledWishes() : LinkuraCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
+
+  public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
 
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
     HoverTipFactory.Static(StaticHoverTip.Block),
@@ -34,6 +36,6 @@ public class UnfulfilledWishes() : LinkuraCard(2, CardType.Attack, CardRarity.Un
   }
 
   protected override void OnUpgrade() {
-    AddKeyword(CardKeyword.Retain);
+    EnergyCost.UpgradeBy(-1);
   }
 }

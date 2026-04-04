@@ -9,10 +9,10 @@ using RuriMegu.Core.Powers;
 namespace RuriMegu.Core.Cards.Kaho.Rare.Skill;
 
 /// <summary>
-/// Enduring Tradition — Cost 1 (0), Skill, Rare.
-/// Apply Enduring Tradition Power.
+/// Enduring Tradition — Cost 0, Skill, Rare.
+/// Apply Enduring Tradition Power. (Retain.)
 /// </summary>
-public class EnduringTradition() : LinkuraCard(1, CardType.Skill, CardRarity.Rare, TargetType.None) {
+public class EnduringTradition() : LinkuraCard(0, CardType.Skill, CardRarity.Rare, TargetType.None) {
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
     HoverTipFactory.FromPower<AutoBurstPower>(),
     HoverTipFactory.FromKeyword(LinkuraKeywords.Collect),
@@ -22,6 +22,6 @@ public class EnduringTradition() : LinkuraCard(1, CardType.Skill, CardRarity.Rar
   }
 
   protected override void OnUpgrade() {
-    EnergyCost.UpgradeBy(-1);
+    AddKeyword(CardKeyword.Retain);
   }
 }

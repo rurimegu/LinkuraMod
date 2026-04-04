@@ -11,7 +11,7 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 
 /// <summary>
 /// Choreography Memo (舞步编排) — Cost 1, Skill, Uncommon.
-/// On play: Burst 6 (9).
+/// On play: Burst 9 (12).
 /// Backstage: for every 3 (2) cards you play, Collect. (Current: X)
 /// </summary>
 public class ChoreographyMemo() : InHandTriggerCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
@@ -21,7 +21,7 @@ public class ChoreographyMemo() : InHandTriggerCard(1, CardType.Skill, CardRarit
   public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Append(LinkuraKeywords.Collect);
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new BurstHeartsVar(6),
+    new BurstHeartsVar(9),
     new DynamicVar(TRACKER_VAR, 0),
     new DynamicVar(THRESHOLD_VAR, 3),
   ];

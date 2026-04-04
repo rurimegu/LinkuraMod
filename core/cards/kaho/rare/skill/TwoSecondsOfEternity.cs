@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -48,7 +49,7 @@ public class TwoSecondsOfEternity() : LinkuraCard(0, CardType.Skill, CardRarity.
 
     int totalCost = hand.Cards
       .Where(c => c != this)
-      .Sum(c => c.EnergyCost.GetWithModifiers(CostModifiers.All));
+      .Sum(c => Math.Max(0, c.EnergyCost.GetWithModifiers(CostModifiers.All)));
 
     EnergyCost.SetCustomBaseCost(totalCost);
   }

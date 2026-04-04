@@ -13,14 +13,14 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Attack;
 
 /// <summary>
 /// Afterglow — Cost 0, Attack, Uncommon.
-/// Deal 3 (5) damage.
+/// Deal 4 (6) damage.
 /// Whenever you Collect, return this card from discard pile to hand.
 /// </summary>
 public class Afterglow() : LinkuraCard(0, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
   private Subscription _collectHeartsSubscription;
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new DamageVar(3, ValueProp.Move),
+    new DamageVar(4, ValueProp.Move),
   ];
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
     HoverTipFactory.FromKeyword(LinkuraKeywords.Collect)

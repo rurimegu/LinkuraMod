@@ -6,35 +6,27 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
-using RuriMegu.Core.Powers;
-using RuriMegu.Core.Utils;
 
 namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 
 /// <summary>
 /// Link to the FUTURE — Cost 1, Skill, Uncommon.
-/// Trigger 2 (3) [gold]Auto Burst[/gold]. Next turn gain 1 (2) energy.
+/// Retain your hand this turn. Next turn gain 2 (3) energy.
 /// </summary>
 public class LinkToTheFuture() : LinkuraCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
-  private const int BASE_ENERGY_NEXT_TURN = 1;
-
   protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new TriggerAutoBurstVar(2),
-    new EnergyVar(BASE_ENERGY_NEXT_TURN),
+    new EnergyVar(2),
   ];
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-    HoverTipFactory.FromPower<AutoBurstPower>(),
+    HoverTipFactory.FromKeyword(CardKeyword.Retain),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    await LinkuraCardActions.AutoBurst(this, ctx);
-
-    int energyGain = DynamicVars.Energy.IntValue;
-    await PowerCmd.Apply<EnergyNextTurnPower>(Owner.Creature, (decimal)energyGain, Owner.Creature, this);
+    await PowerCmd.Apply<RetainHandPower>(Owner.Creature, 1m, Owner.Creature, this);
+    await PowerCmd.Apply<EnergyNextTurnPower>(Owner.Creature, DynamicVars.Energy.IntValue, Owner.Creature, this);
   }
 
   protected override void OnUpgrade() {
-    DynamicVars.TriggerAutoBurst().UpgradeValueBy(1m);
     DynamicVars.Energy.UpgradeValueBy(1m);
   }
 }

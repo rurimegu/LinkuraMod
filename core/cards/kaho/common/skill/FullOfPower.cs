@@ -11,12 +11,12 @@ namespace RuriMegu.Core.Cards.Kaho.Common.Skill;
 
 /// <summary>
 /// Full Of Power (活力全开) — Cost 2, Skill, Common.
-/// Gain 11 (14) block. Burst 10 (14).
+/// Gain 12 (15) block. Burst 12 (15).
 /// </summary>
 public class FullOfPower() : LinkuraCard(2, CardType.Skill, CardRarity.Common, TargetType.None) {
   protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new BlockVar(11, ValueProp.Move),
-    new BurstHeartsVar(10),
+    new BlockVar(12, ValueProp.Move),
+    new BurstHeartsVar(12),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
@@ -26,6 +26,6 @@ public class FullOfPower() : LinkuraCard(2, CardType.Skill, CardRarity.Common, T
 
   protected override void OnUpgrade() {
     DynamicVars.Block.UpgradeValueBy(3m);
-    DynamicVars.BurstHearts().UpgradeValueBy(4m);
+    DynamicVars.BurstHearts().UpgradeValueBy(3m);
   }
 }

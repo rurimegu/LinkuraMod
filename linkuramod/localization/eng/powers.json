@@ -54,8 +54,8 @@
   "RURIMEGU-ENDURING_TRADITION_POWER.description": "Until the end of turn, whenever your Max ❤️ increases, trigger [gold]Auto Burst[/gold] that many times and [gold]Collect[/gold] instead.",
   "RURIMEGU-ENDURING_TRADITION_POWER.smartDescription": "Until the end of turn, whenever your Max ❤️ increases, trigger [gold]Auto Burst[/gold] that many times and [gold]Collect[/gold] instead.",
   "RURIMEGU-CAREER_SURVEY_POWER.title": "Career Survey",
-  "RURIMEGU-CAREER_SURVEY_POWER.description": "Whenever you [gold]Burst[/gold] at least 8 ❤️ in a single instance without reaching your limit, draw cards.",
-  "RURIMEGU-CAREER_SURVEY_POWER.smartDescription": "Whenever you [gold]Burst[/gold] at least 8 ❤️ in a single instance without reaching your limit, draw {Amount} card(s).",
+  "RURIMEGU-CAREER_SURVEY_POWER.description": "At the start of your turn, convert ❤️ to equal Block.",
+  "RURIMEGU-CAREER_SURVEY_POWER.smartDescription": "At the start of your turn, convert ❤️ to equal Block.",
   "RURIMEGU-CAREER_SURVEY_UPGRADED_POWER.title": "Career Survey+",
   "RURIMEGU-CAREER_SURVEY_UPGRADED_POWER.description": "Whenever you [gold]Burst[/gold] at least 6 ❤️ in a single instance without reaching your limit, draw cards.",
   "RURIMEGU-CAREER_SURVEY_UPGRADED_POWER.smartDescription": "Whenever you [gold]Burst[/gold] at least 6 ❤️ in a single instance without reaching your limit, draw {Amount} card(s).",
@@ -79,5 +79,8 @@
   "RURIMEGU-MAY_DREAMS_BLOOM_UPGRADED_POWER.smartDescription": "For every 15 ❤️ overflowed, gain {Amount} stack of [gold]Auto Burst[/gold].",
   "RURIMEGU-BLOOM_GARDEN_PARTY_POWER.title": "Bloom Garden Party",
   "RURIMEGU-BLOOM_GARDEN_PARTY_POWER.description": "Your [gold]Backstage[/gold] effects can also trigger from the discard pile.",
-  "RURIMEGU-BLOOM_GARDEN_PARTY_POWER.smartDescription": "Your [gold]Backstage[/gold] effects can also trigger from the discard pile."
+  "RURIMEGU-BLOOM_GARDEN_PARTY_POWER.smartDescription": "Your [gold]Backstage[/gold] effects can also trigger from the discard pile.",
+  "RURIMEGU-SUGAR_MELT_POWER.title": "Sugar Melt",
+  "RURIMEGU-SUGAR_MELT_POWER.description": "Whenever you [gold]Auto Burst[/gold], gain equal Block.",
+  "RURIMEGU-SUGAR_MELT_POWER.smartDescription": "Whenever you [gold]Auto Burst[/gold], gain equal Block."
 }
