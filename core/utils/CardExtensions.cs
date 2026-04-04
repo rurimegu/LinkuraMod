@@ -23,6 +23,23 @@ public static class CardExtensions {
     return value;
   }
 
+  public static DynamicVar AutoBurst(this DynamicVarSet vars) {
+    if (!vars.TryGetValue(AutoBurstVar.Key, out var value)) {
+      LinkuraMod.Logger.Error($"AutoBurstVar not found for card!");
+      return null;
+    }
+    return value;
+  }
+
+  public static DynamicVar TriggerAutoBurst(this DynamicVarSet vars) {
+    if (!vars.TryGetValue(TriggerAutoBurstVar.Key, out var value)) {
+      LinkuraMod.Logger.Error($"TriggerAutoBurstVar not found for card!");
+      return null;
+    }
+    return value;
+  }
+
+
   public static bool IsInHand(this CardModel card) {
     CardPile handPile = PileType.Hand.GetPile(card.Owner);
     return handPile != null && handPile.Cards.Contains(card);

@@ -23,6 +23,7 @@ public class EmbracingPetals() : InHandTriggerCard(2, CardType.Attack, CardRarit
     new CalculationBaseVar(0),
     new ExtraDamageVar(1),
     new CalculatedDamageVar(ValueProp.Move).WithMultiplier((_, creature) => creature.GetPowerAmount<AutoBurstPower>()),
+    new AutoBurstVar(1),
     new RepeatVar(6),
   ];
 
@@ -43,7 +44,7 @@ public class EmbracingPetals() : InHandTriggerCard(2, CardType.Attack, CardRarit
     var triggerEv = await TryTrigger(ev.Context);
     if (triggerEv.IsNullOrCancelled()) return;
 
-    await PowerCmd.Apply<AutoBurstPower>(Owner.Creature, 1, Owner.Creature, this);
+    await PowerCmd.Apply<AutoBurstPower>(Owner.Creature, DynamicVars.AutoBurst().IntValue, Owner.Creature, this);
 
     await AfterTrigger(triggerEv);
   }

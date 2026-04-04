@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -41,6 +42,7 @@ public static class Events {
     CardModel Source
   ) : Event {
     public int ActualAmount { get; set; } = 0;
+    public HeartsChangedEvent HeartsChangedEvent { get; set; } = null;
   }
 
   public record AutoBurstEvent(
@@ -59,6 +61,7 @@ public static class Events {
   ) : Event {
     public int Amount { get; set; } = 0;
     public IReadOnlyList<Creature> Targets { get; set; } = null;
+    public bool DamageAllEnemies { get; set; } = false;
   }
 
   public record IncreaseMaxHeartsEvent(
@@ -74,7 +77,9 @@ public static class Events {
     Player Player,
     PlayerChoiceContext Context,
     CardModel Source
-  ) : Event;
+  ) : Event {
+    public int RepeatCount { get; set; } = 0;
+  }
 
   public class PhasedEvent<TEvent> where TEvent : Event {
     public event Func<TEvent, Task> VeryEarly;
@@ -137,7 +142,7 @@ public static class Events {
 
     public async Task InvokeLate(TEvent e) {
       if (Late != null) {
-        foreach (Func<TEvent, Task> handler in Late.GetInvocationList()) {
+        foreach (var handler in Late.GetInvocationList().Cast<Func<TEvent, Task>>()) {
           await handler(e);
         }
       }
@@ -145,7 +150,7 @@ public static class Events {
 
     public async Task InvokeVeryLate(TEvent e) {
       if (VeryLate != null) {
-        foreach (Func<TEvent, Task> handler in VeryLate.GetInvocationList()) {
+        foreach (var handler in VeryLate.GetInvocationList().Cast<Func<TEvent, Task>>()) {
           await handler(e);
         }
       }

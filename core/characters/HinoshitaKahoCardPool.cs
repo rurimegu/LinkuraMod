@@ -8,6 +8,7 @@ using RuriMegu.Core.Cards.Kaho.Common.Power;
 using RuriMegu.Core.Cards.Kaho.Common.Skill;
 using RuriMegu.Core.Cards.Kaho.Rare.Attack;
 using RuriMegu.Core.Cards.Kaho.Uncommon.Attack;
+using RuriMegu.Core.Cards.Kaho.Uncommon.Power;
 using RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 using RuriMegu.Core.Utils;
 
@@ -86,6 +87,15 @@ public class HinoshitaKahoCardPool : CustomCardPoolModel {
       ModelDb.Card<ChoreographyMemo>(),
       ModelDb.Card<LinkToTheFuture>(),
       ModelDb.Card<SukiSukiClub>(),
+      // Uncommon power cards
+      ModelDb.Card<SugarMelt>(),
+      ModelDb.Card<SpecialAppeal>(),
+      ModelDb.Card<UnadornedBeauty>(),
+      ModelDb.Card<AutoCollectOn>(),
+      ModelDb.Card<HolidayHoliday>(),
+      ModelDb.Card<WelcomeIshikawa>(),
+      ModelDb.Card<TrainingCamp>(),
+      ModelDb.Card<CareerSurvey>(),
       // Rare attack cards
       ModelDb.Card<Srk>(),
       ModelDb.Card<EmbracingPetals>(),

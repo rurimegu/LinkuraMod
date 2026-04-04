@@ -39,6 +39,7 @@ public static class LinkuraCmd {
     if (!await Events.Burst.InvokeAllEarly(ev)) return ev;
     if (amount <= 0) return ev;
     var childEv = await HeartsState.AddHearts(player, ctx, amount, source);
+    ev.HeartsChangedEvent = childEv;
     if (childEv.IsNullOrCancelled()) return ev;
     ev.ActualAmount = childEv.NewHearts - childEv.OldHearts;
     await Events.Burst.InvokeAllLate(ev);
@@ -50,7 +51,9 @@ public static class LinkuraCmd {
     var ev = new Events.CollectEvent(player, context, source);
     if (!await Events.Collect.InvokeAllEarly(ev)) return ev;
     if (hearts <= 0) return ev;
-    var targets = await ApplyHeartDamage(hearts, target, player, context, triggers);
+    var targets = ev.DamageAllEnemies
+      ? await ApplyHeartDamageAll(hearts, player, context)
+      : await ApplyHeartDamage(hearts, target, player, context, triggers);
     var childEv = await HeartsState.SetHearts(player, context, 0, source);
     if (childEv.IsNullOrCancelled()) return ev;
     ev.Amount = hearts;
@@ -76,5 +79,16 @@ public static class LinkuraCmd {
     }
     await CreatureCmd.Damage(choiceContext, targets, value, ValueProp.Unpowered, player.Creature);
     return targets;
+  }
+
+  private static async Task<IReadOnlyList<Creature>> ApplyHeartDamageAll(int value, Player player, PlayerChoiceContext choiceContext) {
+    List<Creature> list = [.. from e in player.Creature.CombatState.GetOpponentsOf(player.Creature)
+                           where e.IsHittable
+                           select e];
+    if (list.Count == 0) {
+      return [];
+    }
+    await CreatureCmd.Damage(choiceContext, list, value, ValueProp.Unpowered, player.Creature);
+    return list;
   }
 }

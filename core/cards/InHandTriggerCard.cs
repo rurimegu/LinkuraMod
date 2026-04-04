@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -23,15 +24,25 @@ public abstract class InHandTriggerCard(int cost, CardType type, CardRarity rari
 
   private int _triggerCount;
 
-  protected async Task<Events.TriggerBackstageEvent> Trigger(PlayerChoiceContext ctx) {
+  // TODO: Make this private and make all callers call TriggerWithAction instead.
+  protected async Task<Events.TriggerBackstageEvent> TryTrigger(PlayerChoiceContext ctx) {
+    if (!CanTrigger()) return null;
     var ev = new Events.TriggerBackstageEvent(Owner, ctx, this);
     if (!await Events.TriggerBackstage.InvokeAllEarly(ev)) return null;
     return ev;
   }
 
-  protected Task<Events.TriggerBackstageEvent> TryTrigger(PlayerChoiceContext ctx) {
-    if (!CanTrigger()) return Task.FromResult<Events.TriggerBackstageEvent>(null);
-    return Trigger(ctx);
+  /// <summary>
+  /// Triggers the backstage effect, handling repetitions from powers like <c>HolidayHolidayPower</c>.
+  /// </summary>
+  protected async Task TriggerWithAction(PlayerChoiceContext ctx, Func<Task> action) {
+    var ev = await TryTrigger(ctx);
+    if (ev == null || ev.IsNullOrCancelled()) return;
+
+    for (int i = 0; i <= ev.RepeatCount; i++) {
+      await action();
+    }
+    await AfterTrigger(ev);
   }
 
   protected async Task AfterTrigger(Events.TriggerBackstageEvent ev) {

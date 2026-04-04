@@ -10,7 +10,7 @@ namespace RuriMegu.Core.Cards.Kaho.Common.Skill;
 
 /// <summary>
 /// Genyou Yakou (眩曜夜行) — Cost 0, Skill, Common.
-/// If you have 10 or more ♥, draw 1 (2) cards. Collect.
+/// If you have 10 or more ♥, draw 2 (3) cards. Collect.
 /// </summary>
 public class GenyouYakou() : LinkuraCard(0, CardType.Skill, CardRarity.Common, TargetType.None) {
   private const int HEARTS_THRESHOLD = 10;
@@ -20,7 +20,7 @@ public class GenyouYakou() : LinkuraCard(0, CardType.Skill, CardRarity.Common, T
   ];
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new CardsVar(1),
+    new CardsVar(2),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {

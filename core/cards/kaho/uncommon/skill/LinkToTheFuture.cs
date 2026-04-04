@@ -17,22 +17,19 @@ public class LinkToTheFuture() : LinkuraCard(1, CardType.Skill, CardRarity.Uncom
   private const int BASE_ENERGY_NEXT_TURN = 1;
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new BurstHeartsVar(2),
+    new TriggerAutoBurstVar(2),
     new EnergyVar(BASE_ENERGY_NEXT_TURN),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    int bursts = DynamicVars.BurstHearts().IntValue;
-    for (int i = 0; i < bursts; i++) {
-      await LinkuraCmd.TriggerAutoBurst(Owner, ctx, this);
-    }
+    await LinkuraCardActions.AutoBurst(this, ctx);
 
     int energyGain = DynamicVars.Energy.IntValue;
     await PowerCmd.Apply<EnergyNextTurnPower>(Owner.Creature, (decimal)energyGain, Owner.Creature, this);
   }
 
   protected override void OnUpgrade() {
-    DynamicVars.BurstHearts().UpgradeValueBy(1m);
+    DynamicVars.TriggerAutoBurst().UpgradeValueBy(1m);
     DynamicVars.Energy.UpgradeValueBy(1m);
   }
 }

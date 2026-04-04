@@ -76,6 +76,8 @@ Localization key rule: convert the C# class name to `UPPER_SNAKE_CASE` and use `
 
 Note that most of the built-in keywords, and the keywords annotated with `AutoKeywordPosition.Before` or `AutoKeywordPosition.After` will be automatically added to the card description, so no need to add them to i18n files again. Examples: `Ethereal`, `Exhaust`, `Retain`.
 
+You should always create an `EnergyVar` for energy-related effects, and write `Energy:energyIcons()}` in the description to display the energy icons. Do not use raw text like "1 energy".
+
 ### 4. Add placeholder portrait assets
 
 Copy the placeholder portrait files so the new filenames match the card class name:

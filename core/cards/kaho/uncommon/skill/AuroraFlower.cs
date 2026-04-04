@@ -14,21 +14,19 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 /// </summary>
 public class AuroraFlower() : LinkuraCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
   private const int BASE_BURST_AMOUNT = 1;
-  private const string TRIGGERS_VAR = "RURIMEGU-AURORA_TRIGGERS";
-
   protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new DynamicVar(TRIGGERS_VAR, 4),
+    new TriggerAutoBurstVar(4),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    int triggers = DynamicVars[TRIGGERS_VAR].IntValue;
+    int triggers = DynamicVars.TriggerAutoBurst().IntValue;
     for (int i = 0; i < triggers; i++) {
-      await LinkuraCmd.TriggerAutoBurst(Owner, ctx, this);
+      await LinkuraCardActions.AutoBurst(this, ctx, 1);
       await LinkuraCardActions.CollectHearts(this, ctx);
     }
   }
 
   protected override void OnUpgrade() {
-    DynamicVars[TRIGGERS_VAR].UpgradeValueBy(2m);
+    DynamicVars.TriggerAutoBurst().UpgradeValueBy(2m);
   }
 }

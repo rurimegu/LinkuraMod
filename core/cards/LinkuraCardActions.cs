@@ -18,4 +18,14 @@ public static class LinkuraCardActions {
   public static Task CollectHearts(CardModel card, PlayerChoiceContext context, Creature target = null, int triggers = 1) {
     return LinkuraCmd.CollectHearts(card.Owner, context, card, target, triggers);
   }
+
+  public static async Task AutoBurst(CardModel card, PlayerChoiceContext context, int triggers) {
+    for (int i = 0; i < triggers; i++) {
+      await LinkuraCmd.TriggerAutoBurst(card.Owner, context, card);
+    }
+  }
+
+  public static Task AutoBurst(CardModel card, PlayerChoiceContext context) {
+    return AutoBurst(card, context, card.DynamicVars.TriggerAutoBurst().IntValue);
+  }
 }
