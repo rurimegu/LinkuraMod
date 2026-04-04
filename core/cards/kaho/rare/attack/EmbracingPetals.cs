@@ -41,12 +41,7 @@ public class EmbracingPetals() : InHandTriggerCard(2, CardType.Attack, CardRarit
   private async Task OnCollectHearts(Events.CollectEvent ev) {
     if (ev.Player != Owner || ev.Amount <= 0) return;
 
-    var triggerEv = await TryTrigger(ev.Context);
-    if (triggerEv.IsNullOrCancelled()) return;
-
-    await PowerCmd.Apply<AutoBurstPower>(Owner.Creature, DynamicVars.AutoBurst().IntValue, Owner.Creature, this);
-
-    await AfterTrigger(triggerEv);
+    await TriggerWithAction(ev.Context, () => PowerCmd.Apply<AutoBurstPower>(Owner.Creature, DynamicVars.AutoBurst().IntValue, Owner.Creature, this));
   }
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {

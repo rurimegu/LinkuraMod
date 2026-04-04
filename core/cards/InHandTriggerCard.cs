@@ -24,28 +24,28 @@ public abstract class InHandTriggerCard(int cost, CardType type, CardRarity rari
 
   private int _triggerCount;
 
-  // TODO: Make this private and make all callers call TriggerWithAction instead.
-  protected async Task<Events.TriggerBackstageEvent> TryTrigger(PlayerChoiceContext ctx) {
+  private async Task<Events.TriggerBackstageEvent> TryTrigger(PlayerChoiceContext ctx) {
     if (!CanTrigger()) return null;
     var ev = new Events.TriggerBackstageEvent(Owner, ctx, this);
-    if (!await Events.TriggerBackstage.InvokeAllEarly(ev)) return null;
+    if (!await Events.TriggerBackstage.InvokeAllEarly(ev)) return ev;
     return ev;
   }
 
   /// <summary>
   /// Triggers the backstage effect, handling repetitions from powers like <c>HolidayHolidayPower</c>.
   /// </summary>
-  protected async Task TriggerWithAction(PlayerChoiceContext ctx, Func<Task> action) {
+  protected async Task<Events.TriggerBackstageEvent> TriggerWithAction(PlayerChoiceContext ctx, Func<Task> action) {
     var ev = await TryTrigger(ctx);
-    if (ev == null || ev.IsNullOrCancelled()) return;
+    if (ev == null || ev.IsNullOrCancelled()) return ev;
 
     for (int i = 0; i <= ev.RepeatCount; i++) {
       await action();
     }
     await AfterTrigger(ev);
+    return ev;
   }
 
-  protected async Task AfterTrigger(Events.TriggerBackstageEvent ev) {
+  private async Task AfterTrigger(Events.TriggerBackstageEvent ev) {
     _triggerCount++;
     await Events.TriggerBackstage.InvokeAllLate(ev);
   }

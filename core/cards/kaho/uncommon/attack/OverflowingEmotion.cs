@@ -11,37 +11,19 @@ using RuriMegu.Core.Utils;
 
 namespace RuriMegu.Core.Cards.Kaho.Uncommon.Attack;
 
-/// Overflowing Emotion — Cost 2, Attack, Uncommon, Ethereal, Exhaust.
+/// Overflowing Emotion — Cost 2, Attack, Uncommon, Ethereal.
 /// Deal 9 (12) damage.
 /// Backstage: whenever you Collect, permanently gain +2 (+3) damage.
 /// </summary>
 public class OverflowingEmotion() : InHandTriggerCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
-  private const int BASE_DAMAGE = 9;
-  private const int UPGRADED_BASE_DAMAGE = 12;
   private const string GROWTH_VAR = "OVERFLOWING_EMOTION_GROWTH";
-
-  private int _currentDamage = BASE_DAMAGE;
-  private int _increasedDamage;
 
   private Subscription _collectSubscription;
 
-  [SavedProperty]
-  public int CurrentDamage {
-    get {
-      return _currentDamage;
-    }
-    set {
-      AssertMutable();
-      _currentDamage = value;
-      DynamicVars.Damage.BaseValue = _currentDamage;
-    }
-  }
-
+  private int _increasedDamage;
   [SavedProperty]
   public int IncreasedDamage {
-    get {
-      return _increasedDamage;
-    }
+    get => _increasedDamage;
     set {
       AssertMutable();
       _increasedDamage = value;
@@ -54,15 +36,15 @@ public class OverflowingEmotion() : InHandTriggerCard(2, CardType.Attack, CardRa
   ];
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new DamageVar(CurrentDamage, ValueProp.Move),
+    new CalculationBaseVar(9),
+    new ExtraDamageVar(1),
+    new CalculatedDamageVar(ValueProp.Move).WithMultiplier(
+      (card, _) => (card as OverflowingEmotion)?._increasedDamage ?? 0),
     new DynamicVar(GROWTH_VAR, 2),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    await DamageCmd.Attack(DynamicVars.Damage.IntValue)
-      .FromCard(this)
-      .Targeting(play.Target)
-      .Execute(ctx);
+    await CommonActions.CardAttack(this, play).Execute(ctx);
   }
 
   public override Task BeforeCombatStartLate() {
@@ -79,30 +61,20 @@ public class OverflowingEmotion() : InHandTriggerCard(2, CardType.Attack, CardRa
   private async Task OnCollectHearts(Events.CollectEvent ev) {
     if (ev.Player != Owner || ev.Amount <= 0) return;
 
-    var triggerEv = await TryTrigger(ev.Context);
-    if (triggerEv.IsNullOrCancelled()) return;
-
-    int gain = DynamicVars[GROWTH_VAR].IntValue;
-    BuffFromCollect(gain);
-    (DeckVersion as OverflowingEmotion)?.BuffFromCollect(gain);
-    await AfterTrigger(triggerEv);
+    await TriggerWithAction(ev.Context, () => {
+      int gain = DynamicVars[GROWTH_VAR].IntValue;
+      BuffFromCollect(gain);
+      (DeckVersion as OverflowingEmotion)?.BuffFromCollect(gain);
+      return Task.CompletedTask;
+    });
   }
 
   private void BuffFromCollect(int extraDamage) {
     IncreasedDamage += extraDamage;
-    UpdateDamage();
-  }
-
-  private void UpdateDamage() {
-    CurrentDamage = (IsUpgraded ? UPGRADED_BASE_DAMAGE : BASE_DAMAGE) + IncreasedDamage;
   }
 
   protected override void OnUpgrade() {
+    DynamicVars.CalculationBase.UpgradeValueBy(3m);
     DynamicVars[GROWTH_VAR].UpgradeValueBy(1m);
-    UpdateDamage();
-  }
-
-  protected override void AfterDowngraded() {
-    UpdateDamage();
   }
 }

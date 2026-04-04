@@ -45,12 +45,12 @@ public class Celebration() : InHandTriggerCard(1, CardType.Skill, CardRarity.Unc
 
     int threshold = DynamicVars[THRESHOLD_VAR].IntValue;
     while (DynamicVars[TRACKER_VAR].IntValue >= threshold) {
-      var triggerEv = await TryTrigger(ev.Context);
-      if (triggerEv.IsNullOrCancelled()) break;
-      DynamicVars[TRACKER_VAR].BaseValue -= threshold;
-      // Draw 1 card as part of the trigger
-      await CommonActions.Draw(this, ev.Context);
-      await AfterTrigger(triggerEv);
+      int newTrackerVar = DynamicVars[TRACKER_VAR].IntValue - threshold;
+      var triggerEv = await TriggerWithAction(ev.Context, async () => {
+        DynamicVars[TRACKER_VAR].BaseValue = newTrackerVar;
+        await CommonActions.Draw(this, ev.Context);
+      });
+      if (triggerEv == null) break;
     }
   }
 

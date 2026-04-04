@@ -46,11 +46,10 @@ public class EphemeralYouth() : InHandTriggerCard(1, CardType.Attack, CardRarity
     await base.AfterCardPlayed(context, cardPlay);
     if (cardPlay.Card.Owner != Owner || cardPlay.Card == this) return;
 
-    var triggerEv = await TryTrigger(context);
-    if (triggerEv.IsNullOrCancelled()) return;
-
-    _reductionCountThisTurn++;
-    await AfterTrigger(triggerEv);
+    await TriggerWithAction(context, () => {
+      _reductionCountThisTurn++;
+      return Task.CompletedTask;
+    });
   }
 
   public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side) {

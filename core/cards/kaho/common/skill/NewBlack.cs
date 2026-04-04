@@ -47,11 +47,12 @@ public class NewBlack() : InHandTriggerCard(1, CardType.Skill, CardRarity.Common
     if (ev.Player != Owner || ev.ActualAmount <= 0 || !this.IsInHand()) return;
     DynamicVars[TRACKER_VAR].BaseValue += ev.ActualAmount;
     while (DynamicVars[TRACKER_VAR].IntValue >= BURST_PER_TRIGGER) {
-      var triggerEv = await TryTrigger(ev.Context);
-      if (triggerEv.IsNullOrCancelled()) return;
-      DynamicVars[TRACKER_VAR].BaseValue -= BURST_PER_TRIGGER;
-      await CreatureCmd.GainBlock(Owner.Creature, DynamicVars[BACKSTAGE_BLOCK_VAR].IntValue, ValueProp.Move, null);
-      await AfterTrigger(triggerEv);
+      int newTrackerVar = DynamicVars[TRACKER_VAR].IntValue - BURST_PER_TRIGGER;
+      var triggerEv = await TriggerWithAction(ev.Context, async () => {
+        DynamicVars[TRACKER_VAR].BaseValue = newTrackerVar;
+        await CreatureCmd.GainBlock(Owner.Creature, DynamicVars[BACKSTAGE_BLOCK_VAR].IntValue, ValueProp.Move, null);
+      });
+      if (triggerEv == null) break;
     }
   }
 

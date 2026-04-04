@@ -56,12 +56,11 @@ public class BuildUp() : InHandTriggerCard(1, CardType.Attack, CardRarity.Uncomm
   private async Task OnBurstHearts(Events.BurstEvent ev) {
     if (ev.Player != Owner || !this.IsInHand()) return;
 
-    var triggerEv = await TryTrigger(ev.Context);
-    if (triggerEv.IsNullOrCancelled()) return;
-
-    _burstCount++;
-    UpdateDisplayVars();
-    await AfterTrigger(triggerEv);
+    await TriggerWithAction(ev.Context, () => {
+      _burstCount++;
+      UpdateDisplayVars();
+      return Task.CompletedTask;
+    });
   }
 
   private void UpdateDisplayVars() {

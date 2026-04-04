@@ -34,11 +34,12 @@ public class ChoreographyMemo() : InHandTriggerCard(1, CardType.Skill, CardRarit
 
     int threshold = DynamicVars[THRESHOLD_VAR].IntValue;
     while (DynamicVars[TRACKER_VAR].IntValue >= threshold) {
-      var triggerEv = await TryTrigger(context);
-      if (triggerEv.IsNullOrCancelled()) break;
-      DynamicVars[TRACKER_VAR].BaseValue -= threshold;
-      await LinkuraCardActions.CollectHearts(this, context);
-      await AfterTrigger(triggerEv);
+      int newTrackerVar = DynamicVars[TRACKER_VAR].IntValue - threshold;
+      var triggerEv = await TriggerWithAction(context, async () => {
+        DynamicVars[TRACKER_VAR].BaseValue = newTrackerVar;
+        await LinkuraCardActions.CollectHearts(this, context);
+      });
+      if (triggerEv == null) break;
     }
   }
 

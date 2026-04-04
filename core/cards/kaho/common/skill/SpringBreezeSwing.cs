@@ -43,10 +43,7 @@ public class SpringBreezeSwing() : InHandTriggerCard(1, CardType.Skill, CardRari
     int currentHearts = HeartsState.GetHearts(Owner);
     int maxHearts = HeartsState.GetMaxHearts(Owner);
     if (currentHearts < maxHearts) return;
-    var triggerEv = await TryTrigger(ev.Context);
-    if (triggerEv.IsNullOrCancelled()) return;
-    await PlayerCmd.GainEnergy(DynamicVars.Energy.IntValue, Owner);
-    await AfterTrigger(triggerEv);
+    await TriggerWithAction(ev.Context, () => PlayerCmd.GainEnergy(DynamicVars.Energy.IntValue, Owner));
   }
 
   protected override void OnUpgrade() {

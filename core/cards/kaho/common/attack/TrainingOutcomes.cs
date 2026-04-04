@@ -51,13 +51,13 @@ public class TrainingOutcomes() : InHandTriggerCard(4, CardType.Attack, CardRari
 
   private async Task OnCollectHearts(Events.CollectEvent ev) {
     if (ev.Player != Owner) return;
-    var triggerEv = await TryTrigger(ev.Context);
-    if (triggerEv.IsNullOrCancelled()) return;
-    _costReduction++;
-    int newCost = Math.Max(0, BASE_COST - _costReduction);
-    EnergyCost.SetThisCombat(newCost);
-    InvokeEnergyCostChanged();
-    await AfterTrigger(triggerEv);
+    await TriggerWithAction(ev.Context, () => {
+      _costReduction++;
+      int newCost = Math.Max(0, BASE_COST - _costReduction);
+      EnergyCost.SetThisCombat(newCost);
+      InvokeEnergyCostChanged();
+      return Task.CompletedTask;
+    });
   }
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
