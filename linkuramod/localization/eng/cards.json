@@ -18,6 +18,8 @@
   "RURIMEGU-ENDURING_TRADITION.description": "Until the end of turn, whenever your Max ❤️ increases, trigger [gold]Auto Burst[/gold] that many times and [gold]Collect[/gold] instead.",
   "RURIMEGU-TWO_SECONDS_OF_ETERNITY.title": "Two Seconds Of Eternity",
   "RURIMEGU-TWO_SECONDS_OF_ETERNITY.description": "Play all other cards in your hand. This card's cost equals their total cost.",
+  "RURIMEGU-BALL_OF_TRAILS.title": "Ball of Trails",
+  "RURIMEGU-BALL_OF_TRAILS.description": "[gold]Burst[/gold] {RURIMEGU-BURST:diff()}. If drawn at the start of your turn, gain {Energy:energyIcons()} and discard your hand, then draw that many cards.",
   "RURIMEGU-SPECIAL_THANKS.description": "Gain {Block:diff()} Block. [gold]Backstage[/gold]: whenever you play an Attack, [gold]Burst[/gold] {RURIMEGU-BURST:diff()}.",
   "RURIMEGU-BUDDING_PREMONITION.title": "Budding Premonition",
   "RURIMEGU-BUDDING_PREMONITION.description": "Increase max ❤️ by {RURIMEGU-EXPAND_HEARTS:diff()}. Deal damage equal to your current max ❤️.",

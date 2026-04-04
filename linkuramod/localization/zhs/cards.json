@@ -22,6 +22,8 @@
   "RURIMEGU-ENDURING_TRADITION.description": "直到回合结束，每当你的❤️上限增加时，触发同等次数的[gold]Auto Burst[/gold]并[gold]收心[/gold]。",
   "RURIMEGU-TWO_SECONDS_OF_ETERNITY.title": "两秒的永远",
   "RURIMEGU-TWO_SECONDS_OF_ETERNITY.description": "打出你手牌中所有的其他牌。此牌的耗能等同于这些牌的耗能总和。",
+  "RURIMEGU-BALL_OF_TRAILS.title": "轨迹的舞会",
+  "RURIMEGU-BALL_OF_TRAILS.description": "[gold]爆心[/gold]{RURIMEGU-BURST:diff()}。如果在回合开始时抽到此牌，获得{Energy:energyIcons()}，弃掉你的手牌，并抽等量的牌。",
   "RURIMEGU-SPECIAL_THANKS.description": "获得{Block:diff()}点格挡。[gold]幕后[/gold]：每当你打出一张攻击牌，[gold]爆心[/gold]{RURIMEGU-BURST:diff()}。",
   "RURIMEGU-BUDDING_PREMONITION.title": "绽放的预感",
   "RURIMEGU-BUDDING_PREMONITION.description": "增加{RURIMEGU-EXPAND_HEARTS:diff()}点❤️上限。造成等同于你当前❤️上限的伤害。",

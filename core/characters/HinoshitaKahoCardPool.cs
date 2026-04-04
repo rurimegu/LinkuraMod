@@ -110,6 +110,7 @@ public class HinoshitaKahoCardPool : CustomCardPoolModel {
       ModelDb.Card<ExcessiveTraining>(),
       ModelDb.Card<EnduringTradition>(),
       ModelDb.Card<TwoSecondsOfEternity>(),
+      ModelDb.Card<BallOfTrails>(),
     ];
   }
 }
