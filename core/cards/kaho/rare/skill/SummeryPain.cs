@@ -28,9 +28,8 @@ public class SummeryPain() : InHandTriggerCard(1, CardType.Skill, CardRarity.Rar
     await LinkuraCardActions.DiscardAndDraw(this, ctx);
   }
 
-  public override async Task AfterCardPlayed(PlayerChoiceContext ctx, CardPlay play) {
-    await base.AfterCardPlayed(ctx, play);
-    if (!CanTrigger() || play.Card == this) return;
+  private async Task TriggerEffect(PlayerChoiceContext ctx) {
+    if (!CanTrigger()) return;
 
     var pile = PileType.Hand.GetPile(Owner);
 
@@ -42,6 +41,20 @@ public class SummeryPain() : InHandTriggerCard(1, CardType.Skill, CardRarity.Rar
       });
       if (cardsDrawn == 0) break;
     }
+  }
+
+  public override async Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw) {
+    if (card == this) {
+      await Cmd.Wait(0.5f);
+      await TriggerEffect(choiceContext);
+    }
+    await base.AfterCardDrawn(choiceContext, card, fromHandDraw);
+  }
+
+  public override async Task AfterCardPlayed(PlayerChoiceContext ctx, CardPlay play) {
+    await base.AfterCardPlayed(ctx, play);
+    if (play.Card == this) return;
+    await TriggerEffect(ctx);
   }
 
   protected override void OnUpgrade() {

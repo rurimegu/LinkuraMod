@@ -42,7 +42,7 @@
   "RURIMEGU-BUNNY_DEFEND.title": "Bunny Defend",
   "RURIMEGU-BUNNY_DEFEND.description": "Gain Block equal to your current max ❤️.",
   "RURIMEGU-GENYOU_YAKOU.title": "Genyou Yakou",
-  "RURIMEGU-GENYOU_YAKOU.description": "If you have 10 or more ❤️, draw {Cards:diff()} cards. [gold]Collect[/gold].",
+  "RURIMEGU-GENYOU_YAKOU.description": "If you have 8 or more ❤️, draw {Cards:diff()} cards. [gold]Collect[/gold].",
   "RURIMEGU-ZANYOU.title": "Zanyou",
   "RURIMEGU-ZANYOU.description": "Increase max ❤️ by {RURIMEGU-EXPAND_HEARTS:diff()}.",
   "RURIMEGU-NEW_BLACK.title": "Nεw Black",

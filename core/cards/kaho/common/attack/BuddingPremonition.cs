@@ -12,13 +12,13 @@ namespace RuriMegu.Core.Cards.Kaho.Common.Attack;
 
 /// <summary>
 /// Budding Premonition — Cost 2, Attack, Common, Exhaust.
-/// Increase max ♥ by 3 (5). Deal damage equal to current max ♥.
+/// Increase max ♥ by 5 (8). Deal damage equal to current max ♥.
 /// </summary>
 public class BuddingPremonition() : LinkuraCard(2, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) {
   public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new ExpandHeartsVar(3),
+    new ExpandHeartsVar(5),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
@@ -31,6 +31,6 @@ public class BuddingPremonition() : LinkuraCard(2, CardType.Attack, CardRarity.C
   }
 
   protected override void OnUpgrade() {
-    DynamicVars.ExpandHearts().UpgradeValueBy(2m);
+    DynamicVars.ExpandHearts().UpgradeValueBy(3m);
   }
 }

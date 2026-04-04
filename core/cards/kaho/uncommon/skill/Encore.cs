@@ -13,8 +13,8 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 
 /// <summary>
-/// Encore (安可) — Cost 1 (0), Skill, Uncommon.
-/// Gain 1 Block for every Burst triggered this turn. (Current: X) (Innate. Retain.)
+/// Encore (安可) — Cost 0, Skill, Uncommon.
+/// Collect. Gain 2 (3) Block for every Burst triggered this turn. (Current: X) (Innate. Retain.)
 /// </summary>
 public class Encore() : LinkuraCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
   private const string TRACKER_VAR = "ENCORE_TRACKER";
@@ -22,15 +22,17 @@ public class Encore() : LinkuraCard(0, CardType.Skill, CardRarity.Uncommon, Targ
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new DynamicVar(TRACKER_VAR, 0),
+    new BlockVar(2, ValueProp.Move),
   ];
 
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
     BurstHeartsVar.HoverTip(),
-    HoverTipFactory.Static(StaticHoverTip.Block),
+    HoverTipFactory.FromKeyword(LinkuraKeywords.Collect),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    int block = DynamicVars[TRACKER_VAR].IntValue;
+    await LinkuraCardActions.CollectHearts(this, ctx);
+    int block = DynamicVars[TRACKER_VAR].IntValue * DynamicVars.Block.IntValue;
     if (block > 0) {
       await CreatureCmd.GainBlock(Owner.Creature, block, ValueProp.Move, play);
     }
@@ -61,7 +63,6 @@ public class Encore() : LinkuraCard(0, CardType.Skill, CardRarity.Uncommon, Targ
   }
 
   protected override void OnUpgrade() {
-    AddKeyword(CardKeyword.Innate);
     AddKeyword(CardKeyword.Retain);
   }
 }
