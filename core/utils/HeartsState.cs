@@ -61,6 +61,7 @@ public static class HeartsState {
   public static async Task<Events.MaxHeartsChangedEvent> SetMaxHearts(Player player, PlayerChoiceContext ctx, int amount, CardModel source = null) {
     int clampedAmount = Math.Clamp(amount, 0, MAX_MAX_HEARTS);
     int oldMaxHearts = GetMaxHearts(player);
+    if (clampedAmount == oldMaxHearts) return null;
 
     var ev = new Events.MaxHeartsChangedEvent(
       player,

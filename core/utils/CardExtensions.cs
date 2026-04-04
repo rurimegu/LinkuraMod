@@ -39,6 +39,14 @@ public static class CardExtensions {
     return value;
   }
 
+  public static DynamicVar MaxHeartThreshold(this DynamicVarSet vars) {
+    if (!vars.TryGetValue(MaxHeartsThresholdVar.Key, out var value)) {
+      LinkuraMod.Logger.Error($"MaxHeartThresholdVar not found for card!");
+      return null;
+    }
+    return value;
+  }
+
 
   public static bool IsInHand(this CardModel card) {
     CardPile handPile = PileType.Hand.GetPile(card.Owner);

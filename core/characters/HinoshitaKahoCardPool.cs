@@ -7,6 +7,7 @@ using RuriMegu.Core.Cards.Kaho.Common.Attack;
 using RuriMegu.Core.Cards.Kaho.Common.Power;
 using RuriMegu.Core.Cards.Kaho.Common.Skill;
 using RuriMegu.Core.Cards.Kaho.Rare.Attack;
+using RuriMegu.Core.Cards.Kaho.Rare.Skill;
 using RuriMegu.Core.Cards.Kaho.Uncommon.Attack;
 using RuriMegu.Core.Cards.Kaho.Uncommon.Power;
 using RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
@@ -59,6 +60,7 @@ public class HinoshitaKahoCardPool : CustomCardPoolModel {
       ModelDb.Card<FanService>(),
       // Common power cards
       ModelDb.Card<GlowingRoutine>(),
+      ModelDb.Card<SectionChange>(),
       // Uncommon attack cards
       ModelDb.Card<UnfulfilledWishes>(),
       ModelDb.Card<Variations>(),
@@ -100,6 +102,13 @@ public class HinoshitaKahoCardPool : CustomCardPoolModel {
       ModelDb.Card<Srk>(),
       ModelDb.Card<EmbracingPetals>(),
       ModelDb.Card<SayoShigure>(),
+      // Rare skill cards
+      ModelDb.Card<AThousandChanges>(),
+      ModelDb.Card<SummeryPain>(),
+      ModelDb.Card<PresentPastFuture>(),
+      ModelDb.Card<IsThatCloudAWhale>(),
+      ModelDb.Card<ExcessiveTraining>(),
+      ModelDb.Card<EnduringTradition>(),
     ];
   }
 }
