@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using RuriMegu.Core.Utils;
 
@@ -21,6 +22,10 @@ public class Celebration() : InHandTriggerCard(1, CardType.Skill, CardRarity.Unc
     new CardsVar(1),
     new DynamicVar(TRACKER_VAR, 0),
     new DynamicVar(THRESHOLD_VAR, 5),
+  ];
+
+  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+    BurstHeartsVar.HoverTip(),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {

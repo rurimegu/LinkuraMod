@@ -17,6 +17,8 @@ public class ChoreographyMemo() : InHandTriggerCard(1, CardType.Skill, CardRarit
   private const string TRACKER_VAR = "CHOREOGRAPHY_TRACKER";
   private const string THRESHOLD_VAR = "CHOREOGRAPHY_THRESHOLD";
 
+  public override IEnumerable<CardKeyword> CanonicalKeywords => [LinkuraKeywords.Collect];
+
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new BurstHeartsVar(6),
     new DynamicVar(TRACKER_VAR, 0),

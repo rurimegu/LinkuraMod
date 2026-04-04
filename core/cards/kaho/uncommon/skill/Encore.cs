@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using RuriMegu.Core.Utils;
@@ -21,6 +22,10 @@ public class Encore() : LinkuraCard(0, CardType.Skill, CardRarity.Uncommon, Targ
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new DynamicVar(TRACKER_VAR, 0),
+  ];
+
+  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+    BurstHeartsVar.HoverTip(),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {

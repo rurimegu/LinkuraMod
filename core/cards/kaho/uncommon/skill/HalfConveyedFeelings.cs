@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using RuriMegu.Core.Utils;
 
@@ -14,6 +15,10 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 /// </summary>
 public class HalfConveyedFeelings() : LinkuraCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
   public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+
+  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+    BurstHeartsVar.HoverTip(),
+  ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     int maxHearts = HeartsState.GetMaxHearts(Owner);

@@ -15,6 +15,8 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Attack;
 /// Deal 6 (9) damage. Collect when drawn.
 /// </summary>
 public class SuddenInspiration() : LinkuraCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
+
+  public override IEnumerable<CardKeyword> CanonicalKeywords => [LinkuraKeywords.Collect];
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new DamageVar(6, ValueProp.Move),
   ];

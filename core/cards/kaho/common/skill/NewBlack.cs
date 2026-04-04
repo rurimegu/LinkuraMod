@@ -4,6 +4,7 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using RuriMegu.Core.Utils;
@@ -26,6 +27,8 @@ public class NewBlack() : InHandTriggerCard(1, CardType.Skill, CardRarity.Common
     new DynamicVar(BACKSTAGE_BLOCK_VAR, 3),
     new DynamicVar(TRACKER_VAR, 0),
   ];
+
+  protected override IEnumerable<IHoverTip> ExtraHoverTips => [BurstHeartsVar.HoverTip()];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     await CommonActions.CardBlock(this, play);

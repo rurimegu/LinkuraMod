@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using RuriMegu.Core.Powers;
@@ -17,6 +18,9 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Power;
 /// </summary>
 public class WelcomeIshikawa() : LinkuraCard(1, CardType.Power, CardRarity.Uncommon, TargetType.None) {
   public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Innate];
+  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+    HoverTipFactory.FromKeyword(LinkuraKeywords.Backstage),
+  ];
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new CardsVar(1),

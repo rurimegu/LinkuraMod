@@ -15,6 +15,8 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Attack;
 /// Deal 8 (11) damage. If current ❤️ is at max, Collect and gain 2 energy.
 /// </summary>
 public class FullBloomSprint() : LinkuraCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
+
+  public override IEnumerable<CardKeyword> CanonicalKeywords => [LinkuraKeywords.Collect];
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new DamageVar(8, ValueProp.Move),
     new EnergyVar(2),

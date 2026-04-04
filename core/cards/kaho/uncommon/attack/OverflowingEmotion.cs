@@ -4,6 +4,7 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Saves.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -41,6 +42,10 @@ public class OverflowingEmotion() : InHandTriggerCard(2, CardType.Attack, CardRa
     new CalculatedDamageVar(ValueProp.Move).WithMultiplier(
       (card, _) => (card as OverflowingEmotion)?._increasedDamage ?? 0),
     new DynamicVar(GROWTH_VAR, 2),
+  ];
+
+  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+    HoverTipFactory.FromKeyword(LinkuraKeywords.Collect)
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {

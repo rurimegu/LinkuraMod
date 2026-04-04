@@ -4,6 +4,7 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using RuriMegu.Core.Utils;
@@ -29,6 +30,8 @@ public class BuildUp() : InHandTriggerCard(1, CardType.Attack, CardRarity.Uncomm
     new DynamicVar(TRACKER_VAR, 0),
     new DynamicVar(DRAW_PREVIEW_VAR, 1),
   ];
+
+  protected override IEnumerable<IHoverTip> ExtraHoverTips => [BurstHeartsVar.HoverTip()];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     int totalDraw = DynamicVars[DRAW_PREVIEW_VAR].IntValue;

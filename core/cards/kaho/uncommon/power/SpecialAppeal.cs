@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using RuriMegu.Core.Powers;
 using RuriMegu.Core.Utils;
@@ -15,6 +16,11 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Power;
 /// Upgrade: Innate.
 /// </summary>
 public class SpecialAppeal() : LinkuraCard(1, CardType.Power, CardRarity.Uncommon, TargetType.None) {
+
+  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+    HoverTipFactory.FromKeyword(LinkuraKeywords.Collect),
+  ];
+
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     await PowerCmd.Apply<SpecialAppealPower>(Owner.Creature, 1, Owner.Creature, this);
   }

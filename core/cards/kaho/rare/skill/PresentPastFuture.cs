@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using RuriMegu.Core.Utils;
@@ -18,14 +19,18 @@ namespace RuriMegu.Core.Cards.Kaho.Rare.Skill;
 /// Backstage: every 30 (20) Burst, trigger this effect.
 /// </summary>
 public class PresentPastFuture() : InHandTriggerCard(1, CardType.Skill, CardRarity.Rare, TargetType.None) {
-  private const string TRACKER_VAR = "EXPECTATION_TRACKER";
-  private const string THRESHOLD_VAR = "RURIMEGU-EXPECTATION_THRESHOLD";
+  private const string TRACKER_VAR = "RURIMEGU-PPF_TRACKER";
+  private const string THRESHOLD_VAR = "RURIMEGU-PPF_THRESHOLD";
 
   private Subscription _sub;
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new DynamicVar(THRESHOLD_VAR, 30m),
     new DynamicVar(TRACKER_VAR, 0m),
+  ];
+
+  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+    HoverTipFactory.FromKeyword(LinkuraKeywords.Collect),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {

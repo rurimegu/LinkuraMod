@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -24,6 +25,10 @@ public class EmbracingPetals() : InHandTriggerCard(2, CardType.Attack, CardRarit
     new CalculatedDamageVar(ValueProp.Move).WithMultiplier((_, creature) => creature.GetPowerAmount<AutoBurstPower>()),
     new AutoBurstVar(1),
     new RepeatVar(6),
+  ];
+
+  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+    HoverTipFactory.FromKeyword(LinkuraKeywords.Collect),
   ];
 
   public override Task BeforeCombatStartLate() {

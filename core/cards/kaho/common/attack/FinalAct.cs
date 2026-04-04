@@ -12,7 +12,7 @@ namespace RuriMegu.Core.Cards.Kaho.Common.Attack;
 /// Deal damage equal to your current ♥. Collect. Ethereal. (Remove Ethereal on upgrade.)
 /// </summary>
 public class FinalAct() : LinkuraCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) {
-  public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
+  public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal, LinkuraKeywords.Collect];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     int hearts = HeartsState.GetHearts(Owner);

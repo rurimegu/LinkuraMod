@@ -19,7 +19,7 @@ public class LinkuraSystem : LinkuraRelic {
 
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
     HoverTipFactory.FromPower<AutoBurstPower>(),
-    BurstHeartsVar.LocKey.HoverTip(new BurstHeartsVar(1))
+    BurstHeartsVar.HoverTip(),
   ];
 
   public override async Task BeforeCombatStart() {
