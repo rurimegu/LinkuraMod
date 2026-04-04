@@ -76,12 +76,11 @@ public static class HeartsState {
     if (!await Events.MaxHeartsChanged.InvokeAllEarly(ev)) return ev;
 
     await SetAmount<MaxHeartsPower>(player, clampedAmount, source);
+    await Events.MaxHeartsChanged.InvokeAllLate(ev);
 
     if (GetHearts(player) > clampedAmount) {
       await SetHearts(player, ctx, clampedAmount, source);
     }
-
-    await Events.MaxHeartsChanged.InvokeAllLate(ev);
     return ev;
   }
 

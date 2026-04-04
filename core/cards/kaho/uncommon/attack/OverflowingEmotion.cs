@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
@@ -31,10 +32,7 @@ public class OverflowingEmotion() : InHandTriggerCard(2, CardType.Attack, CardRa
     }
   }
 
-  public override IEnumerable<CardKeyword> CanonicalKeywords => [
-    LinkuraKeywords.Backstage,
-    CardKeyword.Ethereal,
-  ];
+  public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Append(CardKeyword.Ethereal);
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new CalculationBaseVar(9),

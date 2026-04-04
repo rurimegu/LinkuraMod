@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -17,6 +18,10 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Power;
 public class SugarMelt() : LinkuraCard(2, CardType.Power, CardRarity.Uncommon, TargetType.None) {
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new AutoBurstVar(2),
+  ];
+
+  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+    HoverTipFactory.FromPower<AutoBurstPower>(),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {

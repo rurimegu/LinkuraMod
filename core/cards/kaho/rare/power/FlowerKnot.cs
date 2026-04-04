@@ -16,7 +16,7 @@ public class FlowerKnot() : LinkuraCard(1, CardType.Power, CardRarity.Rare, Targ
 
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
     HoverTipFactory.FromKeyword(LinkuraKeywords.Backstage),
-    AutoBurstVar.HoverTip(),
+    HoverTipFactory.FromPower<AutoBurstPower>(),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {

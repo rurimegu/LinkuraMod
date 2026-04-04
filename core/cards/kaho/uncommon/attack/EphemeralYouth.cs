@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
@@ -21,10 +22,7 @@ public class EphemeralYouth() : InHandTriggerCard(1, CardType.Attack, CardRarity
 
   private int _reductionCountThisTurn = 0;
 
-  public override IEnumerable<CardKeyword> CanonicalKeywords => [
-    LinkuraKeywords.Backstage,
-    CardKeyword.Ethereal,
-  ];
+  public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Append(CardKeyword.Ethereal);
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new CalculationBaseVar(14),

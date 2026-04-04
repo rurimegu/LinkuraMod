@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using RuriMegu.Core.Utils;
@@ -16,9 +18,6 @@ namespace RuriMegu.Core.Cards.Kaho.Common.Attack;
 /// Backstage: whenever you Collect, this card costs 1 less in this combat.
 /// </summary>
 public class TrainingOutcomes() : InHandTriggerCard(4, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) {
-  private const int BASE_COST = 4;
-
-  private int _costReduction;
   private Subscription _collectHeartsSubscription;
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
@@ -26,15 +25,8 @@ public class TrainingOutcomes() : InHandTriggerCard(4, CardType.Attack, CardRari
     new EnergyVar(1),
   ];
 
-  public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay) {
-    await base.AfterCardPlayed(context, cardPlay);
-
-    // When this card itself is played, consume and reset the cost reduction.
-    if (cardPlay.Card == this) {
-      _costReduction = 0;
-      return;
-    }
-  }
+  protected override IEnumerable<IHoverTip> ExtraHoverTips => base.ExtraHoverTips.Append(
+    HoverTipFactory.FromKeyword(LinkuraKeywords.Collect));
 
   // Override BeforeCombatStartLate to subscribe to CollectHearts events.
   public override Task BeforeCombatStartLate() {
@@ -45,14 +37,12 @@ public class TrainingOutcomes() : InHandTriggerCard(4, CardType.Attack, CardRari
   public override Task AfterCombatEnd(MegaCrit.Sts2.Core.Rooms.CombatRoom room) {
     _collectHeartsSubscription?.Dispose();
     _collectHeartsSubscription = null;
-    _costReduction = 0;
     return Task.CompletedTask;
   }
 
   private async Task OnCollectHearts(Events.CollectEvent ev) {
     if (ev.Player != Owner) return;
     await TriggerWithAction(ev.Context, () => {
-      _costReduction++;
       EnergyCost.AddThisCombat(-1, true);
       InvokeEnergyCostChanged();
       return Task.CompletedTask;

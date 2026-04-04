@@ -15,7 +15,8 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 public class MentalGuard() : LinkuraCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
   public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-    BurstHeartsVar.HoverTip()
+    BurstHeartsVar.HoverTip(),
+    HoverTipFactory.Static(StaticHoverTip.Block),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {

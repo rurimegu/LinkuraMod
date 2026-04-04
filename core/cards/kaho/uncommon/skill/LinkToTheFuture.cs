@@ -3,8 +3,10 @@ using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
+using RuriMegu.Core.Powers;
 using RuriMegu.Core.Utils;
 
 namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
@@ -19,6 +21,9 @@ public class LinkToTheFuture() : LinkuraCard(1, CardType.Skill, CardRarity.Uncom
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new TriggerAutoBurstVar(2),
     new EnergyVar(BASE_ENERGY_NEXT_TURN),
+  ];
+  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+    HoverTipFactory.FromPower<AutoBurstPower>(),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {

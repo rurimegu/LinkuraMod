@@ -14,7 +14,7 @@ namespace RuriMegu.Core.Cards.Kaho.Rare.Skill;
 /// </summary>
 public class EnduringTradition() : LinkuraCard(1, CardType.Skill, CardRarity.Rare, TargetType.None) {
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-    AutoBurstVar.HoverTip(),
+    HoverTipFactory.FromPower<AutoBurstPower>(),
     HoverTipFactory.FromKeyword(LinkuraKeywords.Collect),
   ];
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -27,9 +28,10 @@ public class EmbracingPetals() : InHandTriggerCard(2, CardType.Attack, CardRarit
     new RepeatVar(6),
   ];
 
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+  protected override IEnumerable<IHoverTip> ExtraHoverTips => base.ExtraHoverTips.Concat([
     HoverTipFactory.FromKeyword(LinkuraKeywords.Collect),
-  ];
+    HoverTipFactory.FromPower<AutoBurstPower>(),
+  ]);
 
   public override Task BeforeCombatStartLate() {
     _collectHeartsSubscription = Events.Collect.SubscribeLate(OnCollectHearts);

@@ -3,7 +3,9 @@ using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using RuriMegu.Core.Powers;
 using RuriMegu.Core.Utils;
 
 namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
@@ -17,6 +19,9 @@ public class AuroraFlower() : LinkuraCard(1, CardType.Skill, CardRarity.Uncommon
   public override IEnumerable<CardKeyword> CanonicalKeywords => [LinkuraKeywords.Collect];
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new TriggerAutoBurstVar(4),
+  ];
+  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+    HoverTipFactory.FromPower<AutoBurstPower>(),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -17,7 +18,7 @@ public class ChoreographyMemo() : InHandTriggerCard(1, CardType.Skill, CardRarit
   private const string TRACKER_VAR = "CHOREOGRAPHY_TRACKER";
   private const string THRESHOLD_VAR = "CHOREOGRAPHY_THRESHOLD";
 
-  public override IEnumerable<CardKeyword> CanonicalKeywords => [LinkuraKeywords.Collect];
+  public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Append(LinkuraKeywords.Collect);
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new BurstHeartsVar(6),

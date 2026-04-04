@@ -15,9 +15,9 @@
   "RURIMEGU-PRESENT_PAST_FUTURE.title": "现在、过去、未来",
   "RURIMEGU-PRESENT_PAST_FUTURE.description": "弃掉你的手牌，并抽等量的牌。[gold]幕后[/gold]：你每[gold]收心[/gold]{RURIMEGU-PPF_THRESHOLD}颗，触发此牌效果。（当前：{RURIMEGU-PPF_TRACKER}）",
   "RURIMEGU-IS_THAT_CLOUD_A_WHALE.title": "那朵云是鲸鱼？",
-  "RURIMEGU-IS_THAT_CLOUD_A_WHALE.description": "你每有{RURIMEGU-MAX_HEARTS_THRESHOLD}点❤️上限，获得1层[gold]无实体[/gold]。将❤️上限重置为9。",
+  "RURIMEGU-IS_THAT_CLOUD_A_WHALE.description": "你每有{RURIMEGU-MAX_HEARTS_THRESHOLD:diff()}点❤️上限，获得1层[gold]无实体[/gold]。将❤️上限重置为9。",
   "RURIMEGU-EXCESSIVE_TRAINING.title": "超负荷练习",
-  "RURIMEGU-EXCESSIVE_TRAINING.description": "减少{RURIMEGU-MAX_HEARTS_THRESHOLD}点❤️上限，最多减少{RURIMEGU-MAX_TIMES}次。每减少一次，获得{Energy:energyIcons()}。",
+  "RURIMEGU-EXCESSIVE_TRAINING.description": "减少{RURIMEGU-MAX_HEARTS_THRESHOLD:diff()}点❤️上限，最多减少{RURIMEGU-MAX_TIMES:diff()}次。每减少一次，获得{Energy:energyIcons()}。",
   "RURIMEGU-ENDURING_TRADITION.title": "传承的传统",
   "RURIMEGU-ENDURING_TRADITION.description": "直到回合结束，每当你的❤️上限增加时，触发同等次数的[gold]自然爆心[/gold]并[gold]收心[/gold]。",
   "RURIMEGU-TWO_SECONDS_OF_ETERNITY.title": "两秒的永远",
@@ -142,7 +142,7 @@
   "RURIMEGU-AUTO_CLICKER_ON.title": "连点器：On",
   "RURIMEGU-AUTO_CLICKER_ON.description": "每当你[gold]爆心[/gold]，[gold]收心[/gold]。所有敌人获得99层[gold]无实体[/gold]。",
   "RURIMEGU-FLOWER_KNOT.title": "花结",
-  "RURIMEGU-FLOWER_KNOT.description": "每触发一次[gold]后台[/gold]效果，触发一次[gold]自然爆心[/gold]。",
+  "RURIMEGU-FLOWER_KNOT.description": "每触发一次[gold]幕后[/gold]效果，触发一次[gold]自然爆心[/gold]。",
   "RURIMEGU-REFLECTION_IN_THE_MIRROR.title": "镜中倒影",
   "RURIMEGU-REFLECTION_IN_THE_MIRROR.description": "增加❤️上限的效果触发两次。",
   "RURIMEGU-PROLOGUE.title": "序章",
@@ -150,5 +150,5 @@
   "RURIMEGU-MAY_DREAMS_BLOOM.title": "愿梦想绽放一生",
   "RURIMEGU-MAY_DREAMS_BLOOM.description": "每溢出{RURIMEGU-MAX_HEARTS_THRESHOLD:diff()}❤️，获得1层[gold]自然爆心[/gold]。",
   "RURIMEGU-BLOOM_GARDEN_PARTY.title": "Bloom Garden Party",
-  "RURIMEGU-BLOOM_GARDEN_PARTY.description": "你的[gold]后台[/gold]效果也可以在弃牌堆中触发。"
+  "RURIMEGU-BLOOM_GARDEN_PARTY.description": "你的[gold]幕后[/gold]效果在弃牌堆中也可以触发。"
 }

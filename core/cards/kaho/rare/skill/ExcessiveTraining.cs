@@ -10,13 +10,13 @@ namespace RuriMegu.Core.Cards.Kaho.Rare.Skill;
 
 /// <summary>
 /// Excessive Training — Cost 0, Skill, Rare.
-/// Reduce 6 (4) Max ❤️ up to 3 (4) times. Gain [E] for each reduction.
+/// Reduce 4 (3) Max ❤️ up to 3 (4) times. Gain [E] for each reduction.
 /// </summary>
 public class ExcessiveTraining() : LinkuraCard(0, CardType.Skill, CardRarity.Rare, TargetType.None) {
   private const string MAX_TIMES_KEY = "RURIMEGU-MAX_TIMES";
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new MaxHeartsThresholdVar(6m),
+    new MaxHeartsThresholdVar(4m),
     new DynamicVar(MAX_TIMES_KEY, 3m),
     new EnergyVar(1),
   ];
@@ -34,7 +34,7 @@ public class ExcessiveTraining() : LinkuraCard(0, CardType.Skill, CardRarity.Rar
   }
 
   protected override void OnUpgrade() {
-    DynamicVars.MaxHeartThreshold().UpgradeValueBy(-2m);
+    DynamicVars.MaxHeartThreshold().UpgradeValueBy(-1m);
     DynamicVars[MAX_TIMES_KEY].UpgradeValueBy(1m);
   }
 }

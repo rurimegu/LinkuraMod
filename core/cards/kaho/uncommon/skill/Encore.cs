@@ -26,6 +26,7 @@ public class Encore() : LinkuraCard(0, CardType.Skill, CardRarity.Uncommon, Targ
 
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
     BurstHeartsVar.HoverTip(),
+    HoverTipFactory.Static(StaticHoverTip.Block),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
