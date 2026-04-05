@@ -38,9 +38,6 @@ public static class HeartsState {
   public static async Task<Events.HeartsChangedEvent> SetHearts(Player player, PlayerChoiceContext ctx, int amount, CardModel source = null) {
     int oldHearts = GetHearts(player);
     int clampedAmount = Math.Clamp(amount, 0, GetMaxHearts(player));
-    if (oldHearts == clampedAmount) {
-      return null;
-    }
 
     var ev = new Events.HeartsChangedEvent(
       player,
@@ -51,6 +48,9 @@ public static class HeartsState {
       clampedAmount - oldHearts,
       source
     );
+    if (oldHearts == clampedAmount) {
+      return ev;
+    }
 
     if (!await Events.HeartsChanged.InvokeAllEarly(ev)) return ev;
 
@@ -63,7 +63,6 @@ public static class HeartsState {
   public static async Task<Events.MaxHeartsChangedEvent> SetMaxHearts(Player player, PlayerChoiceContext ctx, int amount, CardModel source = null) {
     int clampedAmount = Math.Clamp(amount, 0, MAX_MAX_HEARTS);
     int oldMaxHearts = GetMaxHearts(player);
-    if (clampedAmount == oldMaxHearts) return null;
 
     var ev = new Events.MaxHeartsChangedEvent(
       player,
@@ -74,6 +73,7 @@ public static class HeartsState {
       clampedAmount - oldMaxHearts,
       source
     );
+    if (clampedAmount == oldMaxHearts) return ev;
 
     if (!await Events.MaxHeartsChanged.InvokeAllEarly(ev)) return ev;
 

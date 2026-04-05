@@ -53,7 +53,7 @@ public class ProloguePower : LinkuraPower {
   }
 
   private Task OnMaxHeartsChangedLate(Events.MaxHeartsChangedEvent ev) {
-    if (ev.Player.Creature != Owner) return Task.CompletedTask;
+    if (ev.Player.Creature != Owner || ev.NewMaxHearts == ev.OldMaxHearts) return Task.CompletedTask;
     _pendingDiscounts++;
     Flash();
     return Task.CompletedTask;

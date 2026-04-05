@@ -16,7 +16,7 @@ namespace RuriMegu.Core.Cards.Kaho.Rare.Skill;
 /// <summary>
 /// Present, Past, Future — Cost 1, Skill, Rare.
 /// Discard hand, draw same amount.
-/// Backstage: every 20 (15) Burst, trigger this effect.
+/// Backstage: every 15 (10) Burst, trigger this effect.
 /// </summary>
 public class PresentPastFuture() : InHandTriggerCard(1, CardType.Skill, CardRarity.Rare, TargetType.None) {
   private const string TRACKER_VAR = "RURIMEGU-PPF_TRACKER";
@@ -25,7 +25,7 @@ public class PresentPastFuture() : InHandTriggerCard(1, CardType.Skill, CardRari
   private Subscription _sub;
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new DynamicVar(THRESHOLD_VAR, 20m),
+    new DynamicVar(THRESHOLD_VAR, 15m),
     new DynamicVar(TRACKER_VAR, 0m),
   ];
 

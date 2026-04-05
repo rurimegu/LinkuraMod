@@ -45,7 +45,7 @@ public class Variations() : InHandTriggerCard(1, CardType.Attack, CardRarity.Unc
   }
 
   private async Task OnMaxHeartsChanged(Events.MaxHeartsChangedEvent ev) {
-    if (ev.Player != Owner) return;
+    if (ev.Player != Owner || ev.NewMaxHearts == ev.OldMaxHearts) return;
     await TriggerWithAction(ev.Context, () => {
       EnergyCost.AddUntilPlayed(-1, true);
       _costReduced = true;

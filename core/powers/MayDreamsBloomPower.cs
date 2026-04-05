@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using RuriMegu.Core.Utils;
 
@@ -16,12 +18,16 @@ public abstract class MayDreamsBloomPowerBase : LinkuraPower {
 
   protected abstract int Threshold { get; }
 
-  private int _accumulatedOverflow;
+  private const string TRACKER_VAR = "MAY_DREAMS_BLOOM_TRACKER";
+
+  protected override IEnumerable<DynamicVar> CanonicalVars => [
+    new DynamicVar(TRACKER_VAR, 0),
+  ];
 
   public override Task AfterApplied(Creature applier, CardModel cardSource) {
     DisposeTrackedSubscriptions();
     TrackSubscription(Events.Burst.SubscribeLate(OnBurstLate));
-    _accumulatedOverflow = 0;
+    DynamicVars[TRACKER_VAR].BaseValue = 0;
     return base.AfterApplied(applier, cardSource);
   }
 
@@ -30,11 +36,14 @@ public abstract class MayDreamsBloomPowerBase : LinkuraPower {
     int overflow = ev.RequestedAmount - ev.ActualAmount;
     if (overflow <= 0) return;
 
-    _accumulatedOverflow += overflow;
-    while (_accumulatedOverflow >= Threshold) {
-      _accumulatedOverflow -= Threshold;
+    int accumulatedOverflow = (int)DynamicVars[TRACKER_VAR].BaseValue;
+    accumulatedOverflow += overflow;
+    while (accumulatedOverflow >= Threshold) {
+      accumulatedOverflow -= Threshold;
+      Flash();
       await LinkuraCmd.GainAutoBurst(Owner, Amount, Owner, null);
     }
+    DynamicVars[TRACKER_VAR].BaseValue = accumulatedOverflow;
   }
 }
 

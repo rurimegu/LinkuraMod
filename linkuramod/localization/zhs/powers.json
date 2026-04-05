@@ -76,15 +76,15 @@
   "RURIMEGU-PROLOGUE_POWER.description": "每当你的❤️上限变化，你在本回合打出的下一张牌耗能减少。",
   "RURIMEGU-PROLOGUE_POWER.smartDescription": "每当你的❤️上限变化，你在本回合打出的下一张牌耗能减少{Amount:energyIcons()}。",
   "RURIMEGU-MAY_DREAMS_BLOOM_POWER.title": "愿梦想绽放一生",
-  "RURIMEGU-MAY_DREAMS_BLOOM_POWER.description": "每溢出20颗❤️，获得1层[gold]自然爆心[/gold]。",
-  "RURIMEGU-MAY_DREAMS_BLOOM_POWER.smartDescription": "每溢出20颗❤️，获得{Amount}层[gold]自然爆心[/gold]。",
+  "RURIMEGU-MAY_DREAMS_BLOOM_POWER.description": "每溢出20颗❤️，获得1层[gold]自然爆心[/gold]。(当前：{MAY_DREAMS_BLOOM_TRACKER})",
+  "RURIMEGU-MAY_DREAMS_BLOOM_POWER.smartDescription": "每溢出20颗❤️，获得{Amount}层[gold]自然爆心[/gold]。(当前：{MAY_DREAMS_BLOOM_TRACKER})",
   "RURIMEGU-MAY_DREAMS_BLOOM_UPGRADED_POWER.title": "愿梦想绽放一生+",
-  "RURIMEGU-MAY_DREAMS_BLOOM_UPGRADED_POWER.description": "每溢出15颗❤️，获得1层[gold]自然爆心[/gold]。",
-  "RURIMEGU-MAY_DREAMS_BLOOM_UPGRADED_POWER.smartDescription": "每溢出15颗❤️，获得{Amount}层[gold]自然爆心[/gold]。",
+  "RURIMEGU-MAY_DREAMS_BLOOM_UPGRADED_POWER.description": "每溢出15颗❤️，获得1层[gold]自然爆心[/gold]。(当前：{MAY_DREAMS_BLOOM_TRACKER})",
+  "RURIMEGU-MAY_DREAMS_BLOOM_UPGRADED_POWER.smartDescription": "每溢出15颗❤️，获得{Amount}层[gold]自然爆心[/gold]。(当前：{MAY_DREAMS_BLOOM_TRACKER})",
   "RURIMEGU-BLOOM_GARDEN_PARTY_POWER.title": "Bloom Garden Party",
   "RURIMEGU-BLOOM_GARDEN_PARTY_POWER.description": "你的[gold]幕后[/gold]效果也可以在[gold]弃牌堆[/gold]中触发。",
   "RURIMEGU-BLOOM_GARDEN_PARTY_POWER.smartDescription": "你的[gold]幕后[/gold]效果也可以在[gold]弃牌堆[/gold]中触发。",
   "RURIMEGU-SUGAR_MELT_POWER.title": "甜蜜融化",
-  "RURIMEGU-SUGAR_MELT_POWER.description": "每当你[gold]自然爆心[/gold]，获得等量[gold]格挡[/gold]。",
-  "RURIMEGU-SUGAR_MELT_POWER.smartDescription": "每当你[gold]自然爆心[/gold]，获得等量[gold]格挡[/gold]。"
+  "RURIMEGU-SUGAR_MELT_POWER.description": "每当你[gold]自然爆心[/gold]，获得1点[gold]格挡[/gold]。",
+  "RURIMEGU-SUGAR_MELT_POWER.smartDescription": "每当你[gold]自然爆心[/gold]，获得{Amount}点[gold]格挡[/gold]。"
 }

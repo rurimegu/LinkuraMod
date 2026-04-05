@@ -29,7 +29,8 @@ public class AutoCollectOnPower : LinkuraPower {
 
   private async Task OnMaxHeartsChangedLate(Events.MaxHeartsChangedEvent ev) {
     if (ev.Player.Creature != Owner) return;
-    if (ev.Hearts < ev.NewMaxHearts || ev.NewMaxHearts <= 0) return;
+    if (ev.NewMaxHearts <= 0 || ev.NewMaxHearts == ev.OldMaxHearts) return;
+    if (ev.Hearts < ev.NewMaxHearts) return;
     await LinkuraCmd.CollectHearts(ev.Player, ev.Context);
   }
 }
