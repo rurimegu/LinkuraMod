@@ -22,7 +22,7 @@ public class FullBloomSprint() : LinkuraCard(2, CardType.Attack, CardRarity.Unco
     new EnergyVar(2),
   ];
 
-  protected override bool ShouldGlowGoldInternal => HeartsState.GetHearts(Owner) >= HeartsState.GetMaxHearts(Owner);
+  protected override bool ShouldGlowGoldInternal => HeartsState.ReachedMaxHearts(Owner);
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     await CommonActions.CardAttack(this, play.Target).Execute(ctx);

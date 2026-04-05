@@ -32,8 +32,8 @@ public class EnduringTraditionPower() : LinkuraPower {
 
     for (int i = 0; i < amount; i++) {
       await LinkuraCmd.TriggerAutoBurst(ev.Player, ev.Context, ev.Source);
+      await LinkuraCmd.CollectHearts(ev.Player, ev.Context, ev.Source);
     }
-    await LinkuraCmd.CollectHearts(ev.Player, ev.Context, ev.Source);
   }
 
   public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side) {

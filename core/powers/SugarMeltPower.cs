@@ -14,7 +14,7 @@ namespace RuriMegu.Core.Powers;
 /// </summary>
 public class SugarMeltPower : LinkuraPower {
   public override PowerType Type => PowerType.Buff;
-  public override PowerStackType StackType => PowerStackType.Single;
+  public override PowerStackType StackType => PowerStackType.Counter;
 
   public override Task AfterApplied(Creature applier, CardModel cardSource) {
     DisposeTrackedSubscriptions();
@@ -24,8 +24,8 @@ public class SugarMeltPower : LinkuraPower {
 
   private async Task OnAutoBurstLate(Events.AutoBurstEvent ev) {
     if (ev.Player.Creature != Owner) return;
-    int blockGain = ev.BurstEvent?.ActualAmount ?? 0;
-    if (blockGain <= 0) return;
-    await CreatureCmd.GainBlock(Owner, blockGain, ValueProp.Unpowered, null);
+    int actual = ev.BurstEvent?.ActualAmount ?? 0;
+    if (actual <= 0) return;
+    await CreatureCmd.GainBlock(Owner, Amount, ValueProp.Unpowered, null);
   }
 }

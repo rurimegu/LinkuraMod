@@ -22,7 +22,7 @@ public class Celebration() : InHandTriggerCard(1, CardType.Skill, CardRarity.Unc
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new CardsVar(2),
     new DynamicVar(TRACKER_VAR, 0),
-    new DynamicVar(THRESHOLD_VAR, 5),
+    new DynamicVar(THRESHOLD_VAR, 4),
   ];
 
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [

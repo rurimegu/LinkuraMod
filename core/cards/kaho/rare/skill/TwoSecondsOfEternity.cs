@@ -48,7 +48,7 @@ public class TwoSecondsOfEternity() : LinkuraCard(0, CardType.Skill, CardRarity.
     if (hand == null) return;
 
     int totalCost = hand.Cards
-      .Where(c => c != this)
+      .Where(c => c is not TwoSecondsOfEternity)
       .Sum(c => Math.Max(0, c.EnergyCost.GetWithModifiers(CostModifiers.All)));
 
     EnergyCost.SetCustomBaseCost(totalCost);

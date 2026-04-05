@@ -143,7 +143,7 @@
   "RURIMEGU-REFLECTION_IN_THE_MIRROR.title": "Reflection in the Mirror",
   "RURIMEGU-REFLECTION_IN_THE_MIRROR.description": "Effects that increase your Max ❤️ trigger twice.",
   "RURIMEGU-PROLOGUE.title": "Prologue",
-  "RURIMEGU-PROLOGUE.description": "The first time your Max ❤️ changes each turn, your next card costs {Energy:energyIcons()} less.",
+  "RURIMEGU-PROLOGUE.description": "Whenever your Max ❤️ changes, your next card costs {Energy:energyIcons()} less this turn.",
   "RURIMEGU-MAY_DREAMS_BLOOM.title": "May Dreams Bloom",
   "RURIMEGU-MAY_DREAMS_BLOOM.description": "For every {RURIMEGU-MAX_HEARTS_THRESHOLD:diff()} ❤️ overflowed, gain 1 stack of [gold]Auto Burst[/gold].",
   "RURIMEGU-BLOOM_GARDEN_PARTY.title": "Bloom Garden Party",

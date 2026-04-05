@@ -24,7 +24,7 @@ public class NewBlack() : InHandTriggerCard(1, CardType.Skill, CardRarity.Common
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new BlockVar(6, ValueProp.Move),
-    new DynamicVar(BACKSTAGE_BLOCK_VAR, 3),
+    new DynamicVar(BACKSTAGE_BLOCK_VAR, 4),
     new DynamicVar(TRACKER_VAR, 0),
   ];
 
@@ -61,6 +61,6 @@ public class NewBlack() : InHandTriggerCard(1, CardType.Skill, CardRarity.Common
 
   protected override void OnUpgrade() {
     DynamicVars.Block.UpgradeValueBy(3m);
-    DynamicVars[BACKSTAGE_BLOCK_VAR].UpgradeValueBy(1m);
+    DynamicVars[BACKSTAGE_BLOCK_VAR].UpgradeValueBy(2m);
   }
 }

@@ -27,12 +27,16 @@ public class UnfulfilledWishes() : LinkuraCard(2, CardType.Attack, CardRarity.Un
     int maxHearts = HeartsState.GetMaxHearts(Owner);
     int damage = maxHearts - hearts;
 
-    await DamageCmd.Attack(damage)
-      .FromCard(this)
-      .Targeting(play.Target)
-      .Execute(ctx);
+    if (damage > 0) {
+      await DamageCmd.Attack(damage)
+        .FromCard(this)
+        .Targeting(play.Target)
+        .Execute(ctx);
+    }
 
-    await CreatureCmd.GainBlock(Owner.Creature, hearts, ValueProp.Move, play);
+    if (hearts > 0) {
+      await CreatureCmd.GainBlock(Owner.Creature, hearts, ValueProp.Move, play);
+    }
   }
 
   protected override void OnUpgrade() {

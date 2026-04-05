@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using RuriMegu.Core.Powers;
+using RuriMegu.Core.Utils;
 
 namespace RuriMegu.Core.Cards.Kaho.Uncommon.Power;
 
@@ -18,6 +19,9 @@ public class AutoCollectOn() : LinkuraCard(1, CardType.Power, CardRarity.Uncommo
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
+    if (HeartsState.ReachedMaxHearts(Owner)) {
+      await LinkuraCmd.CollectHearts(Owner, ctx);
+    }
     await PowerCmd.Apply<AutoCollectOnPower>(Owner.Creature, 1, Owner.Creature, this);
   }
 

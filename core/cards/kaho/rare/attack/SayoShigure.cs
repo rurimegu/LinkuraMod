@@ -15,7 +15,7 @@ namespace RuriMegu.Core.Cards.Kaho.Rare.Attack;
 /// Backstage: whenever you Burst 10, Burst 2 (3). (Current: X)
 /// </summary>
 public class SayoShigure() : InHandTriggerCard(1, CardType.Attack, CardRarity.Rare, TargetType.AllEnemies) {
-  private const int BURSTS_PER_TRIGGER = 10;
+  private const int BURSTS_PER_TRIGGER = 8;
   private const string TRACKER_VAR = "SAYO_SHIGURE_TRACKER";
 
   private Subscription _burstSubscription;

@@ -11,7 +11,7 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Rare.Power;
 
 /// <summary>
-/// May Dreams Bloom (愿梦想绽放一生) — Cost 2, Power, Rare.
+/// May Dreams Bloom (愿梦想绽放一生) — Cost 2(1), Power, Rare.
 /// For every 20 (15) ❤️ overflowed, gain 1 stack of Auto Burst.
 /// </summary>
 public class MayDreamsBloom() : LinkuraCard(2, CardType.Power, CardRarity.Rare, TargetType.None) {
@@ -36,5 +36,6 @@ public class MayDreamsBloom() : LinkuraCard(2, CardType.Power, CardRarity.Rare, 
 
   protected override void OnUpgrade() {
     DynamicVars.MaxHeartThreshold().UpgradeValueBy(-5m);
+    EnergyCost.UpgradeBy(-1);
   }
 }

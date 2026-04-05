@@ -1,8 +1,6 @@
 using System.Threading.Tasks;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using RuriMegu.Core.Utils;
 
@@ -16,17 +14,22 @@ public class AutoCollectOnPower : LinkuraPower {
   public override PowerType Type => PowerType.Buff;
   public override PowerStackType StackType => PowerStackType.Single;
 
-  public override Task AfterApplied(Creature applier, CardModel cardSource) {
+  public override async Task AfterApplied(Creature applier, CardModel cardSource) {
     DisposeTrackedSubscriptions();
     TrackSubscription(Events.HeartsChanged.SubscribeLate(OnHeartsChangedLate));
-    return base.AfterApplied(applier, cardSource);
+    TrackSubscription(Events.MaxHeartsChanged.SubscribeLate(OnMaxHeartsChangedLate));
+    await base.AfterApplied(applier, cardSource);
   }
 
   private async Task OnHeartsChangedLate(Events.HeartsChangedEvent ev) {
     if (ev.Player.Creature != Owner) return;
+    if (ev.NewHearts < ev.MaxHearts || ev.MaxHearts <= 0) return;
+    await LinkuraCmd.CollectHearts(ev.Player, ev.Context);
+  }
 
-    if (ev.NewHearts >= ev.MaxHearts) {
-      await LinkuraCmd.CollectHearts(ev.Player, ev.Context);
-    }
+  private async Task OnMaxHeartsChangedLate(Events.MaxHeartsChangedEvent ev) {
+    if (ev.Player.Creature != Owner) return;
+    if (ev.Hearts < ev.NewMaxHearts || ev.NewMaxHearts <= 0) return;
+    await LinkuraCmd.CollectHearts(ev.Player, ev.Context);
   }
 }

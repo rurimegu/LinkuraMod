@@ -19,14 +19,14 @@ public class UnadornedBeautyPower : LinkuraPower {
 
   public override Task AfterApplied(Creature applier, CardModel cardSource) {
     DisposeTrackedSubscriptions();
-    TrackSubscription(Events.IncreaseMaxHearts.SubscribeVeryEarly(OnIncreaseMaxHeartsEarly));
+    TrackSubscription(Events.IncreaseMaxHearts.SubscribeEarly(OnIncreaseMaxHeartsEarly));
     return base.AfterApplied(applier, cardSource);
   }
 
   public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, CombatState combatState) {
     await base.BeforeSideTurnStart(choiceContext, side, combatState);
     if (side != Owner.Side) return;
-    await PlayerCmd.GainEnergy((int)Amount, Owner.Player);
+    await PlayerCmd.GainEnergy(Amount, Owner.Player);
   }
 
   private Task OnIncreaseMaxHeartsEarly(Events.IncreaseMaxHeartsEvent ev) {
