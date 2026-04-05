@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -23,6 +24,6 @@ public class FlowerKnotPower : LinkuraPower {
 
   private async Task OnTriggerBackstageLate(Events.TriggerBackstageEvent ev) {
     if (ev.Player.Creature != Owner) return;
-    await LinkuraCmd.BurstHearts(ev.Player, ev.Context, Amount);
+    await CardPileCmd.Draw(ev.Context, Amount, Owner.Player);
   }
 }
