@@ -57,7 +57,7 @@ public static class LinkuraCmd {
   }
 
   public static async Task<Events.CollectEvent> CollectHearts(Player player, PlayerChoiceContext context, CardModel source = null, Creature target = null, int triggers = 1) {
-    int hearts = HeartsState.GetHearts(player);
+    int hearts = Math.Min(HeartsState.GetHearts(player), HeartsState.GetMaxHearts(player));
     var ev = new Events.CollectEvent(player, context, source);
     if (!await Events.Collect.InvokeAllEarly(ev)) return ev;
     if (hearts <= 0) return ev;
