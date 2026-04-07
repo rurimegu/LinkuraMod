@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Cards;
 using RuriMegu.Core.Utils;
 
 namespace RuriMegu.Core.Powers;
@@ -18,26 +19,15 @@ public class SpecialAppealPower : LinkuraPower {
   private Subscription _sub;
 
   public override Task AfterApplied(Creature applier, CardModel cardSource) {
-    _sub?.Dispose();
-    _sub = Events.Collect.SubscribeEarly(OnCollectEarly);
+    DisposeTrackedSubscriptions();
+    TrackSubscription(Events.Collect.SubscribeEarly(OnCollectEarly));
     return base.AfterApplied(applier, cardSource);
-  }
-
-  public override Task AfterRemoved(Creature oldOwner) {
-    _sub?.Dispose();
-    _sub = null;
-    return base.AfterRemoved(oldOwner);
-  }
-
-  public override Task AfterCombatEnd(MegaCrit.Sts2.Core.Rooms.CombatRoom room) {
-    _sub?.Dispose();
-    _sub = null;
-    return base.AfterCombatEnd(room);
   }
 
   private Task OnCollectEarly(Events.CollectEvent ev) {
     if (ev.Player.Creature == Owner) {
       ev.DamageAllEnemies = true;
+      Flash();
     }
     return Task.CompletedTask;
   }

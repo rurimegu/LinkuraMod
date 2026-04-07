@@ -17,6 +17,7 @@ public class SectionChangePower : LinkuraPower {
   public override async Task BeforeTurnEndEarly(PlayerChoiceContext choiceContext, CombatSide side) {
     await base.BeforeTurnEndEarly(choiceContext, side);
     if (side != Owner.Side) return;
+    Flash();
     await LinkuraCmd.CollectHearts(Owner.Player, choiceContext);
   }
 }

@@ -27,6 +27,7 @@ public class AThousandChangesPower() : LinkuraPower {
     if (ev.Player.Creature != Owner || ev.RequestedAmount <= ev.ActualAmount) return;
     int overflow = ev.RequestedAmount - ev.ActualAmount;
     if (overflow > 0) {
+      Flash();
       await HeartsState.AddMaxHearts(ev.Player, ev.Context, overflow, ev.Source);
     }
   }

@@ -26,6 +26,7 @@ public class SugarMeltPower : LinkuraPower {
     if (ev.Player.Creature != Owner) return;
     int actual = ev.BurstEvent?.ActualAmount ?? 0;
     if (actual <= 0) return;
+    Flash();
     await CreatureCmd.GainBlock(Owner, Amount, ValueProp.Unpowered, null);
   }
 }

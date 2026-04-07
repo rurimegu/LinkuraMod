@@ -29,6 +29,7 @@ public class EnduringTraditionPower() : LinkuraPower {
 
     int amount = ev.RequestedAmount;
     ev.Cancel();
+    Flash();
 
     for (int i = 0; i < amount; i++) {
       await LinkuraCmd.TriggerAutoBurst(ev.Player, ev.Context, ev.Source);

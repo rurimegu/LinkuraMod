@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
@@ -23,9 +24,10 @@ public class UnadornedBeautyPower : LinkuraPower {
     return base.AfterApplied(applier, cardSource);
   }
 
-  public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, CombatState combatState) {
-    await base.BeforeSideTurnStart(choiceContext, side, combatState);
-    if (side != Owner.Side) return;
+  public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player) {
+    await base.AfterPlayerTurnStart(choiceContext, player);
+    if (player != Owner.Player) return;
+    Flash();
     await PlayerCmd.GainEnergy(Amount, Owner.Player);
   }
 

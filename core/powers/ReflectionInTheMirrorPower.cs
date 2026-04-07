@@ -24,6 +24,7 @@ public class ReflectionInTheMirrorPower : LinkuraPower {
   private async Task OnIncreaseMaxHeartsLate(Events.IncreaseMaxHeartsEvent ev) {
     if (ev.Player.Creature != Owner) return;
     if (ev.ActualAmount <= 0) return;
+    Flash();
     // Add the same amount again to effectively double the increase.
     // Calls AddMaxHearts directly (not IncreaseMaxHearts) to avoid re-triggering this event.
     await HeartsState.AddMaxHearts(ev.Player, ev.Context, ev.ActualAmount);

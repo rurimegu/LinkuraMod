@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
@@ -28,10 +29,11 @@ public class TrainingCampPower() : LinkuraPower {
     return base.AfterApplied(applier, cardSource);
   }
 
-  public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, CombatState combatState) {
-    await base.BeforeSideTurnStart(choiceContext, side, combatState);
-    if (side == Owner.Side) {
-      _remainingTriggersThisTurn = (int)Amount;
+  public override async Task AfterPlayerTurnStartEarly(PlayerChoiceContext choiceContext, Player player) {
+    await base.AfterPlayerTurnStartEarly(choiceContext, player);
+    if (player == Owner.Player) {
+      Flash();
+      _remainingTriggersThisTurn = Amount;
     }
   }
 

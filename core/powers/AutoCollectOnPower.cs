@@ -1,8 +1,10 @@
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using RuriMegu.Core.Utils;
+using static RuriMegu.Core.Utils.Events;
 
 namespace RuriMegu.Core.Powers;
 
@@ -21,16 +23,21 @@ public class AutoCollectOnPower : LinkuraPower {
     await base.AfterApplied(applier, cardSource);
   }
 
+  private Task<CollectEvent> Trigger(PlayerChoiceContext context) {
+    Flash();
+    return LinkuraCmd.CollectHearts(Owner.Player, context);
+  }
+
   private async Task OnHeartsChangedLate(Events.HeartsChangedEvent ev) {
     if (ev.Player.Creature != Owner) return;
     if (ev.NewHearts < ev.MaxHearts || ev.MaxHearts <= 0) return;
-    await LinkuraCmd.CollectHearts(ev.Player, ev.Context);
+    await Trigger(ev.Context);
   }
 
   private async Task OnMaxHeartsChangedLate(Events.MaxHeartsChangedEvent ev) {
     if (ev.Player.Creature != Owner) return;
     if (ev.NewMaxHearts <= 0 || ev.NewMaxHearts == ev.OldMaxHearts) return;
     if (ev.Hearts < ev.NewMaxHearts) return;
-    await LinkuraCmd.CollectHearts(ev.Player, ev.Context);
+    await Trigger(ev.Context);
   }
 }

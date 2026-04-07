@@ -23,7 +23,8 @@ public class HolidayHolidayPower : LinkuraPower {
 
   private Task OnTriggerBackstageEarly(Events.TriggerBackstageEvent ev) {
     if (ev.Player.Creature == Owner) {
-      ev.RepeatCount += (int)Amount;
+      ev.RepeatCount += Amount;
+      Flash();
     }
     return Task.CompletedTask;
   }

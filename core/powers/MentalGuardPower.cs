@@ -29,6 +29,7 @@ public class MentalGuardPower : LinkuraPower {
     if (ev.Player.Creature != Owner) return;
     int amount = ev.RequestedAmount;
     ev.Cancel();
+    Flash();
     await CreatureCmd.GainBlock(Owner, amount, ValueProp.Unpowered, null);
   }
 

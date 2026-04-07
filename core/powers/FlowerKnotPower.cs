@@ -24,6 +24,7 @@ public class FlowerKnotPower : LinkuraPower {
 
   private async Task OnTriggerBackstageLate(Events.TriggerBackstageEvent ev) {
     if (ev.Player.Creature != Owner) return;
+    Flash();
     await CardPileCmd.Draw(ev.Context, Amount, Owner.Player);
   }
 }

@@ -30,6 +30,7 @@ public class WelcomeIshikawaPower : LinkuraPower {
     var backstageCards = drawPile.Cards.Where(c => c.Keywords.Contains(LinkuraKeywords.Backstage)).ToList();
     if (backstageCards.Count == 0) return;
 
+    Flash();
     var prefs = new CardSelectorPrefs(SelectionScreenPrompt, 0, Amount);
 
     var selected = await CardSelectCmd.FromSimpleGrid(choiceContext, backstageCards, player, prefs);
