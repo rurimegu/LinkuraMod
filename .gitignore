@@ -4,3 +4,4 @@
 *.pck
 *.zip
 /dev/
+.vscode/

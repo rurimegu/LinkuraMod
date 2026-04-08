@@ -14,13 +14,13 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Attack;
 
 /// <summary>
 /// Heart Strike — Cost 2, Attack, Uncommon.
-/// Deal 10 (13) damage. Increase max ❤️ by damage dealt.
+/// Deal 11 (15) damage. Increase max ❤️ by damage dealt.
 /// </summary>
 public class HeartStrike() : LinkuraCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
   public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Append(CardKeyword.Exhaust);
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new DamageVar(10, ValueProp.Move),
+    new DamageVar(11, ValueProp.Move),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
@@ -36,6 +36,6 @@ public class HeartStrike() : LinkuraCard(2, CardType.Attack, CardRarity.Uncommon
   }
 
   protected override void OnUpgrade() {
-    DynamicVars.Damage.UpgradeValueBy(3m);
+    DynamicVars.Damage.UpgradeValueBy(4m);
   }
 }

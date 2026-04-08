@@ -13,8 +13,8 @@ namespace RuriMegu.Core.Cards.Kaho.Common.Skill;
 
 /// <summary>
 /// Nεw Black — Cost 1, Skill, Common.
-/// On play: Gain 6 (9) Block.
-/// Backstage: for every 6 Burst Hearts, gain 3 (4) block. (Current: X)
+/// On play: Gain 5 (8) Block.
+/// Backstage: for every 6 Burst Hearts, gain 4 (6) block. (Current: X)
 /// </summary>
 public class NewBlack() : InHandTriggerCard(1, CardType.Skill, CardRarity.Common, TargetType.None) {
   private const int BURST_PER_TRIGGER = 6;
@@ -23,7 +23,7 @@ public class NewBlack() : InHandTriggerCard(1, CardType.Skill, CardRarity.Common
   private const string BACKSTAGE_BLOCK_VAR = "BACKSTAGE_BLOCK";
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new BlockVar(6, ValueProp.Move),
+    new BlockVar(5, ValueProp.Move),
     new DynamicVar(BACKSTAGE_BLOCK_VAR, 4),
     new DynamicVar(TRACKER_VAR, 0),
   ];
