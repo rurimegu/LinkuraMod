@@ -16,8 +16,6 @@ public class SpecialAppealPower : LinkuraPower {
   public override PowerType Type => PowerType.Buff;
   public override PowerStackType StackType => PowerStackType.Single;
 
-  private Subscription _sub;
-
   public override Task AfterApplied(Creature applier, CardModel cardSource) {
     DisposeTrackedSubscriptions();
     TrackSubscription(Events.Collect.SubscribeEarly(OnCollectEarly));

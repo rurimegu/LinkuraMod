@@ -23,8 +23,8 @@ public static class HeartsState {
   public static bool ReachedMaxHearts(Player player) => GetHearts(player) >= GetMaxHearts(player);
 
   public static async Task Reset(Player player, PlayerChoiceContext ctx) {
-    await SetMaxHearts(player, ctx, DEFAULT_MAX_HEARTS);
     await SetHearts(player, ctx, 0);
+    await SetMaxHearts(player, ctx, DEFAULT_MAX_HEARTS);
   }
 
   public static Task<Events.HeartsChangedEvent> AddHearts(Player player, PlayerChoiceContext ctx, int amount, CardModel source = null) {
