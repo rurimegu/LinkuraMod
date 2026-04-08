@@ -18,16 +18,18 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Attack;
 /// </summary>
 public class BuildUp() : InHandTriggerCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
   private const string DRAW_PREVIEW_VAR = "BUILD_UP_DRAW";
+  private const string TRACKER_VAR = "BUILD_UP_TRACKER";
 
-  private int _burstCount;
   private Subscription _burstSubscription;
+  private int _bonusDraws;
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new DamageVar(6, ValueProp.Move),
     new CalculationBaseVar(1),
     new CalculationExtraVar(1),
     new CalculatedVar(DRAW_PREVIEW_VAR).WithMultiplier(
-      static (card, _) => ((card as BuildUp)?._burstCount ?? 0)),
+      static (card, _) => ((card as BuildUp)?._bonusDraws ?? 0)),
+    new DynamicVar(TRACKER_VAR, 0),
   ];
 
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [BurstHeartsVar.HoverTip()];
@@ -37,6 +39,8 @@ public class BuildUp() : InHandTriggerCard(1, CardType.Attack, CardRarity.Uncomm
 
     await CommonActions.CardAttack(this, play.Target).Execute(ctx);
     await CardPileCmd.Draw(ctx, totalDraw, Owner);
+    DynamicVars[TRACKER_VAR].BaseValue = 0;
+    _bonusDraws = 0;
   }
 
   public override Task BeforeCombatStartLate() {
@@ -47,7 +51,8 @@ public class BuildUp() : InHandTriggerCard(1, CardType.Attack, CardRarity.Uncomm
   public override Task AfterCombatEnd(MegaCrit.Sts2.Core.Rooms.CombatRoom room) {
     _burstSubscription?.Dispose();
     _burstSubscription = null;
-    _burstCount = 0;
+    DynamicVars[TRACKER_VAR].BaseValue = 0;
+    _bonusDraws = 0;
     return Task.CompletedTask;
   }
 
@@ -55,7 +60,11 @@ public class BuildUp() : InHandTriggerCard(1, CardType.Attack, CardRarity.Uncomm
     if (ev.Player != Owner || !CanTrigger()) return;
 
     await TriggerWithAction(ev.Context, () => {
-      _burstCount++;
+      DynamicVars[TRACKER_VAR].BaseValue++;
+      if (DynamicVars[TRACKER_VAR].IntValue >= 3) {
+        DynamicVars[TRACKER_VAR].BaseValue -= 3;
+        _bonusDraws++;
+      }
       return Task.CompletedTask;
     });
   }
