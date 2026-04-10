@@ -11,21 +11,22 @@ namespace RuriMegu.Core.Cards.Kaho.Common.Attack;
 
 /// <summary>
 /// Step Up! — Cost 1, Attack, Common.
-/// Deal 9 (12) damage. Increase max ♥ by 2 (3).
+/// Deal 4 (6) damage twice. Increase max ♥ by 2 (3).
 /// </summary>
 public class StepUp() : LinkuraCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) {
   protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new DamageVar(9, ValueProp.Move),
+    new DamageVar(4, ValueProp.Move),
+    new RepeatVar(2),
     new ExpandHeartsVar(2),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    await CommonActions.CardAttack(this, play.Target).Execute(ctx);
+    await CommonActions.CardAttack(this, play.Target, DynamicVars.Repeat.IntValue).Execute(ctx);
     await LinkuraCardActions.IncreaseMaxHearts(this, ctx);
   }
 
   protected override void OnUpgrade() {
-    DynamicVars.Damage.UpgradeValueBy(3m);
+    DynamicVars.Damage.UpgradeValueBy(2m);
     DynamicVars.ExpandHearts().UpgradeValueBy(1m);
   }
 }

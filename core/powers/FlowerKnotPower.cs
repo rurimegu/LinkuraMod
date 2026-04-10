@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -9,7 +10,7 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Powers;
 
 /// <summary>
-/// Whenever you trigger a Backstage effect, trigger Auto Burst once.
+/// Whenever you trigger a Backstage effect, discard that card and draw 1 card.
 /// Applied by <see cref="RuriMegu.Core.Cards.Kaho.Rare.Power.FlowerKnot"/>.
 /// </summary>
 public class FlowerKnotPower : LinkuraPower {
@@ -25,6 +26,9 @@ public class FlowerKnotPower : LinkuraPower {
   private async Task OnTriggerBackstageLate(Events.TriggerBackstageEvent ev) {
     if (ev.Player.Creature != Owner) return;
     Flash();
+    if (ev.Source != null && ev.Source.Pile?.Type == PileType.Hand) {
+      await CardCmd.Discard(ev.Context, ev.Source);
+    }
     await CardPileCmd.Draw(ev.Context, Amount, Owner.Player);
   }
 }

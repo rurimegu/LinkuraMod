@@ -11,10 +11,11 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Rare.Power;
 
 /// <summary>
-/// Flower Knot (花结) — Cost 2, Power, Rare, (Retain.)
-/// Whenever you trigger a Backstage effect, draw 1 card.
+/// Flower Knot (花结) — Cost 1, Power, Rare.
+/// Whenever you trigger a Backstage effect, discard that backstage card and draw 1 card. (Innate.)
 /// </summary>
-public class FlowerKnot() : LinkuraCard(2, CardType.Power, CardRarity.Rare, TargetType.None) {
+public class FlowerKnot() : LinkuraCard(1, CardType.Power, CardRarity.Rare, TargetType.None) {
+  public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Innate];
 
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
     HoverTipFactory.FromKeyword(LinkuraKeywords.Backstage),

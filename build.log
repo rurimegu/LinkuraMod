@@ -1,0 +1,11 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+D:\Project\LinkuraMod\core\characters\HinoshitaKaho.cs(16,14): error STS001: Localization THE_ARCHITECT.talk.RURIMEGU-HINOSHITA_KAHO.0-attack not found for symbol 'RuriMegu.Core.Characters.HinoshitaKaho' [D:\Project\LinkuraMod\LinkuraMod.csproj]
+
+Build FAILED.
+
+D:\Project\LinkuraMod\core\characters\HinoshitaKaho.cs(16,14): error STS001: Localization THE_ARCHITECT.talk.RURIMEGU-HINOSHITA_KAHO.0-attack not found for symbol 'RuriMegu.Core.Characters.HinoshitaKaho' [D:\Project\LinkuraMod\LinkuraMod.csproj]
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:00.92
