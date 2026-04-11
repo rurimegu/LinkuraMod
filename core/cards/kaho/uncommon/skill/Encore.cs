@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
@@ -21,7 +21,7 @@ public class Encore() : KahoCard(0, CardType.Skill, CardRarity.Uncommon, TargetT
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new DynamicVar(TRACKER_VAR, 0),
-    new BlockVar(2, ValueProp.Move),
+    new BlockVar(2, ValueProp.Move | ValueProp.Unpowered),
   ];
 
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
