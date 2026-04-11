@@ -15,7 +15,7 @@ namespace RuriMegu.Core.Cards.Kaho.Rare.Skill;
 
 /// <summary>
 /// Is That Cloud A Whale? — Cost 2, Skill, Rare.
-/// For every 20 (15) Max ❤️, gain 1 Intangible.
+/// For every 15 (10) Max ❤️, gain 1 Intangible.
 /// Reset Max ❤️ to 9. Exhaust.
 /// </summary>
 public class IsThatCloudAWhale() : KahoCard(2, CardType.Skill, CardRarity.Rare, TargetType.None) {
@@ -24,7 +24,7 @@ public class IsThatCloudAWhale() : KahoCard(2, CardType.Skill, CardRarity.Rare, 
   ];
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new MaxHeartsThresholdVar(20m),
+    new MaxHeartsThresholdVar(15m),
   ];
 
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [

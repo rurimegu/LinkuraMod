@@ -1,4 +1,4 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -11,7 +11,7 @@ namespace RuriMegu.Core.Powers.Kaho;
 
 /// <summary>
 /// Reduces the cost of the NEXT Power card by <c>Amount</c> while it is in the Hand or Play pile.
-/// Consumed (removed entirely) the first time any Power card is played, or at end of turn.
+/// Consumed (removed entirely) the first time any Power card is played.
 /// Applied by <see cref="RuriMegu.Core.Cards.Kaho.Common.Attack.Fantasy375"/>.
 /// </summary>
 public class PowerCostReductionPower : KahoPower {
@@ -38,10 +38,4 @@ public class PowerCostReductionPower : KahoPower {
     await PowerCmd.Remove(this);
   }
 
-  public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side) {
-    await base.AfterTurnEnd(choiceContext, side);
-    if (side == Owner.Side) {
-      await PowerCmd.Remove(this);
-    }
-  }
 }

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -14,13 +15,14 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 
 /// <summary>
 /// Soulmate (命定之人) — Cost 0, Skill, Uncommon.
-/// Collect. When drawn, trigger 2 (3) [gold]Auto Burst[/gold].
+/// Collect. Draw 1 card. When drawn, trigger 2 (4) Auto Burst.
 /// </summary>
 public class Soulmate() : KahoCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
   public override IEnumerable<CardKeyword> CanonicalKeywords => [LinkuraKeywords.Collect];
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new TriggerAutoBurstVar(2),
+    new CardsVar(1),
   ];
 
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
@@ -28,7 +30,8 @@ public class Soulmate() : KahoCard(0, CardType.Skill, CardRarity.Uncommon, Targe
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    await LinkuraCardActions.CollectHearts(this, ctx, damageAllEnemies: true);
+    await LinkuraCardActions.CollectHearts(this, ctx);
+    await CommonActions.Draw(this, ctx);
   }
 
   public override async Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw) {
@@ -38,6 +41,6 @@ public class Soulmate() : KahoCard(0, CardType.Skill, CardRarity.Uncommon, Targe
   }
 
   protected override void OnUpgrade() {
-    DynamicVars.TriggerAutoBurst().UpgradeValueBy(1m);
+    DynamicVars.TriggerAutoBurst().UpgradeValueBy(2m);
   }
 }

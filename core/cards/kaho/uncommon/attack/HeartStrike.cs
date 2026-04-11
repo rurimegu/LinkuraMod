@@ -17,6 +17,7 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Attack;
 /// Deal 11 (15) damage. Increase max ❤️ by unblocked damage dealt.
 /// </summary>
 public class HeartStrike() : KahoCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
+  protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
   public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Append(CardKeyword.Exhaust);
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [

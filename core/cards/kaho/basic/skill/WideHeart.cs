@@ -10,7 +10,7 @@ namespace RuriMegu.Core.Cards.Kaho.Basic.Skill;
 
 /// <summary>
 /// Wide Heart (广域之心) — Cost 0, Skill, Basic.
-/// Increase Max Hearts by 2 (3). Draw 1 (2) card.
+/// Increase Max Hearts by 2 (4). Draw 1 card.
 /// </summary>
 public class WideHeart() : KahoCard(0, CardType.Skill, CardRarity.Basic, TargetType.None) {
   protected override IEnumerable<DynamicVar> CanonicalVars => [
@@ -24,7 +24,6 @@ public class WideHeart() : KahoCard(0, CardType.Skill, CardRarity.Basic, TargetT
   }
 
   protected override void OnUpgrade() {
-    DynamicVars.ExpandHearts().UpgradeValueBy(1m);
-    DynamicVars.Cards.UpgradeValueBy(1m);
+    DynamicVars.ExpandHearts().UpgradeValueBy(2m);
   }
 }
