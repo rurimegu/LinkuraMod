@@ -5,7 +5,6 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
-using RuriMegu.Core.Utils;
 
 namespace RuriMegu.Core.Cards.Kaho.Common.Attack;
 
@@ -22,7 +21,7 @@ public class KahoSmash() : KahoCard(1, CardType.Attack, CardRarity.Common, Targe
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     await CommonActions.CardAttack(this, play.Target).Execute(ctx);
-    await LinkuraCardActions.CollectHearts(this, ctx, play.Target);
+    await LinkuraCardActions.CollectHearts(this, ctx);
   }
 
   protected override void OnUpgrade() {
