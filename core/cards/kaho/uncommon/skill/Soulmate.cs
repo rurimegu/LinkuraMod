@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -28,7 +28,7 @@ public class Soulmate() : KahoCard(0, CardType.Skill, CardRarity.Uncommon, Targe
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    await LinkuraCardActions.CollectHearts(this, ctx);
+    await LinkuraCardActions.CollectHearts(this, ctx, damageAllEnemies: true);
   }
 
   public override async Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw) {

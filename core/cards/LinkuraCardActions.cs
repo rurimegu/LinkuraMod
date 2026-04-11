@@ -18,8 +18,8 @@ public static class LinkuraCardActions {
     return LinkuraCmd.BurstHearts(card.Owner, ctx, card.DynamicVars.BurstHearts().IntValue, card);
   }
 
-  public static Task CollectHearts(CardModel card, PlayerChoiceContext context, Creature target = null, int triggers = 1) {
-    return LinkuraCmd.CollectHearts(card.Owner, context, card, target, triggers);
+  public static Task CollectHearts(CardModel card, PlayerChoiceContext context, Creature target = null, int triggers = 1, bool damageAllEnemies = false) {
+    return LinkuraCmd.CollectHearts(card.Owner, context, card, target, triggers, damageAllEnemies);
   }
 
   public static async Task AutoBurst(CardModel card, PlayerChoiceContext context, int triggers) {
