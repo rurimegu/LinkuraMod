@@ -18,7 +18,7 @@ namespace RuriMegu.Core.Powers.Kaho;
 /// The first X Backstage cards you play each turn cost 1 less.
 /// Applied by <see cref="RuriMegu.Core.Cards.Kaho.Uncommon.Power.TrainingCamp"/>.
 /// </summary>
-public class TrainingCampPower() : LinkuraPower {
+public class TrainingCampPower() : KahoPower {
   public override PowerType Type => PowerType.Buff;
   public override PowerStackType StackType => PowerStackType.Counter;
 

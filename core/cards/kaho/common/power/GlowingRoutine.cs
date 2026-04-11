@@ -15,7 +15,7 @@ namespace RuriMegu.Core.Cards.Kaho.Common.Power;
 /// Glowing Routine (闂€€鐨勬棩甯? 鈥?Cost 1, Power, Common.
 /// At the start of your turn, Burst 6 (9).
 /// </summary>
-public class GlowingRoutine() : LinkuraCard(1, CardType.Power, CardRarity.Common, TargetType.None) {
+public class GlowingRoutine() : KahoCard(1, CardType.Power, CardRarity.Common, TargetType.None) {
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new BurstHeartsVar(6),
   ];

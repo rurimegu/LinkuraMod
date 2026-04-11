@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
@@ -12,11 +12,11 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Common.Skill;
 
 /// <summary>
-/// Nεw Black — Cost 1, Skill, Common.
+/// N蔚w Black 鈥?Cost 1, Skill, Common.
 /// On play: Gain 5 (8) Block.
 /// Backstage: for every 6 Burst Hearts, gain 4 (6) block. (Current: X)
 /// </summary>
-public class NewBlack() : InHandTriggerCard(1, CardType.Skill, CardRarity.Common, TargetType.None) {
+public class NewBlack() : KahoInHandTriggerCard(1, CardType.Skill, CardRarity.Common, TargetType.None) {
   private const int BURST_PER_TRIGGER = 6;
   private Subscription _burstSubscription;
   private const string TRACKER_VAR = "NEW_BLACK_TRACKER";

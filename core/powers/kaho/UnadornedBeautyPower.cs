@@ -14,7 +14,7 @@ namespace RuriMegu.Core.Powers.Kaho;
 /// Start of turn, gain 1 Energy. Cannot increase max 鉂わ笍.
 /// Applied by <see cref="RuriMegu.Core.Cards.Kaho.Uncommon.Power.UnadornedBeauty"/>.
 /// </summary>
-public class UnadornedBeautyPower : LinkuraPower {
+public class UnadornedBeautyPower : KahoPower {
   public override PowerType Type => PowerType.Buff;
   public override PowerStackType StackType => PowerStackType.Counter;
 

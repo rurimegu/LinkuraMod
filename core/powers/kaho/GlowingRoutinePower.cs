@@ -11,7 +11,7 @@ namespace RuriMegu.Core.Powers.Kaho;
 /// At the start of your turn, Burst Hearts equal to <c>Amount</c>.
 /// Applied by <see cref="RuriMegu.Core.Cards.Kaho.Common.Power.GlowingRoutine"/>.
 /// </summary>
-public class GlowingRoutinePower : LinkuraPower {
+public class GlowingRoutinePower : KahoPower {
   public override PowerType Type => PowerType.Buff;
   public override PowerStackType StackType => PowerStackType.Counter;
 

@@ -12,7 +12,7 @@ namespace RuriMegu.Core.Powers.Kaho;
 /// Whenever you Auto Burst, gain Block equal to the non-overflowing burst amount.
 /// Applied by <see cref="RuriMegu.Core.Cards.Kaho.Uncommon.Power.SugarMelt"/>.
 /// </summary>
-public class SugarMeltPower : LinkuraPower {
+public class SugarMeltPower : KahoPower {
   public override PowerType Type => PowerType.Buff;
   public override PowerStackType StackType => PowerStackType.Counter;
 

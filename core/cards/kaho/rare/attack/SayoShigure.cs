@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -10,11 +10,11 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Rare.Attack;
 
 /// <summary>
-/// Sayo-Shigure — Cost 1, Attack, Rare.
+/// Sayo-Shigure 鈥?Cost 1, Attack, Rare.
 /// Deal 9 (13) damage to ALL enemies.
 /// Backstage: whenever you Burst 8, Burst 2 (3). (Current: X)
 /// </summary>
-public class SayoShigure() : InHandTriggerCard(1, CardType.Attack, CardRarity.Rare, TargetType.AllEnemies) {
+public class SayoShigure() : KahoInHandTriggerCard(1, CardType.Attack, CardRarity.Rare, TargetType.AllEnemies) {
   private const int BURSTS_PER_TRIGGER = 8;
   private const string TRACKER_VAR = "SAYO_SHIGURE_TRACKER";
 

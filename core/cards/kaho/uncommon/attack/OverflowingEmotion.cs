@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
@@ -13,11 +13,11 @@ using RuriMegu.Core.Utils;
 
 namespace RuriMegu.Core.Cards.Kaho.Uncommon.Attack;
 
-/// Overflowing Emotion — Cost 2, Attack, Uncommon, Ethereal.
+/// Overflowing Emotion 鈥?Cost 2, Attack, Uncommon, Ethereal.
 /// Deal 9 (12) damage.
 /// Backstage: whenever you Collect, permanently gain +2 (+3) damage.
 /// </summary>
-public class OverflowingEmotion() : InHandTriggerCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
+public class OverflowingEmotion() : KahoInHandTriggerCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
   private const string GROWTH_VAR = "OVERFLOWING_EMOTION_GROWTH";
 
   private Subscription _collectSubscription;

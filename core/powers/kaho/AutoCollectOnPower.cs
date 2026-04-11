@@ -12,7 +12,7 @@ namespace RuriMegu.Core.Powers.Kaho;
 /// Whenever your 鉂わ笍 hits maximum, Collect.
 /// Applied by <see cref="RuriMegu.Core.Cards.Kaho.Uncommon.Power.AutoCollectOn"/>.
 /// </summary>
-public class AutoCollectOnPower : LinkuraPower {
+public class AutoCollectOnPower : KahoPower {
   public override PowerType Type => PowerType.Buff;
   public override PowerStackType StackType => PowerStackType.Single;
 

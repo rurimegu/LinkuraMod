@@ -15,7 +15,7 @@ namespace RuriMegu.Core.Cards.Kaho.Common.Skill;
 /// Agile Steps (鐏靛姩鑸炴) 鈥?Cost 1, Skill, Common.
 /// Burst 5 (8). Your next Attack card costs 1 less energy.
 /// </summary>
-public class AgileSteps() : LinkuraCard(1, CardType.Skill, CardRarity.Common, TargetType.None) {
+public class AgileSteps() : KahoCard(1, CardType.Skill, CardRarity.Common, TargetType.None) {
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new BurstHeartsVar(5),
     new EnergyVar(1),

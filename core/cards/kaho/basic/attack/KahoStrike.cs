@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -12,7 +12,7 @@ namespace RuriMegu.Core.Cards.Kaho.Basic.Attack;
 /// Strike card for Hinoshita Kaho.
 /// Basic attack: Deal 6 damage. Upgrade: Deal 9 damage.
 /// </summary>
-public class KahoStrike() : LinkuraCard(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy) {
+public class KahoStrike() : KahoCard(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy) {
   protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [

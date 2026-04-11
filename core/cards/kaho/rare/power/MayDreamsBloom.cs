@@ -15,7 +15,7 @@ namespace RuriMegu.Core.Cards.Kaho.Rare.Power;
 /// May Dreams Bloom (鎰挎ⅵ鎯崇唤鏀句竴鐢? 鈥?Cost 2(1), Power, Rare.
 /// For every 20 (15) 鉂わ笍 overflowed, gain 1 stack of Auto Burst.
 /// </summary>
-public class MayDreamsBloom() : LinkuraCard(2, CardType.Power, CardRarity.Rare, TargetType.None) {
+public class MayDreamsBloom() : KahoCard(2, CardType.Power, CardRarity.Rare, TargetType.None) {
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new MaxHeartsThresholdVar(20),
     new AutoBurstVar(1),

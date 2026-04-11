@@ -17,7 +17,7 @@ namespace RuriMegu.Core.Cards.Kaho.Rare.Skill;
 /// Overflow 鉂わ笍 -> Max 鉂わ笍 for this turn.
 /// Exhaust. (Upgraded: Remove)
 /// </summary>
-public class AThousandChanges() : LinkuraCard(0, CardType.Skill, CardRarity.Rare, TargetType.None) {
+public class AThousandChanges() : KahoCard(0, CardType.Skill, CardRarity.Rare, TargetType.None) {
   public override IEnumerable<CardKeyword> CanonicalKeywords => [
     CardKeyword.Exhaust,
   ];

@@ -12,7 +12,7 @@ namespace RuriMegu.Core.Cards.Kaho.Rare.Power;
 /// Reflection in the Mirror (闀滀腑鍊掑奖) 鈥?Cost 1 (0), Power, Rare.
 /// Effects that increase Max 鉂わ笍 are doubled.
 /// </summary>
-public class ReflectionInTheMirror() : LinkuraCard(1, CardType.Power, CardRarity.Rare, TargetType.None) {
+public class ReflectionInTheMirror() : KahoCard(1, CardType.Power, CardRarity.Rare, TargetType.None) {
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     await PowerCmd.Apply<ReflectionInTheMirrorPower>(Owner.Creature, 1, Owner.Creature, this);
   }

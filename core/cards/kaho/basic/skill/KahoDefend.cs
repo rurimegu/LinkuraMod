@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -12,7 +12,7 @@ namespace RuriMegu.Core.Cards.Kaho.Basic.Skill;
 /// Defend card for Hinoshita Kaho.
 /// Basic skill: Gain 5 block. Upgrade: Gain 8 block.
 /// </summary>
-public class KahoDefend() : LinkuraCard(1, CardType.Skill, CardRarity.Basic, TargetType.None) {
+public class KahoDefend() : KahoCard(1, CardType.Skill, CardRarity.Basic, TargetType.None) {
   protected override HashSet<CardTag> CanonicalTags => [CardTag.Defend];
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [

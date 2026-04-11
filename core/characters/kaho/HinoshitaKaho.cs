@@ -12,7 +12,7 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Characters.Kaho;
 
 /// <summary>
-/// Hinoshita Kaho (鏃ラ噹涓嬭姳甯?
+/// Hinoshita Kaho
 /// </summary>
 public class HinoshitaKaho : PlaceholderCharacterModel {
   public const string CharacterId = "kaho";

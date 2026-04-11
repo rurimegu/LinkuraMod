@@ -16,7 +16,7 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Power;
 /// Whenever you trigger a Backstage effect, it triggers an additional time.
 /// Ethereal. Upgrade: remove Ethereal.
 /// </summary>
-public class HolidayHoliday() : LinkuraCard(1, CardType.Power, CardRarity.Uncommon, TargetType.None) {
+public class HolidayHoliday() : KahoCard(1, CardType.Power, CardRarity.Uncommon, TargetType.None) {
   public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
     HoverTipFactory.FromKeyword(LinkuraKeywords.Backstage),

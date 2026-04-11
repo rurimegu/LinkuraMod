@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
@@ -11,11 +11,11 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Uncommon.Attack;
 
 /// <summary>
-/// Variations — Cost 1, Attack, Uncommon.
+/// Variations 鈥?Cost 1, Attack, Uncommon.
 /// Deal 4 (6) damage. Draw 1 card.
-/// Backstage: whenever max ❤️ changes, this card costs 1 less next time it is played.
+/// Backstage: whenever max 鉂わ笍 changes, this card costs 1 less next time it is played.
 /// </summary>
-public class Variations() : InHandTriggerCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
+public class Variations() : KahoInHandTriggerCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
   private Subscription _maxHeartsSubscription;
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [

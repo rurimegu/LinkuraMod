@@ -13,7 +13,7 @@ namespace RuriMegu.Core.Powers.Kaho;
 /// At the start of your turn, convert 鉂わ笍 to equal Block.
 /// Applied by <see cref="RuriMegu.Core.Cards.Kaho.Uncommon.Power.CareerSurvey"/>.
 /// </summary>
-public class CareerSurveyPower : LinkuraPower {
+public class CareerSurveyPower : KahoPower {
   public override PowerType Type => PowerType.Buff;
   public override PowerStackType StackType => PowerStackType.Single;
 

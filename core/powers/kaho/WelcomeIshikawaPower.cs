@@ -16,7 +16,7 @@ namespace RuriMegu.Core.Powers.Kaho;
 /// At the start of your turn, choose at most 1 (2) Backstage cards from your draw pile to put into your hand.
 /// Applied by <see cref="RuriMegu.Core.Cards.Kaho.Uncommon.Power.WelcomeIshikawa"/>.
 /// </summary>
-public class WelcomeIshikawaPower : LinkuraPower {
+public class WelcomeIshikawaPower : KahoPower {
   public override PowerType Type => PowerType.Buff;
   public override PowerStackType StackType => PowerStackType.Counter;
 

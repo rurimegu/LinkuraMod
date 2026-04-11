@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
@@ -11,10 +11,10 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Uncommon.Attack;
 
 /// <summary>
-/// Full Bloom Sprint — Cost 2 (1), Attack, Uncommon.
-/// Deal 12 damage. If current ❤️ is at max, Collect and gain 2 energy.
+/// Full Bloom Sprint 鈥?Cost 2 (1), Attack, Uncommon.
+/// Deal 12 damage. If current 鉂わ笍 is at max, Collect and gain 2 energy.
 /// </summary>
-public class FullBloomSprint() : LinkuraCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
+public class FullBloomSprint() : KahoCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
 
   public override IEnumerable<CardKeyword> CanonicalKeywords => [LinkuraKeywords.Collect];
   protected override IEnumerable<DynamicVar> CanonicalVars => [

@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -10,10 +10,10 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Common.Skill;
 
 /// <summary>
-/// Bunny Defend — Cost 2, Skill, Common.
-/// Gain block equal to current max ♥. (Retain.)
+/// Bunny Defend 鈥?Cost 2, Skill, Common.
+/// Gain block equal to current max 鈾? (Retain.)
 /// </summary>
-public class BunnyDefend() : LinkuraCard(2, CardType.Skill, CardRarity.Common, TargetType.None) {
+public class BunnyDefend() : KahoCard(2, CardType.Skill, CardRarity.Common, TargetType.None) {
   protected override HashSet<CardTag> CanonicalTags => [CardTag.Defend];
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(StaticHoverTip.Block)];
 

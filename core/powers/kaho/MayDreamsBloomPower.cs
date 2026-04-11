@@ -12,7 +12,7 @@ namespace RuriMegu.Core.Powers.Kaho;
 /// <summary>
 /// Base class for May Dreams Bloom powers.
 /// </summary>
-public abstract class MayDreamsBloomPowerBase : LinkuraPower {
+public abstract class MayDreamsBloomPowerBase : KahoPower {
   public override PowerType Type => PowerType.Buff;
   public override PowerStackType StackType => PowerStackType.Counter;
 

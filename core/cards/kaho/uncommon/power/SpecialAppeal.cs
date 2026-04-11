@@ -16,7 +16,7 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Power;
 /// Whenever you Collect Hearts, deal damage to all enemies.
 /// Upgrade: Innate.
 /// </summary>
-public class SpecialAppeal() : LinkuraCard(1, CardType.Power, CardRarity.Uncommon, TargetType.None) {
+public class SpecialAppeal() : KahoCard(1, CardType.Power, CardRarity.Uncommon, TargetType.None) {
 
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
     HoverTipFactory.FromKeyword(LinkuraKeywords.Collect),

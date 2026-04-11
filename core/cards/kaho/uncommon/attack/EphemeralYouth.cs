@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,11 +13,11 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Uncommon.Attack;
 
 /// <summary>
-/// Ephemeral Youth — Cost 1, Attack, Uncommon, Ethereal.
+/// Ephemeral Youth 鈥?Cost 1, Attack, Uncommon, Ethereal.
 /// Deal 16 (24) damage.
 /// Backstage: whenever you play a card, this card's damage this turn is reduced by 4.
 /// </summary>
-public class EphemeralYouth() : InHandTriggerCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
+public class EphemeralYouth() : KahoInHandTriggerCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
   private const string TOTAL_DMG_VAR = "EPHEMERAL_YOUTH_TOTAL_DMG";
 
   private int _reductionCountThisTurn = 0;

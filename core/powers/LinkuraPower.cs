@@ -13,8 +13,9 @@ public abstract class LinkuraPower : CustomPowerModel {
   public override PowerType Type => PowerType.None;
   public override PowerStackType StackType => PowerStackType.None;
 
-  public override string CustomPackedIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant().RemoveSuffix("_power")}.png".PowerImagePath();
-  public override string CustomBigIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant().RemoveSuffix("_power")}.png".PowerImagePath();
+  public virtual string CharacterId => "";
+  public override string CustomPackedIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant().RemoveSuffix("_power")}.png".PowerImagePath(CharacterId);
+  public override string CustomBigIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant().RemoveSuffix("_power")}.png".PowerImagePath(CharacterId);
 
   private readonly List<Subscription> _subs = new();
 

@@ -17,7 +17,7 @@ namespace RuriMegu.Core.Cards.Kaho.Common.Attack;
 /// Uses <see cref="PowerCostReductionPower"/> which expires after the first Power card is played
 /// or at end of turn.
 /// </summary>
-public class Fantasy375() : LinkuraCard(3, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) {
+public class Fantasy375() : KahoCard(3, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) {
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new DamageVar(37, ValueProp.Move),
     new EnergyVar(2)

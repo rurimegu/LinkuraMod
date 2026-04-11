@@ -16,7 +16,7 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Power;
 /// The first 2 (3) Backstage cards you play each turn cost 1 less.
 /// Ethereal.
 /// </summary>
-public class TrainingCamp() : LinkuraCard(2, CardType.Power, CardRarity.Uncommon, TargetType.None) {
+public class TrainingCamp() : KahoCard(2, CardType.Power, CardRarity.Uncommon, TargetType.None) {
   public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [

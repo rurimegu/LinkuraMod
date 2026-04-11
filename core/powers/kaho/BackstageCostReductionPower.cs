@@ -11,7 +11,7 @@ namespace RuriMegu.Core.Powers.Kaho;
 /// Reduces the cost of the next Backstage card by <c>Amount</c> while in Hand or Play.
 /// Consumed when a Backstage card is played.
 /// </summary>
-public class BackstageCostReductionPower : LinkuraPower {
+public class BackstageCostReductionPower : KahoPower {
   public override PowerType Type => PowerType.Buff;
   public override PowerStackType StackType => PowerStackType.Counter;
 

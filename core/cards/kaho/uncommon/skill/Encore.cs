@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
@@ -13,10 +13,10 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 
 /// <summary>
-/// Encore (安可) — Cost 0, Skill, Uncommon.
+/// Encore (瀹夊彲) 鈥?Cost 0, Skill, Uncommon.
 /// Gain 2 (3) Block for every Burst triggered this turn. (Current: X) (Innate. Retain.)
 /// </summary>
-public class Encore() : LinkuraCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
+public class Encore() : KahoCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
   private const string TRACKER_VAR = "ENCORE_TRACKER";
   private Subscription _burstSubscription;
 

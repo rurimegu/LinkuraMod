@@ -15,7 +15,7 @@ namespace RuriMegu.Core.Powers.Kaho;
 /// This turn, Burst Hearts grant Block instead of hearts.
 /// Applied by <see cref="RuriMegu.Core.Cards.Kaho.Uncommon.Skill.MentalGuard"/>.
 /// </summary>
-public class MentalGuardPower : LinkuraPower {
+public class MentalGuardPower : KahoPower {
   public override PowerType Type => PowerType.Buff;
   public override PowerStackType StackType => PowerStackType.Single;
 

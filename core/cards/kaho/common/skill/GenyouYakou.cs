@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -9,10 +9,10 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Common.Skill;
 
 /// <summary>
-/// Genyou Yakou (眩曜夜行) — Cost 0, Skill, Common.
-/// If you have 8 or more ♥, draw 2 (3) cards. Collect. Ethereal. (Remove Ethereal on upgrade.)
+/// Genyou Yakou (鐪╂洔澶滆) 鈥?Cost 0, Skill, Common.
+/// If you have 8 or more 鈾? draw 2 (3) cards. Collect. Ethereal. (Remove Ethereal on upgrade.)
 /// </summary>
-public class GenyouYakou() : LinkuraCard(0, CardType.Skill, CardRarity.Common, TargetType.None) {
+public class GenyouYakou() : KahoCard(0, CardType.Skill, CardRarity.Common, TargetType.None) {
   private const int HEARTS_THRESHOLD = 8;
 
   public override IEnumerable<CardKeyword> CanonicalKeywords => [

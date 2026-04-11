@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -10,11 +10,11 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 
 /// <summary>
-/// Special Thanks — Cost 1, Skill, Uncommon.
+/// Special Thanks 鈥?Cost 1, Skill, Uncommon.
 /// On play: Gain 8 (11) Block.
 /// Backstage: whenever you play an Attack, Burst Hearts 2 (3).
 /// </summary>
-public class SpecialThanks() : InHandTriggerCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
+public class SpecialThanks() : KahoInHandTriggerCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new BlockVar(8, ValueProp.Move),
     new BurstHeartsVar(2),

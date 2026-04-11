@@ -14,7 +14,7 @@ namespace RuriMegu.Core.Cards.Kaho.Rare.Power;
 /// Bloom Garden Party 鈥?Cost 3, Power, Rare, Ethereal (upgraded: remove Ethereal).
 /// Your Backstage effects can also trigger from the discard pile.
 /// </summary>
-public class BloomGardenParty() : LinkuraCard(3, CardType.Power, CardRarity.Rare, TargetType.None) {
+public class BloomGardenParty() : KahoCard(3, CardType.Power, CardRarity.Rare, TargetType.None) {
   public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
     HoverTipFactory.FromKeyword(LinkuraKeywords.Backstage),

@@ -13,7 +13,7 @@ namespace RuriMegu.Core.Cards.Kaho.Rare.Power;
 /// Prologue (搴忕珷) 鈥?Cost 2, Power, Rare, (Innate.)
 /// Whenever Max 鉂わ笍 changes, the next card played this turn costs 1 Energy less.
 /// </summary>
-public class Prologue() : LinkuraCard(2, CardType.Power, CardRarity.Rare, TargetType.None) {
+public class Prologue() : KahoCard(2, CardType.Power, CardRarity.Rare, TargetType.None) {
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new EnergyVar(1),
   ];

@@ -11,7 +11,7 @@ namespace RuriMegu.Core.Powers.Kaho;
 /// Applied by <see cref="RuriMegu.Core.Cards.Kaho.Common.Skill.AgileSteps"/>.
 /// Consumed (removed entirely) the first time any Attack card is played.
 /// </summary>
-public class AttackCostReductionPower : LinkuraPower {
+public class AttackCostReductionPower : KahoPower {
   public override PowerType Type => PowerType.Buff;
   public override PowerStackType StackType => PowerStackType.Counter;
 

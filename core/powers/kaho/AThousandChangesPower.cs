@@ -13,7 +13,7 @@ namespace RuriMegu.Core.Powers.Kaho;
 /// This turn, your over-capped 鉂わ笍 is converted to equal amount of 鉂わ笍 max HP.
 /// Applied by <see cref="RuriMegu.Core.Cards.Kaho.Rare.Skill.AThousandChanges"/>.
 /// </summary>
-public class AThousandChangesPower() : LinkuraPower {
+public class AThousandChangesPower() : KahoPower {
   public override PowerType Type => PowerType.Buff;
   public override PowerStackType StackType => PowerStackType.Single;
 

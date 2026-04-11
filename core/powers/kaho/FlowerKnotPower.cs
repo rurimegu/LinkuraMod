@@ -13,7 +13,7 @@ namespace RuriMegu.Core.Powers.Kaho;
 /// Whenever you trigger a Backstage effect, discard that card and draw 1 card.
 /// Applied by <see cref="RuriMegu.Core.Cards.Kaho.Rare.Power.FlowerKnot"/>.
 /// </summary>
-public class FlowerKnotPower : LinkuraPower {
+public class FlowerKnotPower : KahoPower {
   public override PowerType Type => PowerType.Buff;
   public override PowerStackType StackType => PowerStackType.Counter;
 

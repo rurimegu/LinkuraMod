@@ -14,7 +14,7 @@ namespace RuriMegu.Core.Powers.Kaho;
 /// Consumed (removed entirely) the first time any Power card is played, or at end of turn.
 /// Applied by <see cref="RuriMegu.Core.Cards.Kaho.Common.Attack.Fantasy375"/>.
 /// </summary>
-public class PowerCostReductionPower : LinkuraPower {
+public class PowerCostReductionPower : KahoPower {
   public override PowerType Type => PowerType.Buff;
   public override PowerStackType StackType => PowerStackType.Counter;
 

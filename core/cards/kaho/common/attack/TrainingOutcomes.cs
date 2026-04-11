@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,11 +13,11 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Common.Attack;
 
 /// <summary>
-/// Training Outcomes — Cost 4 (3), Attack, Common.
+/// Training Outcomes 鈥?Cost 4 (3), Attack, Common.
 /// Deal 12 (16) damage.
 /// Backstage: whenever you Collect, this card costs 1 less in this combat.
 /// </summary>
-public class TrainingOutcomes() : InHandTriggerCard(4, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) {
+public class TrainingOutcomes() : KahoInHandTriggerCard(4, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) {
   private Subscription _collectHeartsSubscription;
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [

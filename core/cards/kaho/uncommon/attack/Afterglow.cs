@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
@@ -12,11 +12,11 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Uncommon.Attack;
 
 /// <summary>
-/// Afterglow — Cost 0, Attack, Uncommon.
+/// Afterglow 鈥?Cost 0, Attack, Uncommon.
 /// Deal 4 (6) damage.
 /// Whenever you Collect, return this card from discard pile to hand.
 /// </summary>
-public class Afterglow() : LinkuraCard(0, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
+public class Afterglow() : KahoCard(0, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
   private Subscription _collectHeartsSubscription;
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [

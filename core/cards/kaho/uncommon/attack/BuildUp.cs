@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
@@ -12,11 +12,11 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Uncommon.Attack;
 
 /// <summary>
-/// Build-up — Cost 1, Attack, Uncommon.
+/// Build-up 鈥?Cost 1, Attack, Uncommon.
 /// Deal 6 (9) damage. Draw 1 (2) card(s).
 /// Backstage: every 3 Burst triggers grants +1 extra draw when this card is played. (Current: X)
 /// </summary>
-public class BuildUp() : InHandTriggerCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
+public class BuildUp() : KahoInHandTriggerCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
   private const string DRAW_PREVIEW_VAR = "BUILD_UP_DRAW";
   private const string TRACKER_VAR = "BUILD_UP_TRACKER";
 

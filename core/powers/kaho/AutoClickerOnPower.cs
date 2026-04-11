@@ -13,7 +13,7 @@ namespace RuriMegu.Core.Powers.Kaho;
 /// Whenever you Burst, Collect. All enemies (including newly appearing ones) gain 99 Intangible.
 /// Applied by <see cref="RuriMegu.Core.Cards.Kaho.Rare.Power.AutoClickerOn"/>.
 /// </summary>
-public class AutoClickerOnPower : LinkuraPower {
+public class AutoClickerOnPower : KahoPower {
   public override PowerType Type => PowerType.Buff;
   public override PowerStackType StackType => PowerStackType.Single;
 

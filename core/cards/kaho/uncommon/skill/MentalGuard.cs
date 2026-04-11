@@ -13,7 +13,7 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 /// Mental Guard (绮剧瀹堟姢) 鈥?Cost 0, Skill, Uncommon.
 /// This turn, Burst Hearts grant Block instead of hearts.
 /// </summary>
-public class MentalGuard() : LinkuraCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
+public class MentalGuard() : KahoCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
   public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
     BurstHeartsVar.HoverTip(),

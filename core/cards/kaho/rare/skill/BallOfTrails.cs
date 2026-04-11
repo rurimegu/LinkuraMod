@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
@@ -11,11 +11,11 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Rare.Skill;
 
 /// <summary>
-/// Ball of Trails — Cost 1, Skill, Rare.
+/// Ball of Trails 鈥?Cost 1, Skill, Rare.
 /// Burst 10 (15).
 /// If drawn at the start of your turn, gain 2 (3) energy, discard your hand and draw that many cards.
 /// </summary>
-public class BallOfTrails() : LinkuraCard(1, CardType.Skill, CardRarity.Rare, TargetType.None) {
+public class BallOfTrails() : KahoCard(1, CardType.Skill, CardRarity.Rare, TargetType.None) {
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new BurstHeartsVar(10),
     new EnergyVar(2),

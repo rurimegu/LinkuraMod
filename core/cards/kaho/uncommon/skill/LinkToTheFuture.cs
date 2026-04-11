@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -10,10 +10,10 @@ using MegaCrit.Sts2.Core.Models.Powers;
 namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 
 /// <summary>
-/// Link to the FUTURE — Cost 1, Skill, Uncommon.
+/// Link to the FUTURE 鈥?Cost 1, Skill, Uncommon.
 /// Retain your hand this turn. Next turn gain 1 (2) energy.
 /// </summary>
-public class LinkToTheFuture() : LinkuraCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
+public class LinkToTheFuture() : KahoCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new EnergyVar(1),
   ];

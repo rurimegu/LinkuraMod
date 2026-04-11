@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
@@ -11,11 +11,11 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Uncommon.Attack;
 
 /// <summary>
-/// Unfulfilled Wishes — Cost 2, Attack, Uncommon.
-/// Deal damage equal to (max ❤️ - current ❤️). Gain Block equal to current ❤️.
+/// Unfulfilled Wishes 鈥?Cost 2, Attack, Uncommon.
+/// Deal damage equal to (max 鉂わ笍 - current 鉂わ笍). Gain Block equal to current 鉂わ笍.
 /// Upgraded: gains Retain.
 /// </summary>
-public class UnfulfilledWishes() : LinkuraCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
+public class UnfulfilledWishes() : KahoCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
     HoverTipFactory.Static(StaticHoverTip.Block),
   ];

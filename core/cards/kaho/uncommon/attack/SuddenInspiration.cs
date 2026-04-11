@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
@@ -11,10 +11,10 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace RuriMegu.Core.Cards.Kaho.Uncommon.Attack;
 
 /// <summary>
-/// Sudden Inspiration — Cost 1, Attack, Uncommon.
+/// Sudden Inspiration 鈥?Cost 1, Attack, Uncommon.
 /// Deal 6 (9) damage. Collect when drawn.
 /// </summary>
-public class SuddenInspiration() : LinkuraCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
+public class SuddenInspiration() : KahoCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
 
   public override IEnumerable<CardKeyword> CanonicalKeywords => [LinkuraKeywords.Collect];
   protected override IEnumerable<DynamicVar> CanonicalVars => [

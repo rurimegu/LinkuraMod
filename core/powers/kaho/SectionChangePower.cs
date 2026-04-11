@@ -10,7 +10,7 @@ namespace RuriMegu.Core.Powers.Kaho;
 /// Section Change 鈥?At the end of your turn, Collect.
 /// Applied by <see cref="RuriMegu.Core.Cards.Kaho.Common.Power.SectionChange"/>.
 /// </summary>
-public class SectionChangePower : LinkuraPower {
+public class SectionChangePower : KahoPower {
   public override PowerType Type => PowerType.Buff;
   public override PowerStackType StackType => PowerStackType.Single;
 

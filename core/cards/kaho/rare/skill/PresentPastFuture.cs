@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
@@ -14,11 +14,11 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Rare.Skill;
 
 /// <summary>
-/// Present, Past, Future — Cost 1, Skill, Rare.
+/// Present, Past, Future 鈥?Cost 1, Skill, Rare.
 /// Discard hand, draw same amount.
 /// Backstage: every 15 (10) Burst, trigger this effect.
 /// </summary>
-public class PresentPastFuture() : InHandTriggerCard(1, CardType.Skill, CardRarity.Rare, TargetType.None) {
+public class PresentPastFuture() : KahoInHandTriggerCard(1, CardType.Skill, CardRarity.Rare, TargetType.None) {
   private const string TRACKER_VAR = "RURIMEGU-PPF_TRACKER";
   private const string THRESHOLD_VAR = "RURIMEGU-PPF_THRESHOLD";
 

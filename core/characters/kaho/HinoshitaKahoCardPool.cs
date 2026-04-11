@@ -22,8 +22,8 @@ namespace RuriMegu.Core.Characters.Kaho;
 public class HinoshitaKahoCardPool : CustomCardPoolModel {
   public override string Title => HinoshitaKaho.CharacterName;
 
-  public override string BigEnergyIconPath => "charui/big_energy.png".ImagePath();
-  public override string TextEnergyIconPath => "charui/text_energy.png".ImagePath();
+  public override string BigEnergyIconPath => "big_energy.png".CharacterUiPath("kaho");
+  public override string TextEnergyIconPath => "text_energy.png".CharacterUiPath("kaho");
 
   public override float H => 0.017f;
   public override float S => 1.0f;

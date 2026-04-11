@@ -11,7 +11,7 @@ namespace RuriMegu.Core.Powers.Kaho;
 /// Whenever you trigger a Backstage effect, it triggers an additional time for each stack.
 /// Applied by <see cref="RuriMegu.Core.Cards.Kaho.Uncommon.Power.HolidayHoliday"/>.
 /// </summary>
-public class HolidayHolidayPower : LinkuraPower {
+public class HolidayHolidayPower : KahoPower {
   public override PowerType Type => PowerType.Buff;
   public override PowerStackType StackType => PowerStackType.Counter;
 

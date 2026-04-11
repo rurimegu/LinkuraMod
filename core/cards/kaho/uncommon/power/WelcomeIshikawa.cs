@@ -17,7 +17,7 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Power;
 /// Start of turn, choose 1 (2) Backstage cards from draw pile to hand.
 /// Innate.
 /// </summary>
-public class WelcomeIshikawa() : LinkuraCard(1, CardType.Power, CardRarity.Uncommon, TargetType.None) {
+public class WelcomeIshikawa() : KahoCard(1, CardType.Power, CardRarity.Uncommon, TargetType.None) {
   public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Innate];
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
     HoverTipFactory.FromKeyword(LinkuraKeywords.Backstage),

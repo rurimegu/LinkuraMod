@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Context;
@@ -14,11 +14,11 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Rare.Skill;
 
 /// <summary>
-/// Is That Cloud A Whale? — Cost 2, Skill, Rare.
-/// For every 20 (15) Max ❤️, gain 1 Intangible.
-/// Reset Max ❤️ to 9. Exhaust.
+/// Is That Cloud A Whale? 鈥?Cost 2, Skill, Rare.
+/// For every 20 (15) Max 鉂わ笍, gain 1 Intangible.
+/// Reset Max 鉂わ笍 to 9. Exhaust.
 /// </summary>
-public class IsThatCloudAWhale() : LinkuraCard(2, CardType.Skill, CardRarity.Rare, TargetType.None) {
+public class IsThatCloudAWhale() : KahoCard(2, CardType.Skill, CardRarity.Rare, TargetType.None) {
   public override IEnumerable<CardKeyword> CanonicalKeywords => [
     CardKeyword.Exhaust,
   ];

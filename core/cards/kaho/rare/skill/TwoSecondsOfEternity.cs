@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,14 +11,14 @@ using MegaCrit.Sts2.Core.Rooms;
 namespace RuriMegu.Core.Cards.Kaho.Rare.Skill;
 
 /// <summary>
-/// Two Seconds Of Eternity — Cost 0 (dynamic), Skill, Rare.
+/// Two Seconds Of Eternity 鈥?Cost 0 (dynamic), Skill, Rare.
 /// Play all other cards in hand. This card's cost equals their total cost.
 /// Exhaust. (Upgraded: Remove Exhaust.)
 ///
 /// Guard: tracks total auto-played cards since the last manual play of this card,
 /// capped at <see cref="MAX_AUTO_CARDS_PER_PLAY"/>, mirroring InHandTriggerCard's pattern.
 /// </summary>
-public class TwoSecondsOfEternity() : LinkuraCard(0, CardType.Skill, CardRarity.Rare, TargetType.None) {
+public class TwoSecondsOfEternity() : KahoCard(0, CardType.Skill, CardRarity.Rare, TargetType.None) {
   /// <summary>Maximum cards auto-played by this card between consecutive manual plays.</summary>
   private const int MAX_AUTO_CARDS_PER_PLAY = 99;
 
@@ -26,7 +26,7 @@ public class TwoSecondsOfEternity() : LinkuraCard(0, CardType.Skill, CardRarity.
 
   public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
-  // ── Dynamic cost tracking ─────────────────────────────────────────────────
+  // 鈹€鈹€ Dynamic cost tracking 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
   /// <summary>
   /// Recalculate this card's cost whenever any card enters or leaves a pile,
@@ -54,7 +54,7 @@ public class TwoSecondsOfEternity() : LinkuraCard(0, CardType.Skill, CardRarity.
     EnergyCost.SetCustomBaseCost(totalCost);
   }
 
-  // ── Play effect ───────────────────────────────────────────────────────────
+  // 鈹€鈹€ Play effect 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     // Snapshot hand at this moment, excluding this card (already in Play pile).
@@ -71,7 +71,7 @@ public class TwoSecondsOfEternity() : LinkuraCard(0, CardType.Skill, CardRarity.
     }
   }
 
-  // ── Guard reset ───────────────────────────────────────────────────────────
+  // 鈹€鈹€ Guard reset 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
   public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay) {
     await base.AfterCardPlayed(context, cardPlay);
@@ -87,7 +87,7 @@ public class TwoSecondsOfEternity() : LinkuraCard(0, CardType.Skill, CardRarity.
     return base.AfterCombatEnd(room);
   }
 
-  // ── Upgrade ───────────────────────────────────────────────────────────────
+  // 鈹€鈹€ Upgrade 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
   protected override void OnUpgrade() {
     RemoveKeyword(CardKeyword.Exhaust);

@@ -14,7 +14,7 @@ namespace RuriMegu.Core.Powers.Kaho;
 /// This turn, Max 鉂わ笍 increase -> Auto Burst + Collect.
 /// Applied by <see cref="RuriMegu.Core.Cards.Kaho.Rare.Skill.EnduringTradition"/>.
 /// </summary>
-public class EnduringTraditionPower() : LinkuraPower {
+public class EnduringTraditionPower() : KahoPower {
   public override PowerType Type => PowerType.Buff;
   public override PowerStackType StackType => PowerStackType.Single;
 

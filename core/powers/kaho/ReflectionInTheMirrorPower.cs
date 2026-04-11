@@ -11,7 +11,7 @@ namespace RuriMegu.Core.Powers.Kaho;
 /// Effects that increase Max 鉂わ笍 are doubled.
 /// Applied by <see cref="RuriMegu.Core.Cards.Kaho.Rare.Power.ReflectionInTheMirror"/>.
 /// </summary>
-public class ReflectionInTheMirrorPower : LinkuraPower {
+public class ReflectionInTheMirrorPower : KahoPower {
   public override PowerType Type => PowerType.Buff;
   public override PowerStackType StackType => PowerStackType.Single;
 

@@ -13,7 +13,7 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Power;
 /// Unadorned Beauty (鏃犻グ鐨勭編涓? 鈥?Cost 2, Power, Uncommon.
 /// Start of turn gain 1 (2) Energy. Cannot increase max 鉂わ笍. Retain.
 /// </summary>
-public class UnadornedBeauty() : LinkuraCard(2, CardType.Power, CardRarity.Uncommon, TargetType.None) {
+public class UnadornedBeauty() : KahoCard(2, CardType.Power, CardRarity.Uncommon, TargetType.None) {
   public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [

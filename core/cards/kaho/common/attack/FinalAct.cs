@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -8,10 +8,10 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Common.Attack;
 
 /// <summary>
-/// Final Act — Cost 1, Attack, Common.
-/// Deal damage equal to your current ♥. Collect. Ethereal. (Remove Ethereal on upgrade.)
+/// Final Act 鈥?Cost 1, Attack, Common.
+/// Deal damage equal to your current 鈾? Collect. Ethereal. (Remove Ethereal on upgrade.)
 /// </summary>
-public class FinalAct() : LinkuraCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) {
+public class FinalAct() : KahoCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) {
   public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal, LinkuraKeywords.Collect];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {

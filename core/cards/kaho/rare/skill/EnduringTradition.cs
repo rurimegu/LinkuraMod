@@ -13,7 +13,7 @@ namespace RuriMegu.Core.Cards.Kaho.Rare.Skill;
 /// Enduring Tradition 鈥?Cost 0, Skill, Rare.
 /// Apply Enduring Tradition Power. (Retain.)
 /// </summary>
-public class EnduringTradition() : LinkuraCard(0, CardType.Skill, CardRarity.Rare, TargetType.None) {
+public class EnduringTradition() : KahoCard(0, CardType.Skill, CardRarity.Rare, TargetType.None) {
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
     HoverTipFactory.FromPower<AutoBurstPower>(),
     HoverTipFactory.FromKeyword(LinkuraKeywords.Collect),

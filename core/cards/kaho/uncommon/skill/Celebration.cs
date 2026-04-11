@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
@@ -11,10 +11,10 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 
 /// <summary>
-/// Celebration! — Cost 1, Skill, Uncommon.
+/// Celebration! 鈥?Cost 1, Skill, Uncommon.
 /// Draw 1(2) cards. Backstage: every 5 (4) times you Burst, draw 1 card. (Current: X)
 /// </summary>
-public class Celebration() : InHandTriggerCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
+public class Celebration() : KahoInHandTriggerCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
   private const string TRACKER_VAR = "CELEBRATION_TRACKER";
   private const string THRESHOLD_VAR = "CELEBRATION_THRESHOLD";
   private Subscription _burstSubscription;

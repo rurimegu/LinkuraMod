@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
@@ -11,10 +11,10 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Common.Attack;
 
 /// <summary>
-/// Budding Premonition — Cost 2, Attack, Common, Exhaust.
-/// Increase max ♥ by 5 (8). Deal damage equal to current max ♥.
+/// Budding Premonition 鈥?Cost 2, Attack, Common, Exhaust.
+/// Increase max 鈾?by 5 (8). Deal damage equal to current max 鈾?
 /// </summary>
-public class BuddingPremonition() : LinkuraCard(2, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) {
+public class BuddingPremonition() : KahoCard(2, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) {
   public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [

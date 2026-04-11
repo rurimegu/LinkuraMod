@@ -12,7 +12,7 @@ namespace RuriMegu.Core.Powers.Kaho;
 /// Consumed (removed entirely) the first time any Skill card is played.
 /// Applied by <see cref="RuriMegu.Core.Cards.Kaho.Common.Attack.Fantasy375"/>.
 /// </summary>
-public class SkillCostReductionPower : LinkuraPower {
+public class SkillCostReductionPower : KahoPower {
   public override PowerType Type => PowerType.Buff;
   public override PowerStackType StackType => PowerStackType.Counter;
 

@@ -16,7 +16,7 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Attack;
 /// Backstage Preparation 鈥?Cost 1, Attack, Uncommon.
 /// Deal 8 (11) damage. Your next Backstage card costs {Energy:energyIcons()} less.
 /// </summary>
-public class BackstagePreparation() : LinkuraCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
+public class BackstagePreparation() : KahoCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new DamageVar(8, ValueProp.Move),
     new EnergyVar(1),

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -10,7 +10,7 @@ using RuriMegu.Core.Utils;
 
 namespace RuriMegu.Core.Cards.Kaho.Basic.Skill;
 
-public class LinkuraEnergy() : LinkuraCard(1, CardType.Skill, CardRarity.Basic, TargetType.None) {
+public class LinkuraEnergy() : KahoCard(1, CardType.Skill, CardRarity.Basic, TargetType.None) {
   public override IEnumerable<CardKeyword> CanonicalKeywords => [LinkuraKeywords.Collect];
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [

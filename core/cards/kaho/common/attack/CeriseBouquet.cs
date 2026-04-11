@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -9,10 +9,10 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace RuriMegu.Core.Cards.Kaho.Common.Attack;
 
 /// <summary>
-/// Cerise Bouquet — Cost 2, Attack, Common.
+/// Cerise Bouquet 鈥?Cost 2, Attack, Common.
 /// Deal 6 (9) damage to ALL enemies 3 times.
 /// </summary>
-public class CeriseBouquet() : LinkuraCard(2, CardType.Attack, CardRarity.Common, TargetType.AllEnemies) {
+public class CeriseBouquet() : KahoCard(2, CardType.Attack, CardRarity.Common, TargetType.AllEnemies) {
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new DamageVar(6, ValueProp.Move),
   ];

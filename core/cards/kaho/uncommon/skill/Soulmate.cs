@@ -16,7 +16,7 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 /// Soulmate (鍛藉畾涔嬩汉) 鈥?Cost 0, Skill, Uncommon.
 /// Collect. When drawn, trigger 2 (3) [gold]Auto Burst[/gold].
 /// </summary>
-public class Soulmate() : LinkuraCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
+public class Soulmate() : KahoCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
   public override IEnumerable<CardKeyword> CanonicalKeywords => [LinkuraKeywords.Collect];
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [

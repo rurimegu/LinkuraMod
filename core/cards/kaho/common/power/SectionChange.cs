@@ -13,7 +13,7 @@ namespace RuriMegu.Core.Cards.Kaho.Common.Power;
 /// Section Change (灏忚妭鍙樻崲) 鈥?Cost 1, Power, Common.
 /// At the end of your turn, Collect. (Innate.)
 /// </summary>
-public class SectionChange() : LinkuraCard(1, CardType.Power, CardRarity.Common, TargetType.None) {
+public class SectionChange() : KahoCard(1, CardType.Power, CardRarity.Common, TargetType.None) {
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
     HoverTipFactory.FromKeyword(LinkuraKeywords.Collect),
   ];

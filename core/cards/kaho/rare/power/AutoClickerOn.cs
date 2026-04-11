@@ -15,7 +15,7 @@ namespace RuriMegu.Core.Cards.Kaho.Rare.Power;
 /// Auto Clicker: On (杩炵偣鍣細On) 鈥?Cost 1 (0), Power, Rare.
 /// Whenever you Burst, Collect. All enemies gain 99 Intangible.
 /// </summary>
-public class AutoClickerOn() : LinkuraCard(1, CardType.Power, CardRarity.Rare, TargetType.None) {
+public class AutoClickerOn() : KahoCard(1, CardType.Power, CardRarity.Rare, TargetType.None) {
 
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
     BurstHeartsVar.HoverTip(),

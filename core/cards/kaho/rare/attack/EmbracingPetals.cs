@@ -18,7 +18,7 @@ namespace RuriMegu.Core.Cards.Kaho.Rare.Attack;
 /// Embracing Petals 鈥?Cost 2, Attack, Rare.
 /// Deal damage equal to your Auto Burst amount to ALL enemies 6 (9) times. Backstage: whenever you Collect, gain 1 Auto Burst.
 /// </summary>
-public class EmbracingPetals() : InHandTriggerCard(2, CardType.Attack, CardRarity.Rare, TargetType.AllEnemies) {
+public class EmbracingPetals() : KahoInHandTriggerCard(2, CardType.Attack, CardRarity.Rare, TargetType.AllEnemies) {
   private Subscription _collectHeartsSubscription;
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [

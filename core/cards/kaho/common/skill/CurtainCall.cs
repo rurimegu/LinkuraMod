@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -10,10 +10,10 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Common.Skill;
 
 /// <summary>
-/// Curtain Call (演出落幕) — Cost 1, Skill, Common.
+/// Curtain Call (婕斿嚭钀藉箷) 鈥?Cost 1, Skill, Common.
 /// Gain 8 (11) block. Collect.
 /// </summary>
-public class CurtainCall() : LinkuraCard(1, CardType.Skill, CardRarity.Common, TargetType.None) {
+public class CurtainCall() : KahoCard(1, CardType.Skill, CardRarity.Common, TargetType.None) {
   public override IEnumerable<CardKeyword> CanonicalKeywords => [LinkuraKeywords.Collect];
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [

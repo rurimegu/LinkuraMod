@@ -15,7 +15,7 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 /// Aurora Flower (鏋佸厜鑺? 鈥?Cost 1, Skill, Uncommon.
 /// Trigger 6 (9) [gold]Auto Burst[/gold]. Collect after each trigger.
 /// </summary>
-public class AuroraFlower() : LinkuraCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
+public class AuroraFlower() : KahoCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
 
   public override IEnumerable<CardKeyword> CanonicalKeywords => [LinkuraKeywords.Collect];
   protected override IEnumerable<DynamicVar> CanonicalVars => [

@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
@@ -13,15 +13,15 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 
 /// <summary>
-/// On Your Mark — X Cost, Skill, Uncommon.
-/// Increase max ❤️ by 4 (6) X. When drawn, gain Block equal to 2(3)x your {Energy:energyIcons()}.
+/// On Your Mark 鈥?X Cost, Skill, Uncommon.
+/// Increase max 鉂わ笍 by 4 (6) X. When drawn, gain Block equal to 2(3)x your {Energy:energyIcons()}.
 /// </summary>
-public class OnYourMark() : LinkuraCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
+public class OnYourMark() : KahoCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
   protected override bool HasEnergyCostX => true;
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new ExpandHeartsVar(4),
-    new BlockVar(2, 0),
+    new BlockVar(2, ValueProp.Move),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {

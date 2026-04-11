@@ -10,28 +10,28 @@ namespace RuriMegu.Core.Utils;
 /// Utility extension methods for resolving asset paths within the mod.
 /// </summary>
 public static class StringExtensions {
-  public static string ImagePath(this string path) {
-    return Path.Join(LinkuraMod.ModId, "images", path);
+  public static string ImagePath(this string path, string characterId = "") {
+    return Path.Join(LinkuraMod.ModId, "images", characterId, path);
   }
 
-  public static string CardImagePath(this string path) {
-    return Path.Join(LinkuraMod.ModId, "images", "card_portraits", path);
+  public static string CardImagePath(this string path, string characterId = "") {
+    return Path.Join(LinkuraMod.ModId, "images", "card_portraits", characterId, path);
   }
 
-  public static string BigCardImagePath(this string path) {
-    return Path.Join(LinkuraMod.ModId, "images", "card_portraits", "big", path);
+  public static string BigCardImagePath(this string path, string characterId = "") {
+    return Path.Join(LinkuraMod.ModId, "images", "card_portraits", characterId, "big", path);
   }
 
-  public static string PowerImagePath(this string path) {
-    return Path.Join(LinkuraMod.ModId, "images", "powers", path);
+  public static string PowerImagePath(this string path, string characterId = "") {
+    return Path.Join(LinkuraMod.ModId, "images", "powers", characterId, path);
   }
 
-  public static string RelicImagePath(this string path) {
-    return Path.Join(LinkuraMod.ModId, "images", "relics", path);
+  public static string RelicImagePath(this string path, string characterId = "") {
+    return Path.Join(LinkuraMod.ModId, "images", "relics", characterId, path);
   }
 
-  public static string BigRelicImagePath(this string path) {
-    return Path.Join(LinkuraMod.ModId, "images", "relics", "big", path);
+  public static string BigRelicImagePath(this string path, string characterId = "") {
+    return Path.Join(LinkuraMod.ModId, "images", "relics", characterId, "big", path);
   }
 
   public static string CharacterUiPath(this string path, string characterId = "") {
@@ -43,10 +43,7 @@ public static class StringExtensions {
   }
 
   public static string RemoveSuffix(this string str, string suffix) {
-    if (str.EndsWith(suffix)) {
-      return str.Substring(0, str.Length - suffix.Length);
-    }
-    return str;
+    return str.EndsWith(suffix) ? str[..^suffix.Length] : str;
   }
 
   private static LocString L10NStatic(string entry) {

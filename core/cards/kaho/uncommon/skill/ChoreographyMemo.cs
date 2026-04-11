@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
@@ -10,11 +10,11 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 
 /// <summary>
-/// Choreography Memo (舞步编排) — Cost 1, Skill, Uncommon.
+/// Choreography Memo (鑸炴缂栨帓) 鈥?Cost 1, Skill, Uncommon.
 /// On play: Burst 9 (12).
 /// Backstage: for every 3 (2) cards you play, Collect. (Current: X)
 /// </summary>
-public class ChoreographyMemo() : InHandTriggerCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
+public class ChoreographyMemo() : KahoInHandTriggerCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
   private const string TRACKER_VAR = "CHOREOGRAPHY_TRACKER";
   private const string THRESHOLD_VAR = "CHOREOGRAPHY_THRESHOLD";
 

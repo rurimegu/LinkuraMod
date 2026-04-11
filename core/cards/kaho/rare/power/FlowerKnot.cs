@@ -15,7 +15,7 @@ namespace RuriMegu.Core.Cards.Kaho.Rare.Power;
 /// Flower Knot (鑺辩粨) 鈥?Cost 1, Power, Rare.
 /// Whenever you trigger a Backstage effect, discard that backstage card and draw 1 card. (Innate.)
 /// </summary>
-public class FlowerKnot() : LinkuraCard(1, CardType.Power, CardRarity.Rare, TargetType.None) {
+public class FlowerKnot() : KahoCard(1, CardType.Power, CardRarity.Rare, TargetType.None) {
   public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Innate];
 
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
