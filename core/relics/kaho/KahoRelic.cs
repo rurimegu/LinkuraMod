@@ -9,5 +9,5 @@ namespace RuriMegu.Core.Relics.Kaho;
 /// </summary>
 [Pool(typeof(KahoRelicPool))]
 public abstract class KahoRelic : LinkuraRelic {
-  public override string CharacterId => "kaho";
+  public override string CharacterId => HinoshitaKaho.CHARACTER_ID;
 }

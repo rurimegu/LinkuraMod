@@ -48,17 +48,17 @@ public abstract class MayDreamsBloomPowerBase : KahoPower {
 }
 
 /// <summary>
-/// For every 15 ❤️ overflowed, gain 1 stack of Auto Burst.
+/// For every 16 ❤️ overflowed, gain 1 stack of Auto Burst.
 /// Applied by <see cref="RuriMegu.Core.Cards.Kaho.Rare.Power.MayDreamsBloom"/> (base version).
 /// </summary>
 public class MayDreamsBloomPower : MayDreamsBloomPowerBase {
-  protected override int Threshold => 15;
+  protected override int Threshold => 16;
 }
 
 /// <summary>
-/// For every 10 ❤️ overflowed, gain 1 stack of Auto Burst.
+/// For every 12 ❤️ overflowed, gain 1 stack of Auto Burst.
 /// Applied by <see cref="RuriMegu.Core.Cards.Kaho.Rare.Power.MayDreamsBloom"/> (upgraded version).
 /// </summary>
 public class MayDreamsBloomUpgradedPower : MayDreamsBloomPowerBase {
-  protected override int Threshold => 10;
+  protected override int Threshold => 12;
 }

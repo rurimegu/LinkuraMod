@@ -10,6 +10,6 @@ namespace RuriMegu.Core.Characters.Kaho;
 public class KahoRelicPool : CustomRelicPoolModel {
   public override Color LabOutlineColor => HinoshitaKaho.Color;
 
-  public override string BigEnergyIconPath => "big_energy.png".CharacterUiPath("kaho");
-  public override string TextEnergyIconPath => "text_energy.png".CharacterUiPath("kaho");
+  public override string BigEnergyIconPath => "big_energy.png".CharacterUiPath(HinoshitaKaho.CHARACTER_ID);
+  public override string TextEnergyIconPath => "text_energy.png".CharacterUiPath(HinoshitaKaho.CHARACTER_ID);
 }
