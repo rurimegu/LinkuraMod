@@ -149,7 +149,7 @@
   "RURIMEGU-PROLOGUE.title": "序章",
   "RURIMEGU-PROLOGUE.description": "每当你的❤️上限变化，你在本回合打出的下一张牌耗能减少{Energy:energyIcons()}。",
   "RURIMEGU-MAY_DREAMS_BLOOM.title": "愿梦想绽放一生",
-  "RURIMEGU-MAY_DREAMS_BLOOM.description": "每溢出{RURIMEGU-MAX_HEARTS_THRESHOLD:diff()}颗❤️，获得1层[gold]自然爆心[/gold]。",
+  "RURIMEGU-MAY_DREAMS_BLOOM.description": "每溢出{RURIMEGU-MAX_HEARTS_THRESHOLD:diff()}颗❤️，获得1层[gold]自然爆心[/gold]。不计算自然爆心溢出。",
   "RURIMEGU-BLOOM_GARDEN_PARTY.title": "Bloom Garden Party",
   "RURIMEGU-BLOOM_GARDEN_PARTY.description": "你的[gold]幕后[/gold]效果在[gold]弃牌堆[/gold]中也可以触发。"
 }

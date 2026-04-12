@@ -149,7 +149,7 @@
   "RURIMEGU-PROLOGUE.title": "Prologue",
   "RURIMEGU-PROLOGUE.description": "Whenever your Max ❤️ changes, your next card costs {Energy:energyIcons()} less this turn.",
   "RURIMEGU-MAY_DREAMS_BLOOM.title": "May Dreams Bloom",
-  "RURIMEGU-MAY_DREAMS_BLOOM.description": "For every {RURIMEGU-MAX_HEARTS_THRESHOLD:diff()} ❤️ overflowed, gain 1 stack of [gold]Auto Burst[/gold].",
+  "RURIMEGU-MAY_DREAMS_BLOOM.description": "For every {RURIMEGU-MAX_HEARTS_THRESHOLD:diff()} ❤️ overflowed, gain 1 stack of [gold]Auto Burst[/gold]. Does not count overflow from [gold]Auto Burst[/gold].",
   "RURIMEGU-BLOOM_GARDEN_PARTY.title": "Bloom Garden Party",
   "RURIMEGU-BLOOM_GARDEN_PARTY.description": "Your [gold]Backstage[/gold] effects can also trigger from your [gold]Discard Pile[/gold]."
 }

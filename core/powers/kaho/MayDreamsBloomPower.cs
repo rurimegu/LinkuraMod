@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
@@ -32,7 +32,7 @@ public abstract class MayDreamsBloomPowerBase : KahoPower {
   }
 
   private async Task OnBurstLate(Events.BurstEvent ev) {
-    if (ev.Player.Creature != Owner) return;
+    if (ev.Player.Creature != Owner || ev.isAutoBurst) return;
     int overflow = ev.RequestedAmount - ev.ActualAmount;
     if (overflow <= 0) return;
 
@@ -48,17 +48,17 @@ public abstract class MayDreamsBloomPowerBase : KahoPower {
 }
 
 /// <summary>
-/// For every 20 鉂わ笍 overflowed, gain 1 stack of Auto Burst.
+/// For every 15 ❤️ overflowed, gain 1 stack of Auto Burst.
 /// Applied by <see cref="RuriMegu.Core.Cards.Kaho.Rare.Power.MayDreamsBloom"/> (base version).
 /// </summary>
 public class MayDreamsBloomPower : MayDreamsBloomPowerBase {
-  protected override int Threshold => 20;
+  protected override int Threshold => 15;
 }
 
 /// <summary>
-/// For every 15 鉂わ笍 overflowed, gain 1 stack of Auto Burst.
+/// For every 10 ❤️ overflowed, gain 1 stack of Auto Burst.
 /// Applied by <see cref="RuriMegu.Core.Cards.Kaho.Rare.Power.MayDreamsBloom"/> (upgraded version).
 /// </summary>
 public class MayDreamsBloomUpgradedPower : MayDreamsBloomPowerBase {
-  protected override int Threshold => 15;
+  protected override int Threshold => 10;
 }

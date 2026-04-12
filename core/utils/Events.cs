@@ -39,7 +39,8 @@ public static class Events {
     Player Player,
     PlayerChoiceContext Context,
     int RequestedAmount,
-    CardModel Source
+    CardModel Source,
+    bool isAutoBurst
   ) : Event {
     public int ActualAmount { get; set; } = 0;
     public HeartsChangedEvent HeartsChangedEvent { get; set; } = null;

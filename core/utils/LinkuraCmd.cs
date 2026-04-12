@@ -48,7 +48,7 @@ public static class LinkuraCmd {
   }
 
   public static async Task<Events.BurstEvent> BurstHearts(Player player, PlayerChoiceContext ctx, int amount, CardModel source = null, bool isAutoBurst = false) {
-    var ev = new Events.BurstEvent(player, ctx, amount, source);
+    var ev = new Events.BurstEvent(player, ctx, amount, source, isAutoBurst);
     if (!await Events.Burst.InvokeAllEarly(ev)) return ev;
     if (amount <= 0) return ev;
     if (!isAutoBurst) {
