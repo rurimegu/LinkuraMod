@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BaseLib.Extensions;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -10,6 +11,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using RuriMegu.Core.Characters;
 using RuriMegu.Core.Powers;
+using RuriMegu.Core.Powers.Kaho;
 
 namespace RuriMegu.Core.Utils;
 
@@ -62,6 +64,7 @@ public static class LinkuraCmd {
 
   public static async Task<Events.CollectEvent> CollectHearts(Player player, PlayerChoiceContext context, CardModel source = null, Creature target = null, int triggers = 1, bool damageAllEnemies = false) {
     int hearts = Math.Min(HeartsState.GetHearts(player), HeartsState.GetMaxHearts(player));
+    damageAllEnemies |= player.HasPower<SpecialAppealPower>();
     var ev = new Events.CollectEvent(player, context, source) {
       DamageAllEnemies = damageAllEnemies
     };

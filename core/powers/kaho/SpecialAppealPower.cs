@@ -15,18 +15,4 @@ namespace RuriMegu.Core.Powers.Kaho;
 public class SpecialAppealPower : KahoPower {
   public override PowerType Type => PowerType.Buff;
   public override PowerStackType StackType => PowerStackType.Single;
-
-  public override Task AfterApplied(Creature applier, CardModel cardSource) {
-    DisposeTrackedSubscriptions();
-    TrackSubscription(Events.Collect.SubscribeEarly(OnCollectEarly));
-    return base.AfterApplied(applier, cardSource);
-  }
-
-  private Task OnCollectEarly(Events.CollectEvent ev) {
-    if (ev.Player.Creature == Owner) {
-      ev.DamageAllEnemies = true;
-      Flash();
-    }
-    return Task.CompletedTask;
-  }
 }
