@@ -5,5 +5,3 @@
 *.zip
 /dev/
 .vscode/
-addons/
-bin/
