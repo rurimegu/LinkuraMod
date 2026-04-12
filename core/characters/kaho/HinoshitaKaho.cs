@@ -29,6 +29,7 @@ public class HinoshitaKaho : PlaceholderCharacterModel {
   /// Path format matches what BaseLib's PlaceholderCharacterModel.GetCustomEnergyCounterAssetPath
   /// expects: a mod-relative path without the leading "res://" prefix.
   /// </summary>
+  public override string CustomVisualPath => "character_visuals.tscn".CharacterScenePath(CharacterId);
   public override string CustomEnergyCounterPath => "energy_counter.tscn".CharacterScenePath(CharacterId);
 
   public override int StartingHp => 80;

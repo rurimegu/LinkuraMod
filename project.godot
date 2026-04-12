@@ -19,6 +19,10 @@ config/icon="res://linkuramod/images/icon.png"
 
 project/assembly_name="LinkuraMod"
 
+[editor]
+
+export/convert_text_resources_to_binary=false
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
