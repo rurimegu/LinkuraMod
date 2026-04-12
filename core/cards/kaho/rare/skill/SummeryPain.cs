@@ -2,13 +2,10 @@
 using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using RuriMegu.Core.Utils;
 
 namespace RuriMegu.Core.Cards.Kaho.Rare.Skill;
 
@@ -41,6 +38,11 @@ public class SummeryPain() : KahoInHandTriggerCard(1, CardType.Skill, CardRarity
       });
       if (cardsDrawn == 0) break;
     }
+  }
+
+  public override async Task AfterCardEnteredCombat(CardModel card) {
+    await TriggerEffect(new BlockingPlayerChoiceContext());
+    await base.AfterCardEnteredCombat(card);
   }
 
   public override async Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw) {

@@ -36,8 +36,9 @@ public class SpringBreezeSwing() : KahoInHandTriggerCard(1, CardType.Skill, Card
 
   private async Task OnBurstHearts(Events.BurstEvent ev) {
     if (ev.Player != Owner || ev.ActualAmount <= 0) return;
-    // Trigger only if hearts are now at their maximum (burst just filled to cap).
-    if (!HeartsState.ReachedMaxHearts(Owner)) return;
+    var childEv = ev.HeartsChangedEvent;
+    if (childEv == null || childEv.NewHearts < childEv.MaxHearts)
+      return;
     await TriggerWithAction(ev.Context, () => PlayerCmd.GainEnergy(DynamicVars.Energy.IntValue, Owner));
   }
 
