@@ -11,7 +11,6 @@ namespace RuriMegu.Core.Characters;
 public abstract class LinkuraCharacterModel : PlaceholderCharacterModel {
   public abstract string CharacterId { get; }
   public abstract string CharacterName { get; }
-  public virtual string AnimNameCast => LinkuraAnimation.ANIM_NAME_CAST;
   public virtual string AnimNameBurst => LinkuraAnimation.ANIM_NAME_BURST;
   public virtual float BurstAnimDelay => 0.1f;
   public virtual string AnimNameCollect => LinkuraAnimation.ANIM_NAME_COLLECT;
