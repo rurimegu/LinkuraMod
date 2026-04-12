@@ -84,3 +84,4 @@ The decompiled source code of the original game is located in the `../sts2` fold
 - All gameplay actions are `async Task`. Always `await` them; never fire-and-forget.
 - Prefer guard clauses (`if (...) return;`) over nesting in hook overrides.
 - Put duplicate code in the `utils` folder. Do not repeat the same logic in different places.
+- Do not edit / output to `.uid` or `.import` files - they are automatically generated. Only create such files with care if you know exactly why they are needed and what they do - for example, when creating new assets depending on each other, so uids must be known to reference.

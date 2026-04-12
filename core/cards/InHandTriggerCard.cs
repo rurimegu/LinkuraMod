@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Rooms;
-using RuriMegu.Core.Powers;
 using RuriMegu.Core.Powers.Kaho;
 using RuriMegu.Core.Utils;
 
@@ -27,9 +25,6 @@ public abstract class InHandTriggerCard(int cost, CardType type, CardRarity rari
   public override IEnumerable<CardKeyword> CanonicalKeywords => [LinkuraKeywords.Backstage];
 
   private int _triggerCount;
-
-  /// <summary>Raised after the backstage effect fires (SFX + shake).</summary>
-  public event Action Triggered;
 
   private async Task<Events.TriggerBackstageEvent> TryTrigger(PlayerChoiceContext ctx) {
     if (!CanTrigger()) return null;
@@ -54,7 +49,6 @@ public abstract class InHandTriggerCard(int cost, CardType type, CardRarity rari
 
   private async Task AfterTrigger(Events.TriggerBackstageEvent ev) {
     _triggerCount++;
-    Triggered?.Invoke();
     await Events.TriggerBackstage.InvokeAllLate(ev);
   }
 
