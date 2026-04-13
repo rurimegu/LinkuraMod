@@ -12,7 +12,7 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Powers.Kaho;
 
 /// <summary>
-/// This turn, Burst Hearts grant Block instead of hearts.
+/// This turn, Burst grant Block instead of hearts.
 /// Applied by <see cref="RuriMegu.Core.Cards.Kaho.Uncommon.Skill.MentalGuard"/>.
 /// </summary>
 public class MentalGuardPower : KahoPower {

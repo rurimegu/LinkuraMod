@@ -14,11 +14,8 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Power;
 /// <summary>
 /// Training Camp (合宿) — Cost 2, Power, Uncommon.
 /// The first 2 (3) Backstage cards you play each turn cost 1 less.
-/// Ethereal.
 /// </summary>
 public class TrainingCamp() : KahoCard(2, CardType.Power, CardRarity.Uncommon, TargetType.None) {
-  public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
-
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new RepeatVar(2),
     new EnergyVar(1),

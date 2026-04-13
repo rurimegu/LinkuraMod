@@ -9,7 +9,7 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 
 /// <summary>
 /// Half-Conveyed Feelings (传达一半的心意) — Cost 1 (0), Skill, Uncommon.
-/// Burst Hearts equal to half your max ❤️.
+/// Burst equal to half your max ❤️.
 /// </summary>
 public class HalfConveyedFeelings() : KahoCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
 

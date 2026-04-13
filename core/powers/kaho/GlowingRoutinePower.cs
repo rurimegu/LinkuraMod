@@ -8,7 +8,7 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Powers.Kaho;
 
 /// <summary>
-/// At the start of your turn, Burst Hearts equal to <c>Amount</c>.
+/// At the start of your turn, Burst equal to <c>Amount</c>.
 /// Applied by <see cref="RuriMegu.Core.Cards.Kaho.Common.Power.GlowingRoutine"/>.
 /// </summary>
 public class GlowingRoutinePower : KahoPower {

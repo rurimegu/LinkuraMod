@@ -10,11 +10,10 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Rare.Power;
 
 /// <summary>
-/// Bloom Garden Party — Cost 3, Power, Rare, Ethereal (upgraded: remove Ethereal).
+/// Bloom Garden Party — Cost 3 (2), Power, Rare.
 /// Your Backstage effects can also trigger from the discard pile.
 /// </summary>
 public class BloomGardenParty() : KahoCard(3, CardType.Power, CardRarity.Rare, TargetType.None) {
-  public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
     HoverTipFactory.FromKeyword(LinkuraKeywords.Backstage),
   ];
@@ -25,6 +24,6 @@ public class BloomGardenParty() : KahoCard(3, CardType.Power, CardRarity.Rare, T
   }
 
   protected override void OnUpgrade() {
-    RemoveKeyword(CardKeyword.Ethereal);
+    EnergyCost.UpgradeBy(-1);
   }
 }

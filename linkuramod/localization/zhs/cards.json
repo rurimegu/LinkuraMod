@@ -121,7 +121,7 @@
   "RURIMEGU-FULL_BLOOM.title": "盛开！",
   "RURIMEGU-FULL_BLOOM.description": "如果你的❤️数达到上限，获得{Energy:energyIcons()}并抽{Cards:diff()}张牌。[gold]收心[/gold]。",
   "RURIMEGU-CHOREOGRAPHY_MEMO.title": "舞步编排",
-  "RURIMEGU-CHOREOGRAPHY_MEMO.description": "[gold]爆心[/gold]{RURIMEGU-BURST:diff()}。[gold]幕后[/gold]：你每打出{CHOREOGRAPHY_THRESHOLD:diff()}张牌，[gold]收心[/gold]。（当前：{CHOREOGRAPHY_TRACKER}）",
+  "RURIMEGU-CHOREOGRAPHY_MEMO.description": "[gold]爆心[/gold]{RURIMEGU-BURST:diff()}共计{Repeat:diff()}次。[gold]幕后[/gold]：你每[gold]爆心[/gold]{CHOREOGRAPHY_THRESHOLD:diff()}次，[gold]收心[/gold]。（当前：{CHOREOGRAPHY_TRACKER}）",
   "RURIMEGU-LINK_TO_THE_FUTURE.title": "Link to the FUTURE",
   "RURIMEGU-LINK_TO_THE_FUTURE.description": "在本回合中，保留你的[gold]手牌[/gold]。下回合获得{Energy:energyIcons()}。",
   "RURIMEGU-SUKI_SUKI_CLUB.title": "喜欢喜欢俱乐部",
