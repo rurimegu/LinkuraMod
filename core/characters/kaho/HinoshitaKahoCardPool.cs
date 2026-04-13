@@ -29,7 +29,7 @@ public class HinoshitaKahoCardPool : CustomCardPoolModel {
   public override float S => 1.0f;
   public override float V => 0.745f;
 
-  public override Color DeckEntryCardColor => new("be1400");
+  public override Color DeckEntryCardColor => HinoshitaKaho.Color;
 
   public override bool IsColorless => false;
 }
