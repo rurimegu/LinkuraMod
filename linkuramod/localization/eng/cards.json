@@ -5,6 +5,8 @@
   "RURIMEGU-KAHO_STRIKE.title": "Strike",
   "RURIMEGU-WIDE_HEART.title": "Wide Heart",
   "RURIMEGU-WIDE_HEART.description": "Increase max ❤️ by {RURIMEGU-EXPAND_HEARTS:diff()}. Draw {Cards:diff()} {Cards:plural:card|cards}.",
+  "RURIMEGU-BLOOMING_HEART.title": "Blooming Heart",
+  "RURIMEGU-BLOOMING_HEART.description": "Increase max ❤️ by {RURIMEGU-EXPAND_HEARTS:diff()}. Draw {Cards:diff()} {Cards:plural:card|cards}. They each cost {Energy:energyIcons()} less next time they are played.",
   "RURIMEGU-LINKURA_ENERGY.title": "Linkura Energy",
   "RURIMEGU-LINKURA_ENERGY.description": "[gold]Burst[/gold] {RURIMEGU-BURST:diff()}, then [gold]Collect[/gold].",
   "RURIMEGU-SPECIAL_THANKS.title": "Special Thanks",
