@@ -1,5 +1,8 @@
+using System.Collections.Generic;
 using BaseLib.Abstracts;
 using Godot;
+using MegaCrit.Sts2.Core.Models;
+using RuriMegu.Core.Relics.Kaho.Starter;
 using RuriMegu.Core.Utils;
 
 namespace RuriMegu.Core.Characters.Kaho;

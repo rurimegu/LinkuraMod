@@ -3,7 +3,7 @@ using Godot;
 using MegaCrit.Sts2.Core.Models;
 using RuriMegu.Core.Cards.Kaho.Basic.Attack;
 using RuriMegu.Core.Cards.Kaho.Basic.Skill;
-using RuriMegu.Core.Relics.Kaho;
+using RuriMegu.Core.Relics.Kaho.Starter;
 
 namespace RuriMegu.Core.Characters.Kaho;
 

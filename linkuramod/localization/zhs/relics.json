@@ -1,5 +1,8 @@
 {
   "RURIMEGU-LINKURA_SYSTEM.title": "林克拉系统",
   "RURIMEGU-LINKURA_SYSTEM.description": "在每场战斗开始时，获得1层[gold]自然爆心[/gold]。",
-  "RURIMEGU-LINKURA_SYSTEM.flavor": "可以让所有学园偶像都绽放的系统！"
+  "RURIMEGU-LINKURA_SYSTEM.flavor": "可以让所有学园偶像都绽放的系统！",
+  "RURIMEGU-KAHO_DREAM.title": "DREAM_定义",
+  "RURIMEGU-KAHO_DREAM.description": "在每场战斗开始时，获得3层[gold]自然爆心[/gold]。",
+  "RURIMEGU-KAHO_DREAM.flavor": "欢迎你，来访者。\n祝你在前往Elysion的旅途中顺利。"
 }

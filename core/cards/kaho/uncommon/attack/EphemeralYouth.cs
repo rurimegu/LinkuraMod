@@ -37,7 +37,7 @@ public class EphemeralYouth() : KahoInHandTriggerCard(1, CardType.Attack, CardRa
 
   public override Task BeforeCombatStartLate() {
     _reductionCountThisTurn = 0;
-    return Task.CompletedTask;
+    return base.BeforeCombatStartLate();
   }
 
   public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay) {

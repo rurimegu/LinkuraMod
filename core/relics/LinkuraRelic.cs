@@ -10,7 +10,7 @@ namespace RuriMegu.Core.Relics;
 /// Base class for all Linkura relics.
 /// </summary>
 public abstract class LinkuraRelic : CustomRelicModel {
-  public virtual string CharacterId => "";
+  public abstract string CharacterId { get; }
   public override string PackedIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".RelicImagePath(CharacterId);
   protected override string PackedIconOutlinePath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}_outline.png".RelicImagePath(CharacterId);
   protected override string BigIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".BigRelicImagePath(CharacterId);

@@ -14,16 +14,12 @@ using RuriMegu.Core.Characters.Kaho;
 using RuriMegu.Core.Powers;
 using RuriMegu.Core.Utils;
 
-namespace RuriMegu.Core.Relics.Kaho;
+namespace RuriMegu.Core.Relics.Kaho.Starter;
 
-/// <summary>
-/// Linkura System - Starter relic for Hinoshita Kaho.
-/// Manages the full subscription lifecycle for all LinkuraCards:
-/// init at combat start, re-init for mid-combat additions, cleanup on removal or end.
-/// </summary>
 [Pool(typeof(KahoRelicPool))]
-public class LinkuraSystem : LinkuraStarterRelic {
+public abstract class LinkuraSystemBase : LinkuraStarterRelic {
   public override string CharacterId => HinoshitaKaho.CHARACTER_ID;
+  protected abstract int AutoBurstAmount { get; }
 
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
     HoverTipFactory.FromPower<AutoBurstPower>(),
@@ -32,8 +28,20 @@ public class LinkuraSystem : LinkuraStarterRelic {
 
   public override async Task BeforeCombatStartLate() {
     await HeartsState.Reset(Owner, new BlockingPlayerChoiceContext());
-    await LinkuraCmd.GainAutoBurst(Owner.Creature, 1, Owner.Creature, null);
+    await LinkuraCmd.GainAutoBurst(Owner.Creature, AutoBurstAmount, Owner.Creature, null);
     Flash();
     await base.BeforeCombatStartLate();
   }
+}
+
+/// <summary>
+/// Linkura System - Starter relic for Hinoshita Kaho.
+/// </summary>
+public class LinkuraSystem : LinkuraSystemBase {
+  protected override int AutoBurstAmount => 1;
+  public override RelicModel GetUpgradeReplacement() => ModelDb.Relic<KahoDream>().ToMutable();
+}
+
+public class KahoDream : LinkuraSystemBase {
+  protected override int AutoBurstAmount => 3;
 }

@@ -53,10 +53,6 @@ public class OverflowingEmotion() : KahoInHandTriggerCard(2, CardType.Attack, Ca
     return Task.CompletedTask;
   }
 
-  public override Task AfterCombatEnd(MegaCrit.Sts2.Core.Rooms.CombatRoom room) {
-    return base.AfterCombatEnd(room);
-  }
-
   private async Task OnCollectHearts(Events.CollectEvent ev) {
     if (ev.Player != Owner || ev.Amount <= 0) return;
 
