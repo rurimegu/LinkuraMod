@@ -24,9 +24,11 @@ public class TrainingCampPower() : KahoPower {
 
   private int _remainingTriggersThisTurn;
 
-  public override Task AfterApplied(Creature applier, CardModel cardSource) {
-    _remainingTriggersThisTurn = (int)Amount;
-    return base.AfterApplied(applier, cardSource);
+  public override Task AfterPowerAmountChanged(PowerModel power, decimal amount, Creature applier, CardModel cardSource) {
+    if (power == this) {
+      _remainingTriggersThisTurn += (int)amount;
+    }
+    return base.AfterPowerAmountChanged(power, amount, applier, cardSource);
   }
 
   public override async Task AfterPlayerTurnStartEarly(PlayerChoiceContext choiceContext, Player player) {
