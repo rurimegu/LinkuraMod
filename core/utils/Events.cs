@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.Models;
 namespace RuriMegu.Core.Utils;
 
 public static class Events {
+  public static readonly BlockingPlayerChoiceContext BLOCKING_CONTEXT = new();
   public record Event {
     public bool IsCancelled { get; private set; } = false;
     public void Cancel() => IsCancelled = true;
@@ -39,7 +40,8 @@ public static class Events {
     Player Player,
     PlayerChoiceContext Context,
     int RequestedAmount,
-    CardModel Source
+    CardModel Source,
+    bool isAutoBurst
   ) : Event {
     public int ActualAmount { get; set; } = 0;
     public HeartsChangedEvent HeartsChangedEvent { get; set; } = null;

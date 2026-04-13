@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using BaseLib.Extensions;
+using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -48,7 +49,7 @@ public static class LinkuraCmd {
   }
 
   public static async Task<Events.BurstEvent> BurstHearts(Player player, PlayerChoiceContext ctx, int amount, CardModel source = null, bool isAutoBurst = false) {
-    var ev = new Events.BurstEvent(player, ctx, amount, source);
+    var ev = new Events.BurstEvent(player, ctx, amount, source, isAutoBurst);
     if (!await Events.Burst.InvokeAllEarly(ev)) return ev;
     if (amount <= 0) return ev;
     if (!isAutoBurst) {
@@ -72,7 +73,7 @@ public static class LinkuraCmd {
     // animating toward the correct destination before damage numbers appear.
     if (hearts > 0) {
       ev.Targets = ev.DamageAllEnemies
-        ? PickTargetsAll(player)
+        ? player.Creature.CombatState.HittableEnemies
         : PickTargets(target, player, triggers);
     }
     await player.PlayCollectAnim();
@@ -90,8 +91,7 @@ public static class LinkuraCmd {
   }
 
   private static IReadOnlyList<Creature> PickTargets(Creature target, Player player, int triggers) {
-    var hittable = (from e in player.Creature.CombatState.GetOpponentsOf(player.Creature)
-                    where e.IsHittable select e).ToList();
+    var hittable = player.Creature.CombatState.HittableEnemies;
     if (hittable.Count == 0) return [];
     var targets = new List<Creature>();
     if (target != null) { targets.Add(target); triggers--; }
@@ -101,8 +101,23 @@ public static class LinkuraCmd {
     return targets;
   }
 
-  private static IReadOnlyList<Creature> PickTargetsAll(Player player) {
-    return [.. from e in player.Creature.CombatState.GetOpponentsOf(player.Creature)
-               where e.IsHittable select e];
+  /// <summary>
+  /// Waits for <paramref name="seconds"/> of real wall-clock time, unaffected by
+  /// <see cref="Engine.TimeScale"/>, fast mode, or instant mode.
+  /// Fires the continuation on the main thread via Godot's SceneTree.
+  /// </summary>
+  public static Task WaitRealSeconds(float seconds, CancellationToken ct = default) {
+    SceneTree sceneTree = (SceneTree)Engine.GetMainLoop();
+    SceneTreeTimer timer = sceneTree.CreateTimer(seconds, ignoreTimeScale: true);
+    TaskCompletionSource tcs = new();
+    timer.Timeout += Receive;
+    if (ct.CanBeCanceled)
+      ct.Register(() => tcs.TrySetCanceled(ct));
+    return tcs.Task;
+
+    void Receive() {
+      tcs.TrySetResult();
+      timer.Timeout -= Receive;
+    }
   }
 }

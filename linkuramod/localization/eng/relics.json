@@ -1,5 +1,26 @@
 {
+  "RURIMEGU-ENTRANCE_EXAM.title": "Entrance Exam",
+  "RURIMEGU-ENTRANCE_EXAM.description": "At the start of each combat, [gold]Burst[/gold] [blue]9[/blue].",
+  "RURIMEGU-ENTRANCE_EXAM.flavor": "Finally, I have become a first-year student of Hasunosora Girls' High!",
+  "RURIMEGU-LIVE_SYNC_CHRONOMETER.title": "Live-Sync Chronometer",
+  "RURIMEGU-LIVE_SYNC_CHRONOMETER.description": "During your turn, trigger [gold]Auto Burst[/gold] once per real-time minute.",
+  "RURIMEGU-LIVE_SYNC_CHRONOMETER.flavor": "Transcend the limited time and bloom with all your might.",
+  "RURIMEGU-TALE_OF_PETER_RABBIT.title": "The Tale of Peter Rabbit",
+  "RURIMEGU-TALE_OF_PETER_RABBIT.description": "If your [gold]❤️[/gold] have not reached half the max ❤️ at the end of your turn, gain {Block:diff()} [gold]Block[/gold].",
+  "RURIMEGU-TALE_OF_PETER_RABBIT.flavor": "Once upon a time, there were four little rabbits……",
+  "RURIMEGU-BUNNY_EARS.title": "Bunny Ears",
+  "RURIMEGU-BUNNY_EARS.description": "For every [blue]10[/blue] [gold]❤️[/gold] overflowed, deal [blue]1[/blue] damage to ALL enemies.",
+  "RURIMEGU-BUNNY_EARS.flavor": "Bunnies hopping around, how adorable!",
+  "RURIMEGU-SHOPPING_MALL.title": "Shopping Mall",
+  "RURIMEGU-SHOPPING_MALL.description": "All enemies drop an extra card reward. At the end of each combat, lose {Gold:diff()} Gold.",
+  "RURIMEGU-SHOPPING_MALL.flavor": "Wow, they actually built such a huge shopping mall!",
+  "RURIMEGU-CAP_LIBERATOR.title": "Cap Liberator",
+  "RURIMEGU-CAP_LIBERATOR.description": "Upon pickup, remove every pair of identical unupgraded cards from your deck. For each removed pair, add one upgraded copy.",
+  "RURIMEGU-CAP_LIBERATOR.flavor": "So, what's the plan? What kind of dream do you want to keep dreaming here?",
   "RURIMEGU-LINKURA_SYSTEM.title": "Linkura System",
-  "RURIMEGU-LINKURA_SYSTEM.description": "At the start of each combat, gain 1 [gold]Auto Burst[/gold].",
-  "RURIMEGU-LINKURA_SYSTEM.flavor": "A system that allows all school idols to bloom!"
+  "RURIMEGU-LINKURA_SYSTEM.description": "At the start of each combat, gain [blue]1[/blue] [gold]Auto Burst[/gold].",
+  "RURIMEGU-LINKURA_SYSTEM.flavor": "A system that allows all school idols to bloom!",
+  "RURIMEGU-DREAM_DEFINE.title": "DREAM_Define",
+  "RURIMEGU-DREAM_DEFINE.description": "At the start of each combat, gain [blue]3[/blue] [gold]Auto Burst[/gold].",
+  "RURIMEGU-DREAM_DEFINE.flavor": "Welcome, visitor.\nHave a pleasant journey to Elysion."
 }

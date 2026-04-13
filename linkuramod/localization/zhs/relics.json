@@ -1,5 +1,26 @@
 {
+  "RURIMEGU-ENTRANCE_EXAM.title": "入学测验",
+  "RURIMEGU-ENTRANCE_EXAM.description": "在每场战斗开始时，[gold]爆心[/gold][blue]9[/blue]。",
+  "RURIMEGU-ENTRANCE_EXAM.flavor": "终于成为了莲之空女学院的一年级新生！",
+  "RURIMEGU-LIVE_SYNC_CHRONOMETER.title": "现实同步时钟",
+  "RURIMEGU-LIVE_SYNC_CHRONOMETER.description": "在你的回合中，每分钟触发一次[gold]自然爆心[/gold]。",
+  "RURIMEGU-LIVE_SYNC_CHRONOMETER.flavor": "超越有限的时间，拼尽全力地绽放。",
+  "RURIMEGU-TALE_OF_PETER_RABBIT.title": "彼得兔的故事",
+  "RURIMEGU-TALE_OF_PETER_RABBIT.description": "如果你的[gold]❤️[/gold]在回合结束时未达到❤️上限的一半，获得{Block:diff()}点[gold]格挡[/gold]。",
+  "RURIMEGU-TALE_OF_PETER_RABBIT.flavor": "很久很久以前，有四只小兔子……",
+  "RURIMEGU-BUNNY_EARS.title": "兔耳头饰",
+  "RURIMEGU-BUNNY_EARS.description": "你每溢出[blue]10[/blue]颗[gold]❤️[/gold]，对所有敌人造成[blue]1[/blue]点伤害。",
+  "RURIMEGU-BUNNY_EARS.flavor": "兔子蹦蹦跳跳，真可爱！",
+  "RURIMEGU-SHOPPING_MALL.title": "百货商场",
+  "RURIMEGU-SHOPPING_MALL.description": "所有敌人额外掉落一组卡牌奖励。每场战斗结束时，失去{Gold:diff()}金币。",
+  "RURIMEGU-SHOPPING_MALL.flavor": "居然真的建起了这么大的百货商场！",
+  "RURIMEGU-CAP_LIBERATOR.title": "上限解放装置",
+  "RURIMEGU-CAP_LIBERATOR.description": "拾起时，移除你[gold]牌组[/gold]里每一对未[gold]升级[/gold]的相同卡牌。每移除一对，将一张[gold]升级[/gold]后的对应卡牌加入你的[gold]牌组[/gold]。",
+  "RURIMEGU-CAP_LIBERATOR.flavor": "呐，要怎么办才好呢？在这里，你想做怎样的梦？",
   "RURIMEGU-LINKURA_SYSTEM.title": "林克拉系统",
-  "RURIMEGU-LINKURA_SYSTEM.description": "在每场战斗开始时，获得1层[gold]自然爆心[/gold]。",
-  "RURIMEGU-LINKURA_SYSTEM.flavor": "可以让所有学园偶像都绽放的系统！"
+  "RURIMEGU-LINKURA_SYSTEM.description": "在每场战斗开始时，获得[blue]1[/blue]层[gold]自然爆心[/gold]。",
+  "RURIMEGU-LINKURA_SYSTEM.flavor": "可以让所有学园偶像都绽放的系统！",
+  "RURIMEGU-DREAM_DEFINE.title": "DREAM_定义",
+  "RURIMEGU-DREAM_DEFINE.description": "在每场战斗开始时，获得[blue]3[/blue]层[gold]自然爆心[/gold]。",
+  "RURIMEGU-DREAM_DEFINE.flavor": "欢迎你，来访者。\n祝你在前往Elysion的旅途中顺利。"
 }

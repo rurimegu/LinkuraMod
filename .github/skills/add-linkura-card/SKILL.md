@@ -46,15 +46,7 @@ public class MyCard() : LinkuraCard(cost, CardType.Attack, CardRarity.Common, Ta
 
 Use `LinkuraCard` unless the card specifically needs in-hand trigger behavior, in which case start from `InHandTriggerCard`.
 
-### 2. Register the card in the pool
-
-Update `GenerateAllCards()` in `core/characters/HinoshitaKahoCardPool.cs`:
-
-```csharp
-ModelDb.Card<MyCard>(),
-```
-
-### 3. Add localization in both languages
+### 2. Add localization in both languages
 
 Update both language files when adding any card.
 
@@ -78,7 +70,7 @@ Note that most of the built-in keywords, and the keywords annotated with `AutoKe
 
 You should always create an `EnergyVar` for energy-related effects, and write `Energy:energyIcons()}` in the description to display the energy icons. Do not use raw text like "1 energy".
 
-### 4. Add placeholder portrait assets
+### 3. Add placeholder portrait assets
 
 Copy the placeholder portrait files so the new filenames match the card class name:
 

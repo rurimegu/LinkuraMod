@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmrl34yufda1m"
-path="res://.godot/imported/regent_orb_layer_1.png-0767d2f1e7ff93d283fd673bf55cb19b.ctex"
+uid="uid://dbpkcibvwxe0o"
+path="res://.godot/imported/entrance_exam.png-71e27c26c5f7920ab1c099b0b7f40919.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://linkuramod/images/charui/kaho/regent_orb_layer_1.png"
-dest_files=["res://.godot/imported/regent_orb_layer_1.png-0767d2f1e7ff93d283fd673bf55cb19b.ctex"]
+source_file="res://linkuramod/images/relics/kaho/big/entrance_exam.png"
+dest_files=["res://.godot/imported/entrance_exam.png-71e27c26c5f7920ab1c099b0b7f40919.ctex"]
 
 [params]
 

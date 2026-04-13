@@ -22,6 +22,8 @@ public static class HeartsState {
 
   public static bool ReachedMaxHearts(Player player) => GetHearts(player) >= GetMaxHearts(player);
 
+  public static bool ReachedHalfHearts(Player player) => GetHearts(player) * 2 >= GetMaxHearts(player);
+
   public static async Task Reset(Player player, PlayerChoiceContext ctx) {
     await SetHearts(player, ctx, 0);
     await SetMaxHearts(player, ctx, DEFAULT_MAX_HEARTS);

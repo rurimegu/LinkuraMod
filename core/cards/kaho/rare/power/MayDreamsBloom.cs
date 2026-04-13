@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -13,11 +13,11 @@ namespace RuriMegu.Core.Cards.Kaho.Rare.Power;
 
 /// <summary>
 /// May Dreams Bloom (愿梦想绽放一生) — Cost 2(1), Power, Rare.
-/// For every 20 (15) ❤️ overflowed, gain 1 stack of Auto Burst.
+/// For every 16 (12) ❤️ overflowed, gain 1 stack of Auto Burst. Does not count Auto Burst.
 /// </summary>
 public class MayDreamsBloom() : KahoCard(2, CardType.Power, CardRarity.Rare, TargetType.None) {
   protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new MaxHeartsThresholdVar(20),
+    new MaxHeartsThresholdVar(16),
     new AutoBurstVar(1),
   ];
 
@@ -38,7 +38,7 @@ public class MayDreamsBloom() : KahoCard(2, CardType.Power, CardRarity.Rare, Tar
   }
 
   protected override void OnUpgrade() {
-    DynamicVars.MaxHeartThreshold().UpgradeValueBy(-5m);
+    DynamicVars.MaxHeartThreshold().UpgradeValueBy(-4m);
     EnergyCost.UpgradeBy(-1);
   }
 }

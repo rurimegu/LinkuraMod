@@ -1,5 +1,8 @@
+using System.Collections.Generic;
 using BaseLib.Abstracts;
 using Godot;
+using MegaCrit.Sts2.Core.Models;
+using RuriMegu.Core.Relics.Kaho.Starter;
 using RuriMegu.Core.Utils;
 
 namespace RuriMegu.Core.Characters.Kaho;
@@ -10,6 +13,6 @@ namespace RuriMegu.Core.Characters.Kaho;
 public class KahoRelicPool : CustomRelicPoolModel {
   public override Color LabOutlineColor => HinoshitaKaho.Color;
 
-  public override string BigEnergyIconPath => "big_energy.png".CharacterUiPath("kaho");
-  public override string TextEnergyIconPath => "text_energy.png".CharacterUiPath("kaho");
+  public override string BigEnergyIconPath => "big_energy.png".CharacterUiPath(HinoshitaKaho.CHARACTER_ID);
+  public override string TextEnergyIconPath => "text_energy.png".CharacterUiPath(HinoshitaKaho.CHARACTER_ID);
 }

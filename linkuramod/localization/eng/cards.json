@@ -5,6 +5,10 @@
   "RURIMEGU-KAHO_STRIKE.title": "Strike",
   "RURIMEGU-WIDE_HEART.title": "Wide Heart",
   "RURIMEGU-WIDE_HEART.description": "Increase max ❤️ by {RURIMEGU-EXPAND_HEARTS:diff()}. Draw {Cards:diff()} {Cards:plural:card|cards}.",
+  "RURIMEGU-BLOOMING_HEART.title": "Blooming Heart",
+  "RURIMEGU-BLOOMING_HEART.description": "Increase max ❤️ by {RURIMEGU-EXPAND_HEARTS:diff()}. Draw {Cards:diff()} {Cards:plural:card|cards}. They each cost {Energy:energyIcons()} less next time they are played.",
+  "RURIMEGU-TRAGIC_NIGHT_FIREWORKS.title": "Tragic Night Fireworks",
+  "RURIMEGU-TRAGIC_NIGHT_FIREWORKS.description": "Your max ❤️ is fixed at 99.",
   "RURIMEGU-LINKURA_ENERGY.title": "Linkura Energy",
   "RURIMEGU-LINKURA_ENERGY.description": "[gold]Burst[/gold] {RURIMEGU-BURST:diff()}, then [gold]Collect[/gold].",
   "RURIMEGU-SPECIAL_THANKS.title": "Special Thanks",
@@ -149,7 +153,7 @@
   "RURIMEGU-PROLOGUE.title": "Prologue",
   "RURIMEGU-PROLOGUE.description": "Whenever your Max ❤️ changes, your next card costs {Energy:energyIcons()} less this turn.",
   "RURIMEGU-MAY_DREAMS_BLOOM.title": "May Dreams Bloom",
-  "RURIMEGU-MAY_DREAMS_BLOOM.description": "For every {RURIMEGU-MAX_HEARTS_THRESHOLD:diff()} ❤️ overflowed, gain 1 stack of [gold]Auto Burst[/gold].",
+  "RURIMEGU-MAY_DREAMS_BLOOM.description": "For every {RURIMEGU-MAX_HEARTS_THRESHOLD:diff()} ❤️ overflowed, gain 1 stack of [gold]Auto Burst[/gold]. Does not count overflow from [gold]Auto Burst[/gold].",
   "RURIMEGU-BLOOM_GARDEN_PARTY.title": "Bloom Garden Party",
   "RURIMEGU-BLOOM_GARDEN_PARTY.description": "Your [gold]Backstage[/gold] effects can also trigger from your [gold]Discard Pile[/gold]."
 }
