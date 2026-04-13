@@ -35,7 +35,7 @@ public class BunnyEars : KahoRelic {
   public override int DisplayAmount => AccumulatedOverflow;
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new DamageVar(1m, ValueProp.Unpowered),
+    new DamageVar(3m, ValueProp.Unpowered),
   ];
 
   protected override Task InitializeSubscriptions() {
