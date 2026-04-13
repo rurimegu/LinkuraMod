@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nmuty3cajack"
-path="res://.godot/imported/kaho_dream_outline.png-13afdb3304feb7fc9de9607cad8b6a62.ctex"
+uid="uid://b8rjvv8xfbvi3"
+path="res://.godot/imported/dream_define.png-367e6907e6602579a544ff0d89ab24ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://linkuramod/images/relics/kaho/kaho_dream_outline.png"
-dest_files=["res://.godot/imported/kaho_dream_outline.png-13afdb3304feb7fc9de9607cad8b6a62.ctex"]
+source_file="res://linkuramod/images/relics/kaho/dream_define.png"
+dest_files=["res://.godot/imported/dream_define.png-367e6907e6602579a544ff0d89ab24ad.ctex"]
 
 [params]
 

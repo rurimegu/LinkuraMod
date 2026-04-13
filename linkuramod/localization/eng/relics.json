@@ -2,7 +2,7 @@
   "RURIMEGU-LINKURA_SYSTEM.title": "Linkura System",
   "RURIMEGU-LINKURA_SYSTEM.description": "At the start of each combat, gain [blue]1[/blue] [gold]Auto Burst[/gold].",
   "RURIMEGU-LINKURA_SYSTEM.flavor": "A system that allows all school idols to bloom!",
-  "RURIMEGU-KAHO_DREAM.title": "DREAM_Definition",
-  "RURIMEGU-KAHO_DREAM.description": "At the start of each combat, gain [blue]3[/blue] [gold]Auto Burst[/gold].",
-  "RURIMEGU-KAHO_DREAM.flavor": "Welcome, visitor.\nHave a pleasant journey to Elysion."
+  "RURIMEGU-DREAM_DEFINE.title": "DREAM_Define",
+  "RURIMEGU-DREAM_DEFINE.description": "At the start of each combat, gain [blue]3[/blue] [gold]Auto Burst[/gold].",
+  "RURIMEGU-DREAM_DEFINE.flavor": "Welcome, visitor.\nHave a pleasant journey to Elysion."
 }

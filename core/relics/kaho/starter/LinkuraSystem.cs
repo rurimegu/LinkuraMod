@@ -1,4 +1,4 @@
-﻿
+
 
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -39,9 +39,9 @@ public abstract class LinkuraSystemBase : LinkuraStarterRelic {
 /// </summary>
 public class LinkuraSystem : LinkuraSystemBase {
   protected override int AutoBurstAmount => 1;
-  public override RelicModel GetUpgradeReplacement() => ModelDb.Relic<KahoDream>().ToMutable();
+  public override RelicModel GetUpgradeReplacement() => ModelDb.Relic<DreamDefine>();
 }
 
-public class KahoDream : LinkuraSystemBase {
+public class DreamDefine : LinkuraSystemBase {
   protected override int AutoBurstAmount => 3;
 }
