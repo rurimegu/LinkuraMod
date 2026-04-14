@@ -13,6 +13,13 @@ public static class LinkuraAnimation {
   public const string ANIM_NAME_BURST = "burst";
   public const string ANIM_NAME_COLLECT = "collect";
 
+  public const string VANILLA_ANIM_IDLE = "idle_loop";
+  public const string VANILLA_ANIM_DIE = "die";
+  public const string VANILLA_ANIM_ATTACK = "attack";
+  public const string VANILLA_ANIM_CAST = "cast";
+  public const string VANILLA_ANIM_HURT = "hurt";
+  public const string VANILLA_ANIM_RELAXED_LOOP = "relaxed_loop";
+
   public static async Task PlayCastAnim(this Player player) {
     if (player.Character is LinkuraCharacterModel linkuraChara) {
       await CreatureCmd.TriggerAnim(player.Creature, TRIGGER_NAME_CAST, linkuraChara.CastAnimDelay);
