@@ -23,7 +23,7 @@ public static class Events {
     int NewHearts,
     int MaxHearts,
     int Delta,
-    CardModel Source
+    AbstractModel Source
   ) : Event;
 
   public record MaxHeartsChangedEvent(
@@ -33,7 +33,7 @@ public static class Events {
     int NewMaxHearts,
     int Hearts,
     int Delta,
-    CardModel Source
+    AbstractModel Source
   ) : Event;
 
   public record BurstEvent(
@@ -41,7 +41,7 @@ public static class Events {
     PlayerChoiceContext Context,
     int RequestedAmount,
     CardModel Source,
-    bool isAutoBurst
+    bool IsAutoBurst
   ) : Event {
     public int ActualAmount { get; set; } = 0;
     public HeartsChangedEvent HeartsChangedEvent { get; set; } = null;
@@ -70,7 +70,7 @@ public static class Events {
     Player Player,
     PlayerChoiceContext Context,
     int RequestedAmount,
-    CardModel Source
+    AbstractModel Source
   ) : Event {
     public int ActualAmount { get; set; } = 0;
   }

@@ -18,7 +18,7 @@ namespace RuriMegu.Core.Utils;
 public static class LinkuraCmd {
   private const int MAX_AUTO_BURST = 9999;
 
-  public static async Task<Events.IncreaseMaxHeartsEvent> IncreaseMaxHearts(Player player, PlayerChoiceContext ctx, int amount, CardModel source = null) {
+  public static async Task<Events.IncreaseMaxHeartsEvent> IncreaseMaxHearts(Player player, PlayerChoiceContext ctx, int amount, AbstractModel source = null) {
     var ev = new Events.IncreaseMaxHeartsEvent(player, ctx, amount, source);
     if (!await Events.IncreaseMaxHearts.InvokeAllEarly(ev)) return ev;
     if (amount <= 0) return ev;

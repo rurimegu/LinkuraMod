@@ -31,7 +31,7 @@ public abstract class MayDreamsBloomPowerBase : KahoPower {
   }
 
   private async Task OnBurstLate(Events.BurstEvent ev) {
-    if (ev.Player.Creature != Owner || ev.isAutoBurst) return;
+    if (ev.Player.Creature != Owner || ev.IsAutoBurst) return;
     int overflow = ev.RequestedAmount - ev.ActualAmount;
     if (overflow <= 0) return;
 

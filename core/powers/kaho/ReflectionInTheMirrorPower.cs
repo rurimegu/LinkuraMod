@@ -22,10 +22,9 @@ public class ReflectionInTheMirrorPower : KahoPower {
 
   private async Task OnIncreaseMaxHeartsLate(Events.IncreaseMaxHeartsEvent ev) {
     if (ev.Player.Creature != Owner) return;
-    if (ev.ActualAmount <= 0) return;
+    // Prevent infinite recursion
+    if (ev.ActualAmount <= 0 || ev.Source is ReflectionInTheMirrorPower) return;
     Flash();
-    // Add the same amount again to effectively double the increase.
-    // Calls AddMaxHearts directly (not IncreaseMaxHearts) to avoid re-triggering this event.
-    await HeartsState.AddMaxHearts(ev.Player, ev.Context, ev.ActualAmount);
+    await LinkuraCmd.IncreaseMaxHearts(ev.Player, ev.Context, ev.ActualAmount, this);
   }
 }

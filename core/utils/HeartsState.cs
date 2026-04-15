@@ -29,15 +29,15 @@ public static class HeartsState {
     await SetMaxHearts(player, ctx, DEFAULT_MAX_HEARTS);
   }
 
-  public static Task<Events.HeartsChangedEvent> AddHearts(Player player, PlayerChoiceContext ctx, int amount, CardModel source = null) {
+  public static Task<Events.HeartsChangedEvent> AddHearts(Player player, PlayerChoiceContext ctx, int amount, AbstractModel source = null) {
     return SetHearts(player, ctx, GetHearts(player) + amount, source);
   }
 
-  public static Task<Events.MaxHeartsChangedEvent> AddMaxHearts(Player player, PlayerChoiceContext ctx, int amount, CardModel source = null) {
+  public static Task<Events.MaxHeartsChangedEvent> AddMaxHearts(Player player, PlayerChoiceContext ctx, int amount, AbstractModel source = null) {
     return SetMaxHearts(player, ctx, GetMaxHearts(player) + amount, source);
   }
 
-  public static async Task<Events.HeartsChangedEvent> SetHearts(Player player, PlayerChoiceContext ctx, int amount, CardModel source = null) {
+  public static async Task<Events.HeartsChangedEvent> SetHearts(Player player, PlayerChoiceContext ctx, int amount, AbstractModel source = null) {
     int oldHearts = GetHearts(player);
     int clampedAmount = Math.Clamp(amount, 0, GetMaxHearts(player));
 
@@ -56,13 +56,13 @@ public static class HeartsState {
 
     if (!await Events.HeartsChanged.InvokeAllEarly(ev)) return ev;
 
-    await SetAmount<HeartsPower>(player, clampedAmount, source);
+    await SetAmount<HeartsPower>(player, clampedAmount, source as CardModel);
 
     await Events.HeartsChanged.InvokeAllLate(ev);
     return ev;
   }
 
-  public static async Task<Events.MaxHeartsChangedEvent> SetMaxHearts(Player player, PlayerChoiceContext ctx, int amount, CardModel source = null) {
+  public static async Task<Events.MaxHeartsChangedEvent> SetMaxHearts(Player player, PlayerChoiceContext ctx, int amount, AbstractModel source = null) {
     int clampedAmount = Math.Clamp(amount, 0, MAX_MAX_HEARTS);
     int oldMaxHearts = GetMaxHearts(player);
 
@@ -79,7 +79,7 @@ public static class HeartsState {
 
     if (!await Events.MaxHeartsChanged.InvokeAllEarly(ev)) return ev;
 
-    await SetAmount<MaxHeartsPower>(player, clampedAmount, source);
+    await SetAmount<MaxHeartsPower>(player, clampedAmount, source as CardModel);
     await Events.MaxHeartsChanged.InvokeAllLate(ev);
 
     if (GetHearts(player) > clampedAmount) {

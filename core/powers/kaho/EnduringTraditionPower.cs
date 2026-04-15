@@ -30,9 +30,10 @@ public class EnduringTraditionPower() : KahoPower {
     ev.Cancel();
     Flash();
 
+    CardModel cardSource = ev.Source as CardModel;
     for (int i = 0; i < amount; i++) {
-      await LinkuraCmd.TriggerAutoBurst(ev.Player, ev.Context, ev.Source);
-      await LinkuraCmd.CollectHearts(ev.Player, ev.Context, ev.Source);
+      await LinkuraCmd.TriggerAutoBurst(ev.Player, ev.Context, cardSource);
+      await LinkuraCmd.CollectHearts(ev.Player, ev.Context, cardSource);
     }
   }
 
