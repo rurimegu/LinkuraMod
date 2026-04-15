@@ -21,7 +21,7 @@ public class TragicNightFireworks() : KahoCard(2, CardType.Power, CardRarity.Anc
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     await Owner.PlayCastAnim();
     await HeartsState.SetMaxHearts(Owner, ctx, 99, this);
-    await PowerCmd.Apply<TragicNightFireworksPower>(Owner.Creature, 1, Owner.Creature, this);
+    await PowerCmd.Apply<TragicNightFireworksPower>(Owner.Creature, DynamicVars.MaxHp.IntValue, Owner.Creature, this);
   }
 
   protected override void OnUpgrade() {
