@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Collections.Immutable;
 using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
@@ -41,27 +43,30 @@ public abstract class LinkuraCharacterModel : PlaceholderCharacterModel {
   public override string CustomArmPaperTexturePath => "hand_paper.png".CharacterUiPath(CharacterId);
   public override string CustomArmScissorsTexturePath => "hand_scissors.png".CharacterUiPath(CharacterId);
 
+  public static readonly ImmutableDictionary<string, string> MAPPED_ANIMATIONS
+    = ImmutableDictionary.CreateRange([
+      KeyValuePair.Create(LinkuraAnimation.VANILLA_ANIM_IDLE, "quest_dance_general00"),
+      KeyValuePair.Create(LinkuraAnimation.VANILLA_ANIM_DIE, "quest_dance_mentaldown"),
+      KeyValuePair.Create(LinkuraAnimation.VANILLA_ANIM_ATTACK, "quest_dance_general03"),
+      KeyValuePair.Create(LinkuraAnimation.VANILLA_ANIM_CAST, "quest_dance_general14"),
+      KeyValuePair.Create(LinkuraAnimation.VANILLA_ANIM_HURT, "quest_dance_surprise02_in"),
+      KeyValuePair.Create(LinkuraAnimation.VANILLA_ANIM_RELAXED_LOOP, "quest_skill_moodmaker05_loop"),
+      KeyValuePair.Create(LinkuraAnimation.LINKURA_ANIM_BURST, "quest_skill_performer01"),
+      KeyValuePair.Create(LinkuraAnimation.LINKURA_ANIM_COLLECT, "quest_dance_general34"),
+      KeyValuePair.Create(LinkuraAnimation.VANILLA_ANIM_REST_SITE_ACT1, "quest_dance_general01"),
+      KeyValuePair.Create(LinkuraAnimation.VANILLA_ANIM_REST_SITE_ACT2, "quest_dance_general01"),
+      KeyValuePair.Create(LinkuraAnimation.VANILLA_ANIM_REST_SITE_ACT3, "quest_dance_general01"),
+    ]);
+
   /// <summary>
   /// Maps a vanilla animation name to the actual animation name in the Spine file.
   /// Derived classes can override this to provide specific mappings.
   /// </summary>
   public virtual string GetMappedAnimation(string vanillaName) {
-    switch (vanillaName) {
-      case LinkuraAnimation.VANILLA_ANIM_IDLE: return "quest_dance_general00";
-      case LinkuraAnimation.VANILLA_ANIM_DIE: return "quest_dance_mentaldown";
-      case LinkuraAnimation.VANILLA_ANIM_ATTACK: return "quest_dance_general03";
-      case LinkuraAnimation.VANILLA_ANIM_CAST: return "quest_dance_general14";
-      case LinkuraAnimation.VANILLA_ANIM_HURT: return "quest_dance_surprise02_in";
-      case LinkuraAnimation.VANILLA_ANIM_RELAXED_LOOP: return "quest_skill_moodmaker05_loop";
-      case LinkuraAnimation.LINKURA_ANIM_BURST: return "quest_skill_performer01";
-      case LinkuraAnimation.LINKURA_ANIM_COLLECT: return "quest_dance_general34";
-      case LinkuraAnimation.VANILLA_ANIM_REST_SITE_ACT1:
-      case LinkuraAnimation.VANILLA_ANIM_REST_SITE_ACT2:
-      case LinkuraAnimation.VANILLA_ANIM_REST_SITE_ACT3: return "quest_dance_general01";
-      default:
-        LinkuraMod.Logger.Error($"Unknown vanilla animation name: {vanillaName}");
-        return "quest_dance_general00";
-    }
+    if (MAPPED_ANIMATIONS.TryGetValue(vanillaName, out string anim))
+      return anim;
+    LinkuraMod.Logger.Error($"Unknown vanilla animation name: {vanillaName}");
+    return MAPPED_ANIMATIONS.GetValueOrDefault(LinkuraAnimation.VANILLA_ANIM_IDLE);
   }
 
   public override CreatureAnimator GenerateAnimator(MegaSprite controller) {

@@ -1,6 +1,6 @@
 using MegaCrit.Sts2.Core.Nodes.RestSite;
 
-namespace RuriMegu.Core.Characters;
+namespace RuriMegu.Nodes.RestSite;
 
 public partial class NLinkuraRestSiteCharacter : NRestSiteCharacter {
 }
