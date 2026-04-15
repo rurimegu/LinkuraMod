@@ -16,9 +16,6 @@ public class HinoshitaKaho : LinkuraCharacterModel {
   public override string CharacterId => CHARACTER_ID;
   public override string CharacterName => CHARACTER_NAME;
 
-  public override string AnimNameBurst => "quest_skill_performer01";
-  public override string AnimNameCollect => "quest_dance_general34";
-
   public static readonly Color Color = new("f8b400");
 
   public override Color NameColor => Color;

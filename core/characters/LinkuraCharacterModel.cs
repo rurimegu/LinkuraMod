@@ -12,9 +12,7 @@ namespace RuriMegu.Core.Characters;
 public abstract class LinkuraCharacterModel : PlaceholderCharacterModel {
   public abstract string CharacterId { get; }
   public abstract string CharacterName { get; }
-  public virtual string AnimNameBurst => LinkuraAnimation.ANIM_NAME_BURST;
   public virtual float BurstAnimDelay => 0.1f;
-  public virtual string AnimNameCollect => LinkuraAnimation.ANIM_NAME_COLLECT;
   public virtual float CollectAnimDelay => 0.1f;
 
   public override CharacterGender Gender => CharacterGender.Feminine;
@@ -25,6 +23,7 @@ public abstract class LinkuraCharacterModel : PlaceholderCharacterModel {
   /// expects: a mod-relative path without the leading "res://" prefix.
   /// </summary>
   public override string CustomVisualPath => "character_visuals.tscn".CharacterScenePath(CharacterId);
+  public override string CustomMerchantAnimPath => "character_merchant.tscn".CharacterScenePath(CharacterId);
   public override string CustomEnergyCounterPath => "energy_counter.tscn".CharacterScenePath(CharacterId);
 
   // Asset paths - placeholder until custom art is added
@@ -33,6 +32,13 @@ public abstract class LinkuraCharacterModel : PlaceholderCharacterModel {
   public override string CustomCharacterSelectLockedIconPath => "char_select_locked.png".CharacterUiPath(CharacterId);
   public override string CustomMapMarkerPath => "map_marker.png".CharacterUiPath(CharacterId);
   public override string CustomCharacterSelectBg => "select_bg.tscn".CharacterScenePath(CharacterId);
+
+  // Multiplayer mode - arm pointer.
+  public override string CustomArmPointingTexturePath => "hand_pointer.png".CharacterUiPath(CharacterId);
+  // Multiplayer mode - rock-paper-scissors.
+  public override string CustomArmRockTexturePath => "hand_rock.png".CharacterUiPath(CharacterId);
+  public override string CustomArmPaperTexturePath => "hand_paper.png".CharacterUiPath(CharacterId);
+  public override string CustomArmScissorsTexturePath => "hand_scissors.png".CharacterUiPath(CharacterId);
 
   /// <summary>
   /// Maps a vanilla animation name to the actual animation name in the Spine file.
@@ -46,6 +52,8 @@ public abstract class LinkuraCharacterModel : PlaceholderCharacterModel {
       case LinkuraAnimation.VANILLA_ANIM_CAST: return "quest_dance_general14";
       case LinkuraAnimation.VANILLA_ANIM_HURT: return "quest_dance_surprise02_in";
       case LinkuraAnimation.VANILLA_ANIM_RELAXED_LOOP: return "quest_skill_moodmaker05_loop";
+      case LinkuraAnimation.LINKURA_ANIM_BURST: return "quest_skill_performer01";
+      case LinkuraAnimation.LINKURA_ANIM_COLLECT: return "quest_dance_general34";
       default:
         LinkuraMod.Logger.Error($"Unknown vanilla animation name: {vanillaName}");
         return "quest_dance_general00";
