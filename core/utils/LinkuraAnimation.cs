@@ -18,6 +18,9 @@ public static class LinkuraAnimation {
   public const string VANILLA_ANIM_CAST = "cast";
   public const string VANILLA_ANIM_HURT = "hurt";
   public const string VANILLA_ANIM_RELAXED_LOOP = "relaxed_loop";
+  public const string VANILLA_ANIM_REST_SITE_ACT1 = "overgrowth_loop";
+  public const string VANILLA_ANIM_REST_SITE_ACT2 = "hive_loop";
+  public const string VANILLA_ANIM_REST_SITE_ACT3 = "glory_loop";
 
   public static async Task PlayCastAnim(this Player player) {
     if (player.Character is LinkuraCharacterModel linkuraChara) {

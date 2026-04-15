@@ -13,7 +13,11 @@ config_version=5
 config/name="LinkuraMod"
 run/main_scene="uid://cdh2l07a0coxe"
 config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
-config/icon="res://linkuramod/images/icon.png"
+config/icon="res://linkuramod/mod_image.png"
+
+[debug]
+
+file_logging/enable_file_logging=true
 
 [dotnet]
 

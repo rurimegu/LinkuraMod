@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://30ibn87vqxq0"]
+
+[ext_resource type="SpineSkeletonDataResource" uid="uid://bbi0mrg3xxu6n" path="res://linkuramod/spines/kaho/kaho.tres" id="1_kaho"]
+[ext_resource type="PackedScene" uid="uid://cxr4tpn8fq2vl" path="res://linkuramod/scenes/kaho/selection_reticle.tscn" id="2_reticle"]
+
+[node name="KahoRestSite" type="Node2D"]
+scale = Vector2(0.760006, 0.760006)
+
+[node name="SpineSprite" type="SpineSprite" parent="."]
+skeleton_data_res = ExtResource("1_kaho")
+preview_skin = "Default"
+preview_animation = "quest_dance_general01"
+preview_frame = false
+preview_time = 0.0
+
+[node name="ControlRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="SelectionReticle" parent="ControlRoot" instance=ExtResource("2_reticle")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -207.8931
+offset_top = -485.52246
+offset_right = 132.8937
+offset_bottom = 14.473602
+script = null
+
+[node name="Hitbox" type="Control" parent="ControlRoot"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = -203.94576
+offset_top = -482.89093
+offset_right = 130.26213
+offset_bottom = 13.157776
+
+[node name="ThoughtBubbleRight" type="Control" parent="ControlRoot"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 180.0
+offset_top = -500.0
+offset_right = 180.0
+offset_bottom = -500.0
+
+[node name="ThoughtBubbleLeft" type="Control" parent="ControlRoot"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = -200.0
+offset_top = -500.0
+offset_right = -200.0
+offset_bottom = -500.0

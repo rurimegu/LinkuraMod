@@ -24,6 +24,7 @@ public abstract class LinkuraCharacterModel : PlaceholderCharacterModel {
   /// </summary>
   public override string CustomVisualPath => "character_visuals.tscn".CharacterScenePath(CharacterId);
   public override string CustomMerchantAnimPath => "character_merchant.tscn".CharacterScenePath(CharacterId);
+  public override string CustomRestSiteAnimPath => "character_rest_site.tscn".CharacterScenePath(CharacterId);
   public override string CustomEnergyCounterPath => "energy_counter.tscn".CharacterScenePath(CharacterId);
 
   // Asset paths - placeholder until custom art is added
@@ -54,6 +55,9 @@ public abstract class LinkuraCharacterModel : PlaceholderCharacterModel {
       case LinkuraAnimation.VANILLA_ANIM_RELAXED_LOOP: return "quest_skill_moodmaker05_loop";
       case LinkuraAnimation.LINKURA_ANIM_BURST: return "quest_skill_performer01";
       case LinkuraAnimation.LINKURA_ANIM_COLLECT: return "quest_dance_general34";
+      case LinkuraAnimation.VANILLA_ANIM_REST_SITE_ACT1:
+      case LinkuraAnimation.VANILLA_ANIM_REST_SITE_ACT2:
+      case LinkuraAnimation.VANILLA_ANIM_REST_SITE_ACT3: return "quest_dance_general01";
       default:
         LinkuraMod.Logger.Error($"Unknown vanilla animation name: {vanillaName}");
         return "quest_dance_general00";

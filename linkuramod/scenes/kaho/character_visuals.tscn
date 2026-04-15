@@ -8,7 +8,7 @@
 skeleton_data_res = ExtResource("1_mbxri")
 update_mode = 1
 preview_skin = "Default"
-preview_animation = "idle_loop"
+preview_animation = "quest_dance_general00"
 preview_frame = false
 preview_time = 0.0
 unique_name_in_owner = true
