@@ -22,9 +22,17 @@ public static class LinkuraCmd {
     var ev = new Events.IncreaseMaxHeartsEvent(player, ctx, amount, source);
     if (!await Events.IncreaseMaxHearts.InvokeAllEarly(ev)) return ev;
     if (amount <= 0) return ev;
-    var childEv = await HeartsState.AddMaxHearts(player, ctx, amount, source);
-    if (childEv.IsNullOrCancelled()) return ev;
-    ev.ActualAmount = childEv.NewMaxHearts - childEv.OldMaxHearts;
+    if (ev.GainMaxHpInstead) {
+      await CreatureCmd.GainMaxHp(player.Creature, amount);
+      int currentMax = HeartsState.GetMaxHearts(player);
+      var dummyEv = new Events.MaxHeartsChangedEvent(player, ctx, currentMax, currentMax, HeartsState.GetHearts(player), 0, source);
+      if (await Events.MaxHeartsChanged.InvokeAllEarly(dummyEv))
+        await Events.MaxHeartsChanged.InvokeAllLate(dummyEv);
+    } else {
+      var childEv = await HeartsState.AddMaxHearts(player, ctx, amount, source);
+      if (childEv.IsNullOrCancelled()) return ev;
+      ev.ActualAmount = childEv.NewMaxHearts - childEv.OldMaxHearts;
+    }
     await Events.IncreaseMaxHearts.InvokeAllLate(ev);
     return ev;
   }

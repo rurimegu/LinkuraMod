@@ -73,6 +73,7 @@ public static class Events {
     CardModel Source
   ) : Event {
     public int ActualAmount { get; set; } = 0;
+    public bool GainMaxHpInstead { get; set; } = false;
   }
 
   public record TriggerBackstageEvent(
