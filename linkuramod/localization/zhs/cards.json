@@ -24,7 +24,7 @@
   "RURIMEGU-EXCESSIVE_TRAINING.description": "减少{RURIMEGU-MAX_HEARTS_THRESHOLD:inverseDiff()}点❤️上限，最多减少{RURIMEGU-MAX_TIMES:diff()}次。每减少一次，获得{Energy:energyIcons()}。",
   "RURIMEGU-ENDURING_TRADITION.title": "传承的传统",
   "RURIMEGU-ENDURING_TRADITION.description": "在本回合中，增加❤️上限的效果改为触发同等次数的[gold]自然爆心[/gold]并[gold]收心[/gold]。",
-  "RURIMEGU-TWO_SECONDS_OF_ETERNITY.title": "两秒的永远",
+  "RURIMEGU-TWO_SECONDS_OF_ETERNITY.title": "二秒的永远",
   "RURIMEGU-TWO_SECONDS_OF_ETERNITY.description": "打出你[gold]手牌[/gold]中所有的其他牌。此牌的耗能等同于这些牌的耗能总和。",
   "RURIMEGU-BALL_OF_TRAILS.title": "轨迹的舞会",
   "RURIMEGU-BALL_OF_TRAILS.description": "[gold]爆心[/gold]{RURIMEGU-BURST:diff()}。如果在回合开始时抽到此牌，获得{Energy:energyIcons()}，弃掉你的[gold]手牌[/gold]，并抽等量的牌。",
@@ -50,7 +50,7 @@
   "RURIMEGU-BUNNY_DEFEND.title": "兔兔防御",
   "RURIMEGU-BUNNY_DEFEND.description": "获得等同于你当前❤️上限的[gold]格挡[/gold]。",
   "RURIMEGU-GENYOU_YAKOU.title": "眩耀夜行",
-  "RURIMEGU-GENYOU_YAKOU.description": "如果你拥有不超过8颗❤️，获得{Energy:energyIcons()}并抽{Cards:diff()}张牌。",
+  "RURIMEGU-GENYOU_YAKOU.description": "如果你拥有不超过6颗❤️，获得{Energy:energyIcons()}并抽{Cards:diff()}张牌。",
   "RURIMEGU-ZANYOU.title": "残阳",
   "RURIMEGU-ZANYOU.description": "增加{RURIMEGU-EXPAND_HEARTS:diff()}点❤️上限。[gold]爆心[/gold]{RURIMEGU-BURST:diff()}。",
   "RURIMEGU-NEW_BLACK.title": "Nεw Black",
@@ -157,7 +157,7 @@
   "RURIMEGU-BLOOM_GARDEN_PARTY.title": "Bloom Garden Party",
   "RURIMEGU-BLOOM_GARDEN_PARTY.description": "你的[gold]幕后[/gold]效果在[gold]弃牌堆[/gold]中也可以触发。",
   "RURIMEGU-HAPPY_SUPREMACY.title": "快乐至上主义！",
-  "RURIMEGU-HAPPY_SUPREMACY.description": "将你所有的❤️随机转化为[gold]力量[/gold]或[gold]敏捷[/gold]，分配给所有角色。（升级后：仅分配给所有玩家。）",
+  "RURIMEGU-HAPPY_SUPREMACY.description": "将你所有的❤️随机转化为[gold]力量[/gold]或[gold]敏捷[/gold]，分配给所有{IfUpgraded:show:玩家|玩家和敌人}。",
   "RURIMEGU-HINOSHITA_INSTALL.title": "日野下安装",
   "RURIMEGU-HINOSHITA_INSTALL.description": "其他玩家使用卡牌时也会触发你的[gold]自然爆心[/gold]。"
 }

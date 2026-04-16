@@ -50,7 +50,7 @@
   "RURIMEGU-BUNNY_DEFEND.title": "Bunny Defend",
   "RURIMEGU-BUNNY_DEFEND.description": "Gain [gold]Block[/gold] equal to your current max ❤️.",
   "RURIMEGU-GENYOU_YAKOU.title": "Genyou Yakou",
-  "RURIMEGU-GENYOU_YAKOU.description": "If you have 8 or fewer ❤️, gain {Energy:energyIcons()} and draw {Cards:diff()} {Cards:plural:card|cards}.",
+  "RURIMEGU-GENYOU_YAKOU.description": "If you have 6 or fewer ❤️, gain {Energy:energyIcons()} and draw {Cards:diff()} {Cards:plural:card|cards}.",
   "RURIMEGU-ZANYOU.title": "Zanyou",
   "RURIMEGU-ZANYOU.description": "Increase max ❤️ by {RURIMEGU-EXPAND_HEARTS:diff()}. [gold]Burst[/gold] {RURIMEGU-BURST:diff()}.",
   "RURIMEGU-NEW_BLACK.title": "Nεw Black",
@@ -157,7 +157,7 @@
   "RURIMEGU-BLOOM_GARDEN_PARTY.title": "Bloom Garden Party",
   "RURIMEGU-BLOOM_GARDEN_PARTY.description": "Your [gold]Backstage[/gold] effects can also trigger from your [gold]Discard Pile[/gold].",
   "RURIMEGU-HAPPY_SUPREMACY.title": "Happy Supremacy!",
-  "RURIMEGU-HAPPY_SUPREMACY.description": "Convert all your ❤️ to [gold]Strength[/gold] or [gold]Dexterity[/gold], randomly distributed to ALL characters. (Upgraded: all players only.)",
+  "RURIMEGU-HAPPY_SUPREMACY.description": "Convert all your ❤️ to [gold]Strength[/gold] or [gold]Dexterity[/gold], randomly distributed to ALL {IfUpgraded:show:players|players and enemies}.",
   "RURIMEGU-HINOSHITA_INSTALL.title": "Hinoshita Install",
   "RURIMEGU-HINOSHITA_INSTALL.description": "When another player plays a card, it also triggers your [gold]Auto Burst[/gold]."
 }

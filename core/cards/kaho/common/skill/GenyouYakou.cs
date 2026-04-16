@@ -11,10 +11,10 @@ namespace RuriMegu.Core.Cards.Kaho.Common.Skill;
 
 /// <summary>
 /// Genyou Yakou (眩耀夜行) — Cost 0, Skill, Common.
-/// If you have 8 or fewer ♥, gain 1 energy and draw 2 (3) cards. Ethereal.
+/// If you have 6 or fewer ♥, gain 1 energy and draw 2 (3) cards. Ethereal.
 /// </summary>
 public class GenyouYakou() : KahoCard(0, CardType.Skill, CardRarity.Common, TargetType.None) {
-  private const int HEARTS_THRESHOLD = 8;
+  private const int HEARTS_THRESHOLD = 6;
 
   public override IEnumerable<CardKeyword> CanonicalKeywords => [
     CardKeyword.Ethereal,
