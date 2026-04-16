@@ -15,6 +15,7 @@ namespace RuriMegu.Core.Cards.Kaho.Rare.Power;
 /// Whenever you Burst, Collect. All enemies gain 99 Intangible.
 /// </summary>
 public class AutoClickerOn() : KahoCard(1, CardType.Power, CardRarity.Rare, TargetType.None) {
+  public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.SingleplayerOnly;
 
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
     BurstHeartsVar.HoverTip(),
