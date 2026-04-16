@@ -2,7 +2,7 @@
   "id": "linkuramod",
   "name": "LinkuraMod",
   "author": "KCFindstr",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Adds contents inspired by Link! Like! LoveLive!.",
   "has_dll": true,
   "has_pck": true,
