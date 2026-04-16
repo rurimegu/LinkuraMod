@@ -12,8 +12,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Alchyr.Sts2.BaseLib" Version="3.0.1" />
-    <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="0.1.6" />
+    <PackageReference Include="Alchyr.Sts2.BaseLib" Version="3.0.5" />
+    <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="0.1.9" />
     <PackageReference Include="Lib.Harmony" Version="2.3.*" />
   </ItemGroup>
   <ItemGroup>
