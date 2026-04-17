@@ -10,8 +10,6 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Nodes.RestSite;
 
 public partial class NLinkuraRestSiteCharacter : NRestSiteCharacter {
-  private const string CHARACTER_ID = "linkura";
-
   public override void _Ready() {
     base._Ready();
     if (Player.Character is not LinkuraCharacterModel linkuraChara) {

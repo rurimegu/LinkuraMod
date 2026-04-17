@@ -18,8 +18,6 @@ public class SayoShigure() : KahoInHandTriggerCard(1, CardType.Attack, CardRarit
   private const int BURSTS_PER_TRIGGER = 8;
   private const string TRACKER_VAR = "SAYO_SHIGURE_TRACKER";
 
-
-
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new DamageVar(9, ValueProp.Move),
     new BurstHeartsVar(2),
