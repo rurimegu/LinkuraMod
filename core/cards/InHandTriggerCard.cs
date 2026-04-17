@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Rooms;
 using RuriMegu.Core.Powers.Kaho;
 using RuriMegu.Core.Utils;
 
@@ -19,12 +18,7 @@ namespace RuriMegu.Core.Cards;
 public abstract class InHandTriggerCard(int cost, CardType type, CardRarity rarity, TargetType target)
   : LinkuraCard(cost, type, rarity, target) {
 
-  /// <summary>Maximum times this card's in-hand effect may fire per player card play.</summary>
-  protected virtual int MaxTriggersPerPlay => 999;
-
   public override IEnumerable<CardKeyword> CanonicalKeywords => [LinkuraKeywords.Backstage];
-
-  private int _triggerCount;
 
   private async Task<Events.TriggerBackstageEvent> TryTrigger(PlayerChoiceContext ctx) {
     if (!CanTrigger()) return null;
@@ -48,34 +42,14 @@ public abstract class InHandTriggerCard(int cost, CardType type, CardRarity rari
   }
 
   private async Task AfterTrigger(Events.TriggerBackstageEvent ev) {
-    _triggerCount++;
+    IncrementTriggerCount();
     await Events.TriggerBackstage.InvokeAllLate(ev);
   }
 
-  protected virtual bool CanTrigger() {
-    if (_triggerCount >= MaxTriggersPerPlay) return false;
+  protected override bool CanTrigger() {
+    if (!base.CanTrigger()) return false;
     if (this.IsInHand()) return true;
-    if (this.IsInDiscardPile() && (Owner?.Creature?.GetPower<BloomGardenPartyPower>() != null)) return true;
+    if (this.IsInDiscardPile() && (Owner?.Creature?.HasPower<BloomGardenPartyPower>() == true)) return true;
     return false;
-  }
-
-  public override Task BeforeSideTurnStart(PlayerChoiceContext ctx, CombatSide side, CombatState combatState) {
-    if (side == Owner?.Creature?.Side && this.IsInDiscardPile()) {
-      _triggerCount = 0;
-    }
-    return base.BeforeSideTurnStart(ctx, side, combatState);
-  }
-
-  public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay) {
-    await base.AfterCardPlayed(context, cardPlay);
-    // Reset counter only when this card is manually played by the player.
-    if (cardPlay.Card == this && !cardPlay.IsAutoPlay) {
-      _triggerCount = 0;
-    }
-  }
-
-  public override Task AfterCombatEnd(CombatRoom room) {
-    _triggerCount = 0;
-    return base.AfterCombatEnd(room);
   }
 }

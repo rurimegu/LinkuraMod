@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -18,23 +19,27 @@ public class AutoCollectOnPower : KahoPower {
 
   public override async Task AfterApplied(Creature applier, CardModel cardSource) {
     DisposeTrackedSubscriptions();
-    TrackSubscription(Events.HeartsChanged.SubscribeLate(OnHeartsChangedLate));
-    TrackSubscription(Events.MaxHeartsChanged.SubscribeLate(OnMaxHeartsChangedLate));
+    TrackSubscription(HeartsChanged.SubscribeLate(OnHeartsChangedLate));
+    TrackSubscription(MaxHeartsChanged.SubscribeLate(OnMaxHeartsChangedLate));
+    if (HeartsState.ReachedMaxHearts(Owner.Player)) {
+      await LinkuraCmd.CollectHearts(Owner.Player, BLOCKING_CONTEXT);
+    }
     await base.AfterApplied(applier, cardSource);
   }
 
-  private Task<CollectEvent> Trigger(PlayerChoiceContext context) {
+  private async Task Trigger(PlayerChoiceContext context) {
+    if (CombatManager.Instance.IsOverOrEnding) return;
     Flash();
-    return LinkuraCmd.CollectHearts(Owner.Player, context);
+    await LinkuraCmd.CollectHearts(Owner.Player, context);
   }
 
-  private async Task OnHeartsChangedLate(Events.HeartsChangedEvent ev) {
+  private async Task OnHeartsChangedLate(HeartsChangedEvent ev) {
     if (ev.Player.Creature != Owner) return;
     if (ev.NewHearts < ev.MaxHearts || ev.MaxHearts <= 0) return;
     await Trigger(ev.Context);
   }
 
-  private async Task OnMaxHeartsChangedLate(Events.MaxHeartsChangedEvent ev) {
+  private async Task OnMaxHeartsChangedLate(MaxHeartsChangedEvent ev) {
     if (ev.Player.Creature != Owner) return;
     if (ev.NewMaxHearts <= 0 || ev.NewMaxHearts == ev.OldMaxHearts) return;
     if (ev.Hearts < ev.NewMaxHearts) return;

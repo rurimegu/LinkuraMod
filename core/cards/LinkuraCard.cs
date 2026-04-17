@@ -2,7 +2,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Abstracts;
 using BaseLib.Extensions;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rooms;
 using RuriMegu.Core.Utils;
@@ -48,6 +50,23 @@ public abstract class LinkuraCard(int cost, CardType type, CardRarity rarity, Ta
     await InitializeSubscriptions();
   }
 
+  // ── Trigger-count guard ────────────────────────────────────────────────
+
+  /// <summary>Maximum times this card's automatic effect may fire per combat.</summary>
+  protected virtual int MaxTriggersPerPlay => 999;
+
+  private int _triggerCount;
+
+  /// <summary>
+  /// Returns false when combat has ended or the trigger cap has been reached.
+  /// Override to add additional conditions (e.g. pile checks for backstage cards).
+  /// </summary>
+  protected virtual bool CanTrigger() => !CombatManager.Instance.IsOverOrEnding && _triggerCount < MaxTriggersPerPlay;
+
+  protected void IncrementTriggerCount() {
+    _triggerCount++;
+  }
+
   // ── Self-managed lifecycle hooks ───────────────────────────────────────
 
   /// <summary>
@@ -80,7 +99,23 @@ public abstract class LinkuraCard(int cost, CardType type, CardRarity rarity, Ta
   /// Dispose subscriptions at end of combat.
   /// </summary>
   public override Task AfterCombatEnd(CombatRoom room) {
+    _triggerCount = 0;
     DisposeAllSubscriptions();
     return base.AfterCombatEnd(room);
+  }
+
+  public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay) {
+    await base.AfterCardPlayed(context, cardPlay);
+    // Reset counter only when this card is manually played by the player.
+    if (cardPlay.Card == this && !cardPlay.IsAutoPlay) {
+      _triggerCount = 0;
+    }
+  }
+
+  public override Task BeforeSideTurnStart(PlayerChoiceContext ctx, CombatSide side, CombatState combatState) {
+    if (side == Owner?.Creature?.Side) {
+      _triggerCount = 0;
+    }
+    return base.BeforeSideTurnStart(ctx, side, combatState);
   }
 }

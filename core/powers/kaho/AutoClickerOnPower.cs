@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
@@ -36,7 +37,7 @@ public class AutoClickerOnPower : KahoPower {
   }
 
   private async Task OnBurstLate(Events.BurstEvent ev) {
-    if (ev.Player.Creature != Owner) return;
+    if (ev.Player.Creature != Owner || CombatManager.Instance.IsOverOrEnding) return;
     await LinkuraCmd.CollectHearts(ev.Player, ev.Context);
   }
 }

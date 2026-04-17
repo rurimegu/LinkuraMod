@@ -26,6 +26,8 @@ public class BallOfTrails() : KahoCard(1, CardType.Skill, CardRarity.Rare, Targe
 
   public override async Task AfterCardDrawn(PlayerChoiceContext ctx, CardModel card, bool fromHandDraw) {
     if (card != this || !fromHandDraw) return;
+    if (!CanTrigger()) return;
+    IncrementTriggerCount();
     await Cmd.Wait(0.5f);
     await PlayerCmd.GainEnergy(DynamicVars.Energy.IntValue, Owner);
     await LinkuraCardActions.DiscardAndDraw(this, ctx);

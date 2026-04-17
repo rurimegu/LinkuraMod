@@ -31,6 +31,8 @@ public class OnYourMark() : KahoCard(0, CardType.Skill, CardRarity.Uncommon, Tar
 
   public override async Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw) {
     if (card == this) {
+      if (!CanTrigger()) return;
+      IncrementTriggerCount();
       await Cmd.Wait(0.5f);
       int energy = Owner.PlayerCombatState?.Energy ?? 0;
       int block = energy * DynamicVars.Block.IntValue;

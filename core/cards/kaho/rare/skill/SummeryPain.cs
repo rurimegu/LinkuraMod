@@ -3,10 +3,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Entities.Players;
 using RuriMegu.Core.Utils;
 
 namespace RuriMegu.Core.Cards.Kaho.Rare.Skill;
@@ -31,6 +31,9 @@ public class SummeryPain() : KahoInHandTriggerCard(1, CardType.Skill, CardRarity
     if (!CanTrigger()) return;
 
     var pile = PileType.Hand.GetPile(Owner);
+    int remainingCards = PileType.Draw.GetPile(Owner).Cards.Count
+      + PileType.Discard.GetPile(Owner).Cards.Count;
+    if (remainingCards == 0) return;
 
     while (pile.Cards.Count < DynamicVars[HAND_THRESHOLD_VAR].IntValue) {
       int cardsDrawn = 0;

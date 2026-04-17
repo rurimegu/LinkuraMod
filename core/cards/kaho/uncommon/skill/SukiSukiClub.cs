@@ -26,6 +26,8 @@ public class SukiSukiClub() : KahoCard(1, CardType.Skill, CardRarity.Uncommon, T
 
   public override async Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw) {
     if (card == this) {
+      if (!CanTrigger()) return;
+      IncrementTriggerCount();
       await Cmd.Wait(0.5f);
       int heartBoost = DynamicVars.ExpandHearts().IntValue;
       await LinkuraCmd.IncreaseMaxHearts(Owner, choiceContext, heartBoost, this);

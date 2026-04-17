@@ -36,6 +36,8 @@ public class Soulmate() : KahoCard(0, CardType.Skill, CardRarity.Uncommon, Targe
 
   public override async Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw) {
     if (card == this) {
+      if (!CanTrigger()) return;
+      IncrementTriggerCount();
       await Cmd.Wait(0.5f);
       await LinkuraCardActions.AutoBurst(this, choiceContext);
     }
