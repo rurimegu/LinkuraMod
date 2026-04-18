@@ -12,10 +12,9 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 
 /// <summary>
 /// Fall Back Asleep (回笼觉) — Cost 2 (1), Skill, Uncommon.
-/// Gain Block equal to current ❤️. Block persists this turn. Exhaust.
+/// Gain Block equal to current ❤️. Block persists this turn.
 /// </summary>
 public class FallBackAsleep() : KahoCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
-  public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
     HoverTipFactory.Static(StaticHoverTip.Block)
   ];

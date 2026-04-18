@@ -12,7 +12,7 @@ namespace RuriMegu.Core.Cards.Kaho.Rare.Power;
 
 /// <summary>
 /// Flower Knot (花结) — Cost 1, Power, Rare.
-/// Whenever you trigger a Backstage effect, discard that backstage card and draw 1 card. (Innate.)
+/// Whenever you trigger a Backstage effect, discard that backstage card and draw 1 (2) cards.
 /// </summary>
 public class FlowerKnot() : KahoCard(1, CardType.Power, CardRarity.Rare, TargetType.None) {
   public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Innate];
@@ -31,6 +31,6 @@ public class FlowerKnot() : KahoCard(1, CardType.Power, CardRarity.Rare, TargetT
   }
 
   protected override void OnUpgrade() {
-    AddKeyword(CardKeyword.Retain);
+    DynamicVars.Cards.UpgradeValueBy(1m);
   }
 }
