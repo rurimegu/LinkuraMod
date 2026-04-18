@@ -27,7 +27,7 @@ public class BuildUp() : KahoInHandTriggerCard(1, CardType.Attack, CardRarity.Un
     new CalculationBaseVar(1),
     new CalculationExtraVar(1),
     new CalculatedVar(DRAW_PREVIEW_VAR).WithMultiplier(
-      static (card, _) => ((card as BuildUp)?._bonusDraws ?? 0)),
+      static (card, _) => (card as BuildUp)?._bonusDraws ?? 0),
     new DynamicVar(TRACKER_VAR, 0),
   ];
 
