@@ -53,10 +53,11 @@ jobs:
           fi
           echo "Using assets file: $ASSETS_FILE"
 
+          # Case-insensitive match for Alchyr.Sts2.BaseLib
           VERSION=$(jq -r '
             .libraries
             | keys[]
-            | select(startswith("alchyr.sts2.baselib/"))
+            | select(ascii_downcase | startswith("alchyr.sts2.baselib/"))
             | split("/")[1]
           ' "$ASSETS_FILE" | head -1)
 
