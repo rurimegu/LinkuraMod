@@ -48,12 +48,11 @@ public class Celebration() : KahoInHandTriggerCard(1, CardType.Skill, CardRarity
 
     int threshold = DynamicVars[THRESHOLD_VAR].IntValue;
     while (DynamicVars[TRACKER_VAR].IntValue >= threshold) {
-      int newTrackerVar = DynamicVars[TRACKER_VAR].IntValue - threshold;
+      DynamicVars[TRACKER_VAR].BaseValue -= threshold;
       var triggerEv = await TriggerWithAction(ev.Context, async () => {
-        DynamicVars[TRACKER_VAR].BaseValue = newTrackerVar;
         await CardPileCmd.Draw(ev.Context, Owner);
       });
-      if (triggerEv == null) break;
+      if (triggerEv.IsNullOrCancelled()) break;
     }
   }
 

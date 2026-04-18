@@ -45,9 +45,8 @@ public class SayoShigure() : KahoInHandTriggerCard(1, CardType.Attack, CardRarit
     DynamicVars[TRACKER_VAR].BaseValue += ev.ActualAmount;
 
     while (DynamicVars[TRACKER_VAR].IntValue >= BURSTS_PER_TRIGGER) {
-      int newTrackerVar = DynamicVars[TRACKER_VAR].IntValue - BURSTS_PER_TRIGGER;
+      DynamicVars[TRACKER_VAR].BaseValue -= BURSTS_PER_TRIGGER;
       var triggerEv = await TriggerWithAction(ev.Context, async () => {
-        DynamicVars[TRACKER_VAR].BaseValue = newTrackerVar;
         await LinkuraCardActions.BurstHearts(this, ev.Context);
       });
       if (triggerEv.IsNullOrCancelled()) break;

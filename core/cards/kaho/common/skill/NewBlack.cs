@@ -47,12 +47,11 @@ public class NewBlack() : KahoInHandTriggerCard(1, CardType.Skill, CardRarity.Co
     if (ev.Player != Owner || ev.ActualAmount <= 0 || !CanTrigger()) return;
     DynamicVars[TRACKER_VAR].BaseValue += ev.ActualAmount;
     while (DynamicVars[TRACKER_VAR].IntValue >= BURST_PER_TRIGGER) {
-      int newTrackerVar = DynamicVars[TRACKER_VAR].IntValue - BURST_PER_TRIGGER;
+      DynamicVars[TRACKER_VAR].BaseValue -= BURST_PER_TRIGGER;
       var triggerEv = await TriggerWithAction(ev.Context, async () => {
-        DynamicVars[TRACKER_VAR].BaseValue = newTrackerVar;
         await CreatureCmd.GainBlock(Owner.Creature, (BlockVar)DynamicVars[BACKSTAGE_BLOCK_VAR], null);
       });
-      if (triggerEv == null) break;
+      if (triggerEv.IsNullOrCancelled()) break;
     }
   }
 

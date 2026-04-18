@@ -35,14 +35,12 @@ public abstract class MayDreamsBloomPowerBase : KahoPower {
     int overflow = ev.RequestedAmount - ev.ActualAmount;
     if (overflow <= 0) return;
 
-    int accumulatedOverflow = (int)DynamicVars[TRACKER_VAR].BaseValue;
-    accumulatedOverflow += overflow;
-    while (accumulatedOverflow >= Threshold) {
-      accumulatedOverflow -= Threshold;
+    DynamicVars[TRACKER_VAR].BaseValue += overflow;
+    while (DynamicVars[TRACKER_VAR].BaseValue >= Threshold) {
+      DynamicVars[TRACKER_VAR].BaseValue -= Threshold;
       Flash();
       await LinkuraCmd.GainAutoBurst(Owner, Amount, Owner, null);
     }
-    DynamicVars[TRACKER_VAR].BaseValue = accumulatedOverflow;
   }
 }
 

@@ -14,12 +14,12 @@ namespace RuriMegu.Core.Relics.Kaho.Rare;
 /// <summary>
 /// Shopping Mall — Rare relic for Hinoshita Kaho.
 /// All enemies drop an extra card reward set.
-/// At the end of each combat, lose 20 gold.
+/// At the end of each combat, lose 10 gold.
 /// </summary>
 public class ShoppingMall : KahoRelic {
   public override RelicRarity Rarity => RelicRarity.Rare;
 
-  private const int GOLD_LOSS = 20;
+  private const int GOLD_LOSS = 10;
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new GoldVar(GOLD_LOSS),

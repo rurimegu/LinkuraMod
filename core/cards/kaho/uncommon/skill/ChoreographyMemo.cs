@@ -45,12 +45,11 @@ public class ChoreographyMemo() : KahoInHandTriggerCard(1, CardType.Skill, CardR
 
     int threshold = DynamicVars[THRESHOLD_VAR].IntValue;
     while (DynamicVars[TRACKER_VAR].IntValue >= threshold) {
-      int newTracker = DynamicVars[TRACKER_VAR].IntValue - threshold;
+      DynamicVars[TRACKER_VAR].BaseValue -= threshold;
       var triggerEv = await TriggerWithAction(ev.Context, async () => {
-        DynamicVars[TRACKER_VAR].BaseValue = newTracker;
         await LinkuraCardActions.CollectHearts(this, ev.Context);
       });
-      if (triggerEv == null) break;
+      if (triggerEv.IsNullOrCancelled()) break;
     }
   }
 
