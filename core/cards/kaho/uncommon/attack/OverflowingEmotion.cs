@@ -21,7 +21,7 @@ public class OverflowingEmotion() : KahoInHandTriggerCard(2, CardType.Attack, Ca
 
   private int _increasedDamage;
   [SavedProperty]
-  public int IncreasedDamage {
+  public int RuriMeguIncreasedDamage {
     get => _increasedDamage;
     set {
       AssertMutable();
@@ -64,7 +64,7 @@ public class OverflowingEmotion() : KahoInHandTriggerCard(2, CardType.Attack, Ca
   }
 
   private void BuffFromCollect(int extraDamage) {
-    IncreasedDamage += extraDamage;
+    RuriMeguIncreasedDamage += extraDamage;
   }
 
   protected override void OnUpgrade() {

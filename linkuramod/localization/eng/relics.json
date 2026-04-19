@@ -15,7 +15,7 @@
   "RURIMEGU-SHOPPING_MALL.description": "All enemies drop an extra card reward. At the end of each combat, lose {Gold:inverseDiff()} Gold.",
   "RURIMEGU-SHOPPING_MALL.flavor": "Wow, they actually built such a huge shopping mall!",
   "RURIMEGU-CAP_LIBERATOR.title": "Cap Liberator",
-  "RURIMEGU-CAP_LIBERATOR.description": "Upon pickup, remove every pair of identical unupgraded cards from your deck. For each removed pair, add one upgraded copy.",
+  "RURIMEGU-CAP_LIBERATOR.description": "Upon pickup, remove every pair of identical [gold]Unupgraded[/gold] cards from your [gold]Deck[/gold]. For each removed pair, add one [gold]Upgraded[/gold] copy to your [gold]Deck[/gold].",
   "RURIMEGU-CAP_LIBERATOR.flavor": "So, what's the plan? What kind of dream do you want to keep dreaming here?",
   "RURIMEGU-LINKURA_SYSTEM.title": "Linkura System",
   "RURIMEGU-LINKURA_SYSTEM.description": "At the start of each combat, gain {RURIMEGU-AUTO_BURST:diff()} [gold]Auto Burst[/gold].",

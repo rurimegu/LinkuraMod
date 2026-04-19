@@ -22,7 +22,7 @@ public class BunnyEars : KahoRelic {
   private int _accumulatedOverflow;
 
   [SavedProperty]
-  public int AccumulatedOverflow {
+  public int RuriMeguAccumulatedOverflow {
     get => _accumulatedOverflow;
     set {
       AssertMutable();
@@ -32,7 +32,7 @@ public class BunnyEars : KahoRelic {
   }
 
   public override bool ShowCounter => true;
-  public override int DisplayAmount => AccumulatedOverflow;
+  public override int DisplayAmount => RuriMeguAccumulatedOverflow;
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new DamageVar(3m, ValueProp.Unpowered),
@@ -47,9 +47,9 @@ public class BunnyEars : KahoRelic {
     if (ev.Player != Owner) return;
     int overflow = ev.RequestedAmount - ev.ActualAmount;
     if (overflow <= 0) return;
-    AccumulatedOverflow += overflow;
-    while (AccumulatedOverflow >= OVERFLOW_THRESHOLD) {
-      AccumulatedOverflow -= OVERFLOW_THRESHOLD;
+    RuriMeguAccumulatedOverflow += overflow;
+    while (RuriMeguAccumulatedOverflow >= OVERFLOW_THRESHOLD) {
+      RuriMeguAccumulatedOverflow -= OVERFLOW_THRESHOLD;
       Flash();
       await CreatureCmd.Damage(
         ev.Context,
