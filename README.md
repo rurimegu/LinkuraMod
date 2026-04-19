@@ -71,6 +71,9 @@ So the directory structure should look like this:
 └── ...
 ```
 
+Skin download:
+[Google Drive](https://drive.google.com/file/d/12KB6v6zu2Hs9LAtgSUnMmMt4r5GgA5xu/view?usp=sharing) | [Direct Link](https://files.rurino.dev/linkuramod/LinkuraMod_all_skins_v0.1.0.zip)
+
 ---
 
 ## Building from Source
