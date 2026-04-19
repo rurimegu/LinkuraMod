@@ -30,7 +30,7 @@ public class LiveSyncChronometer : KahoRelic {
   private int _secondCount = 0;
 
   [SavedProperty]
-  public int SecondCount {
+  public int RuriMeguSecondCount {
     get => _secondCount;
     set {
       AssertMutable();
@@ -82,8 +82,8 @@ public class LiveSyncChronometer : KahoRelic {
         await LinkuraCmd.WaitRealSeconds(1f, ct);
         if (ct.IsCancellationRequested) break;
         if (Owner.Creature.CombatState?.CurrentSide != CombatSide.Player) continue;
-        if (++SecondCount >= 60) {
-          SecondCount = 0;
+        if (++RuriMeguSecondCount >= 60) {
+          RuriMeguSecondCount = 0;
           Flash();
           await LinkuraCmd.TriggerAutoBurst(Owner, Events.BLOCKING_CONTEXT);
         }
