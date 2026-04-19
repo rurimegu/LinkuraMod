@@ -1,6 +1,8 @@
+[English](README.md) | [简体中文](README_zh.md)
+
 # LinkuraMod
 
-A [Slay the Spire 2](https://store.steampowered.com/app/2868840/Slay_the_Spire_2/) mod inspired by **Link! Like! LoveLive!**, adding a new playable character — **Hinoshita Kaho** (日野下花帆) — along with her full card set, powers, and relic.
+A [Slay the Spire 2](https://store.steampowered.com/app/2868840/Slay_the_Spire_2/) mod inspired by **Link! Like! LoveLive!**, adding a new playable character — **Hinoshita Kaho** (日野下花帆) — along with her full card set, and relics, and potions.
 
 ---
 
@@ -15,7 +17,7 @@ Kaho is a new playable character whose gameplay revolves around a unique resourc
 | Mechanic        | Description                                                                                                                   |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | **❤️ (Hearts)** | Kaho's personal resource, capped at a Max ❤️ limit (default: 9). Cards and powers fill your hearts over the course of a turn. |
-| **Burst**       | Add ❤️. When hearts overflow past the limit, the overflow is dealt as damage to a random enemy.                               |
+| **Burst**       | Increase ❤️ up to Max ❤️.                                                                                                     |
 | **Collect**     | Deal damage to a random enemy equal to current ❤️, then lose all ❤️.                                                          |
 | **Backstage**   | A keyword for cards that trigger a passive effect while held in hand, whenever a stated condition is met.                     |
 
