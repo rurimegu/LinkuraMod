@@ -30,7 +30,7 @@
   "RURIMEGU-BALL_OF_TRAILS.description": "[gold]Burst[/gold] {RURIMEGU-BURST:diff()}. If drawn at the start of your turn, gain {Energy:energyIcons()} and discard your [gold]Hand[/gold], then draw that many cards.",
   "RURIMEGU-SPECIAL_THANKS.description": "Gain {Block:diff()} [gold]Block[/gold]. [gold]Backstage[/gold]: whenever you play an Attack, [gold]Burst[/gold] {RURIMEGU-BURST:diff()}.",
   "RURIMEGU-BUDDING_PREMONITION.title": "Budding Premonition",
-  "RURIMEGU-BUDDING_PREMONITION.description": "Increase max ❤️ by {RURIMEGU-EXPAND_HEARTS:diff()}. Deal damage equal to your current max ❤️ to ALL enemies. Exhaust.",
+  "RURIMEGU-BUDDING_PREMONITION.description": "Increase max ❤️ by {RURIMEGU-EXPAND_HEARTS:diff()}. Deal damage equal to your current max ❤️ to ALL enemies.",
   "RURIMEGU-POCHI.title": "Pochi!",
   "RURIMEGU-POCHI.description": "Deal damage equal to your current ❤️. [gold]Collect[/gold].",
   "RURIMEGU-TRAINING_OUTCOMES.title": "Training Outcomes",

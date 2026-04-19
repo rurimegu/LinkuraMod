@@ -3,6 +3,7 @@ using BaseLib.Config;
 using BaseLib.Config.UI;
 using Godot;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
+using MegaCrit.Sts2.Core.Runs;
 using RuriMegu.Core.Utils;
 
 namespace RuriMegu.Core.Config;
@@ -108,6 +109,10 @@ public class LinkuraModConfig : SimpleModConfig {
         UpdatePreviewSkin(KahoSkin);
         Changed();
         SaveDebounced();
+
+        if (RunManager.Instance?.NetService?.IsConnected == true) {
+          RunManager.Instance.NetService.SendMessage(LinkuraNetworkState.Create());
+        }
       }
     };
 

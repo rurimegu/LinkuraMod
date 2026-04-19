@@ -30,7 +30,7 @@
   "RURIMEGU-BALL_OF_TRAILS.description": "[gold]爆心[/gold]{RURIMEGU-BURST:diff()}。如果在回合开始时抽到此牌，获得{Energy:energyIcons()}，弃掉你的[gold]手牌[/gold]，并抽等量的牌。",
   "RURIMEGU-SPECIAL_THANKS.description": "获得{Block:diff()}点[gold]格挡[/gold]。[gold]幕后[/gold]：每当你打出一张攻击牌，[gold]爆心[/gold]{RURIMEGU-BURST:diff()}。",
   "RURIMEGU-BUDDING_PREMONITION.title": "绽放的预感",
-  "RURIMEGU-BUDDING_PREMONITION.description": "增加{RURIMEGU-EXPAND_HEARTS:diff()}点❤️上限。对所有敌人造成等同于你当前❤️上限的伤害。消耗。",
+  "RURIMEGU-BUDDING_PREMONITION.description": "增加{RURIMEGU-EXPAND_HEARTS:diff()}点❤️上限。对所有敌人造成等同于你当前❤️上限的伤害。",
   "RURIMEGU-POCHI.title": "啵唧！",
   "RURIMEGU-POCHI.description": "造成等同于你当前❤️数的伤害。[gold]收心[/gold]。",
   "RURIMEGU-TRAINING_OUTCOMES.title": "练习成果",

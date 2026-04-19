@@ -56,6 +56,7 @@ public static class SpineSkinLoader {
 
   private const string SKINS_FOLDER = "skins";
   private const string METADATA_FILENAME = "spine_metadata.rurimegu";
+  private const float DEFAULT_MIX = 0.4f;
 
   private static readonly JsonSerializerOptions JSON_OPTIONS = new() {
     PropertyNameCaseInsensitive = true,
@@ -172,6 +173,7 @@ public static class SpineSkinLoader {
       }
       dataResObj.Set("skeleton_file_res", Variant.From(skelResObj));
       dataResObj.Set("atlas_res", Variant.From(atlasResObj));
+      dataResObj.Set("default_mix", DEFAULT_MIX);
 
       return new MegaSkeletonDataResource(Variant.From(dataResObj));
     } catch (System.Exception e) {
