@@ -1,8 +1,6 @@
 using Godot;
-using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using RuriMegu.Core.Config;
-using RuriMegu.Core.Utils;
 
 namespace RuriMegu.Nodes.Combat;
 
@@ -13,12 +11,10 @@ namespace RuriMegu.Nodes.Combat;
 /// </summary>
 public partial class NLinkuraCharacterVisuals : NCreatureVisuals {
   public override void _Ready() {
-    var skin = LinkuraModConfig.KahoSkin;
-    if (!string.IsNullOrEmpty(skin) && skin != SpineSkinLoader.BUILTIN_SKIN_LABEL) {
-      var data = SpineSkinLoader.LoadSkin(skin);
-      if (data != null)
-        new MegaSprite(GetNode<Node2D>("%Visuals")).SetSkeletonDataRes(data);
-    }
+    ulong playerId = GetParentOrNull<NCreature>()?.Entity?.Player?.NetId
+      ?? LinkuraNetwork.SINGLE_PLAYER_ID;
+
+    LinkuraNetwork.ApplySyncedSkin(GetNode<Node2D>("%Visuals"), playerId);
     base._Ready();
   }
 }

@@ -9,14 +9,14 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace RuriMegu.Core.Cards.Kaho.Common.Skill;
 
 /// <summary>
-/// Curtain Call (演出落幕) — Cost 1, Skill, Common.
-/// Gain 8 (11) block. Collect.
+/// Curtain Call (演出落幕) — Cost 0, Skill, Common.
+/// Gain 5 (8) block. Collect.
 /// </summary>
-public class CurtainCall() : KahoCard(1, CardType.Skill, CardRarity.Common, TargetType.None) {
+public class CurtainCall() : KahoCard(0, CardType.Skill, CardRarity.Common, TargetType.None) {
   public override IEnumerable<CardKeyword> CanonicalKeywords => [LinkuraKeywords.Collect];
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new BlockVar(8, ValueProp.Move),
+    new BlockVar(5, ValueProp.Move),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {

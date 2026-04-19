@@ -1,6 +1,9 @@
+using System.Collections.Generic;
 using BaseLib.Config;
 using BaseLib.Config.UI;
 using Godot;
+using MegaCrit.Sts2.Core.Bindings.MegaSpine;
+using MegaCrit.Sts2.Core.Runs;
 using RuriMegu.Core.Utils;
 
 namespace RuriMegu.Core.Config;
@@ -11,13 +14,64 @@ public class LinkuraModConfig : SimpleModConfig {
   /// </summary>
   public static string KahoSkin { get; set; } = SpineSkinLoader.BUILTIN_SKIN_LABEL;
 
+  private class ValidationLabel(Label label) {
+    private readonly Label _label = label;
+    private bool _isError = false;
+
+    public Label Label => _label;
+
+    public void SetSuccess(string text) {
+      _isError = false;
+      _label.Text = text;
+      _label.AddThemeColorOverride("font_color", Colors.Green);
+      _label.Show();
+    }
+
+    public void SetError(string text) {
+      _isError = true;
+      _label.Text = text;
+      _label.AddThemeColorOverride("font_color", Colors.Crimson);
+      _label.Show();
+    }
+
+    public void Hide() {
+      _label.Hide();
+    }
+
+    public void SetError(bool isError) {
+      _isError = isError;
+    }
+
+    public void Clear() {
+      _label.Text = "";
+      _label.Hide();
+      _isError = false;
+    }
+  }
+
+  private MegaSprite _previewSprite;
+  private ValidationLabel _validationWarning;
+
   public override void SetupConfigUI(Control optionContainer) {
     LinkuraMod.Logger.Info("[LinkuraModConfig] Setting up config UI...");
-    optionContainer.AddChild(CreateSectionHeader("Kaho"));
+    optionContainer.AddChild(CreateSectionHeader("Visuals"));
+
+    var previewContainer = CreatePreviewControl();
+    optionContainer.AddChild(previewContainer);
+
+    _validationWarning = new ValidationLabel(new Label() {
+      HorizontalAlignment = HorizontalAlignment.Center,
+      CustomMinimumSize = new Vector2(0, 30),
+      AutowrapMode = TextServer.AutowrapMode.WordSmart,
+      Visible = false,
+    });
     optionContainer.AddChild(CreateKahoSkinRow());
+    optionContainer.AddChild(_validationWarning.Label);
     optionContainer.AddChild(CreateDividerControl());
     AddRestoreDefaultsButton(optionContainer);
     SetupFocusNeighbors(optionContainer);
+
+    UpdatePreviewSkin(KahoSkin);
   }
 
   private NConfigOptionRow CreateKahoSkinRow() {
@@ -52,11 +106,77 @@ public class LinkuraModConfig : SimpleModConfig {
     btn.ItemSelected += (index) => {
       if (index >= 0 && index < skins.Count) {
         KahoSkin = skins[(int)index].FolderName;
+        UpdatePreviewSkin(KahoSkin);
         Changed();
         SaveDebounced();
+
+        if (RunManager.Instance?.NetService?.IsConnected == true) {
+          RunManager.Instance.NetService.SendMessage(LinkuraNetworkState.Create());
+        }
       }
     };
 
     return btn;
+  }
+
+  private SubViewportContainer CreatePreviewControl() {
+    var container = new SubViewportContainer {
+      CustomMinimumSize = new Vector2(600, 350),
+      SizeFlagsHorizontal = Control.SizeFlags.ShrinkCenter,
+    };
+
+    var viewport = new SubViewport {
+      TransparentBg = true,
+      Size = new Vector2I(600, 350)
+    };
+    container.AddChild(viewport);
+
+    var visualsScene = ResourceLoader.Load<PackedScene>("res://linkuramod/scenes/kaho/character_visuals.tscn").Instantiate<Node2D>();
+    visualsScene.Position = new Vector2(300, 300);
+    viewport.AddChild(visualsScene);
+
+    _previewSprite = new MegaSprite(Variant.From(visualsScene.GetNode<Node2D>("%Visuals")));
+
+    return container;
+  }
+
+  private void UpdatePreviewSkin(string skinName) {
+    if (_previewSprite == null) return;
+
+    MegaSkeletonDataResource data = null;
+    if (skinName == SpineSkinLoader.BUILTIN_SKIN_LABEL || string.IsNullOrEmpty(skinName)) {
+      var defaultDataResObj = ResourceLoader.Load("res://linkuramod/spines/kaho/kaho.tres");
+      if (defaultDataResObj != null) {
+        data = new MegaSkeletonDataResource(Variant.From(defaultDataResObj));
+      }
+    } else {
+      data = SpineSkinLoader.LoadSkin(skinName);
+    }
+
+    if (data != null) {
+      _previewSprite.SetSkeletonDataRes(data);
+      ValidateSkinAnimations(data, skinName);
+      var idleAnim = RuriMegu.Core.Characters.LinkuraCharacterModel.MAPPED_ANIMATIONS[LinkuraAnimation.VANILLA_ANIM_IDLE];
+      if (data.FindAnimation(idleAnim) != null) {
+        _previewSprite.GetAnimationState().SetAnimation(idleAnim, true, 0);
+      }
+    } else {
+      _validationWarning.SetError($"Failed to load skeleton data for '{skinName}'.");
+    }
+  }
+
+  private void ValidateSkinAnimations(MegaSkeletonDataResource data, string skinName) {
+    var missing = new List<string>();
+    foreach (var anim in RuriMegu.Core.Characters.LinkuraCharacterModel.MAPPED_ANIMATIONS.Values) {
+      if (data.FindAnimation(anim) == null) {
+        missing.Add(anim);
+      }
+    }
+
+    if (missing.Count > 0) {
+      _validationWarning.SetError($"Skin '{skinName}' missing animations:\n{string.Join(", ", missing)}");
+    } else {
+      _validationWarning.SetSuccess($"Skin '{skinName}' loaded successfully.");
+    }
   }
 }
