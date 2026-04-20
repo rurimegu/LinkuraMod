@@ -22,6 +22,9 @@ public class LinkuraModConfig : SimpleModConfig {
   [ConfigSlider(0.1f, 5.0f, 0.1f)]
   public static float HeartMaxScale { get; set; } = 2.0f;
 
+  [ConfigSlider(10, 200, 1)]
+  public static int MaxFloatingHearts { get; set; } = 99;
+
   private class ValidationLabel(Label label) {
     private readonly Label _label = label;
 
