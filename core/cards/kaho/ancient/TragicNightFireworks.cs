@@ -11,7 +11,8 @@ namespace RuriMegu.Core.Cards.Kaho.Ancient;
 
 /// <summary>
 /// Tragic Night Fireworks (可惜夜花火) — Cost 2, Power, Ancient.
-/// Set Max ❤️ to 99. When you increase Max ❤️, raise your Max HP by 1 (2) instead.
+/// Set your Max ❤️ to 99, but you can no longer increase Max ❤️.
+/// At the end of combat, increase your Max HP based on the highest single increase to your Max ❤️.
 /// </summary>
 public class TragicNightFireworks() : KahoCard(2, CardType.Power, CardRarity.Ancient, TargetType.None) {
   protected override IEnumerable<DynamicVar> CanonicalVars => [
