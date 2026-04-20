@@ -6,7 +6,7 @@
   "RURIMEGU-LIVE_SYNC_CHRONOMETER.description": "During your turn, trigger [gold]Auto Burst[/gold] once per real-time minute.",
   "RURIMEGU-LIVE_SYNC_CHRONOMETER.flavor": "Transcend the limited time and bloom with all your might.",
   "RURIMEGU-TALE_OF_PETER_RABBIT.title": "The Tale of Peter Rabbit",
-  "RURIMEGU-TALE_OF_PETER_RABBIT.description": "If your [gold]❤️[/gold] have not reached half the max ❤️ at the end of your turn, gain {Block:diff()} [gold]Block[/gold].",
+  "RURIMEGU-TALE_OF_PETER_RABBIT.description": "If your [gold]❤️[/gold] have not reached half the Max ❤️ at the end of your turn, gain {Block:diff()} [gold]Block[/gold].",
   "RURIMEGU-TALE_OF_PETER_RABBIT.flavor": "Once upon a time, there were four little rabbits……",
   "RURIMEGU-BUNNY_EARS.title": "Bunny Ears",
   "RURIMEGU-BUNNY_EARS.description": "For every [blue]10[/blue] [gold]❤️[/gold] overflowed, deal {Damage:diff()} damage to ALL enemies.",
