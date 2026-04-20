@@ -37,7 +37,7 @@ public partial class NHeartCounter : Control {
   [Export] public float HeartMaxX { get; set; } = 0.8f;
   [Export] public float HeartMinY { get; set; } = 0.1f;
   [Export] public float HeartMaxY { get; set; } = 0.6f;
-  [Export] public int MaxFloatingHearts { get; set; } = 99;
+
   [Export] public float CollectDuration { get; set; } = 0.4f;
   [Export] public float GlowIntensity { get; set; } = 1.9f;
   [Export] public float GlowBaseAlpha { get; set; } = 0.4f;
@@ -155,7 +155,7 @@ public partial class NHeartCounter : Control {
     _targetHearts = evt.NewHearts;
     _targetMaxHearts = evt.MaxHearts;
 
-    int targetVisualHearts = Math.Min(evt.NewHearts, MaxFloatingHearts);
+    int targetVisualHearts = Math.Min(evt.NewHearts, LinkuraModConfig.MaxFloatingHearts);
     int diff = targetVisualHearts - _floatingHearts.Count;
 
     if (diff > 0) {
@@ -208,8 +208,7 @@ public partial class NHeartCounter : Control {
 
   private void SpawnFloatingHearts(int count) {
     var viewportSize = GetViewportRect().Size;
-    int toSpawn = Math.Min(count, MaxFloatingHearts - _floatingHearts.Count);
-    for (int i = 0; i < toSpawn; i++) SpawnOneHeart(viewportSize);
+    for (int i = 0; i < count; i++) SpawnOneHeart(viewportSize);
   }
 
   private void DismissFloatingHearts(int count) {
