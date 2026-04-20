@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.Nodes.Pooling;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Rooms;
 using RuriMegu.Core.Utils;
+using RuriMegu.Core.Config;
 
 namespace RuriMegu.Nodes.Combat;
 
@@ -31,8 +32,7 @@ public partial class NHeartCounter : Control {
   // ──────────────────────────────────────────────────────────────
   // Heart particle config (adjust freely)
   // ──────────────────────────────────────────────────────────────
-  [Export] public float HeartMinScale { get; set; } = 1.0f;
-  [Export] public float HeartMaxScale { get; set; } = 2.0f;
+
   [Export] public float HeartMinX { get; set; } = 0.2f;
   [Export] public float HeartMaxX { get; set; } = 0.8f;
   [Export] public float HeartMinY { get; set; } = 0.1f;
@@ -206,7 +206,7 @@ public partial class NHeartCounter : Control {
   }
 
   private void SpawnOneHeart(Vector2 viewportSize) {
-    float scale = (float)GD.RandRange(HeartMinScale, HeartMaxScale);
+    float scale = (float)GD.RandRange(LinkuraModConfig.HeartMinScale, LinkuraModConfig.HeartMaxScale);
     var size = _glowingHeartTexture.GetSize() * scale;
     float x = (float)GD.RandRange(HeartMinX, HeartMaxX) * viewportSize.X - size.X / 2f;
     float y = (float)GD.RandRange(HeartMinY, HeartMaxY) * viewportSize.Y - size.Y / 2f;

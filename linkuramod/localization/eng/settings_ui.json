@@ -1,5 +1,8 @@
 {
   "RURIMEGU.mod_title": "LinkuraMod",
-  "RURIMEGU-VISUAL.title": "Visuals",
-  "RURIMEGU-KAHO_SKIN.title": "Kaho Skin"
+  "RURIMEGU-VISUAL.title": "Visual",
+  "RURIMEGU-SKIN.title": "Skin",
+  "RURIMEGU-KAHO_SKIN.title": "Kaho Skin",
+  "RURIMEGU-HEART_MIN_SCALE.title": "❤️ Min Scale",
+  "RURIMEGU-HEART_MAX_SCALE.title": "❤️ Max Scale"
 }
