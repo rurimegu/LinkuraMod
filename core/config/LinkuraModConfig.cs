@@ -15,12 +15,31 @@ public class LinkuraModConfig : SimpleModConfig {
   [ConfigHideInUI]
   public static string KahoSkin { get; set; } = SpineSkinLoader.BUILTIN_SKIN_LABEL;
 
+  private static float _heartMinScale = 1.0f;
+  private static float _heartMaxScale = 2.0f;
+
   [ConfigSection("Visual")]
   [ConfigSlider(0.1f, 5.0f, 0.1f)]
-  public static float HeartMinScale { get; set; } = 1.0f;
+  public static float HeartMinScale {
+    get => _heartMinScale;
+    set {
+      _heartMinScale = value;
+      if (_heartMinScale > _heartMaxScale) {
+        _heartMaxScale = _heartMinScale;
+      }
+    }
+  }
 
   [ConfigSlider(0.1f, 5.0f, 0.1f)]
-  public static float HeartMaxScale { get; set; } = 2.0f;
+  public static float HeartMaxScale {
+    get => _heartMaxScale;
+    set {
+      _heartMaxScale = value;
+      if (_heartMaxScale < _heartMinScale) {
+        _heartMinScale = _heartMaxScale;
+      }
+    }
+  }
 
   [ConfigSlider(10, 200, 1)]
   public static int MaxFloatingHearts { get; set; } = 99;
