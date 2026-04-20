@@ -43,7 +43,7 @@ public class BuildUp() : KahoInHandTriggerCard(1, CardType.Attack, CardRarity.Un
   }
 
   protected override Task InitializeSubscriptions() {
-    TrackSubscription(Events.Burst.SubscribeVeryEarly(OnBurstHearts));
+    TrackSubscription(Events.Burst.SubscribeLate(OnBurstHearts));
     return Task.CompletedTask;
   }
 
@@ -54,7 +54,7 @@ public class BuildUp() : KahoInHandTriggerCard(1, CardType.Attack, CardRarity.Un
   }
 
   private async Task OnBurstHearts(Events.BurstEvent ev) {
-    if (ev.Player != Owner || !CanTrigger()) return;
+    if (ev.Player != Owner || ev.ActualAmount <= 0 || !CanTrigger()) return;
 
     await TriggerWithAction(ev.Context, () => {
       DynamicVars[TRACKER_VAR].BaseValue++;
