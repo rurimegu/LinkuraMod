@@ -1,7 +1,7 @@
 {
   "RURIMEGU-TRAGIC_NIGHT_FIREWORKS_POWER.title": "可惜夜花火",
-  "RURIMEGU-TRAGIC_NIGHT_FIREWORKS_POWER.description": "当你增加❤️上限时，改为提升[blue]1[/blue]点最大生命值。",
-  "RURIMEGU-TRAGIC_NIGHT_FIREWORKS_POWER.smartDescription": "当你增加❤️上限时，改为提升[blue]{Amount}[/blue]点最大生命值。",
+  "RURIMEGU-TRAGIC_NIGHT_FIREWORKS_POWER.description": "无法再增加❤️上限。战斗结束时，根据战斗中单次增加❤️上限的最大值，提升等量最大生命值。",
+  "RURIMEGU-TRAGIC_NIGHT_FIREWORKS_POWER.smartDescription": "无法再增加❤️上限。战斗结束时，根据战斗中单次增加❤️上限的最大值，提升其[blue]{Amount}[/blue]倍的最大生命值。（当前：[blue]{TRAGIC_NIGHT_FIREWORKS_MAX_INCREASE}[/blue]）",
   "RURIMEGU-AUTO_BURST_POWER.title": "自然爆心",
   "RURIMEGU-AUTO_BURST_POWER.description": "每打出一张牌时，[gold]爆心[/gold]。",
   "RURIMEGU-AUTO_BURST_POWER.smartDescription": "每打出一张牌时，[gold]爆心[/gold]{Amount}。",

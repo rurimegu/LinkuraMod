@@ -15,16 +15,16 @@ namespace RuriMegu.Core.Cards.Kaho.Ancient;
 /// </summary>
 public class TragicNightFireworks() : KahoCard(2, CardType.Power, CardRarity.Ancient, TargetType.None) {
   protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new MaxHpVar(1),
+    new RepeatVar(1),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     await Owner.PlayCastAnim();
     await HeartsState.SetMaxHearts(Owner, ctx, 99, this);
-    await PowerCmd.Apply<TragicNightFireworksPower>(Owner.Creature, DynamicVars.MaxHp.IntValue, Owner.Creature, this);
+    await PowerCmd.Apply<TragicNightFireworksPower>(Owner.Creature, DynamicVars.Repeat.IntValue, Owner.Creature, this);
   }
 
   protected override void OnUpgrade() {
-    DynamicVars.MaxHp.UpgradeValueBy(1);
+    DynamicVars.Repeat.UpgradeValueBy(1m);
   }
 }

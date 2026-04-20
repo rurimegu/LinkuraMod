@@ -1,7 +1,7 @@
 {
   "RURIMEGU-TRAGIC_NIGHT_FIREWORKS_POWER.title": "Tragic Night Fireworks",
-  "RURIMEGU-TRAGIC_NIGHT_FIREWORKS_POWER.description": "When you increase Max ❤️, raise your Max HP by [blue]1[/blue] instead.",
-  "RURIMEGU-TRAGIC_NIGHT_FIREWORKS_POWER.smartDescription": "When you increase Max ❤️, raise your Max HP by [blue]{Amount}[/blue] instead.",
+  "RURIMEGU-TRAGIC_NIGHT_FIREWORKS_POWER.description": "You can no longer increase Max ❤️. At the end of combat, gain Max HP based on the highest single increase to your Max ❤️.",
+  "RURIMEGU-TRAGIC_NIGHT_FIREWORKS_POWER.smartDescription": "You can no longer increase Max ❤️. At the end of combat, gain Max HP equal to [blue]{Amount}[/blue] {Amount:plural:time|times} the highest single increase to your Max ❤️. (Current: [blue]{TRAGIC_NIGHT_FIREWORKS_MAX_INCREASE}[/blue])",
   "RURIMEGU-AUTO_BURST_POWER.title": "Auto Burst",
   "RURIMEGU-AUTO_BURST_POWER.description": "Whenever you play a card, [gold]Burst[/gold].",
   "RURIMEGU-AUTO_BURST_POWER.smartDescription": "Whenever you play a card, [gold]Burst[/gold] {Amount}.",

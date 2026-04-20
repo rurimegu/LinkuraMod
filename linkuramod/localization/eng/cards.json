@@ -8,7 +8,7 @@
   "RURIMEGU-BLOOMING_HEART.title": "Blooming Heart",
   "RURIMEGU-BLOOMING_HEART.description": "Increase max ❤️ by {RURIMEGU-EXPAND_HEARTS:diff()}. Draw {Cards:diff()} {Cards:plural:card|cards}. They each cost {Energy:energyIcons()} less next time they are played.",
   "RURIMEGU-TRAGIC_NIGHT_FIREWORKS.title": "Tragic Night Fireworks",
-  "RURIMEGU-TRAGIC_NIGHT_FIREWORKS.description": "Set your Max ❤️ to 99. When you increase Max ❤️, raise your Max HP by {MaxHp:diff()} instead.",
+  "RURIMEGU-TRAGIC_NIGHT_FIREWORKS.description": "Set your Max ❤️ to 99, but you can no longer increase Max ❤️. At the end of combat, increase your Max HP by {Repeat:diff()} {Repeat:plural:time|times} the highest single increase to your Max ❤️.",
   "RURIMEGU-LINKURA_ENERGY.title": "Linkura Energy",
   "RURIMEGU-LINKURA_ENERGY.description": "[gold]Burst[/gold] {RURIMEGU-BURST:diff()}, then [gold]Collect[/gold].",
   "RURIMEGU-SPECIAL_THANKS.title": "Special Thanks",

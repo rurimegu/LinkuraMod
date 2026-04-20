@@ -8,7 +8,7 @@
   "RURIMEGU-BLOOMING_HEART.title": "绽放之心",
   "RURIMEGU-BLOOMING_HEART.description": "增加{RURIMEGU-EXPAND_HEARTS:diff()}点❤️上限。抽{Cards:diff()}张牌，使它们下次使用的耗能减少{Energy:energyIcons()}。",
   "RURIMEGU-TRAGIC_NIGHT_FIREWORKS.title": "可惜夜花火",
-  "RURIMEGU-TRAGIC_NIGHT_FIREWORKS.description": "将你的❤️上限变为99。当你增加❤️上限时，改为提升{MaxHp:diff()}点最大生命值。",
+  "RURIMEGU-TRAGIC_NIGHT_FIREWORKS.description": "将你的❤️上限变为99，但你无法再增加❤️上限。战斗结束时，根据你单次增加❤️上限的最大值，提升其{Repeat:diff()}倍最大生命值。",
   "RURIMEGU-LINKURA_ENERGY.title": "林克拉能量",
   "RURIMEGU-LINKURA_ENERGY.description": "[gold]爆心[/gold]{RURIMEGU-BURST:diff()}，然后[gold]收心[/gold]。",
   "RURIMEGU-SPECIAL_THANKS.title": "特别感谢",
