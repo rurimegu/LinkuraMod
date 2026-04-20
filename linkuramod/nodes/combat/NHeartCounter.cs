@@ -61,6 +61,7 @@ public partial class NHeartCounter : Control {
   // ──────────────────────────────────────────────────────────────
 
   public override void _Ready() {
+    LinkuraMod.Logger.Info("[NHeartCounter] _Ready");
     _label = GetNode<RichTextLabel>("%HeartLabel");
     _layer1 = GetNode<TextureRect>("Icon/Layer1");
     _fillClip = GetNode<Control>("Icon/Layer1/FillClip");
@@ -116,6 +117,7 @@ public partial class NHeartCounter : Control {
   // ──────────────────────────────────────────────────────────────
 
   public void Initialize(Player player) {
+    LinkuraMod.Logger.Info("[NHeartCounter] Initializing heart counter for player: " + player.NetId);
     _heartsChangedSubscription?.Dispose();
     _maxHeartsChangedSubscription?.Dispose();
 
