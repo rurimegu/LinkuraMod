@@ -21,6 +21,7 @@ public static class HeartCounterPatch {
   [HarmonyPostfix]
   public static void Postfix(NCombatUi __instance, CombatState state) {
     Player me = LocalContext.GetMe(state);
+    LinkuraMod.Logger.Info("[HeartCounterPatch] Postfix for player: " + me.NetId);
 
     // The energy counter was added to EnergyCounterContainer; find the embedded HeartCounter.
     // After BaseLib's NEnergyCounterFactory re-parents nodes the unique-name owner is lost,
@@ -35,7 +36,7 @@ public static class HeartCounterPatch {
 
     if (heartCounter is null) {
       LinkuraMod.Logger.Warn(
-        "KahoHeartCounterPatch: HeartCounter not found inside energy counter — " +
+        "[HeartCounterPatch] HeartCounter not found inside energy counter - " +
         "check that energy_counter.tscn contains a HeartCounter child.");
       return;
     }

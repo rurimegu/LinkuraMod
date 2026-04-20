@@ -71,8 +71,8 @@
 └── ...
 ```
 
-皮肤下载地址：
-[谷歌盘](https://drive.google.com/file/d/12KB6v6zu2Hs9LAtgSUnMmMt4r5GgA5xu/view?usp=sharing) | [直链](https://files.rurino.dev/linkuramod/LinkuraMod_all_skins_v0.1.0.zip)
+皮肤下载地址（2026/04/19更新，修复了部分皮肤）：
+[谷歌盘](https://drive.google.com/file/d/1scaiE-_R99QQn1v0PcD73tc_lekBaME0/view?usp=sharing) | [直链](https://files.rurino.dev/linkuramod/LinkuraMod_all_skins_v0.1.2.zip)
 
 ---
 

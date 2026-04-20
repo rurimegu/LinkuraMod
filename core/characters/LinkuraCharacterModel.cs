@@ -31,7 +31,7 @@ public abstract class LinkuraCharacterModel : PlaceholderCharacterModel {
 
   // Asset paths - placeholder until custom art is added
   public override string CustomIconTexturePath => "character_icon.png".CharacterUiPath(CharacterId);
-  public virtual string CustomIconOutlineTexturePath => "character_icon_outline.png".CharacterUiPath(CharacterId);
+  public override string CustomIconOutlineTexturePath => "character_icon_outline.png".CharacterUiPath(CharacterId);
   public override string CustomIconPath => "character_icon.tscn".CharacterScenePath(CharacterId);
   public override string CustomCharacterSelectIconPath => "char_select.png".CharacterUiPath(CharacterId);
   public override string CustomCharacterSelectLockedIconPath => "char_select_locked.png".CharacterUiPath(CharacterId);
