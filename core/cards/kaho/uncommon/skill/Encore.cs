@@ -42,7 +42,7 @@ public class Encore() : KahoCard(0, CardType.Skill, CardRarity.Uncommon, TargetT
   }
 
   protected override Task InitializeSubscriptions() {
-    TrackSubscription(Events.Burst.SubscribeVeryEarly(OnBurstHearts));
+    TrackSubscription(Events.Burst.SubscribeLate(OnBurstHearts));
     return Task.CompletedTask;
   }
 
@@ -52,7 +52,7 @@ public class Encore() : KahoCard(0, CardType.Skill, CardRarity.Uncommon, TargetT
   }
 
   private Task OnBurstHearts(Events.BurstEvent ev) {
-    if (ev.Player != Owner) return Task.CompletedTask;
+    if (ev.Player != Owner || ev.ActualAmount <= 0) return Task.CompletedTask;
     DynamicVars[TRACKER_VAR].BaseValue++;
     return Task.CompletedTask;
   }
