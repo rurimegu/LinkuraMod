@@ -152,10 +152,17 @@ public partial class NHeartCounter : Control {
       return Task.CompletedTask;
     }
 
-    int delta = evt.NewHearts - _targetHearts;
     _targetHearts = evt.NewHearts;
     _targetMaxHearts = evt.MaxHearts;
-    if (delta > 0) SpawnFloatingHearts(delta);
+
+    int targetVisualHearts = Math.Min(evt.NewHearts, MaxFloatingHearts);
+    int diff = targetVisualHearts - _floatingHearts.Count;
+
+    if (diff > 0) {
+      SpawnFloatingHearts(diff);
+    } else if (diff < 0) {
+      DismissFloatingHearts(-diff);
+    }
     return Task.CompletedTask;
   }
 
@@ -203,6 +210,16 @@ public partial class NHeartCounter : Control {
     var viewportSize = GetViewportRect().Size;
     int toSpawn = Math.Min(count, MaxFloatingHearts - _floatingHearts.Count);
     for (int i = 0; i < toSpawn; i++) SpawnOneHeart(viewportSize);
+  }
+
+  private void DismissFloatingHearts(int count) {
+    int toDismiss = Math.Min(count, _floatingHearts.Count);
+    for (int i = 0; i < toDismiss; i++) {
+      int lastIndex = _floatingHearts.Count - 1;
+      var heart = _floatingHearts[lastIndex];
+      heart.Dismiss();
+      _floatingHearts.RemoveAt(lastIndex);
+    }
   }
 
   private void SpawnOneHeart(Vector2 viewportSize) {
