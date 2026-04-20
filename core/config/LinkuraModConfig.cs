@@ -12,23 +12,28 @@ public class LinkuraModConfig : SimpleModConfig {
   /// <summary>
   /// The selected spine skin name for Kaho. Empty string or BUILTIN_SKIN_LABEL means use built-in.
   /// </summary>
+  [ConfigHideInUI]
   public static string KahoSkin { get; set; } = SpineSkinLoader.BUILTIN_SKIN_LABEL;
+
+  [ConfigSection("Visual")]
+  [ConfigSlider(0.1f, 5.0f, 0.1f)]
+  public static float HeartMinScale { get; set; } = 1.0f;
+
+  [ConfigSlider(0.1f, 5.0f, 0.1f)]
+  public static float HeartMaxScale { get; set; } = 2.0f;
 
   private class ValidationLabel(Label label) {
     private readonly Label _label = label;
-    private bool _isError = false;
 
     public Label Label => _label;
 
     public void SetSuccess(string text) {
-      _isError = false;
       _label.Text = text;
       _label.AddThemeColorOverride("font_color", Colors.Green);
       _label.Show();
     }
 
     public void SetError(string text) {
-      _isError = true;
       _label.Text = text;
       _label.AddThemeColorOverride("font_color", Colors.Crimson);
       _label.Show();
@@ -38,14 +43,9 @@ public class LinkuraModConfig : SimpleModConfig {
       _label.Hide();
     }
 
-    public void SetError(bool isError) {
-      _isError = isError;
-    }
-
     public void Clear() {
       _label.Text = "";
       _label.Hide();
-      _isError = false;
     }
   }
 
@@ -54,10 +54,9 @@ public class LinkuraModConfig : SimpleModConfig {
 
   public override void SetupConfigUI(Control optionContainer) {
     LinkuraMod.Logger.Info("[LinkuraModConfig] Setting up config UI...");
-    optionContainer.AddChild(CreateSectionHeader("Visuals"));
 
-    var previewContainer = CreatePreviewControl();
-    optionContainer.AddChild(previewContainer);
+    // Call base to add auto-generated controls (sliders)
+    base.SetupConfigUI(optionContainer);
 
     _validationWarning = new ValidationLabel(new Label() {
       HorizontalAlignment = HorizontalAlignment.Center,
@@ -65,6 +64,12 @@ public class LinkuraModConfig : SimpleModConfig {
       AutowrapMode = TextServer.AutowrapMode.WordSmart,
       Visible = false,
     });
+
+    // Add "Skin" section header manually since KahoSkin is hidden in auto UI
+    optionContainer.AddChild(CreateSectionHeader(GetLabelText("Skin")));
+
+    var previewContainer = CreatePreviewControl();
+    optionContainer.AddChild(previewContainer);
     optionContainer.AddChild(CreateKahoSkinRow());
     optionContainer.AddChild(_validationWarning.Label);
     optionContainer.AddChild(CreateDividerControl());
