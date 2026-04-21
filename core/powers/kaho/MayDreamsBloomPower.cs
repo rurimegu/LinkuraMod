@@ -39,7 +39,7 @@ public abstract class MayDreamsBloomPowerBase : KahoPower {
     while (DynamicVars[TRACKER_VAR].BaseValue >= Threshold) {
       DynamicVars[TRACKER_VAR].BaseValue -= Threshold;
       Flash();
-      await LinkuraCmd.GainAutoBurst(Owner, Amount, Owner, null);
+      await LinkuraCmd.GainAutoBurst(Owner, ev.Context, Amount, Owner, null);
     }
   }
 }

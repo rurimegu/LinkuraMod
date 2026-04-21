@@ -29,7 +29,7 @@ public static class LinkuraCmd {
     return ev;
   }
 
-  public static async Task GainAutoBurst(Creature creature, int amount, Creature applier, CardModel source) {
+  public static async Task GainAutoBurst(Creature creature, PlayerChoiceContext ctx, int amount, Creature applier, CardModel source) {
     int current = creature.GetPowerAmount<AutoBurstPower>();
     int capped = Math.Min(amount, MAX_AUTO_BURST - current);
     if (capped <= 0) return;

@@ -28,7 +28,7 @@ public class SugarMelt() : KahoCard(2, CardType.Power, CardRarity.Uncommon, Targ
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    await LinkuraCmd.GainAutoBurst(Owner.Creature, DynamicVars.AutoBurst().IntValue, Owner.Creature, this);
+    await LinkuraCmd.GainAutoBurst(Owner.Creature, ctx, DynamicVars.AutoBurst().IntValue, Owner.Creature, this);
     await Owner.PlayCastAnim();
     await PowerCmd.Apply<SugarMeltPower>(Owner.Creature, DynamicVars.Block.IntValue, Owner.Creature, this);
   }

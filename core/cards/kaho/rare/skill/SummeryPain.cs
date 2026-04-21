@@ -46,7 +46,11 @@ public class SummeryPain() : KahoInHandTriggerCard(1, CardType.Skill, CardRarity
   }
 
   public override async Task AfterCardEnteredCombat(CardModel card) {
-    await TriggerEffect(Events.BLOCKING_CONTEXT);
+    if (card == this) {
+      // BLOCKING_CONTEXT is safe: TriggerWithAction doesn't push/pop any PlayerChoiceContext
+      // itself — ctx only flows into TriggerBackstageEvent and CardPileCmd.Draw inside the lambda.
+      await TriggerEffect(Events.BLOCKING_CONTEXT);
+    }
     await base.AfterCardEnteredCombat(card);
   }
 

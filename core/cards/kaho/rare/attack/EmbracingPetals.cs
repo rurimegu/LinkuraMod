@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
@@ -42,7 +42,7 @@ public class EmbracingPetals() : KahoInHandTriggerCard(2, CardType.Attack, CardR
   private async Task OnCollectHearts(Events.CollectEvent ev) {
     if (ev.Player != Owner || ev.Amount <= 0) return;
 
-    var triggered = await TriggerWithAction(ev.Context, () => LinkuraCmd.GainAutoBurst(Owner.Creature, DynamicVars.AutoBurst().IntValue, Owner.Creature, this));
+    var triggered = await TriggerWithAction(ev.Context, () => LinkuraCmd.GainAutoBurst(Owner.Creature, ev.Context, DynamicVars.AutoBurst().IntValue, Owner.Creature, this));
     if (!triggered.IsNullOrCancelled() && this.IsInHand()) {
       await CardCmd.Discard(ev.Context, this);
     }

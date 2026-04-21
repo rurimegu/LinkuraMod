@@ -29,6 +29,6 @@ public class AutoBurstPotion : KahoPotion {
   ]);
 
   protected override async Task OnUse(PlayerChoiceContext choiceContext, Creature target) {
-    await LinkuraCmd.GainAutoBurst(Owner.Creature, AUTO_BURST_AMOUNT, Owner.Creature, null);
+    await LinkuraCmd.GainAutoBurst(Owner.Creature, choiceContext, AUTO_BURST_AMOUNT, Owner.Creature, null);
   }
 }
