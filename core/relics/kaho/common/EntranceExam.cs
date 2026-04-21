@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using RuriMegu.Core.Cards;
@@ -26,7 +27,7 @@ public class EntranceExam : KahoRelic {
 
   public override async Task BeforeCombatStartLate() {
     Flash();
-    await LinkuraCmd.BurstHearts(Owner, Events.BLOCKING_CONTEXT, DynamicVars[BurstHeartsVar.Key].IntValue);
+    await LinkuraCmd.BurstHearts(Owner, new BlockingPlayerChoiceContext(), DynamicVars[BurstHeartsVar.Key].IntValue);
     await base.BeforeCombatStartLate();
   }
 }

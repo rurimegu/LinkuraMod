@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Saves.Runs;
@@ -85,7 +86,7 @@ public class LiveSyncChronometer : KahoRelic {
         if (++RuriMeguSecondCount >= 60) {
           RuriMeguSecondCount = 0;
           Flash();
-          await LinkuraCmd.TriggerAutoBurst(Owner, Events.BLOCKING_CONTEXT);
+          await LinkuraCmd.TriggerAutoBurst(Owner, new BlockingPlayerChoiceContext());
         }
       }
     } catch (OperationCanceledException) {

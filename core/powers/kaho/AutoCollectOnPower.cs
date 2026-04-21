@@ -22,7 +22,7 @@ public class AutoCollectOnPower : KahoPower {
     TrackSubscription(HeartsChanged.SubscribeLate(OnHeartsChangedLate));
     TrackSubscription(MaxHeartsChanged.SubscribeLate(OnMaxHeartsChangedLate));
     if (HeartsState.ReachedMaxHearts(Owner.Player)) {
-      await LinkuraCmd.CollectHearts(Owner.Player, BLOCKING_CONTEXT);
+      await LinkuraCmd.CollectHearts(Owner.Player, new BlockingPlayerChoiceContext());
     }
     await base.AfterApplied(applier, cardSource);
   }

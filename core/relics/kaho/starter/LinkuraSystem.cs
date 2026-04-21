@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
@@ -28,8 +29,9 @@ public abstract class LinkuraSystemBase : LinkuraStarterRelic {
   ];
 
   public override async Task BeforeCombatStartLate() {
-    await HeartsState.Reset(Owner, Events.BLOCKING_CONTEXT);
-    await LinkuraCmd.GainAutoBurst(Owner.Creature, Events.BLOCKING_CONTEXT, DynamicVars.AutoBurst().IntValue, Owner.Creature, null);
+    var ctx = new BlockingPlayerChoiceContext();
+    await HeartsState.Reset(Owner, ctx);
+    await LinkuraCmd.GainAutoBurst(Owner.Creature, ctx, DynamicVars.AutoBurst().IntValue, Owner.Creature, null);
     Flash();
     await base.BeforeCombatStartLate();
   }
