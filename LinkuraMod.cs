@@ -17,8 +17,9 @@ public static class LinkuraMod {
   public static void Initialize() {
     Logger.Info("Link! Like! LoveLive! - LinkuraMod Initializing...");
     ModConfigRegistry.Register(ModId, new LinkuraModConfig());
-    Godot.Bridge.ScriptManagerBridge.LookupScriptsInAssembly(Assembly.GetExecutingAssembly());
+    Assembly asm = Assembly.GetExecutingAssembly();
+    Godot.Bridge.ScriptManagerBridge.LookupScriptsInAssembly(asm);
     Harmony harmony = new(ModId);
-    harmony.PatchAll();
+    harmony.PatchAll(asm);
   }
 }
