@@ -73,9 +73,20 @@ public class LinkuraModConfig : SimpleModConfig {
 
   private MegaSprite _previewSprite;
   private ValidationLabel _validationWarning;
+  private OptionButton _kahoSkinDropdown;
+  private List<SkinEntry> _availableSkins = [];
+  private bool _suppressSkinDropdownCallback;
+
+  private void OnConfigChanged(object sender, System.EventArgs args) {
+    SyncKahoSkinDropdownWithConfig();
+    UpdatePreviewSkin(KahoSkin);
+  }
 
   public override void SetupConfigUI(Control optionContainer) {
     LinkuraMod.Logger.Info("[LinkuraModConfig] Setting up config UI...");
+
+    ConfigChanged -= OnConfigChanged;
+    ConfigChanged += OnConfigChanged;
 
     // Call base to add auto-generated controls (sliders)
     base.SetupConfigUI(optionContainer);
@@ -95,9 +106,9 @@ public class LinkuraModConfig : SimpleModConfig {
     optionContainer.AddChild(CreateKahoSkinRow());
     optionContainer.AddChild(_validationWarning.Label);
     optionContainer.AddChild(CreateDividerControl());
-    AddRestoreDefaultsButton(optionContainer);
     SetupFocusNeighbors(optionContainer);
 
+    SyncKahoSkinDropdownWithConfig();
     UpdatePreviewSkin(KahoSkin);
   }
 
@@ -109,30 +120,28 @@ public class LinkuraModConfig : SimpleModConfig {
   }
 
   private OptionButton BuildSkinOptionButton() {
-    var skins = SpineSkinLoader.GetAvailableSkins();
+    _availableSkins = SpineSkinLoader.GetAvailableSkins();
 
-    var btn = new OptionButton();
-    btn.SizeFlagsHorizontal = Control.SizeFlags.ShrinkEnd;
-    btn.SizeFlagsVertical = Control.SizeFlags.Fill;
-    btn.CustomMinimumSize = new Vector2(324, 64);
+    var btn = new OptionButton {
+      SizeFlagsHorizontal = Control.SizeFlags.ShrinkEnd,
+      SizeFlagsVertical = Control.SizeFlags.Fill,
+      CustomMinimumSize = new Vector2(324, 64)
+    };
 
-    for (int i = 0; i < skins.Count; i++) {
-      btn.AddItem(skins[i].DisplayLabel, i);
+    for (int i = 0; i < _availableSkins.Count; i++) {
+      btn.AddItem(_availableSkins[i].DisplayLabel, i);
     }
 
-    // Set current selection
-    int selectedIndex = 0;
-    for (int i = 0; i < skins.Count; i++) {
-      if (skins[i].FolderName == KahoSkin) {
-        selectedIndex = i;
-        break;
-      }
-    }
-    btn.Selected = selectedIndex;
+    _kahoSkinDropdown = btn;
+    SyncKahoSkinDropdownWithConfig();
 
     btn.ItemSelected += (index) => {
-      if (index >= 0 && index < skins.Count) {
-        KahoSkin = skins[(int)index].FolderName;
+      if (_suppressSkinDropdownCallback) {
+        return;
+      }
+
+      if (index >= 0 && index < _availableSkins.Count) {
+        KahoSkin = _availableSkins[(int)index].FolderName;
         UpdatePreviewSkin(KahoSkin);
         Changed();
         SaveDebounced();
@@ -144,6 +153,24 @@ public class LinkuraModConfig : SimpleModConfig {
     };
 
     return btn;
+  }
+
+  private void SyncKahoSkinDropdownWithConfig() {
+    if (_kahoSkinDropdown == null || _availableSkins.Count == 0) {
+      return;
+    }
+
+    int selectedIndex = 0;
+    for (int i = 0; i < _availableSkins.Count; i++) {
+      if (_availableSkins[i].FolderName == KahoSkin) {
+        selectedIndex = i;
+        break;
+      }
+    }
+
+    _suppressSkinDropdownCallback = true;
+    _kahoSkinDropdown.Select(selectedIndex);
+    _suppressSkinDropdownCallback = false;
   }
 
   private SubViewportContainer CreatePreviewControl() {
