@@ -21,6 +21,8 @@ public class CareerSurveyPower : KahoPower {
     if (player != Owner.Player) return;
     int hearts = HeartsState.GetHearts(Owner.Player);
     if (hearts <= 0) return;
+    var visualEv = new Events.CollectVisualEvent(Owner.Player, [Owner]);
+    await Events.CollectVisual.InvokeAll(visualEv);
     await HeartsState.SetHearts(Owner.Player, ctx, 0);
     Flash();
     await CreatureCmd.GainBlock(Owner, hearts, ValueProp.Unpowered, null);
