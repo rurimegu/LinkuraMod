@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/cerise_bouquet.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/cerise_bouquet.png"
 dest_files=["res://.godot/imported/cerise_bouquet.png-1925f4271e19622b6e73b57c793d21f8.ctex"]
 
 [params]

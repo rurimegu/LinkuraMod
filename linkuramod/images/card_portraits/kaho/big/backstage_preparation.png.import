@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/big/backstage_preparation.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/big/backstage_preparation.png"
 dest_files=["res://.godot/imported/backstage_preparation.png-7840474f55ee34ed687517f6923c8348.ctex"]
 
 [params]

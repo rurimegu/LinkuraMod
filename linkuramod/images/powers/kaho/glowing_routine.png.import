@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/powers/kaho/glowing_routine.png"
+source_file="res://LinkuraMod/images/powers/kaho/glowing_routine.png"
 dest_files=["res://.godot/imported/glowing_routine.png-2827cd59b145681f47414f65b5f30d6f.ctex"]
 
 [params]

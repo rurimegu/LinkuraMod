@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://bxpdwj3n0cvhu"]
 
-[ext_resource type="PackedScene" uid="uid://et0tsi3tk557" path="res://linkuramod/scenes/kaho/heart_counter.tscn" id="1_1gi6b"]
-[ext_resource type="Texture2D" uid="uid://f8f6pssrglln" path="res://linkuramod/images/charui/kaho/regent_orb_layer_2.png" id="2_j4v0y"]
-[ext_resource type="Texture2D" uid="uid://duipetd8v1vq1" path="res://linkuramod/images/charui/kaho/regent_orb_layer_3.png" id="3_7qbfq"]
-[ext_resource type="Texture2D" uid="uid://cbouu5u0rcrhb" path="res://linkuramod/images/charui/kaho/kaho_orb_layer_1.png" id="3_dknfs"]
-[ext_resource type="FontVariation" uid="uid://bg85h22rkxs6g" path="res://linkuramod/themes/kreon_bold_shared.tres" id="font_kreon_bold"]
+[ext_resource type="PackedScene" uid="uid://et0tsi3tk557" path="res://LinkuraMod/scenes/kaho/heart_counter.tscn" id="1_1gi6b"]
+[ext_resource type="Texture2D" uid="uid://f8f6pssrglln" path="res://LinkuraMod/images/charui/kaho/regent_orb_layer_2.png" id="2_j4v0y"]
+[ext_resource type="Texture2D" uid="uid://duipetd8v1vq1" path="res://LinkuraMod/images/charui/kaho/regent_orb_layer_3.png" id="3_7qbfq"]
+[ext_resource type="Texture2D" uid="uid://cbouu5u0rcrhb" path="res://LinkuraMod/images/charui/kaho/kaho_orb_layer_1.png" id="3_dknfs"]
+[ext_resource type="FontVariation" uid="uid://bg85h22rkxs6g" path="res://LinkuraMod/themes/kreon_bold_shared.tres" id="font_kreon_bold"]
 
 [sub_resource type="FontVariation" id="FontVariation_label"]
 base_font = ExtResource("font_kreon_bold")

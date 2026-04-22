@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/summery_pain.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/summery_pain.png"
 dest_files=["res://.godot/imported/summery_pain.png-f6c2fb5585c36af1307dc971463d0b76.ctex"]
 
 [params]

@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/big/spring_breeze_swing.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/big/spring_breeze_swing.png"
 dest_files=["res://.godot/imported/spring_breeze_swing.png-ea46a45473e9e5e571f9dbb95f477fd1.ctex"]
 
 [params]

@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/big/genyou_yakou.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/big/genyou_yakou.png"
 dest_files=["res://.godot/imported/genyou_yakou.png-8545eea0000a8da1c634789a86372e40.ctex"]
 
 [params]

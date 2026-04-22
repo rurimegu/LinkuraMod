@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/powers/kaho/tragic_night_fireworks.png"
+source_file="res://LinkuraMod/images/powers/kaho/tragic_night_fireworks.png"
 dest_files=["res://.godot/imported/tragic_night_fireworks.png-b45b3e961abffb8b3fa486f74e9cdc72.ctex"]
 
 [params]

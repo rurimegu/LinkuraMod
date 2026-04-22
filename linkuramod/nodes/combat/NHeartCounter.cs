@@ -66,8 +66,8 @@ public partial class NHeartCounter : Control {
     _layer1 = GetNode<TextureRect>("Icon/Layer1");
     _fillClip = GetNode<Control>("Icon/Layer1/FillClip");
     _layer2 = GetNode<TextureRect>("Icon/Layer1/FillClip/Layer2");
-    _glowingHeartTexture = GD.Load<Texture2D>("res://linkuramod/images/charui/kaho/heart_glowing.png");
-    _glowShader = GD.Load<Shader>("res://linkuramod/shaders/heart_glow.gdshader");
+    _glowingHeartTexture = GD.Load<Texture2D>("res://LinkuraMod/images/charui/kaho/heart_glowing.png");
+    _glowShader = GD.Load<Shader>("res://LinkuraMod/shaders/heart_glow.gdshader");
     Visible = false;
 
     // Detach HeartParticles from the energy counter's scaled hierarchy

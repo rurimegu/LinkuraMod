@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://30ibn87vqxq0"]
 
-[ext_resource type="Script" uid="uid://ds47w0yg46rf6" path="res://linkuramod/nodes/restsite/NLinkuraRestSiteCharacter.cs" id="1_3f54c"]
-[ext_resource type="SpineSkeletonDataResource" uid="uid://bbi0mrg3xxu6n" path="res://linkuramod/spines/kaho/kaho.tres" id="1_kaho"]
-[ext_resource type="PackedScene" uid="uid://cxr4tpn8fq2vl" path="res://linkuramod/scenes/kaho/selection_reticle.tscn" id="2_reticle"]
+[ext_resource type="Script" uid="uid://ds47w0yg46rf6" path="res://LinkuraMod/nodes/restsite/NLinkuraRestSiteCharacter.cs" id="1_3f54c"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://bbi0mrg3xxu6n" path="res://LinkuraMod/spines/kaho/kaho.tres" id="1_kaho"]
+[ext_resource type="PackedScene" uid="uid://cxr4tpn8fq2vl" path="res://LinkuraMod/scenes/kaho/selection_reticle.tscn" id="2_reticle"]
 
 [node name="KahoRestSite" type="Node2D"]
 script = ExtResource("1_3f54c")

@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/link_to_the_future.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/link_to_the_future.png"
 dest_files=["res://.godot/imported/link_to_the_future.png-484bf13993c1675c1b182c587ba67836.ctex"]
 
 [params]

@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/fall_back_asleep.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/fall_back_asleep.png"
 dest_files=["res://.godot/imported/fall_back_asleep.png-4a2e1434539b47e48f7bb3dde7ffdf99.ctex"]
 
 [params]

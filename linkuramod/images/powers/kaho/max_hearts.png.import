@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/powers/kaho/max_hearts.png"
+source_file="res://LinkuraMod/images/powers/kaho/max_hearts.png"
 dest_files=["res://.godot/imported/max_hearts.png-77e6fba15269d4654ab6def9c3c62cb0.ctex"]
 
 [params]

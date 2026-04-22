@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/big/welcome_ishikawa.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/big/welcome_ishikawa.png"
 dest_files=["res://.godot/imported/welcome_ishikawa.png-1cb7360caf2a17ca54f18fbee5978c05.ctex"]
 
 [params]

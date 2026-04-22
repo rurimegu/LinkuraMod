@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/powers/kaho/true_face_pixel.png"
+source_file="res://LinkuraMod/images/powers/kaho/true_face_pixel.png"
 dest_files=["res://.godot/imported/true_face_pixel.png-ccf7cdc394f1d03c25bd4f09cc6addbc.ctex"]
 
 [params]

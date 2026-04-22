@@ -26,7 +26,7 @@ public static class BackstageCardSubscribePatch {
 
   private static ShaderMaterial? _glintTemplate;
   private static ShaderMaterial GlintTemplate => _glintTemplate ??= new ShaderMaterial {
-    Shader = ResourceLoader.Load<Shader>("res://linkuramod/shaders/backstage_glint.gdshader")
+    Shader = ResourceLoader.Load<Shader>("res://LinkuraMod/shaders/backstage_glint.gdshader")
   };
 
   static BackstageCardSubscribePatch() {

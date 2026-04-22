@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/potions/kaho/auto_burst_potion.png"
+source_file="res://LinkuraMod/images/potions/kaho/auto_burst_potion.png"
 dest_files=["res://.godot/imported/auto_burst_potion.png-6b5abd7b7cf7a6149885b6241ea284d1.ctex"]
 
 [params]

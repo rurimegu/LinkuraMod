@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/big/auto_clicker_on.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/big/auto_clicker_on.png"
 dest_files=["res://.godot/imported/auto_clicker_on.png-0b9b2a89de0f8e29337b446413298a6d.ctex"]
 
 [params]

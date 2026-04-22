@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/soulmate.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/soulmate.png"
 dest_files=["res://.godot/imported/soulmate.png-5f7cf3ab9635004b801a0f8b25a8d8dc.ctex"]
 
 [params]

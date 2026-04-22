@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/relics/kaho/big/live_sync_chronometer.png"
+source_file="res://LinkuraMod/images/relics/kaho/big/live_sync_chronometer.png"
 dest_files=["res://.godot/imported/live_sync_chronometer.png-902f9b14823b6c07cc20c0692c45e69c.ctex"]
 
 [params]

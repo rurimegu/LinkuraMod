@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/powers/kaho/mental_guard.png"
+source_file="res://LinkuraMod/images/powers/kaho/mental_guard.png"
 dest_files=["res://.godot/imported/mental_guard.png-e4b12a49bf2ad1e85c7d0dce4e798511.ctex"]
 
 [params]

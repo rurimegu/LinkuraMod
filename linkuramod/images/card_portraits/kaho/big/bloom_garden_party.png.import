@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/big/bloom_garden_party.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/big/bloom_garden_party.png"
 dest_files=["res://.godot/imported/bloom_garden_party.png-93d2ac813f297340c797b18e12e7f471.ctex"]
 
 [params]

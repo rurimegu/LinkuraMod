@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/aurora_flower.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/aurora_flower.png"
 dest_files=["res://.godot/imported/aurora_flower.png-3b551b58e59775a56df422a196d4bd47.ctex"]
 
 [params]

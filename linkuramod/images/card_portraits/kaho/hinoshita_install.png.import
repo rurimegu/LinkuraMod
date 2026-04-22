@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/hinoshita_install.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/hinoshita_install.png"
 dest_files=["res://.godot/imported/hinoshita_install.png-01875ccd9b39e8fc4e5ab4156dd458a8.ctex"]
 
 [params]

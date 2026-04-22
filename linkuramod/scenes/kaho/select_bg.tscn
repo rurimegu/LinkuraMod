@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cdh2l07a0coxe"]
 
-[ext_resource type="Texture2D" uid="uid://bqtjt23003e7e" path="res://linkuramod/images/charui/kaho/select_bg.png" id="1_kqhmw"]
+[ext_resource type="Texture2D" uid="uid://bqtjt23003e7e" path="res://LinkuraMod/images/charui/kaho/select_bg.png" id="1_kqhmw"]
 
 [node name="select_kaho_bg" type="Control"]
 layout_mode = 3

@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/charui/kaho/big_energy.png"
+source_file="res://LinkuraMod/images/charui/kaho/big_energy.png"
 dest_files=["res://.godot/imported/big_energy.png-b0db8b0061eadda8f18c367da4c3a385.ctex"]
 
 [params]

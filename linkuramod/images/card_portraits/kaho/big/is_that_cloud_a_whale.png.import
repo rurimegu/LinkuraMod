@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/big/is_that_cloud_a_whale.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/big/is_that_cloud_a_whale.png"
 dest_files=["res://.godot/imported/is_that_cloud_a_whale.png-addb7aee29c5c193da6f923ec5dfce4d.ctex"]
 
 [params]

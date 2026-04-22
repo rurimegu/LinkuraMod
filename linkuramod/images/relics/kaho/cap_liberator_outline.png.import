@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/relics/kaho/cap_liberator_outline.png"
+source_file="res://LinkuraMod/images/relics/kaho/cap_liberator_outline.png"
 dest_files=["res://.godot/imported/cap_liberator_outline.png-fe5506cbc6894199f7d2227165d7ecd1.ctex"]
 
 [params]

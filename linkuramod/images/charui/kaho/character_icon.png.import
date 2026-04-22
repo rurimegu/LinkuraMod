@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/charui/kaho/character_icon.png"
+source_file="res://LinkuraMod/images/charui/kaho/character_icon.png"
 dest_files=["res://.godot/imported/character_icon.png-1c14591072d3347ef0e1b57efe45a8b7.ctex"]
 
 [params]

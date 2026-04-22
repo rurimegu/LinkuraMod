@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/relics/kaho/linkura_system_outline.png"
+source_file="res://LinkuraMod/images/relics/kaho/linkura_system_outline.png"
 dest_files=["res://.godot/imported/linkura_system_outline.png-581bec780bf20963baaa8446f6a2985d.ctex"]
 
 [params]

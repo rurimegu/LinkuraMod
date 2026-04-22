@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/charui/kaho/char_select_locked.png"
+source_file="res://LinkuraMod/images/charui/kaho/char_select_locked.png"
 dest_files=["res://.godot/imported/char_select_locked.png-d7800aa71541376f08723f7271c2d58c.ctex"]
 
 [params]

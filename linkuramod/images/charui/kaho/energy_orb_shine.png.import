@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/charui/kaho/energy_orb_shine.png"
+source_file="res://LinkuraMod/images/charui/kaho/energy_orb_shine.png"
 dest_files=["res://.godot/imported/energy_orb_shine.png-224ad2688ab145df8b2c629e3fd5cff7.ctex"]
 
 [params]

@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/big/agile_steps.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/big/agile_steps.png"
 dest_files=["res://.godot/imported/agile_steps.png-24f1525409572c0a2e5802cd552c007c.ctex"]
 
 [params]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cxr4tpn8fq2vl"]
 
-[ext_resource type="Script" uid="uid://c5mumnrevp0ci" path="res://linkuramod/nodes/shop/NLinkuraSelectionReticle.cs" id="1_aucmd"]
-[ext_resource type="Texture2D" uid="uid://ctgxc3ht86wye" path="res://linkuramod/images/ui/combat_reticle.png" id="2_75ikg"]
+[ext_resource type="Script" uid="uid://c5mumnrevp0ci" path="res://LinkuraMod/nodes/shop/NLinkuraSelectionReticle.cs" id="1_aucmd"]
+[ext_resource type="Texture2D" uid="uid://ctgxc3ht86wye" path="res://LinkuraMod/images/ui/combat_reticle.png" id="2_75ikg"]
 
 [node name="SelectionReticle" type="Control"]
 layout_mode = 3

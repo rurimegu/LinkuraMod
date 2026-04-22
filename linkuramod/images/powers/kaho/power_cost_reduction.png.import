@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/powers/kaho/power_cost_reduction.png"
+source_file="res://LinkuraMod/images/powers/kaho/power_cost_reduction.png"
 dest_files=["res://.godot/imported/power_cost_reduction.png-1b26df8fe3b97d788114ed6035ccbbd2.ctex"]
 
 [params]

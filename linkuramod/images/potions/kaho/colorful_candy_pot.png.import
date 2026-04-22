@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/potions/kaho/colorful_candy_pot.png"
+source_file="res://LinkuraMod/images/potions/kaho/colorful_candy_pot.png"
 dest_files=["res://.godot/imported/colorful_candy_pot.png-f7f9e29140dfcbc87f1ba5b8c53db01d.ctex"]
 
 [params]

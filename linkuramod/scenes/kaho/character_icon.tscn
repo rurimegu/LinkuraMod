@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://br7objwwcfjn3"]
 
-[ext_resource type="Texture2D" uid="uid://cy0ybhlcljm3w" path="res://linkuramod/images/charui/kaho/character_icon.png" id="1_w05pv"]
+[ext_resource type="Texture2D" uid="uid://cy0ybhlcljm3w" path="res://LinkuraMod/images/charui/kaho/character_icon.png" id="1_w05pv"]
 
 [node name="KahoIcon" type="TextureRect"]
 anchors_preset = 15

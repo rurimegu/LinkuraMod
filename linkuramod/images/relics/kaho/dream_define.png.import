@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/relics/kaho/dream_define.png"
+source_file="res://LinkuraMod/images/relics/kaho/dream_define.png"
 dest_files=["res://.godot/imported/dream_define.png-367e6907e6602579a544ff0d89ab24ad.ctex"]
 
 [params]

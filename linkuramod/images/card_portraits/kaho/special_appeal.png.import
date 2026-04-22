@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/special_appeal.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/special_appeal.png"
 dest_files=["res://.godot/imported/special_appeal.png-09c6f45b5e4246ce2840efbabfeb609d.ctex"]
 
 [params]

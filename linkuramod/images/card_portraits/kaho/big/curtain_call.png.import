@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/big/curtain_call.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/big/curtain_call.png"
 dest_files=["res://.godot/imported/curtain_call.png-17c1d5360c57f3b64d31160655a74e4d.ctex"]
 
 [params]

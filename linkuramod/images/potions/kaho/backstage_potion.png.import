@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/potions/kaho/backstage_potion.png"
+source_file="res://LinkuraMod/images/potions/kaho/backstage_potion.png"
 dest_files=["res://.godot/imported/backstage_potion.png-66e95f948f792a9ec132a68c9016795e.ctex"]
 
 [params]

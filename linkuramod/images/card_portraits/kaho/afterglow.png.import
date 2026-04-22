@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/afterglow.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/afterglow.png"
 dest_files=["res://.godot/imported/afterglow.png-d1e3efb3f035fa999e9f9f58c5fd7539.ctex"]
 
 [params]

@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/charui/kaho/map_marker.png"
+source_file="res://LinkuraMod/images/charui/kaho/map_marker.png"
 dest_files=["res://.godot/imported/map_marker.png-adaba982b6c2cfad257f5e356ed6d84c.ctex"]
 
 [params]

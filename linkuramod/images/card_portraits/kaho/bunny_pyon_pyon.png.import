@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/bunny_pyon_pyon.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/bunny_pyon_pyon.png"
 dest_files=["res://.godot/imported/bunny_pyon_pyon.png-cc761a37a3e811c3cfe48805e5e1ed36.ctex"]
 
 [params]

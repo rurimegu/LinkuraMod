@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/big/overflowing_emotion.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/big/overflowing_emotion.png"
 dest_files=["res://.godot/imported/overflowing_emotion.png-6d343cd2047664a6d137268d0ac52a1b.ctex"]
 
 [params]

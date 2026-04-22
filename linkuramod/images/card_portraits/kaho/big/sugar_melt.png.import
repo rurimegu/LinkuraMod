@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/big/sugar_melt.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/big/sugar_melt.png"
 dest_files=["res://.godot/imported/sugar_melt.png-31336cd754f47617f0d19404beb4ab78.ctex"]
 
 [params]

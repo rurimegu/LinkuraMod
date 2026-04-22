@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/big/happy_supremacy.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/big/happy_supremacy.png"
 dest_files=["res://.godot/imported/happy_supremacy.png-7f4825a31249c6121568696368998c69.ctex"]
 
 [params]

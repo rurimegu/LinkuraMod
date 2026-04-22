@@ -7,7 +7,7 @@ path="res://.godot/imported/kreon_bold.ttf-68bdabce7b5684a34be26d92eadd7b80.font
 
 [deps]
 
-source_file="res://linkuramod/fonts/kreon_bold.ttf"
+source_file="res://LinkuraMod/fonts/kreon_bold.ttf"
 dest_files=["res://.godot/imported/kreon_bold.ttf-68bdabce7b5684a34be26d92eadd7b80.fontdata"]
 
 [params]

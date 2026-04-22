@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/big/unadorned_beauty.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/big/unadorned_beauty.png"
 dest_files=["res://.godot/imported/unadorned_beauty.png-df43faac43d841f367038a144788545a.ctex"]
 
 [params]

@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/big/sayo_shigure.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/big/sayo_shigure.png"
 dest_files=["res://.godot/imported/sayo_shigure.png-c39591fd821bd248a9c3bca83b327aa5.ctex"]
 
 [params]

@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/relics/kaho/big/linkura_system.png"
+source_file="res://LinkuraMod/images/relics/kaho/big/linkura_system.png"
 dest_files=["res://.godot/imported/linkura_system.png-c76cda5ab8b8231634b83e3965ca893c.ctex"]
 
 [params]

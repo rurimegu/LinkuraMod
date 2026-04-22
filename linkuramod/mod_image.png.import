@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/mod_image.png"
+source_file="res://LinkuraMod/mod_image.png"
 dest_files=["res://.godot/imported/mod_image.png-6bbaa120bb3b60df2028d28b749a1895.ctex"]
 
 [params]

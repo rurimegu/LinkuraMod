@@ -185,7 +185,7 @@ public class LinkuraModConfig : SimpleModConfig {
     };
     container.AddChild(viewport);
 
-    var visualsScene = ResourceLoader.Load<PackedScene>("res://linkuramod/scenes/kaho/character_visuals.tscn").Instantiate<Node2D>();
+    var visualsScene = ResourceLoader.Load<PackedScene>("res://LinkuraMod/scenes/kaho/character_visuals.tscn").Instantiate<Node2D>();
     visualsScene.Position = new Vector2(300, 300);
     viewport.AddChild(visualsScene);
 
@@ -199,7 +199,7 @@ public class LinkuraModConfig : SimpleModConfig {
 
     MegaSkeletonDataResource data = null;
     if (skinName == SpineSkinLoader.BUILTIN_SKIN_LABEL || string.IsNullOrEmpty(skinName)) {
-      var defaultDataResObj = ResourceLoader.Load("res://linkuramod/spines/kaho/kaho.tres");
+      var defaultDataResObj = ResourceLoader.Load("res://LinkuraMod/spines/kaho/kaho.tres");
       if (defaultDataResObj != null) {
         data = new MegaSkeletonDataResource(Variant.From(defaultDataResObj));
       }

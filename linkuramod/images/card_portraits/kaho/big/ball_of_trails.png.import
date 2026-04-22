@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/big/ball_of_trails.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/big/ball_of_trails.png"
 dest_files=["res://.godot/imported/ball_of_trails.png-4c132c52214910cc1fa6c443046a2e65.ctex"]
 
 [params]

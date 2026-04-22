@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/big/budding_premonition.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/big/budding_premonition.png"
 dest_files=["res://.godot/imported/budding_premonition.png-77f9180026e3a38af86a5444db43a671.ctex"]
 
 [params]

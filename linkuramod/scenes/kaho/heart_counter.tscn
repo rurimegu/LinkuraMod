@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://et0tsi3tk557"]
 
-[ext_resource type="Script" uid="uid://bl6st55ub24dm" path="res://linkuramod/nodes/combat/NHeartCounter.cs" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://bpcvdqofd1pys" path="res://linkuramod/images/charui/kaho/heart_counter_empty.png" id="2_jwbuw"]
-[ext_resource type="Texture2D" uid="uid://1eotrnqtj6ds" path="res://linkuramod/images/charui/kaho/heart_counter.png" id="3_704fs"]
+[ext_resource type="Script" uid="uid://bl6st55ub24dm" path="res://LinkuraMod/nodes/combat/NHeartCounter.cs" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bpcvdqofd1pys" path="res://LinkuraMod/images/charui/kaho/heart_counter_empty.png" id="2_jwbuw"]
+[ext_resource type="Texture2D" uid="uid://1eotrnqtj6ds" path="res://LinkuraMod/images/charui/kaho/heart_counter.png" id="3_704fs"]
 
 [node name="HeartCounter" type="Control"]
 layout_mode = 3

@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/charui/kaho/hand_paper.png"
+source_file="res://LinkuraMod/images/charui/kaho/hand_paper.png"
 dest_files=["res://.godot/imported/hand_paper.png-d0523fdeb003b04601b6380f0feb6edb.ctex"]
 
 [params]

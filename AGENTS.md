@@ -30,7 +30,7 @@ core/
   powers/          # Power implementations
   relics/          # Relic implementations
   utils/           # Helpers (HeartsState, CardExtensions, etc.)
-linkuramod/
+LinkuraMod/
   localization/    # JSON string tables — eng/ and zhs/
   scenes/          # .tscn scene files
 ```

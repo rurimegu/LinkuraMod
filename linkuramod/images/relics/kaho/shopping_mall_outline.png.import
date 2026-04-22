@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/relics/kaho/shopping_mall_outline.png"
+source_file="res://LinkuraMod/images/relics/kaho/shopping_mall_outline.png"
 dest_files=["res://.godot/imported/shopping_mall_outline.png-44f41937cb384bab0f9930af1f4d28ef.ctex"]
 
 [params]

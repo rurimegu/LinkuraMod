@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/big/two_seconds_of_eternity.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/big/two_seconds_of_eternity.png"
 dest_files=["res://.godot/imported/two_seconds_of_eternity.png-0f91983ac7d73c0bfcf3d0c87cf1f39b.ctex"]
 
 [params]

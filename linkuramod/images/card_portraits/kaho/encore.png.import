@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/encore.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/encore.png"
 dest_files=["res://.godot/imported/encore.png-9f34d5d016dbb6f085895bd5d0159d82.ctex"]
 
 [params]

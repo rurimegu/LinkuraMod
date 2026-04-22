@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/suki_suki_club.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/suki_suki_club.png"
 dest_files=["res://.godot/imported/suki_suki_club.png-7fb2499d800905d2776fc6ce1ac82105.ctex"]
 
 [params]

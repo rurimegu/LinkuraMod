@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/a_thousand_changes.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/a_thousand_changes.png"
 dest_files=["res://.godot/imported/a_thousand_changes.png-662a41e55c188cfeeea1992ed59542c6.ctex"]
 
 [params]

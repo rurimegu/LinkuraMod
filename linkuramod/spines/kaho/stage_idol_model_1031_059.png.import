@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/spines/kaho/stage_idol_model_1031_059.png"
+source_file="res://LinkuraMod/spines/kaho/stage_idol_model_1031_059.png"
 dest_files=["res://.godot/imported/stage_idol_model_1031_059.png-e7ba3492eee0d8e58f049ba602f0d6ac.ctex"]
 
 [params]

@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/relics/kaho/tale_of_peter_rabbit_outline.png"
+source_file="res://LinkuraMod/images/relics/kaho/tale_of_peter_rabbit_outline.png"
 dest_files=["res://.godot/imported/tale_of_peter_rabbit_outline.png-74486b64d37d0dd5c711977322dc51e8.ctex"]
 
 [params]

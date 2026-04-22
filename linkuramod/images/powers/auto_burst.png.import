@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/powers/auto_burst.png"
+source_file="res://LinkuraMod/images/powers/auto_burst.png"
 dest_files=["res://.godot/imported/auto_burst.png-3be3b24367ca779be732fe00c79617ec.ctex"]
 
 [params]

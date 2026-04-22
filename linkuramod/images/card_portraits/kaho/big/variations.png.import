@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/big/variations.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/big/variations.png"
 dest_files=["res://.godot/imported/variations.png-2d9f58a11db8bb636f8c254c1a101aec.ctex"]
 
 [params]

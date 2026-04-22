@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/charui/kaho/text_energy.png"
+source_file="res://LinkuraMod/images/charui/kaho/text_energy.png"
 dest_files=["res://.godot/imported/text_energy.png-0379f949e59422a06e32bb7a885ea349.ctex"]
 
 [params]

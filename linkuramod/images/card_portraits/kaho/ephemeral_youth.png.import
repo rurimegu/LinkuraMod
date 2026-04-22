@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/ephemeral_youth.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/ephemeral_youth.png"
 dest_files=["res://.godot/imported/ephemeral_youth.png-c52fa4073dec766a62373db6cc06789e.ctex"]
 
 [params]

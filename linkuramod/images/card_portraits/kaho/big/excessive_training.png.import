@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/big/excessive_training.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/big/excessive_training.png"
 dest_files=["res://.godot/imported/excessive_training.png-da3463ecd3cde10443abdd90e9353655.ctex"]
 
 [params]

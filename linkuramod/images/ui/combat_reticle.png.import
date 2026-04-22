@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/ui/combat_reticle.png"
+source_file="res://LinkuraMod/images/ui/combat_reticle.png"
 dest_files=["res://.godot/imported/combat_reticle.png-2d9554d6fed9782d5f7fc716500cdcaa.ctex"]
 
 [params]

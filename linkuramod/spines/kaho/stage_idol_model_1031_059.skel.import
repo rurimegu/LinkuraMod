@@ -7,7 +7,7 @@ path="res://.godot/imported/stage_idol_model_1031_059.skel-a3331649a2a6230e286ec
 
 [deps]
 
-source_file="res://linkuramod/spines/kaho/stage_idol_model_1031_059.skel"
+source_file="res://LinkuraMod/spines/kaho/stage_idol_model_1031_059.skel"
 dest_files=["res://.godot/imported/stage_idol_model_1031_059.skel-a3331649a2a6230e286ec772afe6df60.spskel"]
 
 [params]

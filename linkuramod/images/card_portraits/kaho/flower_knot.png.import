@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/flower_knot.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/flower_knot.png"
 dest_files=["res://.godot/imported/flower_knot.png-9eb8934e56251d6ac4f8be47645d6f4c.ctex"]
 
 [params]

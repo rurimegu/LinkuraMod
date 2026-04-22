@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/enduring_tradition.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/enduring_tradition.png"
 dest_files=["res://.godot/imported/enduring_tradition.png-29c59b727f7d60ccb8dd723da75505d5.ctex"]
 
 [params]

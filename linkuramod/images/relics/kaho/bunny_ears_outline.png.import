@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/relics/kaho/bunny_ears_outline.png"
+source_file="res://LinkuraMod/images/relics/kaho/bunny_ears_outline.png"
 dest_files=["res://.godot/imported/bunny_ears_outline.png-ec97407f08fd54c1a1b59d84237bc734.ctex"]
 
 [params]

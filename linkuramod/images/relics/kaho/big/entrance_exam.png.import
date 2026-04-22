@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/relics/kaho/big/entrance_exam.png"
+source_file="res://LinkuraMod/images/relics/kaho/big/entrance_exam.png"
 dest_files=["res://.godot/imported/entrance_exam.png-71e27c26c5f7920ab1c099b0b7f40919.ctex"]
 
 [params]

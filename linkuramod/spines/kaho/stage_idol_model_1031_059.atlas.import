@@ -7,7 +7,7 @@ path="res://.godot/imported/stage_idol_model_1031_059.atlas-b94813d1e2786e71397d
 
 [deps]
 
-source_file="res://linkuramod/spines/kaho/stage_idol_model_1031_059.atlas"
+source_file="res://LinkuraMod/spines/kaho/stage_idol_model_1031_059.atlas"
 dest_files=["res://.godot/imported/stage_idol_model_1031_059.atlas-b94813d1e2786e71397d01534279ec6e.spatlas"]
 
 [params]

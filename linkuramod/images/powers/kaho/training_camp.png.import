@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/powers/kaho/training_camp.png"
+source_file="res://LinkuraMod/images/powers/kaho/training_camp.png"
 dest_files=["res://.godot/imported/training_camp.png-7a7c617ae0051743dfc645bd89348f1e.ctex"]
 
 [params]

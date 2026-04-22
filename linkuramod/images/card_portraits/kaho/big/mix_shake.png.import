@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/big/mix_shake.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/big/mix_shake.png"
 dest_files=["res://.godot/imported/mix_shake.png-71ebe6cd73f8a6c9d312a1246dcd34ac.ctex"]
 
 [params]

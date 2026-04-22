@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/big/reflection_in_the_mirror.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/big/reflection_in_the_mirror.png"
 dest_files=["res://.godot/imported/reflection_in_the_mirror.png-2bd22310f95e68d65ef08074d26d0d49.ctex"]
 
 [params]

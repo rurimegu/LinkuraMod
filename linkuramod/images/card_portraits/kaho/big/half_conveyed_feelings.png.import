@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/big/half_conveyed_feelings.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/big/half_conveyed_feelings.png"
 dest_files=["res://.godot/imported/half_conveyed_feelings.png-3dc6e396ef1427f4619c7325dd3d1269.ctex"]
 
 [params]

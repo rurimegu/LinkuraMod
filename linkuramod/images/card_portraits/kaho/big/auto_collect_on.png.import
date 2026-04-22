@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://linkuramod/images/card_portraits/kaho/big/auto_collect_on.png"
+source_file="res://LinkuraMod/images/card_portraits/kaho/big/auto_collect_on.png"
 dest_files=["res://.godot/imported/auto_collect_on.png-d7f55f90a8598a4a7c4d395d406ca723.ctex"]
 
 [params]
