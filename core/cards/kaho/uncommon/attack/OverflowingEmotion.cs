@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
@@ -12,7 +12,7 @@ using RuriMegu.Core.Utils;
 
 namespace RuriMegu.Core.Cards.Kaho.Uncommon.Attack;
 
-/// Overflowing Emotion 鈥?Cost 2, Attack, Uncommon, Ethereal.
+/// Overflowing Emotion: Cost 2, Attack, Uncommon, Ethereal.
 /// Deal 9 (12) damage.
 /// Backstage: whenever you Collect, permanently gain +2 (+3) damage.
 /// </summary>
@@ -26,16 +26,16 @@ public class OverflowingEmotion() : KahoInHandTriggerCard(2, CardType.Attack, Ca
     set {
       AssertMutable();
       _increasedDamage = value;
+      DynamicVars.CalculationBase.BaseValue = (IsUpgraded ? 12 : 9) + _increasedDamage;
     }
   }
 
   public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Append(CardKeyword.Ethereal);
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new CalculationBaseVar(9),
+    new CalculationBaseVar((IsUpgraded ? 12 : 9) + _increasedDamage),
     new ExtraDamageVar(1),
-    new CalculatedDamageVar(ValueProp.Move).WithMultiplier(
-      (card, _) => (card as OverflowingEmotion)?._increasedDamage ?? 0),
+    new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _) => 0m),
     new DynamicVar(GROWTH_VAR, 2),
   ];
 
