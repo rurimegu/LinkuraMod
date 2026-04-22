@@ -12,7 +12,6 @@ using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Rooms;
 using RuriMegu.Core.Config;
 using RuriMegu.Core.Utils;
-using RuriMegu.Core.Config;
 
 namespace RuriMegu.Nodes.Combat;
 
