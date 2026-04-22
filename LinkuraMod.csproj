@@ -4,7 +4,7 @@
     <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net9.0</TargetFramework>
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <RootNamespace>RuriMegu</RootNamespace>
-    <Version>0.1.3.0</Version>
+    <Version>0.1.4.0</Version>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Sts2Core">
@@ -14,8 +14,8 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Alchyr.Sts2.BaseLib" Version="*" />
-    <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="0.1.9" />
-    <PackageReference Include="Lib.Harmony" Version="2.3.*" />
+    <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="*" />
+    <PackageReference Include="Lib.Harmony" Version="2.*" />
   </ItemGroup>
   <ItemGroup>
     <AdditionalFiles Include="linkuramod/localization/**/*.json" />

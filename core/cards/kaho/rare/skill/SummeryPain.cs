@@ -49,7 +49,7 @@ public class SummeryPain() : KahoInHandTriggerCard(1, CardType.Skill, CardRarity
     if (card == this) {
       // BLOCKING_CONTEXT is safe: TriggerWithAction doesn't push/pop any PlayerChoiceContext
       // itself — ctx only flows into TriggerBackstageEvent and CardPileCmd.Draw inside the lambda.
-      await TriggerEffect(Events.BLOCKING_CONTEXT);
+      await TriggerEffect(new BlockingPlayerChoiceContext());
     }
     await base.AfterCardEnteredCombat(card);
   }

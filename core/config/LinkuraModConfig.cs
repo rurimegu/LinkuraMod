@@ -19,7 +19,7 @@ public class LinkuraModConfig : SimpleModConfig {
   private static float _heartMaxScale = 2.0f;
 
   [ConfigSection("Visual")]
-  [ConfigSlider(0.1f, 5.0f, 0.1f)]
+  [ConfigSlider(0.1f, 5.0f, 0.1f, Format = "{0:F1}x")]
   public static float HeartMinScale {
     get => _heartMinScale;
     set {
@@ -30,7 +30,7 @@ public class LinkuraModConfig : SimpleModConfig {
     }
   }
 
-  [ConfigSlider(0.1f, 5.0f, 0.1f)]
+  [ConfigSlider(0.1f, 5.0f, 0.1f, Format = "{0:F1}x")]
   public static float HeartMaxScale {
     get => _heartMaxScale;
     set {

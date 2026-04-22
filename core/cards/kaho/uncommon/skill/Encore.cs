@@ -13,7 +13,7 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 
 /// <summary>
 /// Encore (安可) — Cost 0, Skill, Uncommon.
-/// Gain 2 (3) Block for every Burst triggered this turn. (Current: X) (Innate. Retain.)
+/// Gain 2 Block for every Burst triggered this turn. (Current: X) (Retain.)
 /// </summary>
 public class Encore() : KahoCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
   private const string TRACKER_VAR = "ENCORE_TRACKER";

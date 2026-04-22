@@ -10,7 +10,6 @@ using MegaCrit.Sts2.Core.Models;
 namespace RuriMegu.Core.Utils;
 
 public static class Events {
-  public static readonly BlockingPlayerChoiceContext BLOCKING_CONTEXT = new();
   public record Event {
     public bool IsCancelled { get; private set; } = false;
     public void Cancel() => IsCancelled = true;
