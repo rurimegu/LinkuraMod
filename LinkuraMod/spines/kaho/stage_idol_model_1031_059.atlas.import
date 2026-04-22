@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://twkufsblukmh"
+path="res://.godot/imported/stage_idol_model_1031_059.atlas-30d8541486f2b96308332e2e459c8239.spatlas"
+
+[deps]
+
+source_file="res://LinkuraMod/spines/kaho/stage_idol_model_1031_059.atlas"
+dest_files=["res://.godot/imported/stage_idol_model_1031_059.atlas-30d8541486f2b96308332e2e459c8239.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

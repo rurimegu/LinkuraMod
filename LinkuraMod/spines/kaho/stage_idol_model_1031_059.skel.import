@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://dkteko5sm1dve"
+path="res://.godot/imported/stage_idol_model_1031_059.skel-4a12f840e19c50b36009ceec777e2794.spskel"
+
+[deps]
+
+source_file="res://LinkuraMod/spines/kaho/stage_idol_model_1031_059.skel"
+dest_files=["res://.godot/imported/stage_idol_model_1031_059.skel-4a12f840e19c50b36009ceec777e2794.spskel"]
+
+[params]
+
