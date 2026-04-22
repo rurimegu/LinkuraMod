@@ -9,7 +9,7 @@ namespace RuriMegu;
 
 [ModInitializer(nameof(Initialize))]
 public static class LinkuraMod {
-  public const string ModId = "linkuramod";
+  public const string ModId = "LinkuraMod";
 
   public static MegaCrit.Sts2.Core.Logging.Logger Logger { get; } =
   new(ModId, MegaCrit.Sts2.Core.Logging.LogType.Generic);

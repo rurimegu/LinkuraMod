@@ -6,7 +6,7 @@ description: Rules and conventions for writing and reviewing Chinese (ZHS) local
 # ZHS Localization Guide for LinkuraMod
 
 Reference this skill when creating or reviewing ZHS localization strings in
-`linkuramod/localization/zhs/`. Always compare against the official STS2 ZHS
+`LinkuraMod/localization/zhs/`. Always compare against the official STS2 ZHS
 strings at `../sts2/localization/zhs/` as the authoritative source.
 
 ---

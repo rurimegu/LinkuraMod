@@ -50,14 +50,14 @@ Use `LinkuraCard` unless the card specifically needs in-hand trigger behavior, i
 
 Update both language files when adding any card.
 
-`linkuramod/localization/eng/cards.json`
+`LinkuraMod/localization/eng/cards.json`
 
 ```json
 "RURIMEGU-MY_CARD.title": "My Card",
 "RURIMEGU-MY_CARD.description": "Deal {Damage:diff()} damage."
 ```
 
-`linkuramod/localization/zhs/cards.json`
+`LinkuraMod/localization/zhs/cards.json`
 
 ```json
 "RURIMEGU-MY_CARD.title": "我的牌",
@@ -74,8 +74,8 @@ You should always create an `EnergyVar` for energy-related effects, and write `E
 
 Copy the placeholder portrait files so the new filenames match the card class name:
 
-- `linkuramod/images/card_portraits/kaho_defend.png` -> `linkuramod/images/card_portraits/my_card.png`
-- `linkuramod/images/card_portraits/big/kaho_defend.png` -> `linkuramod/images/card_portraits/big/my_card.png`
+- `LinkuraMod/images/card_portraits/kaho_defend.png` -> `LinkuraMod/images/card_portraits/my_card.png`
+- `LinkuraMod/images/card_portraits/big/kaho_defend.png` -> `LinkuraMod/images/card_portraits/big/my_card.png`
 
 If custom art already exists, use that instead of the placeholder copies.
 

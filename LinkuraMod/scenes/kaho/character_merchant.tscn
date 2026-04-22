@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ysycriv2u0m"]
+
+[ext_resource type="Script" uid="uid://h6wwgo8g6dip" path="res://LinkuraMod/nodes/shop/NLinkuraMerchantCharacter.cs" id="1_5e1vv"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://bbi0mrg3xxu6n" path="res://LinkuraMod/spines/kaho/kaho.tres" id="1_y2uly"]
+
+[node name="CharacterMerchant" type="Node2D"]
+script = ExtResource("1_5e1vv")
+
+[node name="SpineSprite" type="SpineSprite" parent="."]
+skeleton_data_res = ExtResource("1_y2uly")
+preview_skin = "Default"
+preview_animation = "quest_skill_moodmaker05_loop"
+preview_frame = false
+preview_time = 0.0
+show_behind_parent = true

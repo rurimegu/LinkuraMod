@@ -32,7 +32,7 @@ core/
       common/              # Common rarity
       uncommon/            # Uncommon rarity
       rare/                # Rare rarity
-linkuramod/
+LinkuraMod/
   images/
     potions/
       kaho/                # Potion images: <potion_name>.png + <potion_name>_outline.png
@@ -105,7 +105,7 @@ Add localization for the power in both `eng/powers.json` and `zhs/powers.json`.
 
 ### 3. Add localization in both languages
 
-Update `linkuramod/localization/eng/potions.json` and `zhs/potions.json`.
+Update `LinkuraMod/localization/eng/potions.json` and `zhs/potions.json`.
 
 ```json
 "RURIMEGU-MY_POTION.title": "My Potion",
@@ -122,7 +122,7 @@ Localization key rule: convert the C# class name to `UPPER_SNAKE_CASE` and prefi
 
 ### 4. Add placeholder image assets
 
-Place in `linkuramod/images/potions/kaho/`:
+Place in `LinkuraMod/images/potions/kaho/`:
 
 - `my_potion.png` — main potion image (displayed in the potion slot)
 - `my_potion_outline.png` — outline version (used for hover/tooltip outlines)
@@ -137,7 +137,7 @@ If no custom art is available yet, copy a placeholder from an existing potion in
 - `Rarity`, `Usage`, and `TargetType` are all overridden.
 - Both `eng` and `zhs` localization entries exist in `potions.json`.
 - If a backing power was added, its localization entries exist in `powers.json`.
-- Image files `<potion_name>.png` and `<potion_name>_outline.png` exist in `linkuramod/images/potions/kaho/`.
+- Image files `<potion_name>.png` and `<potion_name>_outline.png` exist in `LinkuraMod/images/potions/kaho/`.
 - Run the debug build to confirm the mod still compiles.
 
 ## Repository Rules

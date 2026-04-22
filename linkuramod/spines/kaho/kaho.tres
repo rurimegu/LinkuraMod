@@ -1,9 +1,0 @@
-[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://bbi0mrg3xxu6n"]
-
-[ext_resource type="SpineAtlasResource" uid="uid://ds13t17ag4ori" path="res://linkuramod/spines/kaho/stage_idol_model_1031_059.atlas" id="1_i0x5m"]
-[ext_resource type="SpineSkeletonFileResource" uid="uid://ih40jrycg08r" path="res://linkuramod/spines/kaho/stage_idol_model_1031_059.skel" id="2_puum7"]
-
-[resource]
-atlas_res = ExtResource("1_i0x5m")
-skeleton_file_res = ExtResource("2_puum7")
-default_mix = 0.4
