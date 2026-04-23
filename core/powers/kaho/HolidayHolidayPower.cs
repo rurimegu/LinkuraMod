@@ -1,4 +1,4 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Models;
@@ -12,7 +12,7 @@ namespace RuriMegu.Core.Powers.Kaho;
 /// </summary>
 public class HolidayHolidayPower : KahoPower {
   public override PowerType Type => PowerType.Buff;
-  public override PowerStackType StackType => PowerStackType.Counter;
+  public override PowerStackType StackType => PowerStackType.Single;
 
   public override Task AfterApplied(Creature applier, CardModel cardSource) {
     DisposeTrackedSubscriptions();
