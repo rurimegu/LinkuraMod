@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -10,12 +10,10 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Uncommon.Power;
 
 /// <summary>
-/// Holiday Holiday (无限假日) — Cost 1, Power, Uncommon.
-/// Whenever you trigger a Backstage effect, it triggers an additional time.
-/// Ethereal. Upgrade: remove Ethereal.
+/// Holiday Holiday (无限假日) — Cost 2(1), Power, Uncommon.
+/// Backstage effects trigger twice.
 /// </summary>
-public class HolidayHoliday() : KahoCard(1, CardType.Power, CardRarity.Uncommon, TargetType.None) {
-  public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
+public class HolidayHoliday() : KahoCard(2, CardType.Power, CardRarity.Uncommon, TargetType.None) {
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [
     HoverTipFactory.FromKeyword(LinkuraKeywords.Backstage),
   ];
@@ -26,6 +24,6 @@ public class HolidayHoliday() : KahoCard(1, CardType.Power, CardRarity.Uncommon,
   }
 
   protected override void OnUpgrade() {
-    RemoveKeyword(CardKeyword.Ethereal);
+    EnergyCost.UpgradeBy(-1);
   }
 }
