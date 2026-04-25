@@ -4,7 +4,7 @@
     <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net9.0</TargetFramework>
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <RootNamespace>RuriMegu</RootNamespace>
-    <Version>0.1.4.0</Version>
+    <Version>0.1.5.0</Version>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Sts2Core">
