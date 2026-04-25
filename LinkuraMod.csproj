@@ -13,7 +13,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Alchyr.Sts2.BaseLib" Version="*" />
+    <PackageReference Include="Alchyr.Sts2.BaseLib" Version="*">
+      <ExcludeAssets>runtime</ExcludeAssets>
+      <Private>False</Private>
+    </PackageReference>
     <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="*" />
     <PackageReference Include="Lib.Harmony" Version="2.*" />
   </ItemGroup>
