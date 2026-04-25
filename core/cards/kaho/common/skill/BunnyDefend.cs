@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -10,11 +11,12 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Common.Skill;
 
 /// <summary>
-/// Bunny Defend — Cost 2 (1), Skill, Common.
-/// Gain block equal to current max ♥.
+/// Bunny Defend — Cost 2, Skill, Common.
+/// Gain block equal to current max ♥. Exhaust. Upgrade: Remove Exhaust.
 /// </summary>
 public class BunnyDefend() : KahoCard(2, CardType.Skill, CardRarity.Common, TargetType.None) {
   protected override HashSet<CardTag> CanonicalTags => [CardTag.Defend];
+  public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Append(CardKeyword.Exhaust);
   protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(StaticHoverTip.Block)];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
@@ -23,6 +25,6 @@ public class BunnyDefend() : KahoCard(2, CardType.Skill, CardRarity.Common, Targ
   }
 
   protected override void OnUpgrade() {
-    EnergyCost.UpgradeBy(-1);
+    RemoveKeyword(CardKeyword.Exhaust);
   }
 }
