@@ -27,6 +27,11 @@ public struct LinkuraNetworkState : INetMessage, IPacketSerializable {
   }
 
   //#region Data
+  /// <summary>
+  /// The net peer ID of the player this state belongs to.
+  /// 0 means "self" — the receiver should substitute their own peer ID.
+  /// </summary>
+  public ulong SenderId { get; set; } = 0;
   public Dictionary<string, CharacterConfig> Characters { get; private set; } = [];
   public string SelectedCharacter { get; set; } = "";
   //#endregion
@@ -38,11 +43,13 @@ public struct LinkuraNetworkState : INetMessage, IPacketSerializable {
   public readonly LogLevel LogLevel => LogLevel.Info;
 
   public readonly void Serialize(PacketWriter writer) {
+    writer.WriteULong(SenderId);
     writer.Write(Characters);
     writer.WriteString(SelectedCharacter);
   }
 
   public void Deserialize(PacketReader reader) {
+    SenderId = reader.ReadULong();
     reader.Read(Characters);
     SelectedCharacter = reader.ReadString();
   }
