@@ -34,7 +34,7 @@
   "RURIMEGU-POCHI.title": "啵唧！",
   "RURIMEGU-POCHI.description": "造成等同于你当前❤️数的伤害。[gold]收心[/gold]。",
   "RURIMEGU-TRAINING_OUTCOMES.title": "练习成果",
-  "RURIMEGU-TRAINING_OUTCOMES.description": "造成{Damage:diff()}点伤害。[gold]幕后[/gold]：每当你[gold]收心[/gold]，此牌在这场战斗中的耗能减少{Energy:energyIcons()}。",
+  "RURIMEGU-TRAINING_OUTCOMES.description": "对所有敌人造成{Damage:diff()}点伤害。[gold]幕后[/gold]：每当你[gold]收心[/gold]，此牌在这场战斗中的耗能减少{Energy:energyIcons()}。",
   "RURIMEGU-KAHO_SMASH.title": "花帆重击",
   "RURIMEGU-KAHO_SMASH.description": "造成{Damage:diff()}点伤害。对该目标[gold]收心[/gold]。",
   "RURIMEGU-FANTASY375.title": "37.5°C的幻想",
