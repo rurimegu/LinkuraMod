@@ -73,8 +73,9 @@ public struct LinkuraNetworkState : INetMessage, IPacketSerializable {
       return SpineSkinLoader.BUILTIN_SKIN_LABEL;
     }
   }
-  public static LinkuraNetworkState Create() {
+  public static LinkuraNetworkState Create(ulong playerId) {
     return new LinkuraNetworkState {
+      SenderId = playerId,
       Characters = new Dictionary<string, CharacterConfig> {
         { HinoshitaKaho.CHARACTER_ID, new CharacterConfig { SkinName = LinkuraModConfig.KahoSkin } }
       },

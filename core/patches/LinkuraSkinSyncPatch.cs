@@ -26,21 +26,19 @@ public static class LinkuraSkinSyncPatch {
   [HarmonyPatch(typeof(NetClientGameService), nameof(NetClientGameService.OnConnectedToHost))]
   [HarmonyPostfix]
   public static void ClientConnected_Postfix(NetClientGameService __instance) {
-    __instance.SendMessage(LinkuraNetworkState.Create());
+    __instance.SendMessage(LinkuraNetworkState.Create(__instance.NetId));
   }
 
   [HarmonyPatch(typeof(NetHostGameService), nameof(NetHostGameService.OnPeerConnected))]
   [HarmonyPostfix]
   public static void HostPeerConnected_Postfix(NetHostGameService __instance, ulong peerId) {
     // Send host's own skin to the new peer.
-    __instance.SendMessage(LinkuraNetworkState.Create(), peerId);
+    __instance.SendMessage(LinkuraNetworkState.Create(__instance.NetId), peerId);
     // Send every already-connected peer's skin to the new peer so they
     // can see all existing players' skins (3+ player support).
     foreach (ulong knownPeerId in LinkuraNetwork.GetKnownPeerIds()) {
       if (knownPeerId == peerId) continue;
       LinkuraNetwork.GetStateOrDefault(knownPeerId, out LinkuraNetworkState knownState);
-      // Stamp the original owner's ID so the receiver stores it under the right peer.
-      knownState.SenderId = knownPeerId;
       __instance.SendMessage(knownState, peerId);
     }
   }
