@@ -91,7 +91,7 @@ public static class LinkuraCmd {
     return ev;
   }
 
-  private static IReadOnlyList<Creature> PickTargets(Creature target, Player player, int triggers) {
+  private static List<Creature> PickTargets(Creature target, Player player, int triggers) {
     var hittable = player.Creature.CombatState.HittableEnemies;
     if (hittable.Count == 0) return [];
     var targets = new List<Creature>();

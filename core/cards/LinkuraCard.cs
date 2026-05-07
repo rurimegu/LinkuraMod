@@ -25,8 +25,18 @@ public abstract class LinkuraCard(int cost, CardType type, CardRarity rarity, Ta
   public override string PortraitPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath(CharacterId);
   public override string BetaPortraitPath => $"beta/{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath(CharacterId);
 
-  private readonly List<Subscription> _subs = [];
+  private List<Subscription> _subs = [];
   private bool _subscriptionsInitialized;
+
+  /// <summary>
+  /// Ensure the clone gets its own subscription list and a clean init flag,
+  /// so the deck card and combat clone don't share the same <see cref="_subs"/> reference.
+  /// </summary>
+  protected override void DeepCloneFields() {
+    base.DeepCloneFields();
+    _subs = [];
+    _subscriptionsInitialized = false;
+  }
 
   /// <summary>
   /// Override to set up subscriptions via TrackSubscription().
@@ -61,7 +71,17 @@ public abstract class LinkuraCard(int cost, CardType type, CardRarity rarity, Ta
   /// Returns false when combat has ended or the trigger cap has been reached.
   /// Override to add additional conditions (e.g. pile checks for backstage cards).
   /// </summary>
-  protected virtual bool CanTrigger() => !CombatManager.Instance.IsOverOrEnding && _triggerCount < MaxTriggersPerPlay;
+  protected virtual bool CanTrigger() {
+    if (CombatManager.Instance.IsOverOrEnding) {
+      LinkuraMod.Logger.Info($"[LinkuraCard] Combat is over or ending, cannot trigger {Id.Entry}");
+      return false;
+    }
+    if (_triggerCount >= MaxTriggersPerPlay) {
+      LinkuraMod.Logger.Warn($"[LinkuraCard] Trigger cap reached for {Id.Entry}");
+      return false;
+    }
+    return true;
+  }
 
   protected void IncrementTriggerCount() {
     _triggerCount++;
