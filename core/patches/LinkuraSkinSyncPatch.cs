@@ -16,21 +16,31 @@ public static class LinkuraSkinSyncPatch {
   [HarmonyPostfix]
   public static void NetMessageBus_Postfix(NetMessageBus __instance) {
     __instance.RegisterMessageHandler<LinkuraNetworkState>((msg, senderId) => {
-      LinkuraMod.Logger.Info($"[LinkuraSkinSync] Received msg from peer {senderId}: {msg}.");
-      LinkuraNetwork.SetState(senderId, msg);
+      // If SenderId is set in the payload, the host relayed this on behalf of another peer.
+      ulong actualSender = msg.SenderId != 0 ? msg.SenderId : senderId;
+      LinkuraMod.Logger.Info($"[LinkuraSkinSync] Received msg from peer {actualSender} (transport sender {senderId}): {msg}.");
+      LinkuraNetwork.SetState(actualSender, msg);
     });
   }
 
   [HarmonyPatch(typeof(NetClientGameService), nameof(NetClientGameService.OnConnectedToHost))]
   [HarmonyPostfix]
   public static void ClientConnected_Postfix(NetClientGameService __instance) {
-    __instance.SendMessage(LinkuraNetworkState.Create());
+    __instance.SendMessage(LinkuraNetworkState.Create(__instance.NetId));
   }
 
   [HarmonyPatch(typeof(NetHostGameService), nameof(NetHostGameService.OnPeerConnected))]
   [HarmonyPostfix]
   public static void HostPeerConnected_Postfix(NetHostGameService __instance, ulong peerId) {
-    __instance.SendMessage(LinkuraNetworkState.Create(), peerId);
+    // Send host's own skin to the new peer.
+    __instance.SendMessage(LinkuraNetworkState.Create(__instance.NetId), peerId);
+    // Send every already-connected peer's skin to the new peer so they
+    // can see all existing players' skins (3+ player support).
+    foreach (ulong knownPeerId in LinkuraNetwork.GetKnownPeerIds()) {
+      if (knownPeerId == peerId) continue;
+      LinkuraNetwork.GetStateOrDefault(knownPeerId, out LinkuraNetworkState knownState);
+      __instance.SendMessage(knownState, peerId);
+    }
   }
 
   [HarmonyPatch(typeof(NMerchantRoom), "AfterRoomIsLoaded")]

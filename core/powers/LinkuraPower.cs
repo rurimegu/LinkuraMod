@@ -17,7 +17,12 @@ public abstract class LinkuraPower : CustomPowerModel {
   public override string CustomPackedIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant().RemoveSuffix("_power")}.png".PowerImagePath(CharacterId);
   public override string CustomBigIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant().RemoveSuffix("_power")}.png".PowerImagePath(CharacterId);
 
-  private readonly List<Subscription> _subs = new();
+  private List<Subscription> _subs = [];
+
+  protected override void DeepCloneFields() {
+    base.DeepCloneFields();
+    _subs = [];
+  }
 
   protected void TrackSubscription(Subscription sub) => _subs.Add(sub);
 

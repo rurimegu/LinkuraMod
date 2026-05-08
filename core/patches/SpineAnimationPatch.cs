@@ -30,7 +30,7 @@ public static class SpineAnimationPatch {
         LinkuraMod.Logger.Debug($"[SpineAnimationPatch] Rewriting '{animationName}' -> '{mappedName}'");
         animationName = mappedName;
       } else {
-        LinkuraMod.Logger.Info($"[SpineAnimationPatch] No mapped animation for '{animationName}', using original.");
+        LinkuraMod.Logger.Debug($"[SpineAnimationPatch] No mapped animation for '{animationName}', using original.");
       }
     }
   }

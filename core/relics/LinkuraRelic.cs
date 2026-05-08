@@ -20,8 +20,14 @@ public abstract class LinkuraRelic : CustomRelicModel {
   protected override string PackedIconOutlinePath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}_outline.png".RelicImagePath(CharacterId);
   protected override string BigIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".BigRelicImagePath(CharacterId);
 
-  private readonly List<Subscription> _subs = [];
+  private List<Subscription> _subs = [];
   private bool _subscriptionsInitialized;
+
+  protected override void DeepCloneFields() {
+    base.DeepCloneFields();
+    _subs = [];
+    _subscriptionsInitialized = false;
+  }
 
   /// <summary>
   /// Override to set up subscriptions via TrackSubscription().

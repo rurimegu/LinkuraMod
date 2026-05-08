@@ -34,7 +34,7 @@
   "RURIMEGU-POCHI.title": "Pochi!",
   "RURIMEGU-POCHI.description": "Deal damage equal to your current ❤️. [gold]Collect[/gold].",
   "RURIMEGU-TRAINING_OUTCOMES.title": "Training Outcomes",
-  "RURIMEGU-TRAINING_OUTCOMES.description": "Deal {Damage:diff()} damage. [gold]Backstage[/gold]: whenever you [gold]Collect[/gold], this card costs {Energy:energyIcons()} less in this combat.",
+  "RURIMEGU-TRAINING_OUTCOMES.description": "Deal {Damage:diff()} damage to ALL enemies. [gold]Backstage[/gold]: whenever you [gold]Collect[/gold], this card costs {Energy:energyIcons()} less in this combat.",
   "RURIMEGU-KAHO_SMASH.title": "Kaho Smash",
   "RURIMEGU-KAHO_SMASH.description": "Deal {Damage:diff()} damage. [gold]Collect[/gold] against that target.",
   "RURIMEGU-FANTASY375.title": "37.5°C's Fantasy",

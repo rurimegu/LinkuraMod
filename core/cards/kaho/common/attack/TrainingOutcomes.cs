@@ -13,14 +13,14 @@ namespace RuriMegu.Core.Cards.Kaho.Common.Attack;
 
 /// <summary>
 /// Training Outcomes — Cost 4 (3), Attack, Common.
-/// Deal 12 (16) damage.
+/// Deal 16 (20) damage to ALL enemies.
 /// Backstage: whenever you Collect, this card costs 1 less in this combat.
 /// </summary>
-public class TrainingOutcomes() : KahoInHandTriggerCard(4, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) {
+public class TrainingOutcomes() : KahoInHandTriggerCard(4, CardType.Attack, CardRarity.Common, TargetType.AllEnemies) {
 
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new DamageVar(12, ValueProp.Move),
+    new DamageVar(16, ValueProp.Move),
     new EnergyVar(1),
   ];
 
@@ -42,7 +42,7 @@ public class TrainingOutcomes() : KahoInHandTriggerCard(4, CardType.Attack, Card
   }
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    await CommonActions.CardAttack(this, play.Target).Execute(ctx);
+    await CommonActions.CardAttack(this, play).Execute(ctx);
   }
 
   protected override void OnUpgrade() {

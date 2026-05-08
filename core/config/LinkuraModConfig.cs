@@ -145,9 +145,10 @@ public class LinkuraModConfig : SimpleModConfig {
         UpdatePreviewSkin(KahoSkin);
         Changed();
         SaveDebounced();
+        var netService = RunManager.Instance?.NetService;
+        if (netService?.IsConnected == true) {
 
-        if (RunManager.Instance?.NetService?.IsConnected == true) {
-          RunManager.Instance.NetService.SendMessage(LinkuraNetworkState.Create());
+          netService.SendMessage(LinkuraNetworkState.Create(netService.NetId));
         }
       }
     };

@@ -20,9 +20,11 @@ public static class LinkuraNetwork {
     }
   }
 
+  public static IEnumerable<ulong> GetKnownPeerIds() => SyncedStates.Keys;
+
   public static void GetStateOrDefault(ulong playerId, out LinkuraNetworkState state) {
     if (!SyncedStates.TryGetValue(playerId, out state)) {
-      state = LinkuraNetworkState.Create();
+      state = LinkuraNetworkState.Create(playerId);
     }
   }
 
