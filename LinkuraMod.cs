@@ -1,14 +1,12 @@
 using System.Reflection;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
-using RuriMegu.Core.Cards.Kaho;
 using RuriMegu.Core.Cards.Kaho.Basic.Attack;
 using RuriMegu.Core.Cards.Kaho.Basic.Skill;
 using RuriMegu.Core.Characters.Kaho;
 using RuriMegu.Core.Config;
 using RuriMegu.Core.Patches;
 using STS2RitsuLib;
-using STS2RitsuLib.Content;
 using STS2RitsuLib.Interop;
 using STS2RitsuLib.Scaffolding.Content;
 

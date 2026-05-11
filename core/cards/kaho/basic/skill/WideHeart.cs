@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
 using RuriMegu.Core.Cards.Kaho.Ancient;
 using RuriMegu.Core.Utils;
 using STS2RitsuLib.Interop.AutoRegistration;

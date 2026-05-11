@@ -2,11 +2,9 @@
 
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
 using RuriMegu.Core.Cards;
 using RuriMegu.Core.Characters.Kaho;
 using RuriMegu.Core.Powers;
@@ -41,14 +39,13 @@ public abstract class LinkuraSystemBase : LinkuraStarterRelic {
 /// Linkura System - Starter relic for Hinoshita Kaho.
 /// </summary>
 [RegisterRelic(typeof(KahoRelicPool))]
-[RegisterCharacterStarterRelic(typeof(HinoshitaKaho), 0)]
+[RegisterCharacterStarterRelic(typeof(HinoshitaKaho))]
 [RegisterTouchOfOrobasRefinement(typeof(DreamDefine))]
 public class LinkuraSystem : LinkuraSystemBase {
   protected override int AutoBurstAmount => 1;
 }
 
 [RegisterRelic(typeof(KahoRelicPool))]
-[RegisterCharacterStarterRelic(typeof(HinoshitaKaho), 0)]
 public class DreamDefine : LinkuraSystemBase {
   protected override int AutoBurstAmount => 3;
 }

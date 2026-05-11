@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using HarmonyLib;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using RuriMegu.Core.Characters;
 using STS2RitsuLib.Patching.Core;

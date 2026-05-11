@@ -45,6 +45,10 @@ public static class StringExtensions {
     return Path.Join(LinkuraMod.ModId, "scenes", characterId, path);
   }
 
+  public static string ResUri(this string path) {
+    return "res://" + path;
+  }
+
   public static string RemoveSuffix(this string str, string suffix) {
     return str.EndsWith(suffix) ? str[..^suffix.Length] : str;
   }

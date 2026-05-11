@@ -11,7 +11,6 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using RuriMegu.Core.Powers;
 using RuriMegu.Core.Powers.Kaho;
-using STS2RitsuLib.Scaffolding.Characters;
 
 namespace RuriMegu.Core.Utils;
 

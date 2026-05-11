@@ -1,5 +1,4 @@
 using Godot;
-using MegaCrit.Sts2.Core.Models;
 using STS2RitsuLib.Interop.AutoRegistration;
 
 namespace RuriMegu.Core.Characters.Kaho;

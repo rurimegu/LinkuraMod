@@ -32,26 +32,29 @@ public abstract class LinkuraCharacterModel : ModCharacterTemplate<HinoshitaKaho
   /// Path format matches what RitsuLib's character model expects:
   /// a mod-relative path without the leading "res://" prefix.
   /// </summary>
-  public override string CustomVisualsPath => "character_visuals.tscn".CharacterScenePath(CharacterId);
-  public override string CustomMerchantAnimPath => "character_merchant.tscn".CharacterScenePath(CharacterId);
-  public override string CustomRestSiteAnimPath => "character_rest_site.tscn".CharacterScenePath(CharacterId);
-  public override string CustomEnergyCounterPath => "energy_counter.tscn".CharacterScenePath(CharacterId);
-
-  // Asset paths - placeholder until custom art is added
-  public override string CustomIconTexturePath => "character_icon.png".CharacterUiPath(CharacterId);
-  public override string CustomIconOutlineTexturePath => "character_icon_outline.png".CharacterUiPath(CharacterId);
-  public override string CustomIconPath => "character_icon.tscn".CharacterScenePath(CharacterId);
-  public override string CustomCharacterSelectIconPath => "char_select.png".CharacterUiPath(CharacterId);
-  public override string CustomCharacterSelectLockedIconPath => "char_select_locked.png".CharacterUiPath(CharacterId);
-  public override string CustomMapMarkerPath => "map_marker.png".CharacterUiPath(CharacterId);
-  public override string CustomCharacterSelectBgPath => "select_bg.tscn".CharacterScenePath(CharacterId);
-
-  // Multiplayer mode - arm pointer.
-  public override string CustomArmPointingTexturePath => "hand_pointer.png".CharacterUiPath(CharacterId);
-  // Multiplayer mode - rock-paper-scissors.
-  public override string CustomArmRockTexturePath => "hand_rock.png".CharacterUiPath(CharacterId);
-  public override string CustomArmPaperTexturePath => "hand_paper.png".CharacterUiPath(CharacterId);
-  public override string CustomArmScissorsTexturePath => "hand_scissors.png".CharacterUiPath(CharacterId);
+  public override CharacterAssetProfile AssetProfile => new(
+    Scenes: new(
+      VisualsPath: "character_visuals.tscn".CharacterScenePath(CharacterId).ResUri(),
+      MerchantAnimPath: "character_merchant.tscn".CharacterScenePath(CharacterId).ResUri(),
+      RestSiteAnimPath: "character_rest_site.tscn".CharacterScenePath(CharacterId).ResUri(),
+      EnergyCounterPath: "energy_counter.tscn".CharacterScenePath(CharacterId).ResUri()
+    ),
+    Ui: new(
+      IconTexturePath: "character_icon.png".CharacterUiPath(CharacterId).ResUri(),
+      IconOutlineTexturePath: "character_icon_outline.png".CharacterUiPath(CharacterId).ResUri(),
+      IconPath: "character_icon.tscn".CharacterScenePath(CharacterId).ResUri(),
+      CharacterSelectIconPath: "char_select.png".CharacterUiPath(CharacterId).ResUri(),
+      CharacterSelectLockedIconPath: "char_select_locked.png".CharacterUiPath(CharacterId).ResUri(),
+      MapMarkerPath: "map_marker.png".CharacterUiPath(CharacterId).ResUri(),
+      CharacterSelectBgPath: "select_bg.tscn".CharacterScenePath(CharacterId).ResUri()
+    ),
+    Multiplayer: new(
+      ArmPointingTexturePath: "hand_pointer.png".CharacterUiPath(CharacterId).ResUri(),
+      ArmRockTexturePath: "hand_rock.png".CharacterUiPath(CharacterId).ResUri(),
+      ArmPaperTexturePath: "hand_paper.png".CharacterUiPath(CharacterId).ResUri(),
+      ArmScissorsTexturePath: "hand_scissors.png".CharacterUiPath(CharacterId).ResUri()
+    )
+  );
 
   public static readonly ImmutableDictionary<string, string> MAPPED_ANIMATIONS
     = ImmutableDictionary.CreateRange([

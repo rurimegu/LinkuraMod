@@ -2,7 +2,6 @@ using System.Threading.Tasks;
 using Godot;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Nodes.Pooling;
-using RuriMegu.Core.Utils;
 
 namespace RuriMegu.Nodes.Combat;
 
