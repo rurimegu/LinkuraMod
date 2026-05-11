@@ -23,7 +23,7 @@ public class AutoBurstPotion : KahoPotion {
   public override PotionUsage Usage => PotionUsage.CombatOnly;
   public override TargetType TargetType => TargetType.None;
 
-  public override IEnumerable<IHoverTip> ExtraHoverTips => base.ExtraHoverTips.Concat([
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => base.AdditionalHoverTips.Concat([
     HoverTipFactory.FromPower<AutoBurstPower>(),
     BurstHeartsVar.HoverTip()
   ]);

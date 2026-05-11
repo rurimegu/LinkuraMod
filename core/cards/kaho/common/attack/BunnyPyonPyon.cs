@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
@@ -20,7 +20,7 @@ public class BunnyPyonPyon() : KahoCard(1, CardType.Attack, CardRarity.Common, T
     new DamageVar(7, ValueProp.Move),
   ];
 
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => [BurstHeartsVar.HoverTip()];
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => [BurstHeartsVar.HoverTip()];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     var results = await CreatureCmd.Damage(

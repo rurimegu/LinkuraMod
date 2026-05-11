@@ -1,9 +1,10 @@
 {
-  "RURIMEGU.mod_title": "LinkuraMod",
-  "RURIMEGU-VISUAL.title": "Visual",
-  "RURIMEGU-SKIN.title": "Skin",
-  "RURIMEGU-KAHO_SKIN.title": "Kaho Skin",
-  "RURIMEGU-HEART_MIN_SCALE.title": "❤️ Min Scale",
-  "RURIMEGU-HEART_MAX_SCALE.title": "❤️ Max Scale",
-  "RURIMEGU-MAX_FLOATING_HEARTS.title": "Max # of Visible Floating ❤️"
+  "LINKURA_MOD.mod_title": "LinkuraMod",
+  "LINKURA_MOD.settings_title": "LinkuraMod Settings",
+  "LINKURA_MOD_VISUAL.title": "Visual",
+  "LINKURA_MOD_SKIN.title": "Skin",
+  "LINKURA_MOD_KAHO_SKIN.title": "Kaho Skin",
+  "LINKURA_MOD_HEART_MIN_SCALE.title": "❤️ Min Scale",
+  "LINKURA_MOD_HEART_MAX_SCALE.title": "❤️ Max Scale",
+  "LINKURA_MOD_MAX_FLOATING_HEARTS.title": "Max Floating Hearts"
 }

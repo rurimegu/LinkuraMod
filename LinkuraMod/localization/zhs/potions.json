@@ -1,9 +1,9 @@
 {
-  "RURIMEGU-BACKSTAGE_POTION.title": "幕后药水",
-  "RURIMEGU-BACKSTAGE_POTION.description": "从3张随机[gold]幕后[/gold]牌中选择1张加入你的[gold]手牌[/gold]。这张牌获得[gold]保留[/gold]。",
-  "RURIMEGU-BACKSTAGE_POTION.selectionScreenPrompt": "选择1张[gold]幕后[/gold]牌加入你的[gold]手牌[/gold]。",
-  "RURIMEGU-AUTO_BURST_POTION.title": "自然爆心药水",
-  "RURIMEGU-AUTO_BURST_POTION.description": "获得[blue]2[/blue]层[gold]自然爆心[/gold]。",
-  "RURIMEGU-COLORFUL_CANDY_POT.title": "彩色糖果罐",
-  "RURIMEGU-COLORFUL_CANDY_POT.description": "本回合中，每当你[gold]爆心[/gold]时，[gold]收心[/gold]。"
+  "LINKURA_MOD_POTION_BACKSTAGE_POTION.title": "幕后药水",
+  "LINKURA_MOD_POTION_BACKSTAGE_POTION.description": "从3张随机[gold]幕后[/gold]牌中选择1张加入你的[gold]手牌[/gold]。这张牌获得[gold]保留[/gold]。",
+  "LINKURA_MOD_POTION_BACKSTAGE_POTION.selectionScreenPrompt": "选择1张[gold]幕后[/gold]牌加入你的[gold]手牌[/gold]。",
+  "LINKURA_MOD_POTION_AUTO_BURST_POTION.title": "自然爆心药水",
+  "LINKURA_MOD_POTION_AUTO_BURST_POTION.description": "获得[blue]2[/blue]层[gold]自然爆心[/gold]。",
+  "LINKURA_MOD_POTION_COLORFUL_CANDY_POT.title": "彩色糖果罐",
+  "LINKURA_MOD_POTION_COLORFUL_CANDY_POT.description": "本回合中，每当你[gold]爆心[/gold]时，[gold]收心[/gold]。"
 }

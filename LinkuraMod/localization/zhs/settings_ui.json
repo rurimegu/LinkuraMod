@@ -1,9 +1,10 @@
 {
-  "RURIMEGU.mod_title": "LinkuraMod",
-  "RURIMEGU-VISUAL.title": "视觉效果",
-  "RURIMEGU-SKIN.title": "皮肤",
-  "RURIMEGU-KAHO_SKIN.title": "花帆皮肤",
-  "RURIMEGU-HEART_MIN_SCALE.title": "❤️最小尺寸",
-  "RURIMEGU-HEART_MAX_SCALE.title": "❤️最大尺寸",
-  "RURIMEGU-MAX_FLOATING_HEARTS.title": "❤️最大显示数量"
+  "LINKURA_MOD.mod_title": "LinkuraMod",
+  "LINKURA_MOD.settings_title": "LinkuraMod设置",
+  "LINKURA_MOD_VISUAL.title": "视觉效果",
+  "LINKURA_MOD_SKIN.title": "皮肤",
+  "LINKURA_MOD_KAHO_SKIN.title": "花帆皮肤",
+  "LINKURA_MOD_HEART_MIN_SCALE.title": "❤️最小尺寸",
+  "LINKURA_MOD_HEART_MAX_SCALE.title": "❤️最大尺寸",
+  "LINKURA_MOD_MAX_FLOATING_HEARTS.title": "❤️最大显示数量"
 }

@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using RuriMegu.Core.Cards;
+using STS2RitsuLib.Keywords;
 
 namespace RuriMegu.Core.Powers.Kaho;
 
@@ -37,7 +38,7 @@ public class TrainingCampPower() : KahoPower {
   public override bool TryModifyEnergyCostInCombat(CardModel card, decimal originalCost, out decimal modifiedCost) {
     modifiedCost = originalCost;
     if (card.Owner.Creature != Owner || _remainingTriggersThisTurn <= 0) return false;
-    if (!card.Keywords.Contains(LinkuraKeywords.Backstage)) return false;
+    if (!card.HasModKeyword(LinkuraKeywords.Backstage)) return false;
 
     var pileType = card.Pile?.Type;
     if (pileType != PileType.Hand && pileType != PileType.Play) return false;
@@ -48,7 +49,7 @@ public class TrainingCampPower() : KahoPower {
   }
 
   public override Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay) {
-    if (cardPlay.Card.Owner.Creature == Owner && _remainingTriggersThisTurn > 0 && cardPlay.Card.Keywords.Contains(LinkuraKeywords.Backstage)) {
+    if (cardPlay.Card.Owner.Creature == Owner && _remainingTriggersThisTurn > 0 && cardPlay.Card.HasModKeyword(LinkuraKeywords.Backstage)) {
       _remainingTriggersThisTurn--;
     }
     return Task.CompletedTask;

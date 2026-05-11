@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Models;
 using RuriMegu.Core.Cards;
+using STS2RitsuLib.Keywords;
 
 namespace RuriMegu.Core.Powers.Kaho;
 
@@ -18,7 +19,7 @@ public class BackstageCostReductionPower : KahoPower {
   public override bool TryModifyEnergyCostInCombat(CardModel card, decimal originalCost, out decimal modifiedCost) {
     modifiedCost = originalCost;
     if (card.Owner.Creature != Owner) return false;
-    if (!card.Keywords.Contains(LinkuraKeywords.Backstage)) return false;
+    if (!card.HasModKeyword(LinkuraKeywords.Backstage)) return false;
 
     var pileType = card.Pile?.Type;
     if (pileType != PileType.Hand && pileType != PileType.Play) return false;
@@ -30,7 +31,7 @@ public class BackstageCostReductionPower : KahoPower {
 
   public override async Task BeforeCardPlayed(CardPlay cardPlay) {
     if (cardPlay.Card.Owner.Creature != Owner) return;
-    if (!cardPlay.Card.Keywords.Contains(LinkuraKeywords.Backstage)) return;
+    if (!cardPlay.Card.HasModKeyword(LinkuraKeywords.Backstage)) return;
 
     var pileType = cardPlay.Card.Pile?.Type;
     if (pileType != PileType.Hand && pileType != PileType.Play) return;

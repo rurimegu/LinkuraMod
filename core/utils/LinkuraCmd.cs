@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using BaseLib.Extensions;
 using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -12,6 +11,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using RuriMegu.Core.Powers;
 using RuriMegu.Core.Powers.Kaho;
+using STS2RitsuLib.Scaffolding.Characters;
 
 namespace RuriMegu.Core.Utils;
 
@@ -23,7 +23,7 @@ public static class LinkuraCmd {
     if (!await Events.IncreaseMaxHearts.InvokeAllEarly(ev)) return ev;
     if (amount <= 0) return ev;
     var childEv = await HeartsState.AddMaxHearts(player, ctx, amount, source);
-    if (childEv.IsNullOrCancelled()) return ev;
+    if (childEv.IsCancelled) return ev;
     ev.ActualAmount = childEv.NewMaxHearts - childEv.OldMaxHearts;
     await Events.IncreaseMaxHearts.InvokeAllLate(ev);
     return ev;
@@ -42,7 +42,7 @@ public static class LinkuraCmd {
     if (!await Events.AutoBurst.InvokeAllEarly(ev)) return ev;
     var burstEv = await BurstHearts(player, ctx, baseAmount, source, isAutoBurst: true);
     ev.BurstEvent = burstEv;
-    if (burstEv.IsNullOrCancelled()) return ev;
+    if (burstEv.IsCancelled) return ev;
     await Events.AutoBurst.InvokeAllLate(ev);
     return ev;
   }
@@ -56,7 +56,7 @@ public static class LinkuraCmd {
     }
     var childEv = await HeartsState.AddHearts(player, ctx, amount, source);
     ev.HeartsChangedEvent = childEv;
-    if (childEv.IsNullOrCancelled()) return ev;
+    if (childEv.IsCancelled) return ev;
     ev.ActualAmount = childEv.NewHearts - childEv.OldHearts;
     await Events.Burst.InvokeAllLate(ev);
     return ev;
@@ -64,7 +64,7 @@ public static class LinkuraCmd {
 
   public static async Task<Events.CollectEvent> CollectHearts(Player player, PlayerChoiceContext context, CardModel source = null, Creature target = null, int triggers = 1, bool damageAllEnemies = false) {
     int hearts = Math.Min(HeartsState.GetHearts(player), HeartsState.GetMaxHearts(player));
-    damageAllEnemies |= player.HasPower<SpecialAppealPower>();
+    damageAllEnemies |= player.Creature.HasPower<SpecialAppealPower>();
     var ev = new Events.CollectEvent(player, context, source) {
       DamageAllEnemies = damageAllEnemies
     };
@@ -85,7 +85,7 @@ public static class LinkuraCmd {
       await CreatureCmd.Damage(context, ev.Targets, hearts, ValueProp.Unpowered, player.Creature);
     }
     var childEv = await HeartsState.SetHearts(player, context, 0, source);
-    if (childEv.IsNullOrCancelled()) return ev;
+    if (childEv.IsCancelled) return ev;
     ev.Amount = hearts;
     await Events.Collect.InvokeAllLate(ev);
     return ev;

@@ -1,9 +1,9 @@
 {
-  "RURIMEGU-BACKSTAGE_POTION.title": "Backstage Potion",
-  "RURIMEGU-BACKSTAGE_POTION.description": "Choose 1 from 3 random [gold]Backstage[/gold] cards and add it to your hand. It gains [gold]Retain[/gold].",
-  "RURIMEGU-BACKSTAGE_POTION.selectionScreenPrompt": "Choose a [gold]Backstage[/gold] card to add to your hand.",
-  "RURIMEGU-AUTO_BURST_POTION.title": "Auto Burst Potion",
-  "RURIMEGU-AUTO_BURST_POTION.description": "Gain [blue]2[/blue] stacks of [gold]Auto Burst[/gold].",
-  "RURIMEGU-COLORFUL_CANDY_POT.title": "Colorful Candy Pot",
-  "RURIMEGU-COLORFUL_CANDY_POT.description": "This turn, whenever you [gold]Burst[/gold], [gold]Collect[/gold]."
+  "LINKURA_MOD_POTION_BACKSTAGE_POTION.title": "Backstage Potion",
+  "LINKURA_MOD_POTION_BACKSTAGE_POTION.description": "Choose 1 from 3 random [gold]Backstage[/gold] cards and add it to your hand. It gains [gold]Retain[/gold].",
+  "LINKURA_MOD_POTION_BACKSTAGE_POTION.selectionScreenPrompt": "Choose a [gold]Backstage[/gold] card to add to your hand.",
+  "LINKURA_MOD_POTION_AUTO_BURST_POTION.title": "Auto Burst Potion",
+  "LINKURA_MOD_POTION_AUTO_BURST_POTION.description": "Gain [blue]2[/blue] stacks of [gold]Auto Burst[/gold].",
+  "LINKURA_MOD_POTION_COLORFUL_CANDY_POT.title": "Colorful Candy Pot",
+  "LINKURA_MOD_POTION_COLORFUL_CANDY_POT.description": "This turn, whenever you [gold]Burst[/gold], [gold]Collect[/gold]."
 }

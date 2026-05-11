@@ -19,7 +19,7 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 public class HappySupremacy() : KahoCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
   public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.MultiplayerOnly;
   public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
     BurstHeartsVar.HoverTip(),
     HoverTipFactory.FromPower<StrengthPower>(),
     HoverTipFactory.FromPower<DexterityPower>()

@@ -17,7 +17,7 @@ public class ChoreographyMemo() : KahoInHandTriggerCard(1, CardType.Skill, CardR
   private const string TRACKER_VAR = "CHOREOGRAPHY_TRACKER";
   private const string THRESHOLD_VAR = "CHOREOGRAPHY_THRESHOLD";
 
-  public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Append(LinkuraKeywords.Collect);
+  protected override IEnumerable<string> RegisteredKeywordIds => base.RegisteredKeywordIds.Append(LinkuraKeywords.Collect);
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new BurstHeartsVar(3),

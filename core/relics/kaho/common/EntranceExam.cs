@@ -21,9 +21,9 @@ public class EntranceExam : KahoRelic {
     new BurstHeartsVar(9m),
   ];
 
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => base.ExtraHoverTips.Concat([
-    BurstHeartsVar.HoverTip()
-  ]);
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+    BurstHeartsVar.HoverTip(),
+  ];
 
   public override async Task BeforeCombatStartLate() {
     Flash();

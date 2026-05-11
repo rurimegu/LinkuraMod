@@ -19,10 +19,10 @@ public class HinoshitaInstallPower : KahoPower {
   public override PowerType Type => PowerType.Buff;
   public override PowerStackType StackType => PowerStackType.Single;
 
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => base.ExtraHoverTips.Concat([
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
     HoverTipFactory.FromPower<AutoBurstPower>(),
-    BurstHeartsVar.HoverTip()
-  ]);
+    BurstHeartsVar.HoverTip(),
+  ];
 
   public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay) {
     if (cardPlay.Card.Owner == null || cardPlay.Card.Owner == Owner.Player) return;

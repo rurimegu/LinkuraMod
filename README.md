@@ -28,19 +28,19 @@ Kaho is a new playable character whose gameplay revolves around a unique resourc
 ### Prerequisites
 
 - [Slay the Spire 2](https://store.steampowered.com/app/2868840/Slay_the_Spire_2/) (Latest stable)
-- [BaseLib](https://github.com/Alchyr/Sts2BaseLib) mod framework
+- [RitsuLib](https://github.com/BAKAOLC/STS2-RitsuLib) mod framework
 
 ### Steps
 
 1. Download the latest release from the [Releases](https://github.com/rurimegu/LinkuraMod/releases) page.
-2. Based on the release notes, download the recommended version of [BaseLib](https://github.com/Alchyr/BaseLib-StS2/releases). The mod might be compatible with other versions, but no guarantees.
+2. Based on the release notes, download the recommended version of [RitsuLib](https://github.com/BAKAOLC/STS2-RitsuLib/releases). The mod might be compatible with other versions, but no guarantees.
 3. Place the mod files into your STS2 mods folder (create it if it doesn't exist):
    ```
    <STS2 install dir>/mods/LinkuraMod/
    ```
-4. Place the BaseLib files into your STS2 mods folder (create it if it doesn't exist):
+4. Place the RitsuLib files into your STS2 mods folder (create it if it doesn't exist):
    ```
-   <STS2 install dir>/mods/BaseLib/
+   <STS2 install dir>/mods/RitsuLib/
    ```
 5. Launch Slay the Spire 2 and enable **LinkuraMod** in the mod list.
 
@@ -57,7 +57,7 @@ So the directory structure should look like this:
 ```
 <STS2 install dir>/mods/LinkuraMod/
 ├── LinkuraMod.dll
-├── LinkuraMod.json
+├── mod_manifest.json
 ├── LinkuraMod.pck
 ├── skins/
 │   ├── ingame_chara_sd_spine_1021_001
@@ -97,7 +97,7 @@ Requires [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0) and [God
    After building, copy the following files to your STS2 mods folder (`<STS2 install dir>/mods/LinkuraMod/`):
    - `.godot/mono/temp/bin/Debug/LinkuraMod.dll`
    - `LinkuraMod.pck`
-   - `LinkuraMod.json` (you can find it in the root directory of the repo)
+   - `mod_manifest.json` (you can find it in the root directory of the repo)
 
 ---
 
@@ -105,7 +105,7 @@ Requires [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0) and [God
 
 - **Author:** KCFindstr
 - **Inspired by:** Link! Like! LoveLive!
-- **Depends on:** [BaseLib](https://github.com/Alchyr/Sts2BaseLib) by Alchyr
+- **Depends on:** [RitsuLib](https://github.com/BAKAOLC/STS2-RitsuLib) by BAKAOLC
 - **Special Thanks:** [密友@Bilibili](https://space.bilibili.com/383983658)
 
 > This is a fan-made mod and is not affiliated with or endorsed by ODD No., Bandai Namco, or the LoveLive! Series.

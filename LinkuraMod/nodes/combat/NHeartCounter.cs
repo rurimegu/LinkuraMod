@@ -1,13 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Helpers;
-using MegaCrit.Sts2.Core.Nodes.Pooling;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Rooms;
 using RuriMegu.Core.Config;
@@ -82,12 +80,7 @@ public partial class NHeartCounter : Control {
     combatUi?.AddChild(_heartParticleLayer);
 
     // Register FloatingHeart with the node pool if not already done.
-    // GeneratedNodePool adds to the shared NodePool, so Get<FloatingHeart>() works globally.
-    try {
-      GeneratedNodePool.Init<FloatingHeart>(() => new FloatingHeart(), prewarmCount: 0);
-    } catch (InvalidOperationException) {
-      // Already initialized or failed, safe to ignore if already present.
-    }
+    FloatingHeartPool.EnsureInitialized();
   }
 
   public override void _ExitTree() {
@@ -159,7 +152,7 @@ public partial class NHeartCounter : Control {
     _targetHearts = evt.NewHearts;
     _targetMaxHearts = evt.MaxHearts;
 
-    int targetVisualHearts = Math.Min(evt.NewHearts, LinkuraModConfig.MaxFloatingHearts);
+    int targetVisualHearts = Math.Min(evt.NewHearts, LinkuraModConfig.Settings.MaxFloatingHearts);
     int diff = targetVisualHearts - _floatingHearts.Count;
 
     if (diff > 0) {
@@ -226,12 +219,12 @@ public partial class NHeartCounter : Control {
   }
 
   private void SpawnOneHeart(Vector2 viewportSize) {
-    float scale = (float)GD.RandRange(LinkuraModConfig.HeartMinScale, LinkuraModConfig.HeartMaxScale);
+    float scale = (float)GD.RandRange(LinkuraModConfig.Settings.HeartMinScale, LinkuraModConfig.Settings.HeartMaxScale);
     var size = _glowingHeartTexture.GetSize() * scale;
     float x = (float)GD.RandRange(HeartMinX, HeartMaxX) * viewportSize.X - size.X / 2f;
     float y = (float)GD.RandRange(HeartMinY, HeartMaxY) * viewportSize.Y - size.Y / 2f;
 
-    var heart = NodePool.Get<FloatingHeart>();
+    var heart = FloatingHeartPool.Get();
     heart.Configure(
       heartTexture: _glowingHeartTexture,
       glowShader: _glowShader,
@@ -279,7 +272,7 @@ public partial class NHeartCounter : Control {
 
   private void FreeAllHearts() {
     foreach (var h in _floatingHearts.ToArray()) {
-      if (GodotObject.IsInstanceValid(h)) h.QueueFreeSafely();
+      if (GodotObject.IsInstanceValid(h)) FloatingHeartPool.Free(h);
     }
     _floatingHearts.Clear();
   }

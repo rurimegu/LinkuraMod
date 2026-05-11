@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -15,7 +15,7 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Attack;
 /// Retain.
 /// </summary>
 public class UnfulfilledWishes() : KahoCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
     HoverTipFactory.Static(StaticHoverTip.Block),
   ];
   public override IEnumerable<CardKeyword> CanonicalKeywords => [

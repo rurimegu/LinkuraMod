@@ -5,25 +5,26 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using RuriMegu.Core.Utils;
+using STS2RitsuLib.Keywords;
 
 namespace RuriMegu.Core.Cards.Kaho.Rare.Skill;
 
 /// <summary>
-/// Present, Past, Future — Cost 1, Skill, Rare.
+/// Present, Past, Future 鈥?Cost 1, Skill, Rare.
 /// Discard hand, draw same amount.
 /// Backstage: every 15 (10) Burst, trigger this effect.
 /// </summary>
 public class PresentPastFuture() : KahoInHandTriggerCard(1, CardType.Skill, CardRarity.Rare, TargetType.None) {
-  private const string TRACKER_VAR = "RURIMEGU-PPF_TRACKER";
-  private const string THRESHOLD_VAR = "RURIMEGU-PPF_THRESHOLD";
+  private const string TRACKER_VAR = "LINKURA_MOD_PPF_TRACKER";
+  private const string THRESHOLD_VAR = "LINKURA_MOD_PPF_THRESHOLD";
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new DynamicVar(THRESHOLD_VAR, 15m),
     new DynamicVar(TRACKER_VAR, 0m),
   ];
 
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-    HoverTipFactory.FromKeyword(LinkuraKeywords.Collect),
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+    ModKeywordRegistry.CreateHoverTip(LinkuraKeywords.Collect),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {

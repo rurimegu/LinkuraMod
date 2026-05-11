@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using RuriMegu.Core.Powers.Kaho;
 using RuriMegu.Core.Utils;
+using STS2RitsuLib.Keywords;
 
 namespace RuriMegu.Core.Cards.Kaho.Rare.Power;
 
@@ -18,8 +19,8 @@ public class BloomGardenParty() : KahoCard(3, CardType.Power, CardRarity.Rare, T
     CardKeyword.Ethereal,
   ];
 
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-    HoverTipFactory.FromKeyword(LinkuraKeywords.Backstage),
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+    ModKeywordRegistry.CreateHoverTip(LinkuraKeywords.Backstage),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {

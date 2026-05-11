@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -13,7 +13,7 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 /// </summary>
 public class HalfConveyedFeelings() : KahoCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
 
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
     BurstHeartsVar.HoverTip(),
   ];
 

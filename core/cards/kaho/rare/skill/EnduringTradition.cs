@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using RuriMegu.Core.Powers;
 using RuriMegu.Core.Powers.Kaho;
+using STS2RitsuLib.Keywords;
 
 namespace RuriMegu.Core.Cards.Kaho.Rare.Skill;
 
@@ -14,10 +15,10 @@ namespace RuriMegu.Core.Cards.Kaho.Rare.Skill;
 /// Apply Enduring Tradition Power. (Retain.)
 /// </summary>
 public class EnduringTradition() : KahoCard(0, CardType.Skill, CardRarity.Rare, TargetType.None) {
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
     HoverTipFactory.FromPower<AutoBurstPower>(),
     BurstHeartsVar.HoverTip(),
-    HoverTipFactory.FromKeyword(LinkuraKeywords.Collect),
+    ModKeywordRegistry.CreateHoverTip(LinkuraKeywords.Collect),
   ];
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     await PowerCmd.Apply<EnduringTraditionPower>(Owner.Creature, 1, Owner.Creature, this);

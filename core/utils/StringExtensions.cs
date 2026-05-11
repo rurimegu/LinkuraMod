@@ -49,6 +49,20 @@ public static class StringExtensions {
     return str.EndsWith(suffix) ? str[..^suffix.Length] : str;
   }
 
+  public static string PascalToSnakeCase(this string str) {
+    var sb = new System.Text.StringBuilder();
+    for (int i = 0; i < str.Length; i++) {
+      if (i > 0 && char.IsUpper(str[i])) {
+        bool prevLower = !char.IsUpper(str[i - 1]);
+        bool nextLower = i + 1 < str.Length && char.IsLower(str[i + 1]);
+        if (prevLower || nextLower)
+          sb.Append('_');
+      }
+      sb.Append(char.ToLower(str[i]));
+    }
+    return sb.ToString();
+  }
+
   private static LocString L10NStatic(string entry) {
     return new LocString("static_hover_tips", entry);
   }

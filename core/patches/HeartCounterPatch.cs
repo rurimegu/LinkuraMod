@@ -1,31 +1,32 @@
 using Godot;
-using HarmonyLib;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using RuriMegu.Nodes.Combat;
+using STS2RitsuLib.Patching.Core;
+using STS2RitsuLib.Patching.Models;
 
 namespace RuriMegu.Core.Patches;
 
-/// <summary>
-/// After <see cref="NCombatUi.Activate"/> runs and adds the energy counter to the
-/// EnergyCounterContainer, we look for the <see cref="NHeartCounter"/> node that lives
-/// inside the Kaho energy counter scene and call <c>Initialize(player)</c> on it.
-///
-/// This is safe for non-Kaho characters — if the energy counter has no HeartCounter
-/// child the lookup returns null and we bail out.
-/// </summary>
-[HarmonyPatch(typeof(NCombatUi), nameof(NCombatUi.Activate))]
-public static class HeartCounterPatch {
-  [HarmonyPostfix]
+public class HeartCounterPatches : IModPatches {
+  public static void AddTo(ModPatcher patcher) {
+    patcher.RegisterPatch<HeartCounterPatch>();
+  }
+}
+
+public class HeartCounterPatch : IPatchMethod {
+  public static string PatchId => "heart_counter_init";
+  public static string Description => "Initialize NHeartCounter when NCombatUi activates";
+  public static bool IsCritical => false;
+
+  public static ModPatchTarget[] GetTargets() =>
+    [new(typeof(NCombatUi), nameof(NCombatUi.Activate))];
+
   public static void Postfix(NCombatUi __instance, CombatState state) {
     Player me = LocalContext.GetMe(state);
     LinkuraMod.Logger.Info("[HeartCounterPatch] Postfix for player: " + me.NetId);
 
-    // The energy counter was added to EnergyCounterContainer; find the embedded HeartCounter.
-    // After BaseLib's NEnergyCounterFactory re-parents nodes the unique-name owner is lost,
-    // so we use FindChild + GetNodeOrNull instead of the %UniqueNameLookup.
     Control energyCounterContainer = __instance.EnergyCounterContainer;
     NHeartCounter heartCounter = null;
 

@@ -1,21 +1,22 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BaseLib.Abstracts;
-using BaseLib.Extensions;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Rooms;
 using RuriMegu.Core.Utils;
+using STS2RitsuLib.Interop.AutoRegistration;
+using STS2RitsuLib.Scaffolding.Content;
 
 namespace RuriMegu.Core.Powers;
 
-public abstract class LinkuraPower : CustomPowerModel {
+[RegisterPower(Inherit = true)]
+public abstract class LinkuraPower : ModPowerTemplate {
   public override PowerType Type => PowerType.None;
   public override PowerStackType StackType => PowerStackType.None;
 
   public virtual string CharacterId => "";
-  public override string CustomPackedIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant().RemoveSuffix("_power")}.png".PowerImagePath(CharacterId);
-  public override string CustomBigIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant().RemoveSuffix("_power")}.png".PowerImagePath(CharacterId);
+  public override string CustomIconPath => $"{GetType().Name.PascalToSnakeCase().RemoveSuffix("_power")}.png".PowerImagePath(CharacterId);
+  public override string CustomBigIconPath => $"{GetType().Name.PascalToSnakeCase().RemoveSuffix("_power")}.png".PowerImagePath(CharacterId);
 
   private List<Subscription> _subs = [];
 

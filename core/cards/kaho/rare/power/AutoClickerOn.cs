@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models.Powers;
 using RuriMegu.Core.Powers.Kaho;
 using RuriMegu.Core.Utils;
+using STS2RitsuLib.Keywords;
 
 namespace RuriMegu.Core.Cards.Kaho.Rare.Power;
 
@@ -17,9 +18,9 @@ namespace RuriMegu.Core.Cards.Kaho.Rare.Power;
 public class AutoClickerOn() : KahoCard(1, CardType.Power, CardRarity.Rare, TargetType.None) {
   public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.SingleplayerOnly;
 
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
     BurstHeartsVar.HoverTip(),
-    HoverTipFactory.FromKeyword(LinkuraKeywords.Collect),
+    ModKeywordRegistry.CreateHoverTip(LinkuraKeywords.Collect),
     HoverTipFactory.FromPower<IntangiblePower>(),
   ];
 

@@ -8,6 +8,6 @@
   "has_pck": true,
   "affects_gameplay": true,
   "dependencies": [
-    "BaseLib"
+    "STS2-RitsuLib"
   ]
 }

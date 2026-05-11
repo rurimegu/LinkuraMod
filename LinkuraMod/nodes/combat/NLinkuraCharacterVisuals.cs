@@ -5,7 +5,7 @@ using RuriMegu.Core.Config;
 namespace RuriMegu.Nodes.Combat;
 
 /// <summary>
-/// Attached to the character_visuals.tscn root. Extends NCreatureVisuals so BaseLib
+/// Attached to the character_visuals.tscn root. Extends NCreatureVisuals so RitsuLib
 /// does not auto-convert the scene root. Swaps the SpineSprite skeleton before
 /// base._Ready() so NCreatureVisuals initialises SpineBody against the correct data.
 /// </summary>

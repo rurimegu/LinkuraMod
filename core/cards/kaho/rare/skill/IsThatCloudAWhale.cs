@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -24,7 +24,7 @@ public class IsThatCloudAWhale() : KahoCard(2, CardType.Skill, CardRarity.Rare, 
     new MaxHeartsThresholdVar(15m),
   ];
 
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
     HoverTipFactory.FromPower<IntangiblePower>(),
   ];
 

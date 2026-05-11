@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using RuriMegu.Core.Powers.Kaho;
 using RuriMegu.Core.Utils;
+using STS2RitsuLib.Keywords;
 
 namespace RuriMegu.Core.Cards.Kaho.Rare.Power;
 
@@ -17,8 +18,8 @@ namespace RuriMegu.Core.Cards.Kaho.Rare.Power;
 public class FlowerKnot() : KahoCard(1, CardType.Power, CardRarity.Rare, TargetType.None) {
   public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Innate];
 
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-    HoverTipFactory.FromKeyword(LinkuraKeywords.Backstage),
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+    ModKeywordRegistry.CreateHoverTip(LinkuraKeywords.Backstage),
   ];
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new CardsVar(1),

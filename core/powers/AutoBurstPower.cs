@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -11,12 +11,13 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Powers;
 
 public class AutoBurstPower : LinkuraPower {
-  public const string LocKey = "RURIMEGU-AUTO_BURST_POWER";
+  public const string LocKey = "LINKURA_MOD_AUTO_BURST_POWER";
   public override PowerType Type => PowerType.Buff;
   public override PowerStackType StackType => PowerStackType.Counter;
 
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => base.ExtraHoverTips.Append(
-    BurstHeartsVar.HoverTip());
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+    BurstHeartsVar.HoverTip(),
+  ];
 
   public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay) {
     if (Amount > 0 && cardPlay.Card.Owner?.Creature == Owner) {

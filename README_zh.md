@@ -28,19 +28,19 @@
 ### 前置条件
 
 - [杀戮尖塔 2 (Slay the Spire 2)](https://store.steampowered.com/app/2868840/Slay_the_Spire_2/) (最新稳定版)
-- [BaseLib](https://github.com/Alchyr/Sts2BaseLib) MOD 框架
+- [RitsuLib](https://github.com/BAKAOLC/STS2-RitsuLib) MOD 框架
 
 ### 步骤
 
 1. 从 [Releases](https://github.com/rurimegu/LinkuraMod/releases) 页面下载最新版本。
-2. 根据版本说明，下载推荐版本的 [BaseLib](https://github.com/Alchyr/BaseLib-StS2/releases)。虽然可能兼容其他版本，但不保证稳定性。
+2. 根据版本说明，下载推荐版本的 [RitsuLib](https://github.com/BAKAOLC/STS2-RitsuLib/releases)。虽然可能兼容其他版本，但不保证稳定性。
 3. 将 MOD 文件放入你的 STS2 mods 文件夹（如果不存在则创建一个）：
    ```
    <STS2 install dir>/mods/LinkuraMod/
    ```
-4. 将 BaseLib 文件放入你的 STS2 mods 文件夹（如果不存在则创建一个）：
+4. 将 RitsuLib 文件放入你的 STS2 mods 文件夹（如果不存在则创建一个）：
    ```
-   <STS2 install dir>/mods/BaseLib/
+   <STS2 install dir>/mods/STS2-RitsuLib/
    ```
 5. 启动《杀戮尖塔 2》并在 MOD 列表中启用 **LinkuraMod**。
 
@@ -57,7 +57,7 @@
 ```
 <STS2 install dir>/mods/LinkuraMod/
 ├── LinkuraMod.dll
-├── LinkuraMod.json
+├── mod_manifest.json
 ├── LinkuraMod.pck
 ├── skins/
 │   ├── ingame_chara_sd_spine_1021_001
@@ -97,7 +97,7 @@
    构建完成后，将以下文件复制到你的 STS2 mods 文件夹 (`<STS2 install dir>/mods/LinkuraMod/`)：
    - `.godot/mono/temp/bin/Debug/LinkuraMod.dll`
    - `LinkuraMod.pck`
-   - `LinkuraMod.json` (你可以在仓库根目录找到它)
+   - `mod_manifest.json` (你可以在仓库根目录找到它)
 
 ---
 
@@ -105,7 +105,7 @@
 
 - **作者：** KCFindstr
 - **灵感来源：** Link! Like! LoveLive!
-- **依赖：** [BaseLib](https://github.com/Alchyr/Sts2BaseLib) (作者：Alchyr)
+- **依赖：** [RitsuLib](https://github.com/BAKAOLC/STS2-RitsuLib) (作者：BAKAOLC)
 - **特别鸣谢：** [密友@Bilibili](https://space.bilibili.com/383983658)
 
 > 这是一个同人 MOD，与 ODD No.、Bandai Namco 或 LoveLive! 系列无关，也不受其认可。

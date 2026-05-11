@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -17,7 +17,7 @@ public class LinkToTheFuture() : KahoCard(1, CardType.Skill, CardRarity.Uncommon
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new EnergyVar(1),
   ];
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
     HoverTipFactory.FromKeyword(CardKeyword.Retain),
   ];
 

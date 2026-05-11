@@ -18,7 +18,7 @@ jobs:
 
       - name: Get version
         id: version
-        run: echo "version=$(jq -r .version LinkuraMod.json)" >> "$GITHUB_OUTPUT"
+        run: echo "version=$(jq -r .version mod_manifest.json)" >> "$GITHUB_OUTPUT"
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
@@ -42,8 +42,8 @@ jobs:
       - name: Build .NET (ExportRelease)
         run: dotnet build LinkuraMod.sln --configuration ExportRelease --no-restore
 
-      - name: Get BaseLib version
-        id: baselib
+      - name: Get RitsuLib version
+        id: ritsulib
         run: |
           # Godot.NET.Sdk may place obj/ under .godot/mono/temp/
           ASSETS_FILE=$(find . -path "./.git" -prune -o -name "project.assets.json" -print | head -1)
@@ -53,16 +53,16 @@ jobs:
           fi
           echo "Using assets file: $ASSETS_FILE"
 
-          # Case-insensitive match for Alchyr.Sts2.BaseLib
+          # Case-insensitive match for STS2.RitsuLib
           VERSION=$(jq -r '
             .libraries
             | keys[]
-            | select(ascii_downcase | startswith("alchyr.sts2.baselib/"))
+            | select(ascii_downcase | startswith("sts2.ritsulib/"))
             | split("/")[1]
           ' "$ASSETS_FILE" | head -1)
 
           if [ -z "$VERSION" ] || [ "$VERSION" = "null" ]; then
-            echo "ERROR: Failed to resolve Alchyr.Sts2.BaseLib version from $ASSETS_FILE" >&2
+            echo "ERROR: Failed to resolve STS2.RitsuLib version from $ASSETS_FILE" >&2
             exit 1
           fi
 
@@ -87,7 +87,7 @@ jobs:
           echo "Using DLL: $DLL"
 
           cp "$DLL" dist/LinkuraMod.dll
-          cp LinkuraMod.json dist/
+          cp mod_manifest.json dist/
           cp LinkuraMod.pck dist/
 
           zip -j "LinkuraMod-${VERSION}.zip" dist/*
@@ -99,6 +99,6 @@ jobs:
           tag_name: v${{ steps.version.outputs.version }}
           name: LinkuraMod v${{ steps.version.outputs.version }}
           body: |
-            > **Requires [BaseLib v${{ steps.baselib.outputs.version }}](https://github.com/Alchyr/BaseLib-StS2/releases/tag/v${{ steps.baselib.outputs.version }})**
+            > **Requires [RitsuLib v${{ steps.ritsulib.outputs.version }}](https://github.com/BAKAOLC/STS2-RitsuLib/releases/tag/v${{ steps.ritsulib.outputs.version }})**
           files: ${{ env.ZIP }}
           generate_release_notes: true

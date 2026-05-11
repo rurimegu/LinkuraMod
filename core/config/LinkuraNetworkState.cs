@@ -77,7 +77,7 @@ public struct LinkuraNetworkState : INetMessage, IPacketSerializable {
     return new LinkuraNetworkState {
       SenderId = playerId,
       Characters = new Dictionary<string, CharacterConfig> {
-        { HinoshitaKaho.CHARACTER_ID, new CharacterConfig { SkinName = LinkuraModConfig.KahoSkin } }
+        { HinoshitaKaho.CHARACTER_ID, new CharacterConfig { SkinName = LinkuraModConfig.Settings.KahoSkin } }
       },
       SelectedCharacter = HinoshitaKaho.CHARACTER_ID
     };
