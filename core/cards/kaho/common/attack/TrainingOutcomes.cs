@@ -42,7 +42,7 @@ public class TrainingOutcomes() : KahoInHandTriggerCard(4, CardType.Attack, Card
   }
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    await CommonActions.CardAttack(this, play).Execute(ctx);
+    await CommonActions.CardAttackAllOpponents(this).Execute(ctx);
   }
 
   protected override void OnUpgrade() {

@@ -77,6 +77,48 @@ public static class CommonActions {
   }
 
   /// <summary>
+  /// Builds a card attack command using the card's Damage DynamicVar targeting all opponents.
+  /// Call .Execute(ctx) on the result to execute.
+  /// </summary>
+  public static AttackCommand CardAttackAllOpponents(CardModel card, int hitCount = 1) {
+    var cmd = DamageCmd.Attack(card.DynamicVars.Damage.BaseValue)
+      .FromCard(card)
+      .WithHitFx(DEFAULT_HIT_FX)
+      .TargetingAllOpponents(card.Owner.Creature.CombatState);
+    if (hitCount > 1)
+      cmd = cmd.WithHitCount(hitCount);
+    return cmd;
+  }
+
+  /// <summary>
+  /// Builds a card attack command with a custom damage amount targeting all opponents.
+  /// Call .Execute(ctx) on the result to execute.
+  /// </summary>
+  public static AttackCommand CardAttackAllOpponents(CardModel card, decimal damage, int hitCount = 1) {
+    var cmd = DamageCmd.Attack(damage)
+      .FromCard(card)
+      .WithHitFx(DEFAULT_HIT_FX)
+      .TargetingAllOpponents(card.Owner.Creature.CombatState);
+    if (hitCount > 1)
+      cmd = cmd.WithHitCount(hitCount);
+    return cmd;
+  }
+
+  /// <summary>
+  /// Builds a card attack command using a CalculatedDamageVar targeting all opponents.
+  /// Call .Execute(ctx) on the result to execute.
+  /// </summary>
+  public static AttackCommand CardAttackAllOpponents(CardModel card, CalculatedDamageVar calculatedDamage, int hitCount = 1) {
+    var cmd = DamageCmd.Attack(calculatedDamage)
+      .FromCard(card)
+      .WithHitFx(DEFAULT_HIT_FX)
+      .TargetingAllOpponents(card.Owner.Creature.CombatState);
+    if (hitCount > 1)
+      cmd = cmd.WithHitCount(hitCount);
+    return cmd;
+  }
+
+  /// <summary>
   /// Gains block using the card's Block DynamicVar.
   /// </summary>
   public static Task CardBlock(CardModel card, CardPlay play) {

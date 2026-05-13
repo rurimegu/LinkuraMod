@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using RuriMegu.Core.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
+using RuriMegu.Core.Utils;
 
 namespace RuriMegu.Core.Cards.Kaho.Common.Attack;
 
@@ -18,7 +18,7 @@ public class CeriseBouquet() : KahoCard(2, CardType.Attack, CardRarity.Common, T
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    await CommonActions.CardAttack(this, play, hitCount: 3).Execute(ctx);
+    await CommonActions.CardAttackAllOpponents(this, hitCount: 3).Execute(ctx);
   }
 
   protected override void OnUpgrade() {

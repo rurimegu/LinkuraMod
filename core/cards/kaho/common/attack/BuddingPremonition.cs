@@ -21,7 +21,7 @@ public class BuddingPremonition() : KahoCard(2, CardType.Attack, CardRarity.Comm
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     await LinkuraCardActions.IncreaseMaxHearts(this, ctx);
     int maxHearts = HeartsState.GetMaxHearts(Owner);
-    await CommonActions.CardAttack(this, play.Target, damage: maxHearts)
+    await CommonActions.CardAttackAllOpponents(this, (decimal)maxHearts)
       .Execute(ctx);
   }
 

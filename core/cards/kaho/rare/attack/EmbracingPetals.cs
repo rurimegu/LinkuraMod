@@ -49,7 +49,7 @@ public class EmbracingPetals() : KahoInHandTriggerCard(2, CardType.Attack, CardR
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     int hitCount = DynamicVars.Repeat.IntValue;
-    await CommonActions.CardAttack(this, null, DynamicVars.CalculatedDamage.Calculate(null), hitCount: hitCount).Execute(ctx);
+    await CommonActions.CardAttackAllOpponents(this, DynamicVars.CalculatedDamage, hitCount: hitCount).Execute(ctx);
   }
 
   protected override void OnUpgrade() {

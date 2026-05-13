@@ -20,7 +20,7 @@ public class StepUp() : KahoCard(1, CardType.Attack, CardRarity.Common, TargetTy
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    await CommonActions.CardAttack(this, play, hitCount: DynamicVars.Repeat.IntValue).Execute(ctx);
+    await CommonActions.CardAttackAllOpponents(this, hitCount: DynamicVars.Repeat.IntValue).Execute(ctx);
     await LinkuraCardActions.IncreaseMaxHearts(this, ctx);
   }
 
