@@ -18,13 +18,16 @@ public static class CommonActions {
 
   /// <summary>
   /// Builds a card attack command using the card's Damage DynamicVar and CardPlay target.
+  /// Automatically targets all opponents if the card's TargetType is AllEnemies.
   /// Call .Execute(ctx) on the result to execute.
   /// </summary>
   public static AttackCommand CardAttack(CardModel card, CardPlay play, int hitCount = 1) {
     var cmd = DamageCmd.Attack(card.DynamicVars.Damage.BaseValue)
       .FromCard(card)
       .WithHitFx(DEFAULT_HIT_FX);
-    if (play.Target != null)
+    if (card.TargetType == TargetType.AllEnemies)
+      cmd = cmd.TargetingAllOpponents(card.Owner.Creature.CombatState);
+    else if (play.Target != null)
       cmd = cmd.Targeting(play.Target);
     if (hitCount > 1)
       cmd = cmd.WithHitCount(hitCount);
@@ -33,13 +36,16 @@ public static class CommonActions {
 
   /// <summary>
   /// Builds a card attack command targeting a specific creature, using the card's Damage DynamicVar.
+  /// Automatically targets all opponents if the card's TargetType is AllEnemies.
   /// Call .Execute(ctx) on the result to execute.
   /// </summary>
   public static AttackCommand CardAttack(CardModel card, Creature target, int hitCount = 1) {
     var cmd = DamageCmd.Attack(card.DynamicVars.Damage.BaseValue)
       .FromCard(card)
       .WithHitFx(DEFAULT_HIT_FX);
-    if (target != null)
+    if (card.TargetType == TargetType.AllEnemies)
+      cmd = cmd.TargetingAllOpponents(card.Owner.Creature.CombatState);
+    else if (target != null)
       cmd = cmd.Targeting(target);
     if (hitCount > 1)
       cmd = cmd.WithHitCount(hitCount);
@@ -47,14 +53,17 @@ public static class CommonActions {
   }
 
   /// <summary>
-  /// Builds a card attack command with a custom damage amount targeting a specific creature.
+  /// Builds a card attack command with a custom damage amount.
+  /// Automatically targets all opponents if the card's TargetType is AllEnemies.
   /// Call .Execute(ctx) on the result to execute.
   /// </summary>
   public static AttackCommand CardAttack(CardModel card, Creature target, decimal damage, int hitCount = 1) {
     var cmd = DamageCmd.Attack(damage)
       .FromCard(card)
       .WithHitFx(DEFAULT_HIT_FX);
-    if (target != null)
+    if (card.TargetType == TargetType.AllEnemies)
+      cmd = cmd.TargetingAllOpponents(card.Owner.Creature.CombatState);
+    else if (target != null)
       cmd = cmd.Targeting(target);
     if (hitCount > 1)
       cmd = cmd.WithHitCount(hitCount);
@@ -62,57 +71,18 @@ public static class CommonActions {
   }
 
   /// <summary>
-  /// Builds a card attack command using a CalculatedDamageVar targeting a specific creature.
+  /// Builds a card attack command using a CalculatedDamageVar.
+  /// Automatically targets all opponents if the card's TargetType is AllEnemies.
   /// Call .Execute(ctx) on the result to execute.
   /// </summary>
   public static AttackCommand CardAttack(CardModel card, Creature target, CalculatedDamageVar calculatedDamage, int hitCount = 1) {
     var cmd = DamageCmd.Attack(calculatedDamage)
       .FromCard(card)
       .WithHitFx(DEFAULT_HIT_FX);
-    if (target != null)
+    if (card.TargetType == TargetType.AllEnemies)
+      cmd = cmd.TargetingAllOpponents(card.Owner.Creature.CombatState);
+    else if (target != null)
       cmd = cmd.Targeting(target);
-    if (hitCount > 1)
-      cmd = cmd.WithHitCount(hitCount);
-    return cmd;
-  }
-
-  /// <summary>
-  /// Builds a card attack command using the card's Damage DynamicVar targeting all opponents.
-  /// Call .Execute(ctx) on the result to execute.
-  /// </summary>
-  public static AttackCommand CardAttackAllOpponents(CardModel card, int hitCount = 1) {
-    var cmd = DamageCmd.Attack(card.DynamicVars.Damage.BaseValue)
-      .FromCard(card)
-      .WithHitFx(DEFAULT_HIT_FX)
-      .TargetingAllOpponents(card.Owner.Creature.CombatState);
-    if (hitCount > 1)
-      cmd = cmd.WithHitCount(hitCount);
-    return cmd;
-  }
-
-  /// <summary>
-  /// Builds a card attack command with a custom damage amount targeting all opponents.
-  /// Call .Execute(ctx) on the result to execute.
-  /// </summary>
-  public static AttackCommand CardAttackAllOpponents(CardModel card, decimal damage, int hitCount = 1) {
-    var cmd = DamageCmd.Attack(damage)
-      .FromCard(card)
-      .WithHitFx(DEFAULT_HIT_FX)
-      .TargetingAllOpponents(card.Owner.Creature.CombatState);
-    if (hitCount > 1)
-      cmd = cmd.WithHitCount(hitCount);
-    return cmd;
-  }
-
-  /// <summary>
-  /// Builds a card attack command using a CalculatedDamageVar targeting all opponents.
-  /// Call .Execute(ctx) on the result to execute.
-  /// </summary>
-  public static AttackCommand CardAttackAllOpponents(CardModel card, CalculatedDamageVar calculatedDamage, int hitCount = 1) {
-    var cmd = DamageCmd.Attack(calculatedDamage)
-      .FromCard(card)
-      .WithHitFx(DEFAULT_HIT_FX)
-      .TargetingAllOpponents(card.Owner.Creature.CombatState);
     if (hitCount > 1)
       cmd = cmd.WithHitCount(hitCount);
     return cmd;

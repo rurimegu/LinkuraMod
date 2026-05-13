@@ -18,7 +18,7 @@ public class CeriseBouquet() : KahoCard(2, CardType.Attack, CardRarity.Common, T
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    await CommonActions.CardAttackAllOpponents(this, hitCount: 3).Execute(ctx);
+    await CommonActions.CardAttack(this, play, hitCount: 3).Execute(ctx);
   }
 
   protected override void OnUpgrade() {

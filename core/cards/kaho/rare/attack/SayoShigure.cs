@@ -24,7 +24,7 @@ public class SayoShigure() : KahoInHandTriggerCard(1, CardType.Attack, CardRarit
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    await CommonActions.CardAttackAllOpponents(this).Execute(ctx);
+    await CommonActions.CardAttack(this, play).Execute(ctx);
   }
 
   protected override Task InitializeSubscriptions() {
