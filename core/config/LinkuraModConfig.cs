@@ -160,14 +160,14 @@ public static class LinkuraModConfig {
     sprite.SetSkeletonDataRes(data);
     ValidateSkinAnimations(data, skinName, label);
 
-    string idleAnim = LinkuraCharacterModel.MAPPED_ANIMATIONS.GetValueOrDefault(LinkuraAnimation.VANILLA_ANIM_IDLE)
+    string idleAnim = LinkuraAnimation.MAPPED_ANIMATIONS.GetValueOrDefault(LinkuraAnimation.VANILLA_ANIM_IDLE)
       ?? "quest_dance_general00";
     sprite.GetAnimationState().SetAnimation(idleAnim, true);
   }
 
   private static void ValidateSkinAnimations(MegaSkeletonDataResource data, string skinName, ValidationLabel label) {
     var missing = new List<string>();
-    foreach (string anim in LinkuraCharacterModel.MAPPED_ANIMATIONS.Values) {
+    foreach (string anim in LinkuraAnimation.MAPPED_ANIMATIONS.Values) {
       if (data.FindAnimation(anim) == null)
         missing.Add(anim);
     }

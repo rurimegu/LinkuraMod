@@ -3,20 +3,40 @@ using System.Collections.Immutable;
 using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Entities.Characters;
-using RuriMegu.Core.Characters.Kaho;
+using MegaCrit.Sts2.Core.Models;
 using RuriMegu.Core.Utils;
 using STS2RitsuLib.Scaffolding.Characters;
 
 namespace RuriMegu.Core.Characters;
 
 /// <summary>
-/// Hinoshita Kaho
+/// Non-generic interface for type checks and animation dispatch without pool type args.
 /// </summary>
-public abstract class LinkuraCharacterModel : ModCharacterTemplate<HinoshitaKahoCardPool, KahoRelicPool, KahoPotionPool> {
+public interface ILinkuraCharacter {
+  string CharacterId { get; }
+  string CharacterName { get; }
+  float BurstAnimDelay { get; }
+  float CollectAnimDelay { get; }
+  float CastAnimDelay { get; }
+  string GetMappedAnimation(string vanillaName);
+}
+
+public abstract class LinkuraCharacterModel<TCardPool, TRelicPool, TPotionPool>
+    : ModCharacterTemplate<TCardPool, TRelicPool, TPotionPool>, ILinkuraCharacter
+    where TCardPool : CardPoolModel
+    where TRelicPool : RelicPoolModel
+    where TPotionPool : PotionPoolModel {
   public abstract string CharacterId { get; }
   public abstract string CharacterName { get; }
   public virtual float BurstAnimDelay => 0.1f;
   public virtual float CollectAnimDelay => 0.1f;
+
+  /// <summary>
+  /// Animation name mapping (vanilla name → Spine name). Override to customize per-character.
+  /// </summary>
+  public virtual ImmutableDictionary<string, string> AnimationMap => LinkuraAnimation.MAPPED_ANIMATIONS;
+
+  public override bool RequiresEpochAndTimeline => false;
 
   public override int StartingGold => 99;
   public override float AttackAnimDelay => 0f;
@@ -56,30 +76,14 @@ public abstract class LinkuraCharacterModel : ModCharacterTemplate<HinoshitaKaho
     )
   );
 
-  public static readonly ImmutableDictionary<string, string> MAPPED_ANIMATIONS
-    = ImmutableDictionary.CreateRange([
-      KeyValuePair.Create(LinkuraAnimation.VANILLA_ANIM_IDLE, "quest_dance_general00"),
-      KeyValuePair.Create(LinkuraAnimation.VANILLA_ANIM_DIE, "quest_dance_mentaldown"),
-      KeyValuePair.Create(LinkuraAnimation.VANILLA_ANIM_ATTACK, "quest_dance_general03"),
-      KeyValuePair.Create(LinkuraAnimation.VANILLA_ANIM_CAST, "quest_dance_general14"),
-      KeyValuePair.Create(LinkuraAnimation.VANILLA_ANIM_HURT, "quest_dance_surprise02_in"),
-      KeyValuePair.Create(LinkuraAnimation.VANILLA_ANIM_RELAXED_LOOP, "quest_skill_moodmaker05_loop"),
-      KeyValuePair.Create(LinkuraAnimation.LINKURA_ANIM_BURST, "quest_skill_performer01"),
-      KeyValuePair.Create(LinkuraAnimation.LINKURA_ANIM_COLLECT, "quest_dance_general34"),
-      KeyValuePair.Create(LinkuraAnimation.VANILLA_ANIM_REST_SITE_ACT1, "quest_dance_general01"),
-      KeyValuePair.Create(LinkuraAnimation.VANILLA_ANIM_REST_SITE_ACT2, "quest_dance_general01"),
-      KeyValuePair.Create(LinkuraAnimation.VANILLA_ANIM_REST_SITE_ACT3, "quest_dance_general01"),
-    ]);
-
   /// <summary>
   /// Maps a vanilla animation name to the actual animation name in the Spine file.
-  /// Derived classes can override this to provide specific mappings.
   /// </summary>
   public virtual string GetMappedAnimation(string vanillaName) {
-    if (MAPPED_ANIMATIONS.TryGetValue(vanillaName, out string anim))
+    if (AnimationMap.TryGetValue(vanillaName, out string anim))
       return anim;
     LinkuraMod.Logger.Error($"Unknown vanilla animation name: {vanillaName}");
-    return MAPPED_ANIMATIONS.GetValueOrDefault(LinkuraAnimation.VANILLA_ANIM_IDLE);
+    return AnimationMap.GetValueOrDefault(LinkuraAnimation.VANILLA_ANIM_IDLE);
   }
 
   public override CreatureAnimator GenerateAnimator(MegaSprite controller) {

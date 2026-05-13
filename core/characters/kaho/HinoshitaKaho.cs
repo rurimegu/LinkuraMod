@@ -1,4 +1,5 @@
 using Godot;
+using RuriMegu.Core.Characters;
 using STS2RitsuLib.Interop.AutoRegistration;
 
 namespace RuriMegu.Core.Characters.Kaho;
@@ -7,7 +8,7 @@ namespace RuriMegu.Core.Characters.Kaho;
 /// Hinoshita Kaho
 /// </summary>
 [RegisterCharacter]
-public class HinoshitaKaho : LinkuraCharacterModel {
+public class HinoshitaKaho : LinkuraCharacterModel<HinoshitaKahoCardPool, KahoRelicPool, KahoPotionPool> {
   public const string CHARACTER_ID = "kaho";
   public const string CHARACTER_NAME = "Hinoshita Kaho";
   public override string CharacterId => CHARACTER_ID;
@@ -17,6 +18,7 @@ public class HinoshitaKaho : LinkuraCharacterModel {
 
   public override Color NameColor => Color;
   public override Color MapDrawingColor => Color;
+  public override Color EnergyLabelOutlineColor => Color;
 
   public override int StartingHp => 80;
 }

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Godot;
 using MegaCrit.Sts2.Core.Commands;
@@ -22,21 +24,36 @@ public static class LinkuraAnimation {
   public const string VANILLA_ANIM_REST_SITE_ACT2 = "hive_loop";
   public const string VANILLA_ANIM_REST_SITE_ACT3 = "glory_loop";
 
+  public static readonly ImmutableDictionary<string, string> MAPPED_ANIMATIONS
+    = ImmutableDictionary.CreateRange([
+      KeyValuePair.Create(VANILLA_ANIM_IDLE, "quest_dance_general00"),
+      KeyValuePair.Create(VANILLA_ANIM_DIE, "quest_dance_mentaldown"),
+      KeyValuePair.Create(VANILLA_ANIM_ATTACK, "quest_dance_general03"),
+      KeyValuePair.Create(VANILLA_ANIM_CAST, "quest_dance_general14"),
+      KeyValuePair.Create(VANILLA_ANIM_HURT, "quest_dance_surprise02_in"),
+      KeyValuePair.Create(VANILLA_ANIM_RELAXED_LOOP, "quest_skill_moodmaker05_loop"),
+      KeyValuePair.Create(LINKURA_ANIM_BURST, "quest_skill_performer01"),
+      KeyValuePair.Create(LINKURA_ANIM_COLLECT, "quest_dance_general34"),
+      KeyValuePair.Create(VANILLA_ANIM_REST_SITE_ACT1, "quest_dance_general01"),
+      KeyValuePair.Create(VANILLA_ANIM_REST_SITE_ACT2, "quest_dance_general01"),
+      KeyValuePair.Create(VANILLA_ANIM_REST_SITE_ACT3, "quest_dance_general01"),
+    ]);
+
   public static async Task PlayCastAnim(this Player player) {
-    if (player.Character is LinkuraCharacterModel linkuraChara) {
+    if (player.Character is ILinkuraCharacter linkuraChara) {
       await CreatureCmd.TriggerAnim(player.Creature, TRIGGER_NAME_CAST, linkuraChara.CastAnimDelay);
     }
   }
 
   public static async Task PlayBurstAnim(this Player player) {
-    if (player.Character is LinkuraCharacterModel linkuraChara) {
+    if (player.Character is ILinkuraCharacter linkuraChara) {
       await PlayCustomSpineAnim(player, linkuraChara.GetMappedAnimation(LINKURA_ANIM_BURST),
         linkuraChara.GetMappedAnimation(VANILLA_ANIM_IDLE), linkuraChara.BurstAnimDelay);
     }
   }
 
   public static async Task PlayCollectAnim(this Player player) {
-    if (player.Character is LinkuraCharacterModel linkuraChara) {
+    if (player.Character is ILinkuraCharacter linkuraChara) {
       await PlayCustomSpineAnim(player, linkuraChara.GetMappedAnimation(LINKURA_ANIM_COLLECT),
         linkuraChara.GetMappedAnimation(VANILLA_ANIM_IDLE), linkuraChara.CollectAnimDelay);
     }

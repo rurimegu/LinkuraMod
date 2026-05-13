@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
-using RuriMegu.Core.Characters;
+using RuriMegu.Core.Utils;
 using STS2RitsuLib.Patching.Core;
 using STS2RitsuLib.Patching.Models;
 
@@ -42,7 +42,7 @@ public class SpineAnimationPatch : IPatchMethod {
 
   public static void Prefix(MegaAnimationState __instance, ref string animationName) {
     if (SpineAnimStateCachePatch.LinkuraStateIds.Contains(__instance.BoundObject.GetInstanceId())) {
-      if (LinkuraCharacterModel.MAPPED_ANIMATIONS.TryGetValue(animationName, out string mappedName)) {
+      if (LinkuraAnimation.MAPPED_ANIMATIONS.TryGetValue(animationName, out string mappedName)) {
         LinkuraMod.Logger.Debug($"[SpineAnimationPatch] Rewriting '{animationName}' -> '{mappedName}'");
         animationName = mappedName;
       } else {
