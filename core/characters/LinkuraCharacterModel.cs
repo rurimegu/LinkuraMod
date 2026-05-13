@@ -41,7 +41,7 @@ public abstract class LinkuraCharacterModel<TCardPool, TRelicPool, TPotionPool>
   public override int StartingGold => 99;
   public override float AttackAnimDelay => 0f;
   public override float CastAnimDelay => 0f;
-  public override List<string> GetArchitectAttackVfx() => [];
+  public override List<string> GetArchitectAttackVfx() => ["vfx/vfx_starry_impact", "vfx/vfx_starry_impact", "vfx/vfx_starry_impact", "vfx/vfx_starry_impact", "vfx/vfx_starry_impact"];
 
   public override string PlaceholderCharacterId => "ironclad";
 
