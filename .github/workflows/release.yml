@@ -53,7 +53,7 @@ jobs:
             exit 1
           fi
           # Strip leading bracket/parenthesis and take the first version token
-          MIN_VERSION=$(echo "$RAW" | sed 's/^[\[\(]//' | cut -d',' -f1 | sed 's/[\]\)]$//')
+          MIN_VERSION=$(echo "$RAW" | sed 's/^[[(]//' | cut -d',' -f1 | sed 's/[])]$//')
           echo "version=$MIN_VERSION" >> "$GITHUB_OUTPUT"
 
       - name: Export PCK
