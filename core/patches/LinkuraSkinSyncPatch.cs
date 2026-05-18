@@ -3,6 +3,7 @@ using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Multiplayer;
+using MegaCrit.Sts2.Core.Multiplayer.Game;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Screens.Shops;
 using RuriMegu.Core.Utils;
@@ -14,28 +15,46 @@ namespace RuriMegu.Core.Config;
 
 public class LinkuraSkinSyncPatches : IModPatches {
   public static void AddTo(ModPatcher patcher) {
-    patcher.RegisterPatch<NetMessageBusConstructorPatch>();
+    patcher.RegisterPatch<NetClientGameServiceConstructorPatch>();
+    patcher.RegisterPatch<NetHostGameServiceConstructorPatch>();
     patcher.RegisterPatch<ClientConnectedPatch>();
     patcher.RegisterPatch<HostPeerConnectedPatch>();
     patcher.RegisterPatch<MerchantRoomAfterLoadedPatch>();
   }
 }
 
-public class NetMessageBusConstructorPatch : IPatchMethod {
-  public static string PatchId => "skin_sync_net_message_bus_ctor";
-  public static string Description => "Register LinkuraNetworkState message handler on NetMessageBus construction";
-  public static bool IsCritical => false;
-
-  public static ModPatchTarget[] GetTargets() =>
-    [new(typeof(NetMessageBus), ".ctor")];
-
-  public static void Postfix(NetMessageBus __instance) {
-    __instance.RegisterMessageHandler<LinkuraNetworkState>((msg, senderId) => {
+public static class LinkuraSkinSyncHelper {
+  public static void RegisterNetworkStateHandler(INetGameService gameService) {
+    gameService.RegisterMessageHandler<LinkuraNetworkState>((msg, senderId) => {
       ulong actualSender = msg.SenderId != 0 ? msg.SenderId : senderId;
       LinkuraMod.Logger.Info($"[LinkuraSkinSync] Received msg from peer {actualSender} (transport sender {senderId}): {msg}.");
       LinkuraNetwork.SetState(actualSender, msg);
     });
   }
+}
+
+public class NetClientGameServiceConstructorPatch : IPatchMethod {
+  public static string PatchId => "skin_sync_net_client_game_service_ctor";
+  public static string Description => "Register LinkuraNetworkState message handler on NetClientGameService construction";
+  public static bool IsCritical => false;
+
+  public static ModPatchTarget[] GetTargets() =>
+    [new(typeof(NetClientGameService), ".ctor", HarmonyLib.MethodType.Constructor)];
+
+  public static void Postfix(NetClientGameService __instance) =>
+    LinkuraSkinSyncHelper.RegisterNetworkStateHandler(__instance);
+}
+
+public class NetHostGameServiceConstructorPatch : IPatchMethod {
+  public static string PatchId => "skin_sync_net_host_game_service_ctor";
+  public static string Description => "Register LinkuraNetworkState message handler on NetHostGameService construction";
+  public static bool IsCritical => false;
+
+  public static ModPatchTarget[] GetTargets() =>
+    [new(typeof(NetHostGameService), ".ctor", HarmonyLib.MethodType.Constructor)];
+
+  public static void Postfix(NetHostGameService __instance) =>
+    LinkuraSkinSyncHelper.RegisterNetworkStateHandler(__instance);
 }
 
 public class ClientConnectedPatch : IPatchMethod {

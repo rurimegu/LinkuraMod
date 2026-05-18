@@ -56,7 +56,7 @@ public struct LinkuraNetworkState : INetMessage, IPacketSerializable {
 
   public override string ToString() {
     var sb = new StringBuilder();
-    sb.AppendLine($"<LinkuraNetworkState> SelectedCharacter: {SelectedCharacter}");
+    sb.AppendLine($"<LinkuraNetworkState> {SenderId} SelectedCharacter: {SelectedCharacter}");
     foreach (var (characterId, config) in Characters) {
       sb.Append(characterId == SelectedCharacter ? "* " : "  ");
       sb.AppendLine($"{characterId}: {config.SkinName}");
