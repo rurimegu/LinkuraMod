@@ -51,7 +51,7 @@ public class TwoSecondsOfEternity() : KahoCard(0, CardType.Skill, CardRarity.Rar
       .Where(c => c is not TwoSecondsOfEternity)
       .Sum(c => Math.Max(0, c.EnergyCost.GetWithModifiers(CostModifiers.All)));
 
-    EnergyCost.SetCustomBaseCost(totalCost);
+    EnergyCost.SetCustomBaseCost(totalCost / 2);
   }
 
   // ══════ Play effect ══════════════════════════════════════════════════════════════════════════════════════════════

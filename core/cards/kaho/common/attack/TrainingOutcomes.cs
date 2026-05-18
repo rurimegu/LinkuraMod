@@ -11,11 +11,11 @@ using STS2RitsuLib.Keywords;
 namespace RuriMegu.Core.Cards.Kaho.Common.Attack;
 
 /// <summary>
-/// Training Outcomes — Cost 4 (3), Attack, Common.
-/// Deal 16 (20) damage to ALL enemies.
+/// Training Outcomes — Cost 3, Attack, Common.
+/// Deal 16 (24) damage to ALL enemies.
 /// Backstage: whenever you Collect, this card costs 1 less in this combat.
 /// </summary>
-public class TrainingOutcomes() : KahoInHandTriggerCard(4, CardType.Attack, CardRarity.Common, TargetType.AllEnemies) {
+public class TrainingOutcomes() : KahoInHandTriggerCard(3, CardType.Attack, CardRarity.Common, TargetType.AllEnemies) {
 
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
@@ -46,7 +46,6 @@ public class TrainingOutcomes() : KahoInHandTriggerCard(4, CardType.Attack, Card
   }
 
   protected override void OnUpgrade() {
-    DynamicVars.Damage.UpgradeValueBy(4m);
-    EnergyCost.UpgradeBy(-1);
+    DynamicVars.Damage.UpgradeValueBy(8m);
   }
 }
