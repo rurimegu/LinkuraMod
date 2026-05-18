@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 namespace RuriMegu.Core.Cards.Kaho.Basic.Skill;
 
 public class LinkuraEnergy() : KahoCard(1, CardType.Skill, CardRarity.Basic, TargetType.None) {
-  public override IEnumerable<CardKeyword> CanonicalKeywords => [LinkuraKeywords.Collect];
+  protected override IEnumerable<string> RegisteredKeywordIds => [LinkuraKeywords.Collect];
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new BurstHeartsVar(8),

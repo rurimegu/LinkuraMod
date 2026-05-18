@@ -11,11 +11,11 @@ namespace RuriMegu.Core.Cards.Kaho.Common.Skill;
 
 /// <summary>
 /// Agile Steps (灵动舞步) — Cost 1, Skill, Common.
-/// Burst 5 (8). Your next Attack card costs 1 less energy.
+/// Burst 6 (9). Your next Attack card costs 1 less energy.
 /// </summary>
 public class AgileSteps() : KahoCard(1, CardType.Skill, CardRarity.Common, TargetType.None) {
   protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new BurstHeartsVar(5),
+    new BurstHeartsVar(6),
     new EnergyVar(1),
   ];
 

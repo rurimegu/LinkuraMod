@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -15,11 +15,11 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 /// </summary>
 public class AuroraFlower() : KahoCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
 
-  public override IEnumerable<CardKeyword> CanonicalKeywords => [LinkuraKeywords.Collect];
+  protected override IEnumerable<string> RegisteredKeywordIds => [LinkuraKeywords.Collect];
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new TriggerAutoBurstVar(6),
   ];
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
     HoverTipFactory.FromPower<AutoBurstPower>(),
     BurstHeartsVar.HoverTip(),
   ];

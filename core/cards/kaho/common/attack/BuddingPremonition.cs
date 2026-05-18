@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -22,7 +21,7 @@ public class BuddingPremonition() : KahoCard(2, CardType.Attack, CardRarity.Comm
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     await LinkuraCardActions.IncreaseMaxHearts(this, ctx);
     int maxHearts = HeartsState.GetMaxHearts(Owner);
-    await CommonActions.CardAttack(this, play.Target, damage: maxHearts)
+    await CommonActions.CardAttack(this, play.Target, damage: (decimal)maxHearts)
       .Execute(ctx);
   }
 

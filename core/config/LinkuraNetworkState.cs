@@ -56,7 +56,7 @@ public struct LinkuraNetworkState : INetMessage, IPacketSerializable {
 
   public override string ToString() {
     var sb = new StringBuilder();
-    sb.AppendLine($"<LinkuraNetworkState> SelectedCharacter: {SelectedCharacter}");
+    sb.AppendLine($"<LinkuraNetworkState> {SenderId} SelectedCharacter: {SelectedCharacter}");
     foreach (var (characterId, config) in Characters) {
       sb.Append(characterId == SelectedCharacter ? "* " : "  ");
       sb.AppendLine($"{characterId}: {config.SkinName}");
@@ -77,7 +77,7 @@ public struct LinkuraNetworkState : INetMessage, IPacketSerializable {
     return new LinkuraNetworkState {
       SenderId = playerId,
       Characters = new Dictionary<string, CharacterConfig> {
-        { HinoshitaKaho.CHARACTER_ID, new CharacterConfig { SkinName = LinkuraModConfig.KahoSkin } }
+        { HinoshitaKaho.CHARACTER_ID, new CharacterConfig { SkinName = LinkuraModConfig.Settings.KahoSkin } }
       },
       SelectedCharacter = HinoshitaKaho.CHARACTER_ID
     };

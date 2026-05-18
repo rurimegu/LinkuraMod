@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using RuriMegu.Core.Cards;
 using RuriMegu.Core.Powers.Kaho;
+using STS2RitsuLib.Keywords;
 
 namespace RuriMegu.Core.Potions.Kaho.Rare;
 
@@ -21,9 +22,9 @@ public class ColorfulCandyPot : KahoPotion {
   public override PotionUsage Usage => PotionUsage.CombatOnly;
   public override TargetType TargetType => TargetType.None;
 
-  public override IEnumerable<IHoverTip> ExtraHoverTips => base.ExtraHoverTips.Concat([
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => base.AdditionalHoverTips.Concat([
     BurstHeartsVar.HoverTip(),
-    HoverTipFactory.FromKeyword(LinkuraKeywords.Collect)
+    ModKeywordRegistry.CreateHoverTip(LinkuraKeywords.Collect)
   ]);
 
   protected override async Task OnUse(PlayerChoiceContext choiceContext, Creature target) {

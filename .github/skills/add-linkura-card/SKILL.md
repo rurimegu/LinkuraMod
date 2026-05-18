@@ -53,18 +53,18 @@ Update both language files when adding any card.
 `LinkuraMod/localization/eng/cards.json`
 
 ```json
-"RURIMEGU-MY_CARD.title": "My Card",
-"RURIMEGU-MY_CARD.description": "Deal {Damage:diff()} damage."
+"LINKURA_MOD_CARD_MY_CARD.title": "My Card",
+"LINKURA_MOD_CARD_MY_CARD.description": "Deal {Damage:diff()} damage."
 ```
 
 `LinkuraMod/localization/zhs/cards.json`
 
 ```json
-"RURIMEGU-MY_CARD.title": "我的牌",
-"RURIMEGU-MY_CARD.description": "造成{Damage:diff()}点伤害。"
+"LINKURA_MOD_CARD_MY_CARD.title": "我的牌",
+"LINKURA_MOD_CARD_MY_CARD.description": "造成{Damage:diff()}点伤害。"
 ```
 
-Localization key rule: convert the C# class name to `UPPER_SNAKE_CASE` and use `RURIMEGU-{CLASS_NAME}.{field}`.
+Localization key rule: RitsuLib derives the key as `LINKURA_MOD_CARD_{CLASS_NAME}.{field}` — ModId (`LINKURA_MOD`) + `CARD` category + the C# class name converted to `UPPER_SNAKE_CASE`.
 
 Note that most of the built-in keywords, and the keywords annotated with `AutoKeywordPosition.Before` or `AutoKeywordPosition.After` will be automatically added to the card description, so no need to add them to i18n files again. Examples: `Ethereal`, `Exhaust`, `Retain`.
 
@@ -83,7 +83,7 @@ If custom art already exists, use that instead of the placeholder copies.
 
 - The card class is in the correct folder and namespace.
 - The selected base class matches the intended behavior.
-- The card is registered in `HinoshitaKahoCardPool`.
+- The card extends `KahoCard` (which carries `[RegisterCard(typeof(HinoshitaKahoCardPool), Inherit = true)]`), so it is automatically registered in the Kaho card pool — no explicit registration step is needed.
 - Both `eng` and `zhs` localization entries exist.
 - Portrait filenames match the class name in snake_case form used by the mod assets.
 - If C# files changed, run the debug build to confirm the mod still compiles.

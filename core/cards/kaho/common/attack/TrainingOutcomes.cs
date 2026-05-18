@@ -1,22 +1,21 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using RuriMegu.Core.Utils;
+using STS2RitsuLib.Keywords;
 
 namespace RuriMegu.Core.Cards.Kaho.Common.Attack;
 
 /// <summary>
-/// Training Outcomes — Cost 4 (3), Attack, Common.
-/// Deal 16 (20) damage to ALL enemies.
+/// Training Outcomes — Cost 3, Attack, Common.
+/// Deal 16 (24) damage to ALL enemies.
 /// Backstage: whenever you Collect, this card costs 1 less in this combat.
 /// </summary>
-public class TrainingOutcomes() : KahoInHandTriggerCard(4, CardType.Attack, CardRarity.Common, TargetType.AllEnemies) {
+public class TrainingOutcomes() : KahoInHandTriggerCard(3, CardType.Attack, CardRarity.Common, TargetType.AllEnemies) {
 
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
@@ -24,8 +23,9 @@ public class TrainingOutcomes() : KahoInHandTriggerCard(4, CardType.Attack, Card
     new EnergyVar(1),
   ];
 
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => base.ExtraHoverTips.Append(
-    HoverTipFactory.FromKeyword(LinkuraKeywords.Collect));
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+    ModKeywordRegistry.CreateHoverTip(LinkuraKeywords.Collect),
+  ];
 
   protected override Task InitializeSubscriptions() {
     TrackSubscription(Events.Collect.SubscribeLate(OnCollectHearts));
@@ -46,7 +46,6 @@ public class TrainingOutcomes() : KahoInHandTriggerCard(4, CardType.Attack, Card
   }
 
   protected override void OnUpgrade() {
-    DynamicVars.Damage.UpgradeValueBy(4m);
-    EnergyCost.UpgradeBy(-1);
+    DynamicVars.Damage.UpgradeValueBy(8m);
   }
 }

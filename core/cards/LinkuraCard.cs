@@ -1,13 +1,14 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
-using BaseLib.Abstracts;
-using BaseLib.Extensions;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rooms;
 using RuriMegu.Core.Utils;
+using STS2RitsuLib.Scaffolding.Content;
 
 namespace RuriMegu.Core.Cards;
 
@@ -19,11 +20,13 @@ namespace RuriMegu.Core.Cards;
 /// No external driver (e.g. a relic) is needed.
 /// </summary>
 public abstract class LinkuraCard(int cost, CardType type, CardRarity rarity, TargetType target)
-  : CustomCardModel(cost, type, rarity, target) {
+  : ModCardTemplate(cost, type, rarity, target) {
   public virtual string CharacterId => "";
-  public override string CustomPortraitPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".BigCardImagePath(CharacterId);
-  public override string PortraitPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath(CharacterId);
-  public override string BetaPortraitPath => $"beta/{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath(CharacterId);
+  public override string CustomPortraitPath => $"{GetType().Name.PascalToSnakeCase()}.png".BigCardImagePath(CharacterId);
+  public override string PortraitPath => $"{GetType().Name.PascalToSnakeCase()}.png".CardImagePath(CharacterId);
+  public override string BetaPortraitPath => $"beta/{GetType().Name.PascalToSnakeCase()}.png".CardImagePath(CharacterId);
+
+  public override bool GainsBlock => CanonicalVars.OfType<BlockVar>().Any();
 
   private List<Subscription> _subs = [];
   private bool _subscriptionsInitialized;

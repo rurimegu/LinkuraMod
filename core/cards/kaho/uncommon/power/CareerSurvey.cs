@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -14,7 +14,7 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Power;
 /// At the start of your turn, convert ❤️ to equal Block.
 /// </summary>
 public class CareerSurvey() : KahoCard(1, CardType.Power, CardRarity.Uncommon, TargetType.None) {
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
     HoverTipFactory.Static(StaticHoverTip.Block),
   ];
 

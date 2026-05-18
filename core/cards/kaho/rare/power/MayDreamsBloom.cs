@@ -21,7 +21,7 @@ public class MayDreamsBloom() : KahoCard(2, CardType.Power, CardRarity.Rare, Tar
     new AutoBurstVar(1),
   ];
 
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
     HoverTipFactory.FromPower<AutoBurstPower>(),
     BurstHeartsVar.HoverTip(),
   ];

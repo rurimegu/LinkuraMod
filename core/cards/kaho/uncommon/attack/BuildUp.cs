@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -31,7 +30,7 @@ public class BuildUp() : KahoInHandTriggerCard(1, CardType.Attack, CardRarity.Un
     new DynamicVar(TRACKER_VAR, 0),
   ];
 
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => [BurstHeartsVar.HoverTip()];
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => [BurstHeartsVar.HoverTip()];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     int totalDraw = (int)((CalculatedVar)DynamicVars[DRAW_PREVIEW_VAR]).Calculate(null);

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using RuriMegu.Core.Powers.Kaho;
 using RuriMegu.Core.Utils;
+using STS2RitsuLib.Keywords;
 
 namespace RuriMegu.Core.Cards.Kaho.Uncommon.Power;
 
@@ -16,8 +17,8 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Power;
 /// </summary>
 public class SpecialAppeal() : KahoCard(1, CardType.Power, CardRarity.Uncommon, TargetType.None) {
 
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-    HoverTipFactory.FromKeyword(LinkuraKeywords.Collect),
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+    ModKeywordRegistry.CreateHoverTip(LinkuraKeywords.Collect),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {

@@ -23,7 +23,7 @@ public class Encore() : KahoCard(0, CardType.Skill, CardRarity.Uncommon, TargetT
     new BlockVar(2, ValueProp.Move),
   ];
 
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
     BurstHeartsVar.HoverTip(),
   ];
 

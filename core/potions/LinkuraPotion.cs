@@ -1,6 +1,5 @@
-using BaseLib.Abstracts;
-using BaseLib.Extensions;
 using RuriMegu.Core.Utils;
+using STS2RitsuLib.Scaffolding.Content;
 
 namespace RuriMegu.Core.Potions;
 
@@ -8,12 +7,12 @@ namespace RuriMegu.Core.Potions;
 /// Base class for all Linkura mod potions.
 /// Provides image path resolution based on character ID.
 /// </summary>
-public abstract class LinkuraPotion : CustomPotionModel {
+public abstract class LinkuraPotion : ModPotionTemplate {
   public abstract string CharacterId { get; }
 
-  public override string CustomPackedImagePath =>
-    $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".PotionImagePath(CharacterId);
+  public override string CustomImagePath =>
+    $"{GetType().Name.PascalToSnakeCase()}.png".PotionImagePath(CharacterId);
 
-  public override string CustomPackedOutlinePath =>
-    $"{Id.Entry.RemovePrefix().ToLowerInvariant()}_outline.png".PotionImagePath(CharacterId);
+  public override string CustomOutlinePath =>
+    $"{GetType().Name.PascalToSnakeCase()}_outline.png".PotionImagePath(CharacterId);
 }

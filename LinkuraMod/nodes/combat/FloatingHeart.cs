@@ -1,5 +1,4 @@
 using System.Threading.Tasks;
-using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Nodes.Pooling;
@@ -137,7 +136,7 @@ public partial class FloatingHeart : Control, IPoolable {
       .TweenProperty(this, "scale", Vector2.Zero, CollectDuration)
       .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad);
     tween.TweenCallback(Callable.From(() => {
-      this.QueueFreeSafely();
+      FloatingHeartPool.Free(this);
       tcs.SetResult();
     }));
     return tcs.Task;
@@ -151,6 +150,6 @@ public partial class FloatingHeart : Control, IPoolable {
 
     var tween = CreateTween();
     tween.TweenProperty(this, "modulate:a", 0.0f, 0.5f);
-    tween.TweenCallback(Callable.From(this.QueueFreeSafely));
+    tween.TweenCallback(Callable.From(() => FloatingHeartPool.Free(this)));
   }
 }

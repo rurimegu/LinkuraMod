@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -14,7 +13,7 @@ namespace RuriMegu.Core.Cards.Kaho.Common.Skill;
 /// Gain 12 (16) block. Burst 9 (12). Collect.
 /// </summary>
 public class FullOfPower() : KahoCard(2, CardType.Skill, CardRarity.Common, TargetType.None) {
-  public override IEnumerable<CardKeyword> CanonicalKeywords => [LinkuraKeywords.Collect];
+  protected override IEnumerable<string> RegisteredKeywordIds => [LinkuraKeywords.Collect];
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new BlockVar(12, ValueProp.Move),

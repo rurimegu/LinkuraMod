@@ -11,7 +11,7 @@ namespace RuriMegu.Core.Cards.Kaho.Common.Skill;
 /// Collect. This Collect deals damage to ALL enemies.
 /// </summary>
 public class FanService() : KahoCard(1, CardType.Skill, CardRarity.Common, TargetType.None) {
-  public override IEnumerable<CardKeyword> CanonicalKeywords => [LinkuraKeywords.Collect];
+  protected override IEnumerable<string> RegisteredKeywordIds => [LinkuraKeywords.Collect];
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [];
 

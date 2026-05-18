@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using RuriMegu.Core.Powers.Kaho;
 using RuriMegu.Core.Utils;
+using STS2RitsuLib.Keywords;
 
 namespace RuriMegu.Core.Cards.Kaho.Uncommon.Power;
 
@@ -14,8 +15,8 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Power;
 /// Backstage effects trigger twice.
 /// </summary>
 public class HolidayHoliday() : KahoCard(2, CardType.Power, CardRarity.Uncommon, TargetType.None) {
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-    HoverTipFactory.FromKeyword(LinkuraKeywords.Backstage),
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+    ModKeywordRegistry.CreateHoverTip(LinkuraKeywords.Backstage),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {

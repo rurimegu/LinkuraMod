@@ -9,7 +9,7 @@ namespace RuriMegu.Core.Cards.Kaho.Common.Skill;
 
 /// <summary>
 /// Zanyou (残阳) — Cost 1, Skill, Common.
-/// Increase max ♥ by 5 (8). Burst 5 (8). Ethereal.
+/// Increase max ♥ by 8 (11). Burst 8 (11). Ethereal.
 /// </summary>
 public class Zanyou() : KahoCard(1, CardType.Skill, CardRarity.Common, TargetType.None) {
   public override IEnumerable<CardKeyword> CanonicalKeywords => [
@@ -17,8 +17,8 @@ public class Zanyou() : KahoCard(1, CardType.Skill, CardRarity.Common, TargetTyp
   ];
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new ExpandHeartsVar(5),
-    new BurstHeartsVar(5),
+    new ExpandHeartsVar(8),
+    new BurstHeartsVar(8),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {

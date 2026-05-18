@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using RuriMegu.Core.Cards;
+using STS2RitsuLib.Keywords;
 
 namespace RuriMegu.Core.Potions.Kaho.Common;
 
@@ -22,15 +23,15 @@ public class BackstagePotion : KahoPotion {
   public override PotionRarity Rarity => PotionRarity.Common;
   public override PotionUsage Usage => PotionUsage.CombatOnly;
   public override TargetType TargetType => TargetType.None;
-  public override IEnumerable<IHoverTip> ExtraHoverTips => base.ExtraHoverTips.Concat([
-    HoverTipFactory.FromKeyword(LinkuraKeywords.Backstage),
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => base.AdditionalHoverTips.Concat([
+    ModKeywordRegistry.CreateHoverTip(LinkuraKeywords.Backstage),
     HoverTipFactory.FromKeyword(CardKeyword.Retain)
   ]);
 
   protected override async Task OnUse(PlayerChoiceContext choiceContext, Creature target) {
     var poolCards = Owner.Character.CardPool
       .GetUnlockedCards(Owner.UnlockState, Owner.RunState.CardMultiplayerConstraint)
-      .Where(c => c.Keywords.Contains(LinkuraKeywords.Backstage));
+      .Where(c => c.HasModKeyword(LinkuraKeywords.Backstage));
 
     var cards = CardFactory.GetDistinctForCombat(Owner, poolCards, PICK_COUNT, Owner.RunState.Rng.CombatCardGeneration).ToList();
     if (cards.Count == 0) return;

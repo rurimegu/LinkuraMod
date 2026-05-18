@@ -22,7 +22,7 @@ public class TaleOfPeterRabbit : KahoRelic {
     new BlockVar(6m, ValueProp.Unpowered),
   ];
 
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
     HoverTipFactory.Static(StaticHoverTip.Block),
   ];
 

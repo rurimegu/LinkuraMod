@@ -22,7 +22,7 @@ namespace RuriMegu.Core.Relics.Kaho.Uncommon;
 public class LiveSyncChronometer : KahoRelic {
   public override RelicRarity Rarity => RelicRarity.Uncommon;
 
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
     HoverTipFactory.FromPower<AutoBurstPower>(),
     BurstHeartsVar.HoverTip(),
   ];

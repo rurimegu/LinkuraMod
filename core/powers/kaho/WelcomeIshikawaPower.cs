@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using RuriMegu.Core.Cards;
+using STS2RitsuLib.Keywords;
 
 namespace RuriMegu.Core.Powers.Kaho;
 
@@ -26,7 +27,7 @@ public class WelcomeIshikawaPower : KahoPower {
     var drawPile = PileType.Draw.GetPile(player);
     if (drawPile == null) return;
 
-    var backstageCards = drawPile.Cards.Where(c => c.Keywords.Contains(LinkuraKeywords.Backstage)).ToList();
+    var backstageCards = drawPile.Cards.Where(c => c.HasModKeyword(LinkuraKeywords.Backstage)).ToList();
     if (backstageCards.Count == 0) return;
 
     Flash();

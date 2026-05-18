@@ -17,7 +17,7 @@ namespace RuriMegu.Core.Cards;
 public abstract class InHandTriggerCard(int cost, CardType type, CardRarity rarity, TargetType target)
   : LinkuraCard(cost, type, rarity, target) {
 
-  public override IEnumerable<CardKeyword> CanonicalKeywords => [LinkuraKeywords.Backstage];
+  protected override IEnumerable<string> RegisteredKeywordIds => [LinkuraKeywords.Backstage];
 
   private async Task<Events.TriggerBackstageEvent> TryTrigger(PlayerChoiceContext ctx) {
     if (!CanTrigger()) return null;

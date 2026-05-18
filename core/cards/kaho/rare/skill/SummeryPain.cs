@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
@@ -12,12 +12,12 @@ using RuriMegu.Core.Utils;
 namespace RuriMegu.Core.Cards.Kaho.Rare.Skill;
 
 /// <summary>
-/// Summery Pain — Cost 1, Skill, Rare.
+/// Summery Pain 鈥?Cost 1, Skill, Rare.
 /// Discard your hand and draw that many cards.
 /// Backstage: Whenever you have fewer than 6 (8) cards in hand, draw 1 card.
 /// </summary>
 public class SummeryPain() : KahoInHandTriggerCard(1, CardType.Skill, CardRarity.Rare, TargetType.None) {
-  private const string HAND_THRESHOLD_VAR = "RURIMEGU-HAND_THRESHOLD";
+  private const string HAND_THRESHOLD_VAR = "LINKURA_MOD_HAND_THRESHOLD";
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new DynamicVar(HAND_THRESHOLD_VAR, 6m),
@@ -48,7 +48,7 @@ public class SummeryPain() : KahoInHandTriggerCard(1, CardType.Skill, CardRarity
   public override async Task AfterCardEnteredCombat(CardModel card) {
     if (card == this) {
       // BLOCKING_CONTEXT is safe: TriggerWithAction doesn't push/pop any PlayerChoiceContext
-      // itself — ctx only flows into TriggerBackstageEvent and CardPileCmd.Draw inside the lambda.
+      // itself 鈥?ctx only flows into TriggerBackstageEvent and CardPileCmd.Draw inside the lambda.
       await TriggerEffect(new BlockingPlayerChoiceContext());
     }
     await base.AfterCardEnteredCombat(card);

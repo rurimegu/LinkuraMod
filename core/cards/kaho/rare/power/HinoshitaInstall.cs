@@ -16,7 +16,7 @@ namespace RuriMegu.Core.Cards.Kaho.Rare.Power;
 /// </summary>
 public class HinoshitaInstall() : KahoCard(1, CardType.Power, CardRarity.Rare, TargetType.None) {
   public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.MultiplayerOnly;
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
     HoverTipFactory.FromPower<AutoBurstPower>(),
     BurstHeartsVar.HoverTip(),
   ];

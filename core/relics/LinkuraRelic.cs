@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BaseLib.Abstracts;
-using BaseLib.Extensions;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Rooms;
 using RuriMegu.Core.Utils;
+using STS2RitsuLib.Scaffolding.Content;
 
 namespace RuriMegu.Core.Relics;
 
@@ -14,11 +13,11 @@ namespace RuriMegu.Core.Relics;
 /// subscriptions are initialized when combat starts or when the relic is obtained mid-combat,
 /// and disposed automatically at combat end or relic removal.
 /// </summary>
-public abstract class LinkuraRelic : CustomRelicModel {
+public abstract class LinkuraRelic : ModRelicTemplate {
   public abstract string CharacterId { get; }
-  public override string PackedIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".RelicImagePath(CharacterId);
-  protected override string PackedIconOutlinePath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}_outline.png".RelicImagePath(CharacterId);
-  protected override string BigIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".BigRelicImagePath(CharacterId);
+  public override string PackedIconPath => $"{GetType().Name.PascalToSnakeCase()}.png".RelicImagePath(CharacterId);
+  protected override string PackedIconOutlinePath => $"{GetType().Name.PascalToSnakeCase()}_outline.png".RelicImagePath(CharacterId);
+  protected override string BigIconPath => $"{GetType().Name.PascalToSnakeCase()}.png".BigRelicImagePath(CharacterId);
 
   private List<Subscription> _subs = [];
   private bool _subscriptionsInitialized;

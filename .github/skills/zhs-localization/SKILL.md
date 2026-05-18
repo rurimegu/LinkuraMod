@@ -161,9 +161,9 @@ This mirrors the official STS2 ZHS pattern (e.g., `GENYOU_YAKOU.description`: `"
 Every power must have all of these keys:
 
 ```json
-"RURIMEGU-MY_POWER.title": "...",
-"RURIMEGU-MY_POWER.description": "...",
-"RURIMEGU-MY_POWER.smartDescription": "...",
+"LINKURA_MOD_MY_POWER.title": "...",
+"LINKURA_MOD_MY_POWER.description": "...",
+"LINKURA_MOD_MY_POWER.smartDescription": "...",
 ```
 
 ---
@@ -171,7 +171,7 @@ Every power must have all of these keys:
 ## Localization Key Format
 
 ```
-RURIMEGU-{UPPER_SNAKE_CLASS_NAME}.{field}
+LINKURA_MOD_{UPPER_SNAKE_CLASS_NAME}.{field}
 ```
 
 - Class name → `UPPER_SNAKE_CASE` (e.g. `EnduringTraditionPower` → `ENDURING_TRADITION_POWER`)

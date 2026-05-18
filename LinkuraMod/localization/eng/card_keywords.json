@@ -1,6 +1,6 @@
 {
-  "RURIMEGU-COLLECT.title": "Collect",
-  "RURIMEGU-COLLECT.description": "Deal damage to a random enemy equal to the number of ❤️ you have, then lose all ❤️.",
-  "RURIMEGU-BACKSTAGE.title": "Backstage",
-  "RURIMEGU-BACKSTAGE.description": "Triggers while this card is in your [gold]Hand[/gold], whenever the stated condition is met."
+  "LINKURA_MOD_KEYWORD_COLLECT.title": "Collect",
+  "LINKURA_MOD_KEYWORD_COLLECT.description": "Deal damage to a random enemy equal to the number of ❤️ you have, then lose all ❤️.",
+  "LINKURA_MOD_KEYWORD_BACKSTAGE.title": "Backstage",
+  "LINKURA_MOD_KEYWORD_BACKSTAGE.description": "Triggers while this card is in your [gold]Hand[/gold], whenever the stated condition is met."
 }

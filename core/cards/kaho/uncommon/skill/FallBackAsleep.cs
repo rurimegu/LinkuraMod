@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -15,7 +15,7 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 /// Gain Block equal to current ❤️. Block persists this turn.
 /// </summary>
 public class FallBackAsleep() : KahoCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
     HoverTipFactory.Static(StaticHoverTip.Block)
   ];
 

@@ -2,24 +2,22 @@
 
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BaseLib.Utils;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
 using RuriMegu.Core.Cards;
 using RuriMegu.Core.Characters.Kaho;
 using RuriMegu.Core.Powers;
 using RuriMegu.Core.Utils;
+using STS2RitsuLib.Interop.AutoRegistration;
 
 namespace RuriMegu.Core.Relics.Kaho.Starter;
 
-[Pool(typeof(KahoRelicPool))]
 public abstract class LinkuraSystemBase : LinkuraStarterRelic {
   public override string CharacterId => HinoshitaKaho.CHARACTER_ID;
   protected abstract int AutoBurstAmount { get; }
 
-  protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+  protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
     HoverTipFactory.FromPower<AutoBurstPower>(),
     BurstHeartsVar.HoverTip(),
   ];
@@ -40,11 +38,14 @@ public abstract class LinkuraSystemBase : LinkuraStarterRelic {
 /// <summary>
 /// Linkura System - Starter relic for Hinoshita Kaho.
 /// </summary>
+[RegisterRelic(typeof(KahoRelicPool))]
+[RegisterCharacterStarterRelic(typeof(HinoshitaKaho))]
+[RegisterTouchOfOrobasRefinement(typeof(DreamDefine))]
 public class LinkuraSystem : LinkuraSystemBase {
   protected override int AutoBurstAmount => 1;
-  public override RelicModel GetUpgradeReplacement() => ModelDb.Relic<DreamDefine>();
 }
 
+[RegisterRelic(typeof(KahoRelicPool))]
 public class DreamDefine : LinkuraSystemBase {
   protected override int AutoBurstAmount => 3;
 }

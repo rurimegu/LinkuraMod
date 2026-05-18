@@ -58,4 +58,8 @@ public class MayDreamsBloomPower : MayDreamsBloomPowerBase {
 /// </summary>
 public class MayDreamsBloomUpgradedPower : MayDreamsBloomPowerBase {
   protected override int Threshold => 12;
+
+  // No dedicated portrait yet — reuse the base power's image.
+  public override string CustomIconPath => "may_dreams_bloom.png".PowerImagePath(CharacterId);
+  public override string CustomBigIconPath => "may_dreams_bloom.png".PowerImagePath(CharacterId);
 }

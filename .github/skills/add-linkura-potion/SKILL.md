@@ -9,7 +9,7 @@ argument-hint: "Provide the potion name, target character, rarity (Common/Uncomm
 ## When to Use
 
 - Add a new potion to LinkuraMod.
-- Register a potion in the Hinoshita Kaho potion pool.
+- Register a potion in the Hinoshita Kaho potion pool (automatic via `KahoPotion` base class).
 - Update required localization for both supported languages.
 - Add placeholder image assets for the potion.
 
@@ -108,17 +108,17 @@ Add localization for the power in both `eng/powers.json` and `zhs/powers.json`.
 Update `LinkuraMod/localization/eng/potions.json` and `zhs/potions.json`.
 
 ```json
-"RURIMEGU-MY_POTION.title": "My Potion",
-"RURIMEGU-MY_POTION.description": "Do something cool."
+"LINKURA_MOD_POTION_MY_POTION.title": "My Potion",
+"LINKURA_MOD_POTION_MY_POTION.description": "Do something cool."
 ```
 
 For potions that show a card selection screen, also add a `selectionScreenPrompt` key:
 
 ```json
-"RURIMEGU-MY_POTION.selectionScreenPrompt": "Choose a card to add to your hand."
+"LINKURA_MOD_POTION_MY_POTION.selectionScreenPrompt": "Choose a card to add to your hand."
 ```
 
-Localization key rule: convert the C# class name to `UPPER_SNAKE_CASE` and prefix with `RURIMEGU-`.
+Localization key rule: RitsuLib derives the key as `LINKURA_MOD_POTION_{CLASS_NAME}.{field}` — ModId (`LINKURA_MOD`) + `POTION` category + the C# class name converted to `UPPER_SNAKE_CASE`.
 
 ### 4. Add placeholder image assets
 
@@ -127,7 +127,7 @@ Place in `LinkuraMod/images/potions/kaho/`:
 - `my_potion.png` — main potion image (displayed in the potion slot)
 - `my_potion_outline.png` — outline version (used for hover/tooltip outlines)
 
-The filename is the C# class name converted to `lower_snake_case`, with the `RURIMEGU-` model ID prefix stripped. The image paths are handled automatically by `KahoPotion` via `LinkuraPotion.CustomPackedImagePath`.
+The filename is the C# class name converted to `lower_snake_case`. The image paths are handled automatically by `KahoPotion` via `LinkuraPotion.CustomPackedImagePath`.
 
 If no custom art is available yet, copy a placeholder from an existing potion in the same folder.
 

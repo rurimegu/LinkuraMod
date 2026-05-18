@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
+using RuriMegu.Core.Utils;
 
 namespace RuriMegu.Core.Cards.Kaho.Common.Skill;
 
@@ -13,7 +13,7 @@ namespace RuriMegu.Core.Cards.Kaho.Common.Skill;
 /// Gain 5 (8) block. Collect.
 /// </summary>
 public class CurtainCall() : KahoCard(0, CardType.Skill, CardRarity.Common, TargetType.None) {
-  public override IEnumerable<CardKeyword> CanonicalKeywords => [LinkuraKeywords.Collect];
+  protected override IEnumerable<string> RegisteredKeywordIds => [LinkuraKeywords.Collect];
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new BlockVar(5, ValueProp.Move),

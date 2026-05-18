@@ -1,6 +1,6 @@
 # LinkuraMod — Agent Instructions
 
-STS2 mod built with the **BaseLib** framework (`Alchyr.Sts2.BaseLib`) on Godot 4 / .NET 9.
+STS2 mod built with the **RitsuLib** framework (`STS2.RitsuLib`) on Godot 4 / .NET 9.
 
 ---
 
@@ -42,13 +42,13 @@ Sub-namespaces follow the folder path, e.g. `RuriMegu.Core.Cards.Kaho`.
 
 ## Naming Conventions
 
-| What                                              | Convention                  | Example                                       |
-| ------------------------------------------------- | --------------------------- | --------------------------------------------- |
-| Constants (`const`)                               | `UPPER_SNAKE_CASE`          | `MAX_TRIGGERS_PER_PLAY`, `DEFAULT_MAX_HEARTS` |
-| Public identifiers (classes, properties, methods) | `PascalCase`                | `BurstHearts()`, `CanonicalVars`              |
-| Private fields                                    | `_camelCase`                | `_triggerCount`                               |
-| Localization keys                                 | `RURIMEGU-CLASS_NAME.field` | `RURIMEGU-SPECIAL_THANKS.title`               |
-| CustomEnum strings (keywords/DynamicVars)         | `PascalCase_Words`          | `"Collect_Hearts"`, `"Backstage"`             |
+| What                                              | Convention                                  | Example                                       |
+| ------------------------------------------------- | ------------------------------------------- | --------------------------------------------- |
+| Constants (`const`)                               | `UPPER_SNAKE_CASE`                          | `MAX_TRIGGERS_PER_PLAY`, `DEFAULT_MAX_HEARTS` |
+| Public identifiers (classes, properties, methods) | `PascalCase`                                | `BurstHearts()`, `CanonicalVars`              |
+| Private fields                                    | `_camelCase`                                | `_triggerCount`                               |
+| Localization keys                                 | `LINKURA_MOD_{CATEGORY}_{CLASS_NAME}.field` | `LINKURA_MOD_CARD_SPECIAL_THANKS.title`       |
+| CustomEnum strings (keywords/DynamicVars)         | `PascalCase_Words`                          | `"Collect_Hearts"`, `"Backstage"`             |
 
 > **Do NOT use PascalCase for constants.** Always `UPPER_SNAKE_CASE`.
 
@@ -68,7 +68,7 @@ Potion creation workflow lives in `.github/skills/add-linkura-potion/SKILL.md`.
 ## Localization
 
 - Two languages always maintained in parallel: **`eng`** and **`zhs`**.
-- Key format: `RURIMEGU-{UPPER_SNAKE_CLASS_NAME}.{field}` where field is `title` or `description`.
+- Key format: `LINKURA_MOD_{UPPER_SNAKE_CLASS_NAME}.{field}` where field is `title` or `description`.
 - Class name in the key is the C# class name converted to `UPPER_SNAKE_CASE`.
 - In-game rich text tags: `[gold]Keyword Name[/gold]` for highlighted keyword references in descriptions.
 - Variable references in descriptions: `{VariableName:diff()}`.
