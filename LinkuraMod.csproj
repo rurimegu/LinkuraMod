@@ -13,7 +13,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="STS2.RitsuLib" Version="*">
+    <PackageReference Include="STS2.RitsuLib" Version="[0.2.30,)">
       <ExcludeAssets>runtime</ExcludeAssets>
       <Private>False</Private>
     </PackageReference>
