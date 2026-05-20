@@ -90,6 +90,18 @@ public abstract class LinkuraCard(int cost, CardType type, CardRarity rarity, Ta
     _triggerCount++;
   }
 
+  protected CardPlay CreateDummyCardPlay() {
+    return new CardPlay {
+      Card = this,
+      Target = null,
+      ResultPile = Pile?.Type ?? PileType.Hand,
+      Resources = new ResourceInfo { EnergySpent = 0, EnergyValue = 0, StarsSpent = 0, StarValue = 0 },
+      IsAutoPlay = true,
+      PlayIndex = 0,
+      PlayCount = 1
+    };
+  }
+
   // ── Self-managed lifecycle hooks ───────────────────────────────────────
 
   /// <summary>

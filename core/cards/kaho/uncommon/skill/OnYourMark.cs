@@ -36,7 +36,7 @@ public class OnYourMark() : KahoCard(0, CardType.Skill, CardRarity.Uncommon, Tar
       await Cmd.Wait(0.5f);
       int energy = Owner.PlayerCombatState?.Energy ?? 0;
       int block = energy * DynamicVars.Block.IntValue;
-      await CreatureCmd.GainBlock(Owner.Creature, block, DynamicVars.Block.Props, null);
+      await CreatureCmd.GainBlock(Owner.Creature, block, DynamicVars.Block.Props, CreateDummyCardPlay());
     }
   }
 
