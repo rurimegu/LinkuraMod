@@ -62,4 +62,33 @@ public static class CardExtensions {
     CardPile discardPile = PileType.Discard.GetPile(card.Owner);
     return discardPile != null && discardPile.Cards.Contains(card);
   }
+
+  public static int GetEnchantedBlock(this CardModel card, BlockVar blockVar) {
+    if (blockVar == null) return 0;
+    decimal val = blockVar.BaseValue;
+    if (card.Enchantment != null) {
+      val += card.Enchantment.EnchantBlockAdditive(val, blockVar.Props);
+      val *= card.Enchantment.EnchantBlockMultiplicative(val, blockVar.Props);
+    }
+    return (int)val;
+  }
+
+  public static int GetEnchantedBlock(this CardModel card) {
+    return card.GetEnchantedBlock(card.DynamicVars.Block);
+  }
+
+  public static int GetEnchantedDamage(this CardModel card, DamageVar damageVar) {
+    if (damageVar == null) return 0;
+    decimal val = damageVar.BaseValue;
+    if (card.Enchantment != null) {
+      val += card.Enchantment.EnchantDamageAdditive(val, damageVar.Props);
+      val *= card.Enchantment.EnchantDamageMultiplicative(val, damageVar.Props);
+    }
+    return (int)val;
+  }
+
+  public static int GetEnchantedDamage(this CardModel card) {
+    return card.GetEnchantedDamage(card.DynamicVars.Damage);
+  }
 }
+

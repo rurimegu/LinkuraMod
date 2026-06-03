@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -100,6 +102,30 @@ public abstract class LinkuraCard(int cost, CardType type, CardRarity rarity, Ta
       PlayIndex = 0,
       PlayCount = 1
     };
+  }
+
+  protected CardPlay CreateEnchantlessCardPlay() {
+    var dummyCard = (CardModel)ClonePreservingMutability();
+    dummyCard.ClearEnchantmentInternal();
+    return new CardPlay {
+      Card = dummyCard,
+      Target = null,
+      ResultPile = Pile?.Type ?? PileType.Hand,
+      Resources = new ResourceInfo { EnergySpent = 0, EnergyValue = 0, StarsSpent = 0, StarValue = 0 },
+      IsAutoPlay = true,
+      PlayIndex = 0,
+      PlayCount = 1
+    };
+  }
+
+  protected async Task TriggerDrawEffect(PlayerChoiceContext ctx, Func<Task> action) {
+    if (!CanTrigger()) return;
+    IncrementTriggerCount();
+    await Cmd.Wait(0.5f);
+    await action();
+    if (Enchantment != null) {
+      await Enchantment.OnPlay(ctx, CreateDummyCardPlay());
+    }
   }
 
   // ── Self-managed lifecycle hooks ───────────────────────────────────────

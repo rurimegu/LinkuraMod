@@ -35,6 +35,9 @@ public abstract class InHandTriggerCard(int cost, CardType type, CardRarity rari
 
     for (int i = 0; i <= ev.RepeatCount; i++) {
       await action();
+      if (Enchantment != null) {
+        await Enchantment.OnPlay(ctx, CreateDummyCardPlay());
+      }
     }
     await AfterTrigger(ev);
     return ev;

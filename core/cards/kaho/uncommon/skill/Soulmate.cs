@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -35,10 +34,7 @@ public class Soulmate() : KahoCard(0, CardType.Skill, CardRarity.Uncommon, Targe
 
   public override async Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw) {
     if (card == this) {
-      if (!CanTrigger()) return;
-      IncrementTriggerCount();
-      await Cmd.Wait(0.5f);
-      await LinkuraCardActions.AutoBurst(this, choiceContext);
+      await TriggerDrawEffect(choiceContext, () => LinkuraCardActions.AutoBurst(this, choiceContext));
     }
   }
 

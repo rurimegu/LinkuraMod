@@ -33,6 +33,8 @@ public class SugarMelt() : KahoCard(2, CardType.Power, CardRarity.Uncommon, Targ
     await PowerCmd.Apply<SugarMeltPower>(Owner.Creature, DynamicVars.Block.IntValue, Owner.Creature, this);
   }
 
+  public override bool GainsBlock => false;
+
   protected override void OnUpgrade() {
     DynamicVars.AutoBurst().UpgradeValueBy(1m);
   }
