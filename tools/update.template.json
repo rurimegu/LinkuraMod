@@ -1,0 +1,16 @@
+{
+  "$schema": "https://sts2-ritsulib.ritsukage.com/ritsulib-update.schema.json",
+  "schema": "ritsulib.update.v1",
+  "latest_version": "",
+  "release_page_url": "https://github.com/rurimegu/LinkuraMod/releases/",
+  "localized": {
+    "eng": {
+      "title": "LinkuraMod update available",
+      "message": "LinkuraMod {latest_version} is available. Current version: {current_version}. Click to open the release page."
+    },
+    "zhs": {
+      "title": "LinkuraMod 有更新",
+      "message": "LinkuraMod {latest_version} 已发布。当前版本：{current_version}。点击打开发布页。"
+    }
+  }
+}
