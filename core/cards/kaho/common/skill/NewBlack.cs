@@ -48,7 +48,7 @@ public class NewBlack() : KahoInHandTriggerCard(1, CardType.Skill, CardRarity.Co
     while (DynamicVars[TRACKER_VAR].IntValue >= BURST_PER_TRIGGER) {
       DynamicVars[TRACKER_VAR].BaseValue -= BURST_PER_TRIGGER;
       var triggerEv = await TriggerWithAction(ev.Context, async () => {
-        await CreatureCmd.GainBlock(Owner.Creature, (BlockVar)DynamicVars[BACKSTAGE_BLOCK_VAR], null);
+        await CreatureCmd.GainBlock(Owner.Creature, (BlockVar)DynamicVars[BACKSTAGE_BLOCK_VAR], CreateDummyCardPlay());
       });
       if (triggerEv.IsNullOrCancelled()) break;
     }

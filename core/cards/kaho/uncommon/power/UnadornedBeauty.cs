@@ -22,7 +22,7 @@ public class UnadornedBeauty() : KahoCard(2, CardType.Power, CardRarity.Uncommon
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     await Owner.PlayCastAnim();
-    await PowerCmd.Apply<UnadornedBeautyPower>(Owner.Creature, DynamicVars.Energy.IntValue, Owner.Creature, this);
+    await PowerCmd.Apply<UnadornedBeautyPower>(ctx, Owner.Creature, DynamicVars.Energy.IntValue, Owner.Creature, this);
   }
 
   protected override void OnUpgrade() {

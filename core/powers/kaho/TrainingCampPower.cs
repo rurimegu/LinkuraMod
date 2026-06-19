@@ -1,4 +1,4 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -20,11 +20,11 @@ public class TrainingCampPower() : KahoPower {
 
   private int _remainingTriggersThisTurn;
 
-  public override Task AfterPowerAmountChanged(PowerModel power, decimal amount, Creature applier, CardModel cardSource) {
+  public override Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature applier, CardModel cardSource) {
     if (power == this) {
       _remainingTriggersThisTurn += (int)amount;
     }
-    return base.AfterPowerAmountChanged(power, amount, applier, cardSource);
+    return base.AfterPowerAmountChanged(choiceContext, power, amount, applier, cardSource);
   }
 
   public override async Task AfterPlayerTurnStartEarly(PlayerChoiceContext choiceContext, Player player) {
@@ -38,7 +38,7 @@ public class TrainingCampPower() : KahoPower {
   public override bool TryModifyEnergyCostInCombat(CardModel card, decimal originalCost, out decimal modifiedCost) {
     modifiedCost = originalCost;
     if (card.Owner.Creature != Owner || _remainingTriggersThisTurn <= 0) return false;
-    if (!card.HasModKeyword(LinkuraKeywords.Backstage)) return false;
+    if (!card.HasModKeyword(LinkuraKeywords.Backstage.GetModCardKeyword())) return false;
 
     var pileType = card.Pile?.Type;
     if (pileType != PileType.Hand && pileType != PileType.Play) return false;
@@ -49,7 +49,7 @@ public class TrainingCampPower() : KahoPower {
   }
 
   public override Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay) {
-    if (cardPlay.Card.Owner.Creature == Owner && _remainingTriggersThisTurn > 0 && cardPlay.Card.HasModKeyword(LinkuraKeywords.Backstage)) {
+    if (cardPlay.Card.Owner.Creature == Owner && _remainingTriggersThisTurn > 0 && cardPlay.Card.HasModKeyword(LinkuraKeywords.Backstage.GetModCardKeyword())) {
       _remainingTriggersThisTurn--;
     }
     return Task.CompletedTask;

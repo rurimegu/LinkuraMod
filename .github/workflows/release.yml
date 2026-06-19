@@ -87,6 +87,6 @@ jobs:
           tag_name: v${{ steps.version.outputs.version }}
           name: LinkuraMod v${{ steps.version.outputs.version }}
           body: |
-            > **Requires [RitsuLib ≥ v${{ steps.ritsulib.outputs.version }}](https://github.com/BAKAOLC/STS2-RitsuLib/releases/tag/v${{ steps.ritsulib.outputs.version }})**
+            > **Requires [RitsuLib ≥ v${{ steps.ritsulib.outputs.version }}](https://github.com/BAKAOLC/STS2-RitsuLib/releases/)**
           files: ${{ env.ZIP }}
           generate_release_notes: true

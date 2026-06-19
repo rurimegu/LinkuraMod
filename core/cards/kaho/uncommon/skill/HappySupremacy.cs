@@ -62,10 +62,10 @@ public class HappySupremacy() : KahoCard(0, CardType.Skill, CardRarity.Uncommon,
 
     for (int i = 0; i < targets.Count; i++) {
       if (strengths[i] > 0) {
-        await PowerCmd.Apply<StrengthPower>(targets[i], strengths[i], Owner.Creature, this);
+        await PowerCmd.Apply<StrengthPower>(ctx, targets[i], strengths[i], Owner.Creature, this);
       }
       if (dexterities[i] > 0) {
-        await PowerCmd.Apply<DexterityPower>(targets[i], dexterities[i], Owner.Creature, this);
+        await PowerCmd.Apply<DexterityPower>(ctx, targets[i], dexterities[i], Owner.Creature, this);
       }
     }
 

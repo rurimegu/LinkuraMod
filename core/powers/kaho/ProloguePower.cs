@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -25,8 +26,8 @@ public class ProloguePower : KahoPower {
     return base.AfterApplied(applier, cardSource);
   }
 
-  public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, CombatState combatState) {
-    await base.BeforeSideTurnStart(choiceContext, side, combatState);
+  public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState) {
+    await base.BeforeSideTurnStart(choiceContext, side, participants, combatState);
     if (side == Owner.Side) {
       _pendingDiscounts = 0;
     }

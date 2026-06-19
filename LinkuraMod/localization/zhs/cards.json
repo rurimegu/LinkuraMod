@@ -1,4 +1,4 @@
-﻿{
+{
   "LINKURA_MOD_CARD_KAHO_DEFEND.title": "防御",
   "LINKURA_MOD_CARD_KAHO_DEFEND.description": "获得{Block:diff()}点[gold]格挡[/gold]。",
   "LINKURA_MOD_CARD_KAHO_STRIKE.title": "打击",
@@ -103,7 +103,7 @@
   "LINKURA_MOD_CARD_AURORA_FLOWER.title": "极光花",
   "LINKURA_MOD_CARD_AURORA_FLOWER.description": "触发{LINKURA_MOD_AUTO_BURST_TRIGGERS:diff()}次[gold]自然爆心[/gold]。每次触发后[gold]收心[/gold]。",
   "LINKURA_MOD_CARD_ON_YOUR_MARK.title": "On Your Mark",
-  "LINKURA_MOD_CARD_ON_YOUR_MARK.description": "增加{LINKURA_MOD_EXPAND_HEARTS:diff()}X点❤️上限。抽到此牌时，获得等同于你当前能量{Block:diff()}倍的[gold]格挡[/gold]。",
+  "LINKURA_MOD_CARD_ON_YOUR_MARK.description": "增加{LINKURA_MOD_EXPAND_HEARTS:diff()}X点❤️上限。抽到此牌时，获得等同于你当前能量{LINKURA_MOD_ON_YOUR_MARK_BLOCK:diff()}倍的[gold]格挡[/gold]。",
   "LINKURA_MOD_CARD_SOULMATE.title": "命定之人",
   "LINKURA_MOD_CARD_SOULMATE.description": "[gold]收心[/gold]。抽{Cards:diff()}张牌。当抽到此牌时，触发{LINKURA_MOD_AUTO_BURST_TRIGGERS:diff()}次[gold]自然爆心[/gold]。",
   "LINKURA_MOD_CARD_MENTAL_GUARD.title": "精神守护",

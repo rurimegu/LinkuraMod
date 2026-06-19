@@ -42,7 +42,7 @@ public class LoveIt() : KahoInHandTriggerCard(1, CardType.Skill, CardRarity.Comm
   private async Task OnCollectHearts(Events.CollectEvent ev) {
     if (ev.Player != Owner) return;
     await TriggerWithAction(ev.Context, () =>
-      CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, null));
+      CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, CreateDummyCardPlay()));
   }
 
   protected override void OnUpgrade() {

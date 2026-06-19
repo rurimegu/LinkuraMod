@@ -31,7 +31,7 @@ public class BackstagePotion : KahoPotion {
   protected override async Task OnUse(PlayerChoiceContext choiceContext, Creature target) {
     var poolCards = Owner.Character.CardPool
       .GetUnlockedCards(Owner.UnlockState, Owner.RunState.CardMultiplayerConstraint)
-      .Where(c => c.HasModKeyword(LinkuraKeywords.Backstage));
+      .Where(c => c.HasModKeyword(LinkuraKeywords.Backstage.GetModCardKeyword()));
 
     var cards = CardFactory.GetDistinctForCombat(Owner, poolCards, PICK_COUNT, Owner.RunState.Rng.CombatCardGeneration).ToList();
     if (cards.Count == 0) return;
@@ -41,6 +41,6 @@ public class BackstagePotion : KahoPotion {
 
     if (!card.Keywords.Contains(CardKeyword.Retain))
       card.AddKeyword(CardKeyword.Retain);
-    await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, addedByPlayer: true);
+    await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, Owner);
   }
 }

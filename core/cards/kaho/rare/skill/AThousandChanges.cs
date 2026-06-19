@@ -18,7 +18,7 @@ public class AThousandChanges() : KahoCard(0, CardType.Skill, CardRarity.Rare, T
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    await PowerCmd.Apply<AThousandChangesPower>(Owner.Creature, 1, Owner.Creature, this);
+    await PowerCmd.Apply<AThousandChangesPower>(ctx, Owner.Creature, 1, Owner.Creature, this);
   }
 
   protected override void OnUpgrade() {

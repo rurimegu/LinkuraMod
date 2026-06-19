@@ -168,7 +168,7 @@ public static class LinkuraModConfig {
   private static void ValidateSkinAnimations(MegaSkeletonDataResource data, string skinName, ValidationLabel label) {
     var missing = new List<string>();
     foreach (string anim in LinkuraAnimation.MAPPED_ANIMATIONS.Values) {
-      if (data.FindAnimation(anim) == null)
+      if (!data.HasAnimation(anim))
         missing.Add(anim);
     }
 

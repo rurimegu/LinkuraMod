@@ -23,7 +23,7 @@ public class FallBackAsleep() : KahoCard(2, CardType.Skill, CardRarity.Uncommon,
     int hearts = HeartsState.GetHearts(Owner);
     await CreatureCmd.GainBlock(Owner.Creature, hearts, ValueProp.Move, play);
     if (!Owner.Creature.HasPower<BlurPower>()) {
-      await PowerCmd.Apply<BlurPower>(Owner.Creature, 1, Owner.Creature, this);
+      await PowerCmd.Apply<BlurPower>(ctx, Owner.Creature, 1, Owner.Creature, this);
     }
   }
 

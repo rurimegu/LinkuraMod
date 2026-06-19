@@ -32,7 +32,7 @@ public static class LinkuraCmd {
     int current = creature.GetPowerAmount<AutoBurstPower>();
     int capped = Math.Min(amount, MAX_AUTO_BURST - current);
     if (capped <= 0) return;
-    await PowerCmd.Apply<AutoBurstPower>(creature, capped, applier, source);
+    await PowerCmd.Apply<AutoBurstPower>(ctx, creature, capped, applier, source);
   }
 
   public static async Task<Events.AutoBurstEvent> TriggerAutoBurst(Player player, PlayerChoiceContext ctx, CardModel source = null) {
@@ -81,7 +81,7 @@ public static class LinkuraCmd {
     await Events.CollectVisual.InvokeAll(visualEv);
     // Apply damage to the pre-resolved (and possibly Early-modified) target list.
     if (ev.Targets?.Count > 0) {
-      await CreatureCmd.Damage(context, ev.Targets, hearts, ValueProp.Unpowered, player.Creature);
+      await CreatureCmd.Damage(context, ev.Targets, hearts, ValueProp.Unpowered, player.Creature, ev.Source);
     }
     var childEv = await HeartsState.SetHearts(player, context, 0, source);
     if (childEv.IsCancelled) return ev;

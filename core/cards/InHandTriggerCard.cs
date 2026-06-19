@@ -1,10 +1,12 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using RuriMegu.Core.Powers.Kaho;
 using RuriMegu.Core.Utils;
+using STS2RitsuLib.Keywords;
 
 namespace RuriMegu.Core.Cards;
 
@@ -17,7 +19,7 @@ namespace RuriMegu.Core.Cards;
 public abstract class InHandTriggerCard(int cost, CardType type, CardRarity rarity, TargetType target)
   : LinkuraCard(cost, type, rarity, target) {
 
-  protected override IEnumerable<string> RegisteredKeywordIds => [LinkuraKeywords.Backstage];
+  public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Append(LinkuraKeywords.Backstage.GetModCardKeyword());
 
   private async Task<Events.TriggerBackstageEvent> TryTrigger(PlayerChoiceContext ctx) {
     if (!CanTrigger()) return null;
@@ -35,6 +37,9 @@ public abstract class InHandTriggerCard(int cost, CardType type, CardRarity rari
 
     for (int i = 0; i <= ev.RepeatCount; i++) {
       await action();
+      if (Enchantment != null) {
+        await Enchantment.OnPlay(ctx, CreateDummyCardPlay());
+      }
     }
     await AfterTrigger(ev);
     return ev;

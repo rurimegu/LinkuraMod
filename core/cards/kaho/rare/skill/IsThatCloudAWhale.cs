@@ -33,7 +33,7 @@ public class IsThatCloudAWhale() : KahoCard(1, CardType.Skill, CardRarity.Rare, 
     int threshold = DynamicVars.MaxHeartThreshold().IntValue;
     int amount = maxHearts / threshold;
     if (amount > 0) {
-      await PowerCmd.Apply<IntangiblePower>(Owner.Creature, amount, Owner.Creature, this);
+      await PowerCmd.Apply<IntangiblePower>(ctx, Owner.Creature, amount, Owner.Creature, this);
     }
     await HeartsState.SetMaxHearts(Owner, ctx, 9, this);
   }

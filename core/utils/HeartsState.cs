@@ -56,7 +56,7 @@ public static class HeartsState {
 
     if (!await Events.HeartsChanged.InvokeAllEarly(ev)) return ev;
 
-    await SetAmount<HeartsPower>(player, clampedAmount, source as CardModel);
+    await SetAmount<HeartsPower>(player, ctx, clampedAmount, source as CardModel);
 
     await Events.HeartsChanged.InvokeAllLate(ev);
     return ev;
@@ -79,7 +79,7 @@ public static class HeartsState {
 
     if (!await Events.MaxHeartsChanged.InvokeAllEarly(ev)) return ev;
 
-    await SetAmount<MaxHeartsPower>(player, clampedAmount, source as CardModel);
+    await SetAmount<MaxHeartsPower>(player, ctx, clampedAmount, source as CardModel);
     await Events.MaxHeartsChanged.InvokeAllLate(ev);
 
     if (GetHearts(player) > clampedAmount) {
@@ -92,7 +92,17 @@ public static class HeartsState {
     return (int)(player.Creature.Powers.OfType<TPower>().FirstOrDefault()?.Amount ?? 0m);
   }
 
-  private static Task<TPower> SetAmount<TPower>(Player player, int amount, CardModel source = null) where TPower : PowerModel {
-    return PowerCmd.SetAmount<TPower>(player.Creature, amount, player.Creature, source);
+  private static async Task<TPower> SetAmount<TPower>(Player player, PlayerChoiceContext ctx, int amount, CardModel source = null) where TPower : PowerModel {
+    var power = player.Creature.GetPower<TPower>();
+    if (power == null) {
+      if (amount == 0) return null;
+      return await PowerCmd.Apply<TPower>(ctx, player.Creature, amount, player.Creature, source);
+    } else {
+      int diff = amount - power.Amount;
+      if (diff != 0) {
+        await PowerCmd.ModifyAmount(ctx, power, diff, player.Creature, source);
+      }
+      return power;
+    }
   }
 }

@@ -25,9 +25,7 @@ public class HeartStrike() : KahoCard(2, CardType.Attack, CardRarity.Uncommon, T
     if (play.Target == null) return;
 
     var attackCmd = await CommonActions.CardAttack(this, play.Target).Execute(ctx);
-    int totalDamage = attackCmd.Results.Aggregate(
-      0,
-      (totalDamage, result) => totalDamage + result.UnblockedDamage + result.OverkillDamage);
+    int totalDamage = attackCmd.Results.SelectMany(r => r).Sum(result => result.UnblockedDamage + result.OverkillDamage);
 
     if (totalDamage <= 0) return;
     await HeartsState.AddMaxHearts(Owner, ctx, totalDamage, this);

@@ -28,7 +28,7 @@ public class FlowerKnot() : KahoCard(1, CardType.Power, CardRarity.Rare, TargetT
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     await Owner.PlayCastAnim();
-    await PowerCmd.Apply<FlowerKnotPower>(Owner.Creature, DynamicVars.Cards.IntValue, Owner.Creature, this);
+    await PowerCmd.Apply<FlowerKnotPower>(ctx, Owner.Creature, DynamicVars.Cards.IntValue, Owner.Creature, this);
   }
 
   protected override void OnUpgrade() {

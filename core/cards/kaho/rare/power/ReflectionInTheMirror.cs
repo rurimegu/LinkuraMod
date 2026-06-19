@@ -14,7 +14,7 @@ namespace RuriMegu.Core.Cards.Kaho.Rare.Power;
 public class ReflectionInTheMirror() : KahoCard(1, CardType.Power, CardRarity.Rare, TargetType.None) {
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     await Owner.PlayCastAnim();
-    await PowerCmd.Apply<ReflectionInTheMirrorPower>(Owner.Creature, 1, Owner.Creature, this);
+    await PowerCmd.Apply<ReflectionInTheMirrorPower>(ctx, Owner.Creature, 1, Owner.Creature, this);
   }
 
   protected override void OnUpgrade() {

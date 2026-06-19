@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using RuriMegu.Core.Utils;
+using STS2RitsuLib.Keywords;
 
 namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 
@@ -17,7 +18,7 @@ public class ChoreographyMemo() : KahoInHandTriggerCard(1, CardType.Skill, CardR
   private const string TRACKER_VAR = "CHOREOGRAPHY_TRACKER";
   private const string THRESHOLD_VAR = "CHOREOGRAPHY_THRESHOLD";
 
-  protected override IEnumerable<string> RegisteredKeywordIds => base.RegisteredKeywordIds.Append(LinkuraKeywords.Collect);
+  public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Append(LinkuraKeywords.Collect.GetModCardKeyword());
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new BurstHeartsVar(3),

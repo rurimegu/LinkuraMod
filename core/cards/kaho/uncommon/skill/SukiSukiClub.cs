@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -25,11 +24,10 @@ public class SukiSukiClub() : KahoCard(1, CardType.Skill, CardRarity.Uncommon, T
 
   public override async Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw) {
     if (card == this) {
-      if (!CanTrigger()) return;
-      IncrementTriggerCount();
-      await Cmd.Wait(0.5f);
-      int heartBoost = DynamicVars.ExpandHearts().IntValue;
-      await LinkuraCmd.IncreaseMaxHearts(Owner, choiceContext, heartBoost, this);
+      await TriggerDrawEffect(choiceContext, () => {
+        int heartBoost = DynamicVars.ExpandHearts().IntValue;
+        return LinkuraCmd.IncreaseMaxHearts(Owner, choiceContext, heartBoost, this);
+      });
     }
   }
 

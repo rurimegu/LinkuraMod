@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using RuriMegu.Core.Utils;
+using STS2RitsuLib.Keywords;
 
 namespace RuriMegu.Core.Cards.Kaho.Common.Attack;
 
@@ -12,8 +13,7 @@ namespace RuriMegu.Core.Cards.Kaho.Common.Attack;
 /// Deal damage equal to your current ♥. Collect. Ethereal. (Remove Ethereal on upgrade.)
 /// </summary>
 public class Pochi() : KahoCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) {
-  public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
-  protected override IEnumerable<string> RegisteredKeywordIds => [LinkuraKeywords.Collect];
+  public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal, LinkuraKeywords.Collect.GetModCardKeyword()];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     int hearts = HeartsState.GetHearts(Owner);

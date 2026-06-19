@@ -22,8 +22,8 @@ public class LinkToTheFuture() : KahoCard(1, CardType.Skill, CardRarity.Uncommon
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    await PowerCmd.Apply<RetainHandPower>(Owner.Creature, 1m, Owner.Creature, this);
-    await PowerCmd.Apply<EnergyNextTurnPower>(Owner.Creature, DynamicVars.Energy.IntValue, Owner.Creature, this);
+    await PowerCmd.Apply<RetainHandPower>(ctx, Owner.Creature, 1m, Owner.Creature, this);
+    await PowerCmd.Apply<EnergyNextTurnPower>(ctx, Owner.Creature, DynamicVars.Energy.IntValue, Owner.Creature, this);
   }
 
   protected override void OnUpgrade() {

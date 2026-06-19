@@ -26,7 +26,7 @@ public class Fantasy375() : KahoCard(3, CardType.Attack, CardRarity.Common, Targ
     // Apply a power that reduces the next Power card's cost.
     // The power expires after the first Power card is played.
     int reduction = DynamicVars.Energy.IntValue;
-    await PowerCmd.Apply<PowerCostReductionPower>(Owner.Creature, reduction, Owner.Creature, this);
+    await PowerCmd.Apply<PowerCostReductionPower>(ctx, Owner.Creature, reduction, Owner.Creature, this);
   }
 
   protected override void OnUpgrade() {

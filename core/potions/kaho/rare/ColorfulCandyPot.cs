@@ -28,6 +28,6 @@ public class ColorfulCandyPot : KahoPotion {
   ]);
 
   protected override async Task OnUse(PlayerChoiceContext choiceContext, Creature target) {
-    await PowerCmd.Apply<ColorfulCandyPotPower>(Owner.Creature, 1, Owner.Creature, null);
+    await PowerCmd.Apply<ColorfulCandyPotPower>(choiceContext, Owner.Creature, 1, Owner.Creature, null);
   }
 }
