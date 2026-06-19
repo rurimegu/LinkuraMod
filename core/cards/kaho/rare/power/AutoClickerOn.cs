@@ -26,7 +26,7 @@ public class AutoClickerOn() : KahoCard(1, CardType.Power, CardRarity.Rare, Targ
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     await Owner.PlayCastAnim();
-    await PowerCmd.Apply<AutoClickerOnPower>(Owner.Creature, 1, Owner.Creature, this);
+    await PowerCmd.Apply<AutoClickerOnPower>(ctx, Owner.Creature, 1, Owner.Creature, this);
   }
 
   protected override void OnUpgrade() {

@@ -21,7 +21,7 @@ public class TrainingCamp() : KahoCard(2, CardType.Power, CardRarity.Uncommon, T
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     await Owner.PlayCastAnim();
-    await PowerCmd.Apply<TrainingCampPower>(Owner.Creature, DynamicVars.Repeat.IntValue, Owner.Creature, this);
+    await PowerCmd.Apply<TrainingCampPower>(ctx, Owner.Creature, DynamicVars.Repeat.IntValue, Owner.Creature, this);
   }
 
   protected override void OnUpgrade() {

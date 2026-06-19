@@ -32,7 +32,7 @@ public static class LinkuraCmd {
     int current = creature.GetPowerAmount<AutoBurstPower>();
     int capped = Math.Min(amount, MAX_AUTO_BURST - current);
     if (capped <= 0) return;
-    await PowerCmd.Apply<AutoBurstPower>(creature, capped, applier, source);
+    await PowerCmd.Apply<AutoBurstPower>(ctx, creature, capped, applier, source);
   }
 
   public static async Task<Events.AutoBurstEvent> TriggerAutoBurst(Player player, PlayerChoiceContext ctx, CardModel source = null) {

@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using RuriMegu.Core.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -48,8 +49,8 @@ public class EphemeralYouth() : KahoInHandTriggerCard(1, CardType.Attack, CardRa
     });
   }
 
-  public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side) {
-    await base.AfterTurnEnd(choiceContext, side);
+  public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants) {
+    await base.AfterSideTurnEnd(choiceContext, side, participants);
     if (side != Owner.Creature.Side) return;
     _reductionCountThisTurn = 0;
   }

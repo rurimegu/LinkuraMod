@@ -1,4 +1,4 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Powers;
@@ -19,7 +19,7 @@ public class BackstageCostReductionPower : KahoPower {
   public override bool TryModifyEnergyCostInCombat(CardModel card, decimal originalCost, out decimal modifiedCost) {
     modifiedCost = originalCost;
     if (card.Owner.Creature != Owner) return false;
-    if (!card.HasModKeyword(LinkuraKeywords.Backstage)) return false;
+    if (!card.HasModKeyword(LinkuraKeywords.Backstage.GetModCardKeyword())) return false;
 
     var pileType = card.Pile?.Type;
     if (pileType != PileType.Hand && pileType != PileType.Play) return false;
@@ -31,7 +31,7 @@ public class BackstageCostReductionPower : KahoPower {
 
   public override async Task BeforeCardPlayed(CardPlay cardPlay) {
     if (cardPlay.Card.Owner.Creature != Owner) return;
-    if (!cardPlay.Card.HasModKeyword(LinkuraKeywords.Backstage)) return;
+    if (!cardPlay.Card.HasModKeyword(LinkuraKeywords.Backstage.GetModCardKeyword())) return;
 
     var pileType = cardPlay.Card.Pile?.Type;
     if (pileType != PileType.Hand && pileType != PileType.Play) return;

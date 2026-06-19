@@ -1,9 +1,10 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using RuriMegu.Core.Utils;
@@ -24,7 +25,7 @@ public class AutoClickerOnPower : KahoPower {
 
     if (Owner.CombatState != null) {
       foreach (var enemy in Owner.CombatState.GetOpponentsOf(Owner).Where(e => e.IsAlive).ToList()) {
-        await PowerCmd.Apply<IntangiblePower>(enemy, 99, Owner, cardSource);
+        await PowerCmd.Apply<IntangiblePower>(new BlockingPlayerChoiceContext(), enemy, 99, Owner, cardSource);
       }
     }
 
@@ -33,7 +34,7 @@ public class AutoClickerOnPower : KahoPower {
 
   public override async Task AfterCreatureAddedToCombat(Creature creature) {
     if (creature.Side == Owner.Side) return;
-    await PowerCmd.Apply<IntangiblePower>(creature, 99, Owner, null);
+    await PowerCmd.Apply<IntangiblePower>(new BlockingPlayerChoiceContext(), creature, 99, Owner, null);
   }
 
   private async Task OnBurstLate(Events.BurstEvent ev) {

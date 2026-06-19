@@ -23,7 +23,7 @@ public class HinoshitaInstall() : KahoCard(1, CardType.Power, CardRarity.Rare, T
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     await Owner.PlayCastAnim();
-    await PowerCmd.Apply<HinoshitaInstallPower>(Owner.Creature, 1, Owner.Creature, this);
+    await PowerCmd.Apply<HinoshitaInstallPower>(ctx, Owner.Creature, 1, Owner.Creature, this);
   }
 
   protected override void OnUpgrade() {

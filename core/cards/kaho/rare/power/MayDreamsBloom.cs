@@ -29,10 +29,10 @@ public class MayDreamsBloom() : KahoCard(2, CardType.Power, CardRarity.Rare, Tar
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     await Owner.PlayCastAnim();
     if (IsUpgraded) {
-      await PowerCmd.Apply<MayDreamsBloomUpgradedPower>(
+      await PowerCmd.Apply<MayDreamsBloomUpgradedPower>(ctx, 
         Owner.Creature, DynamicVars.AutoBurst().IntValue, Owner.Creature, this);
     } else {
-      await PowerCmd.Apply<MayDreamsBloomPower>(
+      await PowerCmd.Apply<MayDreamsBloomPower>(ctx, 
         Owner.Creature, DynamicVars.AutoBurst().IntValue, Owner.Creature, this);
     }
   }

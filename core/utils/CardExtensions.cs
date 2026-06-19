@@ -67,8 +67,8 @@ public static class CardExtensions {
     if (blockVar == null) return 0;
     decimal val = blockVar.BaseValue;
     if (card.Enchantment != null) {
-      val += card.Enchantment.EnchantBlockAdditive(val, blockVar.Props);
-      val *= card.Enchantment.EnchantBlockMultiplicative(val, blockVar.Props);
+      val += card.Enchantment.EnchantBlockAdditive(val);
+      val *= card.Enchantment.EnchantBlockMultiplicative(val);
     }
     return (int)val;
   }

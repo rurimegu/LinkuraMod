@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using RuriMegu.Core.Utils;
+using STS2RitsuLib.Keywords;
 
 namespace RuriMegu.Core.Cards.Kaho.Common.Skill;
 
@@ -13,7 +15,7 @@ namespace RuriMegu.Core.Cards.Kaho.Common.Skill;
 /// Gain 12 (16) block. Burst 9 (12). Collect.
 /// </summary>
 public class FullOfPower() : KahoCard(2, CardType.Skill, CardRarity.Common, TargetType.None) {
-  protected override IEnumerable<string> RegisteredKeywordIds => [LinkuraKeywords.Collect];
+  public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Append(LinkuraKeywords.Collect.GetModCardKeyword());
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new BlockVar(12, ValueProp.Move),

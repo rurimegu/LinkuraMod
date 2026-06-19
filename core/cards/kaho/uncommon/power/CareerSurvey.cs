@@ -20,7 +20,7 @@ public class CareerSurvey() : KahoCard(1, CardType.Power, CardRarity.Uncommon, T
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     await Owner.PlayCastAnim();
-    await PowerCmd.Apply<CareerSurveyPower>(Owner.Creature, 1, Owner.Creature, this);
+    await PowerCmd.Apply<CareerSurveyPower>(ctx, Owner.Creature, 1, Owner.Creature, this);
   }
 
   protected override void OnUpgrade() {

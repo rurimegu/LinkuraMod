@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Combat;
@@ -20,14 +20,14 @@ public class WelcomeIshikawaPower : KahoPower {
   public override PowerType Type => PowerType.Buff;
   public override PowerStackType StackType => PowerStackType.Counter;
 
-  public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, CombatState combatState) {
+  public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState) {
     await base.BeforeHandDraw(player, choiceContext, combatState);
     if (player != Owner.Player) return;
 
     var drawPile = PileType.Draw.GetPile(player);
     if (drawPile == null) return;
 
-    var backstageCards = drawPile.Cards.Where(c => c.HasModKeyword(LinkuraKeywords.Backstage)).ToList();
+    var backstageCards = drawPile.Cards.Where(c => c.HasModKeyword(LinkuraKeywords.Backstage.GetModCardKeyword())).ToList();
     if (backstageCards.Count == 0) return;
 
     Flash();

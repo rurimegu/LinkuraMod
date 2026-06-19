@@ -20,7 +20,7 @@ public class Prologue() : KahoCard(2, CardType.Power, CardRarity.Rare, TargetTyp
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     await Owner.PlayCastAnim();
-    await PowerCmd.Apply<ProloguePower>(Owner.Creature, DynamicVars.Energy.IntValue, Owner.Creature, this);
+    await PowerCmd.Apply<ProloguePower>(ctx, Owner.Creature, DynamicVars.Energy.IntValue, Owner.Creature, this);
   }
 
   protected override void OnUpgrade() {

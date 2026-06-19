@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -34,11 +35,11 @@ public class Encore() : KahoCard(0, CardType.Skill, CardRarity.Uncommon, TargetT
     }
   }
 
-  public override Task BeforeSideTurnStart(PlayerChoiceContext ctx, CombatSide side, CombatState combatState) {
+  public override Task BeforeSideTurnStart(PlayerChoiceContext ctx, CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState) {
     if (side == Owner.Creature.Side) {
       DynamicVars[TRACKER_VAR].BaseValue = 0;
     }
-    return base.BeforeSideTurnStart(ctx, side, combatState);
+    return base.BeforeSideTurnStart(ctx, side, participants, combatState);
   }
 
   protected override Task InitializeSubscriptions() {

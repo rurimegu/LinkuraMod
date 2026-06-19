@@ -21,7 +21,7 @@ public class AutoCollectOn() : KahoCard(1, CardType.Power, CardRarity.Uncommon, 
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     await Owner.PlayCastAnim();
-    await PowerCmd.Apply<AutoCollectOnPower>(Owner.Creature, 1, Owner.Creature, this);
+    await PowerCmd.Apply<AutoCollectOnPower>(ctx, Owner.Creature, 1, Owner.Creature, this);
   }
 
   protected override void OnUpgrade() {

@@ -42,6 +42,8 @@ public struct LinkuraNetworkState : INetMessage, IPacketSerializable {
 
   public readonly LogLevel LogLevel => LogLevel.Info;
 
+  public readonly bool ShouldBuffer => false;
+
   public readonly void Serialize(PacketWriter writer) {
     writer.WriteULong(SenderId);
     writer.Write(Characters);

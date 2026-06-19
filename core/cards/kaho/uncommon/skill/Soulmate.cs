@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -7,6 +8,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using RuriMegu.Core.Powers;
 using RuriMegu.Core.Utils;
+using STS2RitsuLib.Keywords;
 
 namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 
@@ -15,7 +17,7 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 /// Collect. Draw 1 card. When drawn, trigger 2 (4) Auto Burst.
 /// </summary>
 public class Soulmate() : KahoCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
-  protected override IEnumerable<string> RegisteredKeywordIds => [LinkuraKeywords.Collect];
+  public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Append(LinkuraKeywords.Collect.GetModCardKeyword());
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new TriggerAutoBurstVar(2),

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
@@ -173,10 +174,10 @@ public abstract class LinkuraCard(int cost, CardType type, CardRarity rarity, Ta
     }
   }
 
-  public override Task BeforeSideTurnStart(PlayerChoiceContext ctx, CombatSide side, CombatState combatState) {
+  public override Task BeforeSideTurnStart(PlayerChoiceContext ctx, CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState) {
     if (side == Owner?.Creature?.Side) {
       _triggerCount = 0;
     }
-    return base.BeforeSideTurnStart(ctx, side, combatState);
+    return base.BeforeSideTurnStart(ctx, side, participants, combatState);
   }
 }

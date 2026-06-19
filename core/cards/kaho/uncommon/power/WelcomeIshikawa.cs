@@ -28,7 +28,7 @@ public class WelcomeIshikawa() : KahoCard(1, CardType.Power, CardRarity.Uncommon
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     await Owner.PlayCastAnim();
-    await PowerCmd.Apply<WelcomeIshikawaPower>(Owner.Creature, DynamicVars.Cards.IntValue, Owner.Creature, this);
+    await PowerCmd.Apply<WelcomeIshikawaPower>(ctx, Owner.Creature, DynamicVars.Cards.IntValue, Owner.Creature, this);
   }
 
   protected override void OnUpgrade() {

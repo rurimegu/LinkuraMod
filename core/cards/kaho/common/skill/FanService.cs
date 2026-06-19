@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using STS2RitsuLib.Keywords;
 
 namespace RuriMegu.Core.Cards.Kaho.Common.Skill;
 
@@ -11,7 +13,7 @@ namespace RuriMegu.Core.Cards.Kaho.Common.Skill;
 /// Collect. This Collect deals damage to ALL enemies.
 /// </summary>
 public class FanService() : KahoCard(1, CardType.Skill, CardRarity.Common, TargetType.None) {
-  protected override IEnumerable<string> RegisteredKeywordIds => [LinkuraKeywords.Collect];
+  public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Append(LinkuraKeywords.Collect.GetModCardKeyword());
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [];
 

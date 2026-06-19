@@ -21,7 +21,7 @@ public class HolidayHoliday() : KahoCard(2, CardType.Power, CardRarity.Uncommon,
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     await Owner.PlayCastAnim();
-    await PowerCmd.Apply<HolidayHolidayPower>(Owner.Creature, 1, Owner.Creature, this);
+    await PowerCmd.Apply<HolidayHolidayPower>(ctx, Owner.Creature, 1, Owner.Creature, this);
   }
 
   protected override void OnUpgrade() {

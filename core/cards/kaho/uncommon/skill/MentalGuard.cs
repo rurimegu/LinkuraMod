@@ -21,7 +21,7 @@ public class MentalGuard() : KahoCard(0, CardType.Skill, CardRarity.Uncommon, Ta
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    await PowerCmd.Apply<MentalGuardPower>(Owner.Creature, 1, Owner.Creature, this);
+    await PowerCmd.Apply<MentalGuardPower>(ctx, Owner.Creature, 1, Owner.Creature, this);
   }
 
   protected override void OnUpgrade() {
