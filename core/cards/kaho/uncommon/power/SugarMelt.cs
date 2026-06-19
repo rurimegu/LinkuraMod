@@ -25,6 +25,7 @@ public class SugarMelt() : KahoCard(2, CardType.Power, CardRarity.Uncommon, Targ
   protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
     HoverTipFactory.FromPower<AutoBurstPower>(),
     BurstHeartsVar.HoverTip(),
+    HoverTipFactory.Static(StaticHoverTip.Block),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {

@@ -15,11 +15,13 @@ namespace RuriMegu.Core.Cards.Kaho.Uncommon.Skill;
 /// Increase max ❤️ by 4 (6) X. When drawn, gain Block equal to 2(3)x your {Energy:energyIcons()}.
 /// </summary>
 public class OnYourMark() : KahoCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.None) {
+  private const string BLOCK_VAR_NAME = "LINKURA_MOD_ON_YOUR_MARK_BLOCK";
+
   protected override bool HasEnergyCostX => true;
 
   protected override IEnumerable<DynamicVar> CanonicalVars => [
     new ExpandHeartsVar(4),
-    new BlockVar(2, ValueProp.Move),
+    new DynamicVar(BLOCK_VAR_NAME, 2),
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
@@ -33,14 +35,18 @@ public class OnYourMark() : KahoCard(0, CardType.Skill, CardRarity.Uncommon, Tar
     if (card == this) {
       await TriggerDrawEffect(choiceContext, async () => {
         int energy = Owner.PlayerCombatState?.Energy ?? 0;
-        int block = energy * this.GetEnchantedBlock();
-        await CreatureCmd.GainBlock(Owner.Creature, block, DynamicVars.Block.Props, CreateEnchantlessCardPlay());
+        decimal block = energy * DynamicVars[BLOCK_VAR_NAME].IntValue;
+        if (card.Enchantment != null) {
+          block += card.Enchantment.EnchantBlockAdditive(block);
+          block *= card.Enchantment.EnchantBlockMultiplicative(block);
+        }
+        await CreatureCmd.GainBlock(Owner.Creature, (int)block, ValueProp.Move, CreateEnchantlessCardPlay());
       });
     }
   }
 
   protected override void OnUpgrade() {
     DynamicVars.ExpandHearts().UpgradeValueBy(2m);
-    DynamicVars.Block.UpgradeValueBy(1m);
+    DynamicVars[BLOCK_VAR_NAME].UpgradeValueBy(1m);
   }
 }

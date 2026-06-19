@@ -1,4 +1,4 @@
-﻿{
+{
   "LINKURA_MOD_CARD_KAHO_DEFEND.description": "Gain {Block:diff()} [gold]Block[/gold].",
   "LINKURA_MOD_CARD_KAHO_DEFEND.title": "Defend",
   "LINKURA_MOD_CARD_KAHO_STRIKE.description": "Deal {Damage:diff()} damage.",
@@ -103,7 +103,7 @@
   "LINKURA_MOD_CARD_AURORA_FLOWER.title": "Aurora Flower",
   "LINKURA_MOD_CARD_AURORA_FLOWER.description": "Trigger {LINKURA_MOD_AUTO_BURST_TRIGGERS:diff()} [gold]Auto Burst[/gold]. [gold]Collect[/gold] after each trigger.",
   "LINKURA_MOD_CARD_ON_YOUR_MARK.title": "On Your Mark",
-  "LINKURA_MOD_CARD_ON_YOUR_MARK.description": "Increase Max ❤️ by {LINKURA_MOD_EXPAND_HEARTS:diff()}X. When drawn, gain [gold]Block[/gold] equal to {Block:diff()}x your current Energy.",
+  "LINKURA_MOD_CARD_ON_YOUR_MARK.description": "Increase Max ❤️ by {LINKURA_MOD_EXPAND_HEARTS:diff()}X. When drawn, gain [gold]Block[/gold] equal to {LINKURA_MOD_ON_YOUR_MARK_BLOCK:diff()}x your current Energy.",
   "LINKURA_MOD_CARD_SOULMATE.title": "Soulmate",
   "LINKURA_MOD_CARD_SOULMATE.description": "Draw {Cards:diff()} {Cards:plural:card|cards}. [gold]Collect[/gold]. When drawn, trigger {LINKURA_MOD_AUTO_BURST_TRIGGERS:diff()} [gold]Auto Burst[/gold].",
   "LINKURA_MOD_CARD_MENTAL_GUARD.title": "Mental Guard",
