@@ -90,3 +90,17 @@ jobs:
             > **Requires [RitsuLib ≥ v${{ steps.ritsulib.outputs.version }}](https://github.com/BAKAOLC/STS2-RitsuLib/releases/)**
           files: ${{ env.ZIP }}
           generate_release_notes: true
+
+      - name: Generate update manifest
+        run: node tools/generate-update-manifest.mjs
+
+      - name: Upload update manifest to R2
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
+        run: |
+          aws s3 cp public/update.json "s3://${R2_BUCKET_NAME}/linkuramod/update.json" \
+            --endpoint-url "https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com" \
+            --content-type application/json
