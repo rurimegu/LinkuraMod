@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -26,7 +26,7 @@ public abstract class LinkuraCard(int cost, CardType type, CardRarity rarity, Ta
   : ModCardTemplate(cost, type, rarity, target) {
   public virtual string CharacterId => "";
   public override string CustomPortraitPath => $"{GetType().Name.PascalToSnakeCase()}.png".BigCardImagePath(CharacterId);
-  public override string PortraitPath => $"{GetType().Name.PascalToSnakeCase()}.png".CardImagePath(CharacterId);
+  public override string PortraitPath => CustomPortraitPath;
   public override string BetaPortraitPath => $"beta/{GetType().Name.PascalToSnakeCase()}.png".CardImagePath(CharacterId);
 
   public override bool GainsBlock => CanonicalVars.OfType<BlockVar>().Any();
