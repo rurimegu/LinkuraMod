@@ -52,10 +52,24 @@ The mod only comes with the default skin for Kaho. To get the alternate skins, y
 <STS2 install dir>/mods/LinkuraMod/skins/
 ```
 
+If you installed the mod from Steam Workshop instead of copying it into the `mods` folder manually, put the skins in the workshop mod folder instead:
+
+```
+<Steam library>/steamapps/workshop/content/2868840/3748068334/skins/
+```
+
+Example:
+
+```
+D:\SteamLibrary\steamapps\workshop\content\2868840\3748068334\skins
+```
+
+To find that path, open Slay the Spire 2 in Steam, choose to view the game folder, then go up to the parent `steamapps` folder and open `workshop/content/2868840/`.
+
 So the directory structure should look like this:
 
 ```
-<STS2 install dir>/mods/LinkuraMod/
+<LinkuraMod dir>
 ├── LinkuraMod.dll
 ├── mod_manifest.json
 ├── LinkuraMod.pck

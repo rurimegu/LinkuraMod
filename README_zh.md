@@ -52,10 +52,24 @@
 <STS2 install dir>/mods/LinkuraMod/skins/
 ```
 
+如果你是通过 Steam 创意工坊安装本 MOD，而不是手动复制到 `mods` 文件夹，那么应当把皮肤放到创意工坊对应的 MOD 目录：
+
+```
+<Steam 库目录>/steamapps/workshop/content/2868840/3748068334/skins/
+```
+
+例如：
+
+```
+D:\SteamLibrary\steamapps\workshop\content\2868840\3748068334\skins
+```
+
+查找这个路径的方法是：在 Steam 中打开《杀戮尖塔 2》的游戏目录，然后返回上一层到 `steamapps` 文件夹，再进入 `workshop/content/2868840/`。
+
 目录结构如下所示：
 
 ```
-<STS2 install dir>/mods/LinkuraMod/
+<LinkuraMod dir>
 ├── LinkuraMod.dll
 ├── mod_manifest.json
 ├── LinkuraMod.pck
