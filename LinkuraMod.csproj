@@ -4,7 +4,7 @@
     <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net9.0</TargetFramework>
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <RootNamespace>RuriMegu</RootNamespace>
-    <Version>0.2.3.0</Version>
+    <Version>0.2.4.0</Version>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Sts2Core">
@@ -13,7 +13,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="STS2.RitsuLib" Version="[0.4.9,)">
+    <PackageReference Include="STS2.RitsuLib" Version="[0.4.27,)">
       <ExcludeAssets>runtime</ExcludeAssets>
       <Private>False</Private>
     </PackageReference>

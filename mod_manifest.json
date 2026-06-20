@@ -2,7 +2,7 @@
   "id": "LinkuraMod",
   "name": "LinkuraMod",
   "author": "KCFindstr",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "min_game_version": "0.107.1",
   "description": "Adds contents inspired by Link! Like! LoveLive!.\nSpecial thanks: @密友",
   "has_dll": true,
@@ -11,7 +11,7 @@
   "dependencies": [
     {
       "id": "STS2-RitsuLib",
-      "min_version": "0.4.9"
+      "min_version": "0.4.27"
     }
   ]
 }
