@@ -102,6 +102,11 @@ jobs:
           R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
           R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
         run: |
+          echo "Generated update.json contents:"
+          cat public/update.json
+          
           aws s3 cp public/update.json "s3://${R2_BUCKET_NAME}/linkuramod/update.json" \
             --endpoint-url "https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com" \
             --content-type application/json
+
+          echo "Uploaded successfully to: https://files.rurino.dev/linkuramod/update.json"

@@ -10,7 +10,6 @@ using RuriMegu.Core.Patches;
 using STS2RitsuLib;
 using STS2RitsuLib.Interop;
 using STS2RitsuLib.Scaffolding.Content;
-using STS2RitsuLib.Updates;
 
 namespace RuriMegu;
 
@@ -50,13 +49,13 @@ public static class LinkuraMod {
 
     // Update check
     string currentVersion = asm.GetName().Version?.ToString(3) ?? "0.0.0";
-    RitsuLibFramework.RegisterModUpdateCheck(new() {
+    RitsuLibFramework.RegisterModUpdateCheck(RitsuLibFramework.SkipModUpdateCheckWhenLoadedFromSteamWorkshop(new() {
       ModId = ModId,
       DisplayName = "LinkuraMod",
       CurrentVersion = currentVersion,
       ManifestUri = new Uri("https://files.rurino.dev/linkuramod/update.json"),
       ReleasePageUri = new Uri("https://github.com/rurimegu/LinkuraMod/releases"),
-    });
+    }, typeof(LinkuraMod).Assembly, 3748068334));
   }
 }
 
