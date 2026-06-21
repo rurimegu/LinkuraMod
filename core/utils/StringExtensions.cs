@@ -10,39 +10,39 @@ namespace RuriMegu.Core.Utils;
 /// </summary>
 public static class StringExtensions {
   public static string ImagePath(this string path, string characterId = "") {
-    return Path.Join(LinkuraMod.ModId, "images", characterId, path);
+    return Path.Join(LinkuraMod.MOD_ID, "images", characterId, path);
   }
 
   public static string CardImagePath(this string path, string characterId = "") {
-    return Path.Join(LinkuraMod.ModId, "images", "card_portraits", characterId, path);
+    return Path.Join(LinkuraMod.MOD_ID, "images", "card_portraits", characterId, path);
   }
 
   public static string BigCardImagePath(this string path, string characterId = "") {
-    return Path.Join(LinkuraMod.ModId, "images", "card_portraits", characterId, "big", path);
+    return Path.Join(LinkuraMod.MOD_ID, "images", "card_portraits", characterId, "big", path);
   }
 
   public static string PowerImagePath(this string path, string characterId = "") {
-    return Path.Join(LinkuraMod.ModId, "images", "powers", characterId, path);
+    return Path.Join(LinkuraMod.MOD_ID, "images", "powers", characterId, path);
   }
 
   public static string RelicImagePath(this string path, string characterId = "") {
-    return Path.Join(LinkuraMod.ModId, "images", "relics", characterId, path);
+    return Path.Join(LinkuraMod.MOD_ID, "images", "relics", characterId, path);
   }
 
   public static string BigRelicImagePath(this string path, string characterId = "") {
-    return Path.Join(LinkuraMod.ModId, "images", "relics", characterId, "big", path);
+    return Path.Join(LinkuraMod.MOD_ID, "images", "relics", characterId, "big", path);
   }
 
   public static string PotionImagePath(this string path, string characterId = "") {
-    return Path.Join(LinkuraMod.ModId, "images", "potions", characterId, path);
+    return Path.Join(LinkuraMod.MOD_ID, "images", "potions", characterId, path);
   }
 
   public static string CharacterUiPath(this string path, string characterId = "") {
-    return Path.Join(LinkuraMod.ModId, "images", "charui", characterId, path);
+    return Path.Join(LinkuraMod.MOD_ID, "images", "charui", characterId, path);
   }
 
   public static string CharacterScenePath(this string path, string characterId = "") {
-    return Path.Join(LinkuraMod.ModId, "scenes", characterId, path);
+    return Path.Join(LinkuraMod.MOD_ID, "scenes", characterId, path);
   }
 
   public static string ResUri(this string path) {

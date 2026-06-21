@@ -19,7 +19,7 @@ public class SkinMetadata {
   public string Skel { get; set; } = "";
 
   [JsonPropertyName("textures")]
-  public List<string> Textures { get; set; } = new();
+  public List<string> Textures { get; set; } = [];
 
   [JsonPropertyName("characterName")]
   public string CharacterName { get; set; } = "";
@@ -66,36 +66,55 @@ public static class SpineSkinLoader {
   public static string DllFolder =>
     Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? "";
 
-  /// <summary>Returns the skins root directory.</summary>
-  public static string GetSkinsPath() => Path.Join(DllFolder, SKINS_FOLDER);
+  /// <summary>
+  /// Returns the directories where skins can be found.<br/>
+  /// - `skins` directory in the Dll directory.<br/>
+  /// - `skins` directory in the Workshop mod directory.
+  /// </summary>
+  public static List<string> GetSkinsDirectories() {
+    var dirs = new List<string> {
+      Path.Join(DllFolder, SKINS_FOLDER)
+    };
+
+    var parentDir = Path.GetDirectoryName(DllFolder);
+    if (!string.IsNullOrEmpty(parentDir)) {
+      dirs.Add(Path.Join(parentDir, LinkuraMod.STEAM_WORKSHOP_SKIN_MOD_ID.ToString(), SKINS_FOLDER));
+    }
+    return dirs;
+  }
 
   /// <summary>
   /// Returns all valid skins. The first entry is always the built-in skin.
   /// Skins without a valid metadata file or missing required animations are skipped with a warning.
   /// </summary>
   public static List<SkinEntry> GetAvailableSkins() {
-    var result = new List<SkinEntry> { new SkinEntry(BUILTIN_SKIN_LABEL, BUILTIN_SKIN_LABEL) };
+    var result = new List<SkinEntry> { new(BUILTIN_SKIN_LABEL, BUILTIN_SKIN_LABEL) };
+    var seenFolders = new HashSet<string>();
 
-    var skinsPath = GetSkinsPath();
-    if (!Directory.Exists(skinsPath))
-      return result;
-
-    foreach (var dir in Directory.EnumerateDirectories(skinsPath)) {
-      var folderName = Path.GetFileName(dir);
-      var metadata = TryReadMetadata(dir);
-
-      if (metadata == null) {
-        LinkuraMod.Logger.Warn($"[SpineSkinLoader] Skin '{folderName}' has no valid metadata — skipped.");
+    foreach (var skinsPath in GetSkinsDirectories()) {
+      if (!Directory.Exists(skinsPath))
         continue;
-      }
 
-      if (!IsValidSkin(dir, metadata)) {
-        LinkuraMod.Logger.Warn($"[SpineSkinLoader] Skin '{folderName}' failed validation — skipped.");
-        continue;
-      }
+      foreach (var dir in Directory.EnumerateDirectories(skinsPath)) {
+        var folderName = Path.GetFileName(dir);
+        if (seenFolders.Contains(folderName))
+          continue;
 
-      var displayLabel = $"{metadata.CharacterName} - {metadata.CardName}";
-      result.Add(new SkinEntry(folderName, displayLabel));
+        var metadata = TryReadMetadata(dir);
+        if (metadata == null) {
+          LinkuraMod.Logger.Warn($"[SpineSkinLoader] Skin '{folderName}' has no valid metadata — skipped.");
+          continue;
+        }
+
+        if (!IsValidSkin(dir, metadata)) {
+          LinkuraMod.Logger.Warn($"[SpineSkinLoader] Skin '{folderName}' failed validation — skipped.");
+          continue;
+        }
+
+        seenFolders.Add(folderName);
+        var displayLabel = $"{metadata.CharacterName} - {metadata.CardName}";
+        result.Add(new SkinEntry(folderName, displayLabel));
+      }
     }
 
     return result;
@@ -190,9 +209,17 @@ public static class SpineSkinLoader {
     if (string.IsNullOrEmpty(skinName) || skinName == BUILTIN_SKIN_LABEL)
       return null;
 
-    var skinDir = Path.Join(GetSkinsPath(), skinName);
-    if (!Directory.Exists(skinDir)) {
-      LinkuraMod.Logger.Warn($"[SpineSkinLoader] Skin directory not found: '{skinDir}'.");
+    string skinDir = null;
+    foreach (var skinsPath in GetSkinsDirectories()) {
+      var tempDir = Path.Join(skinsPath, skinName);
+      if (Directory.Exists(tempDir)) {
+        skinDir = tempDir;
+        break;
+      }
+    }
+
+    if (skinDir == null) {
+      LinkuraMod.Logger.Warn($"[SpineSkinLoader] Skin directory not found for skin name: '{skinName}'.");
       return null;
     }
 

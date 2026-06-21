@@ -25,28 +25,29 @@ Kaho is a new playable character whose gameplay revolves around a unique resourc
 
 ## Installation
 
-### Prerequisites
+Choose one of the following methods to install the mod:
 
-- [Slay the Spire 2](https://store.steampowered.com/app/2868840/Slay_the_Spire_2/) (Latest stable)
-- [RitsuLib](https://github.com/BAKAOLC/STS2-RitsuLib) mod framework
+### Method 1: Steam Workshop (Recommended)
 
-### Steps
+1. Subscribe to [LinkuraMod / 莲之空Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=3748068334) on the Steam Workshop.
+2. Subscribe to the required dependency [RitsuLib](https://steamcommunity.com/sharedfiles/filedetails/?id=3747602295) on the Steam Workshop.
+3. (Optional) Subscribe to [LinkuraMod - Skins Pack](https://steamcommunity.com/sharedfiles/filedetails/?id=3748835042) on the Steam Workshop to get alternate skins for Hinoshita Kaho.
+4. Launch Slay the Spire 2 and enable the mods.
+5. In-game, you can switch Kaho's skins in the **LinkuraMod Settings** page from RitsuLib's Mod settings menu.
+
+
+### Method 2: Manual Installation
 
 1. Download the latest release from the [Releases](https://github.com/rurimegu/LinkuraMod/releases) page.
-2. Based on the release notes, download the recommended version of [RitsuLib](https://github.com/BAKAOLC/STS2-RitsuLib/releases). The mod might be compatible with other versions, but no guarantees.
-3. Place the mod files into your STS2 mods folder (create it if it doesn't exist):
-   ```
-   <STS2 install dir>/mods/LinkuraMod/
-   ```
-4. Place the RitsuLib files into your STS2 mods folder (create it if it doesn't exist):
-   ```
-   <STS2 install dir>/mods/RitsuLib/
-   ```
-5. Launch Slay the Spire 2 and enable **LinkuraMod** in the mod list.
+2. Download the recommended version of [RitsuLib](https://github.com/BAKAOLC/STS2-RitsuLib/releases).
+3. Place the mod files into your STS2 mods folder:
+   - LinkuraMod: `<STS2 install dir>/mods/LinkuraMod/`
+   - RitsuLib: `<STS2 install dir>/mods/RitsuLib/`
+4. Launch Slay the Spire 2 and enable the mods in the mod list.
 
-### Skins
+#### Skins Installation (Manual)
 
-The mod only comes with the default skin for Kaho. To get the alternate skins, you need to download and put the skin files in the following directory:
+The mod only comes with the default skin for Kaho. To get the alternate skins manually, you need to download and put the skin files in the following directory:
 
 ```
 <STS2 install dir>/mods/LinkuraMod/skins/
@@ -55,7 +56,7 @@ The mod only comes with the default skin for Kaho. To get the alternate skins, y
 So the directory structure should look like this:
 
 ```
-<STS2 install dir>/mods/LinkuraMod/
+<LinkuraMod dir>
 ├── LinkuraMod.dll
 ├── mod_manifest.json
 ├── LinkuraMod.pck
@@ -67,7 +68,7 @@ So the directory structure should look like this:
 │   │   └── stage_idol_model_1021_001_json.skel
 │   ├── ingame_chara_sd_spine_1021_002
 │   │   └── ...
-|   └── ...
+│   └── ...
 └── ...
 ```
 
