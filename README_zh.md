@@ -25,46 +25,33 @@
 
 ## 安装
 
-### 前置条件
+选择以下方法之一安装本 MOD：
 
-- [杀戮尖塔 2 (Slay the Spire 2)](https://store.steampowered.com/app/2868840/Slay_the_Spire_2/) (最新稳定版)
-- [RitsuLib](https://github.com/BAKAOLC/STS2-RitsuLib) MOD 框架
+### 方法一：Steam 创意工坊订阅（推荐）
 
-### 步骤
+1. 在 Steam 创意工坊订阅 [LinkuraMod / 莲之空Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=3748068334)。
+2. 订阅所需的前置依赖 [RitsuLib](https://steamcommunity.com/sharedfiles/filedetails/?id=3747602295) 模组。
+3. （可选）订阅 [LinkuraMod - Skins Pack / 皮肤包](https://steamcommunity.com/sharedfiles/filedetails/?id=3748835042) 以自动获取日野下花帆的备用皮肤。
+4. 启动《杀戮尖塔 2》并在 MOD 列表中启用它们。
+5. 在游戏内，您可以在 RitsuLib 的 Mod 设置菜单中的 **LinkuraMod 设置** 页面切换花帆的皮肤。
+
+
+### 方法二：手动安装
 
 1. 从 [Releases](https://github.com/rurimegu/LinkuraMod/releases) 页面下载最新版本。
-2. 根据版本说明，下载推荐版本的 [RitsuLib](https://github.com/BAKAOLC/STS2-RitsuLib/releases)。虽然可能兼容其他版本，但不保证稳定性。
-3. 将 MOD 文件放入你的 STS2 mods 文件夹（如果不存在则创建一个）：
-   ```
-   <STS2 install dir>/mods/LinkuraMod/
-   ```
-4. 将 RitsuLib 文件放入你的 STS2 mods 文件夹（如果不存在则创建一个）：
-   ```
-   <STS2 install dir>/mods/STS2-RitsuLib/
-   ```
-5. 启动《杀戮尖塔 2》并在 MOD 列表中启用 **LinkuraMod**。
+2. 下载推荐版本的 [RitsuLib](https://github.com/BAKAOLC/STS2-RitsuLib/releases)。
+3. 将 MOD 文件解压放入你的《杀戮尖塔 2》mods 文件夹下对应的子目录：
+   - LinkuraMod: `<STS2 install dir>/mods/LinkuraMod/`
+   - RitsuLib: `<STS2 install dir>/mods/RitsuLib/`
+4. 启动《杀戮尖塔 2》并在 MOD 列表中启用它们。
 
-### 皮肤
+#### 皮肤安装（手动）
 
-本 MOD 仅附带花帆的默认皮肤。要使用备用皮肤，你需要下载并将皮肤文件放入以下目录：
+本 MOD 仅附带花帆的默认皮肤。要手动获取备用皮肤，你需要下载并将皮肤文件放入以下目录：
 
 ```
 <STS2 install dir>/mods/LinkuraMod/skins/
 ```
-
-如果你是通过 Steam 创意工坊安装本 MOD，而不是手动复制到 `mods` 文件夹，那么应当把皮肤放到创意工坊对应的 MOD 目录：
-
-```
-<Steam 库目录>/steamapps/workshop/content/2868840/3748068334/skins/
-```
-
-例如：
-
-```
-D:\SteamLibrary\steamapps\workshop\content\2868840\3748068334\skins
-```
-
-查找这个路径的方法是：在 Steam 中打开《杀戮尖塔 2》的游戏目录，然后返回上一层到 `steamapps` 文件夹，再进入 `workshop/content/2868840/`。
 
 目录结构如下所示：
 

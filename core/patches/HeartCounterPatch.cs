@@ -36,9 +36,9 @@ public class HeartCounterPatch : IPatchMethod {
     }
 
     if (heartCounter is null) {
-      LinkuraMod.Logger.Warn(
-        "[HeartCounterPatch] HeartCounter not found inside energy counter - " +
-        "check that energy_counter.tscn contains a HeartCounter child.");
+      LinkuraMod.Logger.Info(
+        $"[HeartCounterPatch] HeartCounter not found inside energy counter for player {me.NetId}" +
+        " - maybe not a character from LinkuraMod. If it is, please report this as a bug to LinkuraMod authors.");
       return;
     }
 
