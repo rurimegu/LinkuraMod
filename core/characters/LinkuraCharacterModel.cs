@@ -112,6 +112,7 @@ public abstract class LinkuraCharacterModel<TCardPool, TRelicPool, TPotionPool>
     creatureAnimator.AddAnyState("Hit", animState4);
     creatureAnimator.AddAnyState("Attack", animState3);
     creatureAnimator.AddAnyState("Cast", animState2);
+    creatureAnimator.AddAnyState("PowerUp", animState2);
     creatureAnimator.AddAnyState("Relaxed", animState5);
 
     return creatureAnimator;

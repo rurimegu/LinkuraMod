@@ -19,7 +19,7 @@ public class SpineAnimStateCachePatch : IPatchMethod {
   public static bool IsCritical => false;
 
   private const string LINKURA_DETECT_ANIM = "quest_dance_mentaldown";
-  internal static readonly HashSet<ulong> LinkuraStateIds = new();
+  internal static readonly HashSet<ulong> LinkuraStateIds = [];
 
   public static ModPatchTarget[] GetTargets() =>
     [new(typeof(MegaSprite), nameof(MegaSprite.GetAnimationState))];
