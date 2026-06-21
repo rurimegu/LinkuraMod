@@ -66,9 +66,11 @@ public static class SpineSkinLoader {
   public static string DllFolder =>
     Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? "";
 
-  /// <summary>Returns the skins root directory.</summary>
-  public static string GetSkinsPath() => Path.Join(DllFolder, SKINS_FOLDER);
-
+  /// <summary>
+  /// Returns the directories where skins can be found.<br/>
+  /// - `skins` directory in the Dll directory.<br/>
+  /// - `skins` directory in the Workshop mod directory.
+  /// </summary>
   public static List<string> GetSkinsDirectories() {
     var dirs = new List<string> {
       Path.Join(DllFolder, SKINS_FOLDER)
