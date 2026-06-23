@@ -21,11 +21,7 @@ public class Variations() : KahoInHandTriggerCard(1, CardType.Attack, CardRarity
     new EnergyVar(1),
   ];
 
-  private bool _costReduced = false;
-  protected override bool ShouldGlowGoldInternal => _costReduced;
-
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    _costReduced = false;
     await CommonActions.CardAttack(this, play.Target).Execute(ctx);
     await CommonActions.Draw(this, ctx);
   }
@@ -39,7 +35,6 @@ public class Variations() : KahoInHandTriggerCard(1, CardType.Attack, CardRarity
     if (ev.Player != Owner || ev.NewMaxHearts == ev.OldMaxHearts) return;
     await TriggerWithAction(ev.Context, () => {
       EnergyCost.AddUntilPlayed(-1, true);
-      _costReduced = true;
       InvokeEnergyCostChanged();
       return Task.CompletedTask;
     });
