@@ -65,12 +65,11 @@ jobs:
           VERSION="v${{ steps.version.outputs.version }}"
           mkdir dist
 
-          # Godot.NET.Sdk outputs the DLL to .godot/mono/temp/bin/<config>/
-          # Fall back to the standard dotnet output directory if not found there.
-          DLL=$(find . \( -path "./.git" -o -path "./dist" \) -prune -o \
-                  -name "LinkuraMod.dll" -path "*ExportRelease*" -print | head -1)
-          if [ -z "$DLL" ]; then
-            echo "ERROR: LinkuraMod.dll not found" >&2
+          # Use the implementation assembly. The obj/.../ref* copies are
+          # reference assemblies and cannot be loaded by the game.
+          DLL=".godot/mono/temp/bin/ExportRelease/LinkuraMod.dll"
+          if [ ! -f "$DLL" ]; then
+            echo "ERROR: Implementation DLL not found at $DLL" >&2
             exit 1
           fi
           echo "Using DLL: $DLL"

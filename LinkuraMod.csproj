@@ -4,7 +4,7 @@
     <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net9.0</TargetFramework>
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <RootNamespace>RuriMegu</RootNamespace>
-    <Version>0.2.7.0</Version>
+    <Version>0.2.8.0</Version>
     <GameApiVersion Condition="'$(GameApiVersion)' == ''">0.107.1</GameApiVersion>
     <Sts2AssemblyPath Condition="'$(Sts2AssemblyPath)' == ''">libs\sts2.dll</Sts2AssemblyPath>
   </PropertyGroup>
