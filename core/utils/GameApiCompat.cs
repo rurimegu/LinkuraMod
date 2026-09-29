@@ -108,7 +108,11 @@ public static class GameApiCompat {
     MegaAnimationState state = spine.GetAnimationState();
     if (state == null) return;
 
-    _setSpineAnimation.Invoke(state, [animation, false, 0]);
+    SetSpineAnimation(state, animation, false);
     _addSpineAnimation.Invoke(state, [idleAnimation, 0f, true, 0]);
+  }
+
+  public static void SetSpineAnimation(MegaAnimationState state, string animation, bool loop) {
+    _setSpineAnimation.Invoke(state, [animation, loop, 0]);
   }
 }

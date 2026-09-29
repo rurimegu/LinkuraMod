@@ -162,7 +162,7 @@ public static class LinkuraModConfig {
 
     string idleAnim = LinkuraAnimation.MAPPED_ANIMATIONS.GetValueOrDefault(LinkuraAnimation.VANILLA_ANIM_IDLE)
       ?? "quest_dance_general00";
-    sprite.GetAnimationState().SetAnimation(idleAnim, true);
+    GameApiCompat.SetSpineAnimation(sprite.GetAnimationState(), idleAnim, true);
   }
 
   private static void ValidateSkinAnimations(MegaSkeletonDataResource data, string skinName, ValidationLabel label) {
