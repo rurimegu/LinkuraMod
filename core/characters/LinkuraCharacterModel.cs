@@ -86,7 +86,7 @@ public abstract class LinkuraCharacterModel<TCardPool, TRelicPool, TPotionPool>
     return AnimationMap.GetValueOrDefault(LinkuraAnimation.VANILLA_ANIM_IDLE);
   }
 
-  public override CreatureAnimator GenerateAnimator(MegaSprite controller) {
+  protected override CreatureAnimator SetupCustomCreatureAnimator(MegaSprite controller) {
     string idleAnim = GetMappedAnimation(LinkuraAnimation.VANILLA_ANIM_IDLE);
     string castAnim = GetMappedAnimation(LinkuraAnimation.VANILLA_ANIM_CAST);
     string attackAnim = GetMappedAnimation(LinkuraAnimation.VANILLA_ANIM_ATTACK);
@@ -112,6 +112,7 @@ public abstract class LinkuraCharacterModel<TCardPool, TRelicPool, TPotionPool>
     creatureAnimator.AddAnyState("Hit", animState4);
     creatureAnimator.AddAnyState("Attack", animState3);
     creatureAnimator.AddAnyState("Cast", animState2);
+    creatureAnimator.AddAnyState("PowerUp", animState2);
     creatureAnimator.AddAnyState("Relaxed", animState5);
 
     return creatureAnimator;

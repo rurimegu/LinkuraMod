@@ -55,8 +55,7 @@ public class BunnyEars : KahoRelic {
         ev.Context,
         Owner.Creature.CombatState.HittableEnemies,
         DynamicVars.Damage,
-        Owner.Creature,
-        null
+        Owner.Creature
       );
     }
   }

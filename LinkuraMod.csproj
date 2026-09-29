@@ -4,16 +4,22 @@
     <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net9.0</TargetFramework>
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <RootNamespace>RuriMegu</RootNamespace>
-    <Version>0.2.5.0</Version>
+    <Version>0.2.6.0</Version>
+    <GameApiVersion Condition="'$(GameApiVersion)' == ''">0.107.1</GameApiVersion>
+    <Sts2AssemblyPath Condition="'$(Sts2AssemblyPath)' == ''">libs\sts2.dll</Sts2AssemblyPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Sts2Core">
-      <HintPath>libs\sts2.dll</HintPath>
+      <HintPath>$(Sts2AssemblyPath)</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="STS2.RitsuLib" Version="[0.4.27,)">
+    <PackageReference Include="STS2.RitsuLib.Compat.0.107.1" Version="[0.6.2,)" Condition="'$(GameApiVersion)' == '0.107.1'">
+      <ExcludeAssets>runtime</ExcludeAssets>
+      <Private>False</Private>
+    </PackageReference>
+    <PackageReference Include="STS2.RitsuLib" Version="[0.6.2,)" Condition="'$(GameApiVersion)' == '0.111.0'">
       <ExcludeAssets>runtime</ExcludeAssets>
       <Private>False</Private>
     </PackageReference>
@@ -24,4 +30,8 @@
     <AdditionalFiles Include="mod_manifest.json" />
     <AdditionalFiles Include="LinkuraMod/localization/**/*.json" />
   </ItemGroup>
+  <Target Name="ValidateGameApiVersion" BeforeTargets="Restore;ResolveReferences">
+    <Error Condition="'$(GameApiVersion)' != '0.107.1' and '$(GameApiVersion)' != '0.111.0'" Text="GameApiVersion must be 0.107.1 or 0.111.0." />
+    <Error Condition="!Exists('$(Sts2AssemblyPath)')" Text="Sts2AssemblyPath does not exist: $(Sts2AssemblyPath)" />
+  </Target>
 </Project>

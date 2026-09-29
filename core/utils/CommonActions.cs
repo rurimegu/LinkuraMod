@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
@@ -23,7 +22,7 @@ public static class CommonActions {
   /// </summary>
   public static AttackCommand CardAttack(CardModel card, CardPlay play, int hitCount = 1) {
     var cmd = DamageCmd.Attack(card.DynamicVars.Damage.BaseValue)
-      .FromCard(card)
+      .FromCardCompat(card, play)
       .WithHitFx(DEFAULT_HIT_FX);
     if (card.TargetType == TargetType.AllEnemies)
       cmd = cmd.TargetingAllOpponents(card.Owner.Creature.CombatState);
@@ -35,36 +34,18 @@ public static class CommonActions {
   }
 
   /// <summary>
-  /// Builds a card attack command targeting a specific creature, using the card's Damage DynamicVar.
-  /// Automatically targets all opponents if the card's TargetType is AllEnemies.
-  /// Call .Execute(ctx) on the result to execute.
-  /// </summary>
-  public static AttackCommand CardAttack(CardModel card, Creature target, int hitCount = 1) {
-    var cmd = DamageCmd.Attack(card.DynamicVars.Damage.BaseValue)
-      .FromCard(card)
-      .WithHitFx(DEFAULT_HIT_FX);
-    if (card.TargetType == TargetType.AllEnemies)
-      cmd = cmd.TargetingAllOpponents(card.Owner.Creature.CombatState);
-    else if (target != null)
-      cmd = cmd.Targeting(target);
-    if (hitCount > 1)
-      cmd = cmd.WithHitCount(hitCount);
-    return cmd;
-  }
-
-  /// <summary>
   /// Builds a card attack command with a custom damage amount.
   /// Automatically targets all opponents if the card's TargetType is AllEnemies.
   /// Call .Execute(ctx) on the result to execute.
   /// </summary>
-  public static AttackCommand CardAttack(CardModel card, Creature target, decimal damage, int hitCount = 1) {
+  public static AttackCommand CardAttack(CardModel card, CardPlay play, decimal damage, int hitCount = 1) {
     var cmd = DamageCmd.Attack(damage)
-      .FromCard(card)
+      .FromCardCompat(card, play)
       .WithHitFx(DEFAULT_HIT_FX);
     if (card.TargetType == TargetType.AllEnemies)
       cmd = cmd.TargetingAllOpponents(card.Owner.Creature.CombatState);
-    else if (target != null)
-      cmd = cmd.Targeting(target);
+    else if (play.Target != null)
+      cmd = cmd.Targeting(play.Target);
     if (hitCount > 1)
       cmd = cmd.WithHitCount(hitCount);
     return cmd;
@@ -75,14 +56,14 @@ public static class CommonActions {
   /// Automatically targets all opponents if the card's TargetType is AllEnemies.
   /// Call .Execute(ctx) on the result to execute.
   /// </summary>
-  public static AttackCommand CardAttack(CardModel card, Creature target, CalculatedDamageVar calculatedDamage, int hitCount = 1) {
+  public static AttackCommand CardAttack(CardModel card, CardPlay play, CalculatedDamageVar calculatedDamage, int hitCount = 1) {
     var cmd = DamageCmd.Attack(calculatedDamage)
-      .FromCard(card)
+      .FromCardCompat(card, play)
       .WithHitFx(DEFAULT_HIT_FX);
     if (card.TargetType == TargetType.AllEnemies)
       cmd = cmd.TargetingAllOpponents(card.Owner.Creature.CombatState);
-    else if (target != null)
-      cmd = cmd.Targeting(target);
+    else if (play.Target != null)
+      cmd = cmd.Targeting(play.Target);
     if (hitCount > 1)
       cmd = cmd.WithHitCount(hitCount);
     return cmd;

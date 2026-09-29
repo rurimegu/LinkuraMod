@@ -94,6 +94,14 @@
    dotnet build LinkuraMod.sln --configuration ExportRelease
    ```
 
+   发布用 DLL 基于游戏 API 0.107.1 编译，并通过兼容调用支持 API 0.111.0。要用测试分支验证相同的源代码，请指定该分支的 `sts2.dll`：
+
+   ```bash
+   dotnet build LinkuraMod.sln --configuration Debug -p:GameApiVersion=0.111.0 -p:Sts2AssemblyPath=/path/to/beta/sts2.dll
+   ```
+
+   两个分支均需安装 RitsuLib 0.6.2 及对应的游戏 API 变体。
+
 3. **将构建的文件复制到 STS2 mods 文件夹。**
    构建完成后，将以下文件复制到你的 STS2 mods 文件夹 (`<STS2 install dir>/mods/LinkuraMod/`)：
    - `.godot/mono/temp/bin/Debug/LinkuraMod.dll`

@@ -22,7 +22,7 @@ public class Fantasy375() : KahoCard(3, CardType.Attack, CardRarity.Common, Targ
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    await CommonActions.CardAttack(this, play.Target).Execute(ctx);
+    await CommonActions.CardAttack(this, play).Execute(ctx);
     // Apply a power that reduces the next Power card's cost.
     // The power expires after the first Power card is played.
     int reduction = DynamicVars.Energy.IntValue;

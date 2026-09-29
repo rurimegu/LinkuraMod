@@ -48,9 +48,9 @@ jobs:
         run: |
           # Extract the minimum version from the Version range in the csproj.
           # Handles formats: "[0.2.30,)", "0.2.30", "[0.2.30,0.3.0)", etc.
-          RAW=$(grep -oP '(?<=Include="STS2\.RitsuLib" Version=")[^"]+' LinkuraMod.csproj)
+          RAW=$(grep -oP '(?<=Include="STS2\.RitsuLib\.Compat\.0\.107\.1" Version=")[^"]+' LinkuraMod.csproj)
           if [ -z "$RAW" ]; then
-            echo "ERROR: STS2.RitsuLib PackageReference not found in csproj" >&2
+            echo "ERROR: STS2.RitsuLib.Compat.0.107.1 PackageReference not found in csproj" >&2
             exit 1
           fi
           # Strip leading bracket/parenthesis and take the first version token

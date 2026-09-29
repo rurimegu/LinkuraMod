@@ -27,7 +27,7 @@ public class Afterglow() : KahoCard(0, CardType.Attack, CardRarity.Uncommon, Tar
   ];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    await CommonActions.CardAttack(this, play.Target).Execute(ctx);
+    await CommonActions.CardAttack(this, play).Execute(ctx);
   }
 
   protected override Task InitializeSubscriptions() {

@@ -29,7 +29,7 @@ public class UnfulfilledWishes() : KahoCard(2, CardType.Attack, CardRarity.Uncom
 
     if (damage > 0) {
       await DamageCmd.Attack(damage)
-        .FromCard(this)
+        .FromCardCompat(this, play)
         .Targeting(play.Target)
         .Execute(ctx);
     }
