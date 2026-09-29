@@ -94,6 +94,14 @@ Requires [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0) and [God
    dotnet build LinkuraMod.sln --configuration ExportRelease
    ```
 
+   The release DLL is compiled against game API 0.107.1 and uses compatibility calls for API 0.111.0. To check the same source against a beta installation, point the build at its different `sts2.dll`:
+
+   ```bash
+   dotnet build LinkuraMod.sln --configuration Debug -p:GameApiVersion=0.111.0 -p:Sts2AssemblyPath=/path/to/beta/sts2.dll
+   ```
+
+   Players on either branch need RitsuLib 0.6.2 with the matching game API variant installed.
+
 3. **Copy the built files to the STS2 mods folder.**
    After building, copy the following files to your STS2 mods folder (`<STS2 install dir>/mods/LinkuraMod/`):
    - `.godot/mono/temp/bin/Debug/LinkuraMod.dll`

@@ -26,7 +26,7 @@ public class Srk() : KahoCard(3, CardType.Attack, CardRarity.Rare, TargetType.An
   public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    await CommonActions.CardAttack(this, play.Target).Execute(ctx);
+    await CommonActions.CardAttack(this, play).Execute(ctx);
     await CommonActions.CardBlock(this, play);
     await LinkuraCardActions.IncreaseMaxHearts(this, ctx);
     await LinkuraCardActions.BurstHearts(this, ctx);

@@ -18,7 +18,7 @@ public class Pochi() : KahoCard(1, CardType.Attack, CardRarity.Common, TargetTyp
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     int hearts = HeartsState.GetHearts(Owner);
     await DamageCmd.Attack(hearts)
-      .FromCard(this)
+      .FromCardCompat(this, play)
       .Targeting(play.Target)
       .Execute(ctx);
     await LinkuraCardActions.CollectHearts(this, ctx);

@@ -69,9 +69,7 @@ public static class LinkuraAnimation {
       return;
     }
 
-    var spineAnim = creature.SpineAnimation;
-    spineAnim.SetAnimation(animName, false);
-    spineAnim.AddAnimation(idleAnimName, 0f, true);
+    GameApiCompat.PlaySpineAnimation(creature.SpineAnimation, animName, idleAnimName);
 
     await Cmd.CustomScaledWait(Mathf.Min(waitTime * 0.5f, 0.25f), waitTime);
   }

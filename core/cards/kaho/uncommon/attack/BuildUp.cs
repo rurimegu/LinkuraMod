@@ -35,7 +35,7 @@ public class BuildUp() : KahoInHandTriggerCard(1, CardType.Attack, CardRarity.Un
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     int totalDraw = (int)((CalculatedVar)DynamicVars[DRAW_PREVIEW_VAR]).Calculate(null);
 
-    await CommonActions.CardAttack(this, play.Target).Execute(ctx);
+    await CommonActions.CardAttack(this, play).Execute(ctx);
     await CardPileCmd.Draw(ctx, totalDraw, Owner);
     DynamicVars[TRACKER_VAR].BaseValue = 0;
     _bonusDraws = 0;

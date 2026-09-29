@@ -1,4 +1,4 @@
-using System.IO;
+using System.Linq;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -9,40 +9,42 @@ namespace RuriMegu.Core.Utils;
 /// Utility extension methods for resolving asset paths within the mod.
 /// </summary>
 public static class StringExtensions {
+  private static string ModPath(params string[] parts) => string.Join("/", parts.Where(part => !string.IsNullOrEmpty(part)));
+
   public static string ImagePath(this string path, string characterId = "") {
-    return Path.Join(LinkuraMod.MOD_ID, "images", characterId, path);
+    return ModPath(LinkuraMod.MOD_ID, "images", characterId, path);
   }
 
   public static string CardImagePath(this string path, string characterId = "") {
-    return Path.Join(LinkuraMod.MOD_ID, "images", "card_portraits", characterId, path);
+    return ModPath(LinkuraMod.MOD_ID, "images", "card_portraits", characterId, path);
   }
 
   public static string BigCardImagePath(this string path, string characterId = "") {
-    return Path.Join(LinkuraMod.MOD_ID, "images", "card_portraits", characterId, "big", path);
+    return ModPath(LinkuraMod.MOD_ID, "images", "card_portraits", characterId, "big", path);
   }
 
   public static string PowerImagePath(this string path, string characterId = "") {
-    return Path.Join(LinkuraMod.MOD_ID, "images", "powers", characterId, path);
+    return ModPath(LinkuraMod.MOD_ID, "images", "powers", characterId, path);
   }
 
   public static string RelicImagePath(this string path, string characterId = "") {
-    return Path.Join(LinkuraMod.MOD_ID, "images", "relics", characterId, path);
+    return ModPath(LinkuraMod.MOD_ID, "images", "relics", characterId, path);
   }
 
   public static string BigRelicImagePath(this string path, string characterId = "") {
-    return Path.Join(LinkuraMod.MOD_ID, "images", "relics", characterId, "big", path);
+    return ModPath(LinkuraMod.MOD_ID, "images", "relics", characterId, "big", path);
   }
 
   public static string PotionImagePath(this string path, string characterId = "") {
-    return Path.Join(LinkuraMod.MOD_ID, "images", "potions", characterId, path);
+    return ModPath(LinkuraMod.MOD_ID, "images", "potions", characterId, path);
   }
 
   public static string CharacterUiPath(this string path, string characterId = "") {
-    return Path.Join(LinkuraMod.MOD_ID, "images", "charui", characterId, path);
+    return ModPath(LinkuraMod.MOD_ID, "images", "charui", characterId, path);
   }
 
   public static string CharacterScenePath(this string path, string characterId = "") {
-    return Path.Join(LinkuraMod.MOD_ID, "scenes", characterId, path);
+    return ModPath(LinkuraMod.MOD_ID, "scenes", characterId, path);
   }
 
   public static string ResUri(this string path) {

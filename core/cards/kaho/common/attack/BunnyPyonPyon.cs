@@ -23,12 +23,13 @@ public class BunnyPyonPyon() : KahoCard(1, CardType.Attack, CardRarity.Common, T
   protected override IEnumerable<IHoverTip> AdditionalHoverTips => [BurstHeartsVar.HoverTip()];
 
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
-    var results = await CreatureCmd.Damage(
+    var results = await GameApiCompat.DamageCard(
       ctx,
       play.Target,
       DynamicVars.Damage,
       Owner.Creature,
-      this);
+      this,
+      play);
 
     int totalDamage = results.Sum(r => r.TotalDamage + r.OverkillDamage);
     if (totalDamage > 0) {

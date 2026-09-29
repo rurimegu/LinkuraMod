@@ -24,7 +24,7 @@ public class HeartStrike() : KahoCard(2, CardType.Attack, CardRarity.Uncommon, T
   protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play) {
     if (play.Target == null) return;
 
-    var attackCmd = await CommonActions.CardAttack(this, play.Target).Execute(ctx);
+    var attackCmd = await CommonActions.CardAttack(this, play).Execute(ctx);
     int totalDamage = attackCmd.Results.SelectMany(r => r).Sum(result => result.UnblockedDamage + result.OverkillDamage);
 
     if (totalDamage <= 0) return;
